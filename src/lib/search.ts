@@ -1,8 +1,13 @@
 import { create, insertMultiple, search as oramaSearch } from '@orama/orama';
 import { getChapters } from './data';
-import type { Invocation } from '../types/data';
+import type { Invocation, Chapter } from '../types/data';
 
 let oramaDb: any = null;
+
+export interface SearchResults {
+  chapters: Chapter[];
+  invocations: Invocation[];
+}
 
 // Initialize Orama search index locally
 export const initSearchIndex = async () => {
@@ -10,11 +15,16 @@ export const initSearchIndex = async () => {
 
   oramaDb = await create({
     schema: {
+      type: 'string', // 'chapter' or 'invocation'
+      id: 'number',
       invocation_id: 'number',
+      chapter_id: 'number',
       chapter_name: 'string',
       arabic: 'string',
       latin: 'string',
       albanian: 'string',
+      name: 'string',
+      english: 'string',
     },
   });
 
@@ -22,13 +32,30 @@ export const initSearchIndex = async () => {
   const documents = [];
 
   for (const chapter of chapters) {
+    // Add chapter document
+    documents.push({
+      type: 'chapter',
+      chapter_id: chapter.id,
+      chapter_name: chapter.chapter_name,
+      arabic: '',
+      latin: '',
+      albanian: '',
+      name: '',
+      english: '',
+    });
+
     for (const inv of chapter.invocations) {
+      // Add invocation document
       documents.push({
+        type: 'invocation',
         invocation_id: inv.id,
+        chapter_id: chapter.id,
         chapter_name: chapter.chapter_name,
         arabic: inv.arabic,
         latin: inv.latin,
         albanian: inv.albanian,
+        name: inv.name || '',
+        english: inv.english || '',
       });
     }
   }
@@ -38,30 +65,50 @@ export const initSearchIndex = async () => {
 };
 
 // Search function
-export const searchDhikr = async (term: string): Promise<Invocation[]> => {
+export const searchDhikr = async (term: string): Promise<SearchResults> => {
   const db = await initSearchIndex();
   
   const results = await oramaSearch(db, {
     term,
-    properties: ['albanian', 'latin', 'arabic', 'chapter_name'],
-    tolerance: 1, // typo tolerance
-    limit: 20,
+    properties: [
+      'albanian', 'latin', 'arabic', 'chapter_name', 'name', 'english'
+    ],
+    tolerance: 1,
+    limit: 30,
   });
 
-  // Re-hydrate invocations from the DB IDs
   const chapters = getChapters();
   const matchedInvocations: Invocation[] = [];
+  const matchedChapters: Chapter[] = [];
+  const seenChapters = new Set<number>();
+  const seenInvocations = new Set<number>();
   
   for (const hit of results.hits) {
-    const hitId = Number(hit.document.invocation_id);
-    for (const chapter of chapters) {
-      const inv = chapter.invocations.find((i) => i.id === hitId);
-      if (inv) {
-        matchedInvocations.push(inv);
-        break; // Found it
+    const doc = hit.document as any;
+    
+    if (doc.type === 'chapter') {
+      const chapter = chapters.find(c => c.id === doc.chapter_id);
+      if (chapter && !seenChapters.has(chapter.id)) {
+        matchedChapters.push(chapter);
+        seenChapters.add(chapter.id);
+      }
+    } else {
+      const chapter = chapters.find(c => c.id === doc.chapter_id);
+      if (chapter) {
+        const inv = chapter.invocations.find(i => i.id === doc.invocation_id);
+        if (inv && !seenInvocations.has(inv.id)) {
+          matchedInvocations.push({
+            ...inv,
+            chapter_name: chapter.chapter_name,
+          });
+          seenInvocations.add(inv.id);
+        }
       }
     }
   }
 
-  return matchedInvocations;
+  return {
+    chapters: matchedChapters,
+    invocations: matchedInvocations
+  };
 };
