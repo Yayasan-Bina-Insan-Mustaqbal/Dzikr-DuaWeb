@@ -21,6 +21,23 @@ function PlayRoute() {
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null)
   const isProgrammaticScroll = useRef(false)
 
+  // Auto-populate queue based on time of day if it's empty
+  useEffect(() => {
+    if (useAudioStore.getState().queue.length === 0) {
+      const hour = new Date().getHours()
+      // Morning: 4:00 to 13:59. Evening: 14:00 to 3:59.
+      const isMorning = hour >= 4 && hour < 14
+      const targetChapterId = isMorning ? 27 : 133
+      
+      const allChapters = getChapters()
+      const targetChapter = allChapters.find(c => c.id === targetChapterId)
+      
+      if (targetChapter) {
+        useAudioStore.getState().setQueue(targetChapter.invocations)
+      }
+    }
+  }, [])
+
   // Auto-scroll to the currently playing Dua
   useEffect(() => {
     if (carouselRef.current && queue.length > 0 && nowPlayingIndex >= 0) {
