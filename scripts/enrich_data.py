@@ -65,13 +65,13 @@ def main():
             # Ensure audio path is correct
             inv['audio'] = f"/audios/{chapter['id']:03d}_{idx + 1:02d}.mp3"
             
-            # 1. Try to get English translation from hisn_en.json
             if hisn_chapter and idx < len(hisn_chapter.get('TEXT', [])):
                 hisn_inv = hisn_chapter['TEXT'][idx]
-                # Check if Arabic matches roughly (optional but good for validation)
-                translation = hisn_inv.get('TRANSLATED_TEXT')
-                if translation:
-                    inv['english'] = translation
+                # Update Arabic and English from hisn_en.json as it's the most reliable for translations
+                if hisn_inv.get('ARABIC_TEXT'):
+                    inv['arabic'] = hisn_inv['ARABIC_TEXT']
+                if hisn_inv.get('TRANSLATED_TEXT'):
+                    inv['english'] = hisn_inv['TRANSLATED_TEXT']
             
             # 2. Try to get better Name from Kaggle dataset
             norm_inv = normalize_arabic(inv['arabic'])
