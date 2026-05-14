@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { useAudioStore } from "../store/audio"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo, useRef } from "react"
 import { searchDhikr, type SearchResults } from "../lib/search"
 import type { Invocation, Chapter } from "../types/data"
+import { getChapters } from "../lib/data"
 import { motion, AnimatePresence } from "framer-motion"
 
 export const Route = createFileRoute("/play")({
@@ -10,11 +11,80 @@ export const Route = createFileRoute("/play")({
 })
 
 function PlayRoute() {
-  const { queue, nowPlayingIndex, play, isPlaying, setIsPlaying, next, previous, currentTime, duration, seek, clearQueue } = useAudioStore()
+  const { queue, nowPlayingIndex, play, isPlaying, setIsPlaying, next, previous, currentTime, duration, seek, clearQueue, removeFromQueue } = useAudioStore()
   const [searchQuery, setSearchQuery] = useState("")
   const [searchResults, setSearchResults] = useState<SearchResults>({ chapters: [], invocations: [] })
   const [showQueue, setShowQueue] = useState(true)
   const [showSearch, setShowSearch] = useState(true)
+
+  const carouselRef = useRef<HTMLDivElement>(null)
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const isProgrammaticScroll = useRef(false)
+
+  // Auto-scroll to the currently playing Dua
+  useEffect(() => {
+    if (carouselRef.current && queue.length > 0 && nowPlayingIndex >= 0) {
+      // Calculate target scroll position (assuming each item is 80vh + some padding, but easier is to just use scrollIntoView)
+      const targetElement = document.getElementById(`dua-box-${nowPlayingIndex}`)
+      if (targetElement) {
+        isProgrammaticScroll.current = true
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        
+        // Reset flag after animation
+        if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current)
+        scrollTimeoutRef.current = setTimeout(() => {
+          isProgrammaticScroll.current = false
+        }, 800)
+      }
+    }
+  }, [nowPlayingIndex, queue.length])
+
+  const handleCarouselScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    if (isProgrammaticScroll.current) return
+
+    const container = e.currentTarget
+    if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current)
+
+    // Debounce to wait for scroll snap to finish
+    scrollTimeoutRef.current = setTimeout(() => {
+      // Find the element closest to the center
+      const containerCenter = container.getBoundingClientRect().top + container.clientHeight / 2
+      let closestIdx = nowPlayingIndex
+      let minDistance = Infinity
+
+      for (let i = 0; i < queue.length; i++) {
+        const el = document.getElementById(`dua-box-${i}`)
+        if (el) {
+          const rect = el.getBoundingClientRect()
+          const elCenter = rect.top + rect.height / 2
+          const distance = Math.abs(containerCenter - elCenter)
+          if (distance < minDistance) {
+            minDistance = distance
+            closestIdx = i
+          }
+        }
+      }
+
+      if (closestIdx !== nowPlayingIndex && closestIdx >= 0 && closestIdx < queue.length) {
+        play(closestIdx)
+      }
+    }, 150)
+  }
+
+  const defaultSuggestions = useMemo(() => {
+    const allChapters = getChapters()
+    const popularChapters = allChapters.filter(c => [27, 28, 1].includes(c.id)).slice(0, 3)
+    if (popularChapters.length === 0) popularChapters.push(...allChapters.slice(0, 3))
+
+    const randomDuas = []
+    for (const c of allChapters) {
+      if (c.invocations.length > 0 && !popularChapters.includes(c)) {
+        randomDuas.push({ ...c.invocations[0], chapter_name: c.chapter_name })
+        if (randomDuas.length >= 4) break
+      }
+    }
+    return { chapters: popularChapters, invocations: randomDuas }
+  }, [])
 
   const formatTime = (time: number) => {
     const minutes = Math.floor(time / 60)
@@ -23,7 +93,6 @@ function PlayRoute() {
   }
 
   const currentDua = queue[nowPlayingIndex]
-  const nextDua = queue[nowPlayingIndex + 1]
 
   useEffect(() => {
     if (searchQuery.trim().length > 2) {
@@ -62,41 +131,51 @@ function PlayRoute() {
           </div>
         </div>
 
-        {/* Context Header */}
         {currentDua && (
-          <div className="absolute top-20 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-card/50 border border-border backdrop-blur-md flex items-center gap-2 z-10">
+          <div className="absolute top-20 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-card/50 border border-border backdrop-blur-md flex items-center gap-2 z-10 transition-all duration-300">
             <span className="material-symbols-outlined text-primary text-sm">wb_sunny</span>
             <span className="text-sm font-medium text-foreground/80 tracking-wide uppercase">{currentDua.chapter_name}</span>
           </div>
         )}
 
-        {currentDua ? (
-          <div className="max-w-4xl w-full flex flex-col gap-12 text-center relative z-10">
-            <div className="flex flex-col gap-8 transition-opacity duration-500 opacity-100 p-8 rounded-2xl bg-card border border-border shadow-sm max-h-[80vh] overflow-y-auto custom-scrollbar">
-              <p 
-                className="font-arabic leading-[1.8] text-foreground select-text" 
-                dir="rtl"
-                style={{ 
-                  fontSize: currentDua.arabic.length > 500 ? '24px' : 
-                            currentDua.arabic.length > 200 ? '32px' : 
-                            currentDua.arabic.length > 100 ? '40px' : '48px' 
-                }}
-              >
-                {currentDua.arabic}
-              </p>
-              <div className="h-px w-24 bg-border mx-auto rounded-full flex-shrink-0"></div>
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto italic">
-                "{currentDua.english || currentDua.albanian}"
-              </p>
-            </div>
-            
-            {nextDua && (
-              <div className="flex flex-col gap-6 opacity-30 scale-95 blur-[1px] pointer-events-none transition-all duration-500 p-8">
-                <p className="font-arabic text-3xl md:text-4xl leading-[1.8] text-foreground" dir="rtl">
-                  {nextDua.arabic}
-                </p>
-              </div>
-            )}
+        {queue.length > 0 ? (
+          <div 
+            ref={carouselRef}
+            onScroll={handleCarouselScroll}
+            className="max-w-4xl w-full h-[80vh] flex flex-col relative z-10 overflow-y-auto snap-y snap-mandatory custom-scrollbar pt-[20vh] pb-[40vh] gap-[10vh] scroll-smooth"
+          >
+            {queue.map((dua, idx) => {
+              const isActive = idx === nowPlayingIndex
+              return (
+                <div 
+                  key={dua.queueId || `${dua.id}-${idx}`}
+                  id={`dua-box-${idx}`}
+                  className={`w-full flex-shrink-0 snap-center snap-always flex flex-col justify-center py-6 transition-all duration-700 ease-out ${
+                    isActive ? 'opacity-100 scale-100 blur-0' : 'opacity-30 scale-95 blur-[2px]'
+                  }`}
+                >
+                  <div className={`flex flex-col gap-8 transition-all duration-500 p-8 rounded-3xl bg-card border shadow-xl ${
+                    isActive ? 'border-primary/20 shadow-primary/5' : 'border-border/50'
+                  }`}>
+                    <p 
+                      className="font-arabic leading-[1.8] text-foreground select-text" 
+                      dir="rtl"
+                      style={{ 
+                        fontSize: dua.arabic.length > 500 ? '24px' : 
+                                  dua.arabic.length > 200 ? '32px' : 
+                                  dua.arabic.length > 100 ? '40px' : '48px' 
+                      }}
+                    >
+                      {dua.arabic}
+                    </p>
+                    <div className="h-px w-24 bg-border mx-auto rounded-full flex-shrink-0"></div>
+                    <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto italic">
+                      "{dua.english || dua.albanian}"
+                    </p>
+                  </div>
+                </div>
+              )
+            })}
           </div>
         ) : (
           <div className="text-center text-muted-foreground">
@@ -209,44 +288,85 @@ function PlayRoute() {
                   </button>
                 </div>
               </div>
-              <div className="flex-1 overflow-y-auto p-3 flex flex-col gap-1.5">
-                {queue.map((item, idx) => (
-                  <div key={idx} 
-                      className={`flex items-center gap-3 p-2.5 rounded-xl transition-colors cursor-pointer group relative overflow-hidden ${
-                        idx === nowPlayingIndex 
-                        ? 'bg-primary/10 border border-primary/20' 
-                        : idx < nowPlayingIndex 
-                          ? 'opacity-50 hover:bg-muted' 
-                          : 'hover:bg-muted'
-                      }`}
-                      onClick={() => play(idx)}
-                  >
-                    {idx === nowPlayingIndex && (
-                      <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-l-xl"></div>
-                    )}
-                    <div className={`w-8 h-8 rounded flex items-center justify-center flex-shrink-0 relative overflow-hidden transition-colors ${
-                      idx === nowPlayingIndex 
-                      ? 'bg-primary/20 text-primary' 
-                      : 'bg-muted text-muted-foreground group-hover:text-primary group-hover:bg-primary/10'
-                    }`}>
-                      {idx === nowPlayingIndex ? (
-                        <span className="material-symbols-outlined text-lg" style={{ fontVariationSettings: "'FILL' 1" }}>graphic_eq</span>
-                      ) : idx < nowPlayingIndex ? (
-                        <span className="material-symbols-outlined text-lg">check</span>
-                      ) : (
-                        <span className="material-symbols-outlined text-lg transition-transform group-hover:scale-110">play_arrow</span>
-                      )}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h4 className={`text-sm font-semibold truncate transition-colors ${
-                        idx === nowPlayingIndex ? 'text-foreground' : 'text-foreground/80 group-hover:text-foreground'
-                      }`}>{item.name || item.latin}</h4>
-                      <p className={`text-xs truncate transition-colors ${
-                        idx === nowPlayingIndex ? 'text-primary/80' : 'text-muted-foreground group-hover:text-foreground/60'
-                      }`}>{item.chapter_name}</p>
-                    </div>
-                  </div>
-                ))}
+              <div className="flex-1 overflow-y-auto p-3 flex flex-col gap-1.5 overflow-x-hidden">
+                <AnimatePresence initial={false}>
+                  {queue.map((item, idx) => {
+                    const isNowPlaying = idx === nowPlayingIndex
+                    const isPlayed = idx < nowPlayingIndex
+                    const progressPct = isNowPlaying && duration > 0 ? (currentTime / duration) * 100 : 0
+
+                    return (
+                      <motion.div
+                        key={item.queueId || `${item.id}-${idx}`}
+                        layout
+                        initial={{ opacity: 0, x: -20, height: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, x: 0, height: 'auto', scale: 1 }}
+                        exit={{ opacity: 0, x: 20, height: 0, scale: 0.95 }}
+                        transition={{ type: "spring", stiffness: 350, damping: 25 }}
+                        className={`flex items-center gap-3 p-2.5 rounded-xl transition-colors cursor-pointer group relative overflow-hidden ${
+                          isNowPlaying
+                            ? 'border border-primary/20'
+                            : isPlayed
+                              ? 'opacity-50 hover:bg-muted'
+                              : 'hover:bg-muted'
+                        }`}
+                        onClick={() => play(idx)}
+                      >
+                        {/* Progress fill background for now-playing */}
+                        {isNowPlaying && (
+                          <>
+                            {/* Full bg tint */}
+                            <div className="absolute inset-0 bg-primary/10" />
+                            {/* Animated progress fill */}
+                            <div
+                              className="absolute left-0 top-0 bottom-0 bg-primary/20 transition-[width] duration-300 ease-linear"
+                              style={{ width: `${progressPct}%` }}
+                            />
+                            {/* Left accent bar */}
+                            <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-l-xl" />
+                          </>
+                        )}
+
+                        {/* Icon */}
+                        <div className={`w-8 h-8 rounded flex items-center justify-center flex-shrink-0 relative z-10 transition-colors ${
+                          isNowPlaying
+                            ? 'bg-primary/20 text-primary'
+                            : 'bg-muted text-muted-foreground group-hover:text-primary group-hover:bg-primary/10'
+                        }`}>
+                          {isNowPlaying ? (
+                            <span className="material-symbols-outlined text-lg" style={{ fontVariationSettings: "'FILL' 1" }}>graphic_eq</span>
+                          ) : isPlayed ? (
+                            <span className="material-symbols-outlined text-lg">check</span>
+                          ) : (
+                            <span className="material-symbols-outlined text-lg transition-transform group-hover:scale-110">play_arrow</span>
+                          )}
+                        </div>
+
+                        {/* Track info */}
+                        <div className="flex-1 min-w-0 relative z-10">
+                          <h4 className={`text-sm font-semibold truncate transition-colors ${
+                            isNowPlaying ? 'text-foreground' : 'text-foreground/80 group-hover:text-foreground'
+                          }`}>{item.name || item.latin}</h4>
+                          <p className={`text-xs truncate transition-colors ${
+                            isNowPlaying ? 'text-primary/80' : 'text-muted-foreground group-hover:text-foreground/60'
+                          }`}>{item.chapter_name}</p>
+                        </div>
+
+                        {/* Delete button — visible on hover */}
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            removeFromQueue(idx)
+                          }}
+                          className="relative z-10 w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 opacity-0 group-hover:opacity-100 transition-all text-muted-foreground hover:text-destructive hover:bg-destructive/10"
+                          title="Remove from queue"
+                        >
+                          <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>close</span>
+                        </button>
+                      </motion.div>
+                    )
+                  })}
+                </AnimatePresence>
               </div>
             </motion.aside>
           )}
@@ -274,58 +394,74 @@ function PlayRoute() {
                 </div>
                 
                 <div className="flex-1 overflow-y-auto flex flex-col gap-6 pr-1 custom-scrollbar">
-                  {/* Chapters Results */}
-                  {searchResults.chapters.length > 0 && (
-                    <div className="flex flex-col gap-3">
-                      <h3 className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-1">Playlists</h3>
-                      <div className="flex flex-col gap-1.5">
-                        {searchResults.chapters.map((chapter) => (
-                          <div key={chapter.id} className="group flex items-center justify-between p-3 rounded-xl bg-card border border-border/50 hover:border-primary/30 hover:bg-muted/50 transition-all cursor-pointer shadow-sm">
-                            <div className="flex-1 min-w-0" onClick={() => useAudioStore.getState().setQueue(chapter.invocations)}>
-                              <h4 className="text-sm font-semibold text-foreground truncate">{chapter.chapter_name}</h4>
-                              <p className="text-[11px] text-muted-foreground">{chapter.invocations.length} Duas</p>
-                            </div>
-                            <button 
-                              onClick={() => useAudioStore.getState().setQueue(chapter.invocations)}
-                              className="w-8 h-8 rounded-lg bg-primary/10 text-primary opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center hover:bg-primary hover:text-primary-foreground"
-                            >
-                              <span className="material-symbols-outlined text-lg">playlist_play</span>
-                            </button>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                  {/* Render Results or Suggestions based on search query */}
+                  {(() => {
+                    const isSearching = searchQuery.trim().length > 2;
+                    const displayData = isSearching ? searchResults : defaultSuggestions;
+                    const showPlaylists = displayData.chapters.length > 0;
+                    const showDuas = displayData.invocations.length > 0;
+                    
+                    if (isSearching && !showPlaylists && !showDuas) {
+                      return (
+                        <div className="flex flex-col items-center justify-center py-12 text-center">
+                          <span className="material-symbols-outlined text-4xl text-muted-foreground/30 mb-2">search_off</span>
+                          <p className="text-sm text-muted-foreground">No matches found for your search.</p>
+                        </div>
+                      )
+                    }
 
-                  {/* Direct Results */}
-                  {searchResults.invocations.length > 0 && (
-                    <div className="flex flex-col gap-3">
-                      <h3 className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-1">Direct Results</h3>
-                      <div className="flex flex-col gap-1.5">
-                        {searchResults.invocations.map((res) => (
-                          <div key={res.id} className="group flex items-center justify-between p-3 rounded-xl hover:bg-muted/50 transition-all cursor-pointer border border-transparent hover:border-border/50">
-                            <div className="flex-1 min-w-0" onClick={() => useAudioStore.getState().setQueue([...queue, res])}>
-                              <h4 className="text-sm font-medium text-foreground truncate group-hover:text-primary transition-colors">{res.name || res.latin}</h4>
-                              <p className="text-[11px] text-muted-foreground truncate">{res.chapter_name}</p>
+                    return (
+                      <>
+                        {showPlaylists && (
+                          <div className="flex flex-col gap-3">
+                            <h3 className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-1">
+                              {isSearching ? "Playlists" : "Suggested Playlists"}
+                            </h3>
+                            <div className="flex flex-col gap-1.5">
+                              {displayData.chapters.map((chapter) => (
+                                <div key={`ch-${chapter.id}`} className="group flex items-center justify-between p-3 rounded-xl bg-card border border-border/50 hover:border-primary/30 hover:bg-muted/50 transition-all cursor-pointer shadow-sm">
+                                  <div className="flex-1 min-w-0" onClick={() => useAudioStore.getState().setQueue(chapter.invocations)}>
+                                    <h4 className="text-sm font-semibold text-foreground truncate">{chapter.chapter_name}</h4>
+                                    <p className="text-[11px] text-muted-foreground">{chapter.invocations.length} Duas</p>
+                                  </div>
+                                  <button 
+                                    onClick={() => useAudioStore.getState().setQueue(chapter.invocations)}
+                                    className="w-8 h-8 rounded-lg bg-primary/10 text-primary opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center hover:bg-primary hover:text-primary-foreground"
+                                  >
+                                    <span className="material-symbols-outlined text-lg">playlist_play</span>
+                                  </button>
+                                </div>
+                              ))}
                             </div>
-                            <button 
-                              onClick={() => useAudioStore.getState().setQueue([...queue, res])}
-                              className="w-8 h-8 rounded-lg bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all flex items-center justify-center flex-shrink-0"
-                            >
-                              <span className="material-symbols-outlined text-lg">add</span>
-                            </button>
                           </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                  
-                  {searchResults.chapters.length === 0 && searchResults.invocations.length === 0 && searchQuery.trim().length > 2 && (
-                    <div className="flex flex-col items-center justify-center py-12 text-center">
-                      <span className="material-symbols-outlined text-4xl text-muted-foreground/30 mb-2">search_off</span>
-                      <p className="text-sm text-muted-foreground">No matches found for your search.</p>
-                    </div>
-                  )}
+                        )}
+
+                        {showDuas && (
+                          <div className="flex flex-col gap-3">
+                            <h3 className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-1">
+                              {isSearching ? "Direct Results" : "Suggested Duas"}
+                            </h3>
+                            <div className="flex flex-col gap-1.5">
+                              {displayData.invocations.map((res) => (
+                                <div key={`inv-${res.id}`} className="group flex items-center justify-between p-3 rounded-xl hover:bg-muted/50 transition-all cursor-pointer border border-transparent hover:border-border/50">
+                                  <div className="flex-1 min-w-0" onClick={() => useAudioStore.getState().setQueue([...queue, res])}>
+                                    <h4 className="text-sm font-medium text-foreground truncate group-hover:text-primary transition-colors">{res.name || res.latin}</h4>
+                                    <p className="text-[11px] text-muted-foreground truncate">{res.chapter_name}</p>
+                                  </div>
+                                  <button 
+                                    onClick={() => useAudioStore.getState().setQueue([...queue, res])}
+                                    className="w-8 h-8 rounded-lg bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all flex items-center justify-center flex-shrink-0"
+                                  >
+                                    <span className="material-symbols-outlined text-lg">add</span>
+                                  </button>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </>
+                    )
+                  })()}
                 </div>
               </div>
             </motion.aside>

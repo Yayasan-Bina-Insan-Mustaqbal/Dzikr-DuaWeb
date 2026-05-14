@@ -9,6 +9,7 @@ export interface Invocation {
   english?: string;
   chapter_name?: string; // Cache for easy display
   chapter_name_en?: string; // Cache for easy display
+  queueId?: string; // For tracking unique instances in the queue
 }
 
 export interface Chapter {
