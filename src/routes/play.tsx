@@ -228,9 +228,33 @@ function PlayRoute() {
               animate={{ width: 320, opacity: 1, x: 0 }}
               exit={{ width: 0, opacity: 0, x: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="flex flex-col bg-card border-l border-border z-10 shadow-[0_0_20px_rgba(0,0,0,0.05)] overflow-hidden"
+              className="flex flex-col bg-card border-l border-border z-10 shadow-[0_0_20px_rgba(0,0,0,0.05)] overflow-visible relative"
             >
+              {/* Tab Ear (Mobile Close Button) */}
+              <button 
+                onClick={() => setShowQueue(false)}
+                className="absolute -left-10 top-24 w-10 h-16 bg-card border border-r-0 border-border rounded-l-2xl flex items-center justify-center text-muted-foreground hover:text-primary transition-all lg:hidden shadow-[-4px_0_10px_rgba(0,0,0,0.1)]"
+              >
+                <span className="material-symbols-outlined">chevron_right</span>
+              </button>
+
               <div className="p-5 border-b border-border flex flex-col gap-5">
+                {/* Sidebar Switcher (Mobile/Tablet focus) */}
+                <div className="flex items-center gap-1 bg-muted/30 p-1 rounded-xl lg:hidden">
+                  <button 
+                    onClick={() => { setShowQueue(true); setShowSearch(false); }}
+                    className={`flex-1 py-2 text-[10px] font-bold uppercase tracking-wider rounded-lg transition-all ${showQueue ? 'bg-card text-primary shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
+                  >
+                    Queue
+                  </button>
+                  <button 
+                    onClick={() => { setShowSearch(true); setShowQueue(false); }}
+                    className={`flex-1 py-2 text-[10px] font-bold uppercase tracking-wider rounded-lg transition-all ${showSearch ? 'bg-card text-primary shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
+                  >
+                    Search
+                  </button>
+                </div>
+
                 {currentDua ? (
                   <>
                     {/* Now Playing Info */}
@@ -414,9 +438,33 @@ function PlayRoute() {
               animate={{ width: 320, opacity: 1, x: 0 }}
               exit={{ width: 0, opacity: 0, x: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="flex flex-col bg-card border-l border-border z-10 shadow-[0_0_20px_rgba(0,0,0,0.05)] overflow-hidden"
+              className="flex flex-col bg-card border-l border-border z-10 shadow-[0_0_20px_rgba(0,0,0,0.05)] overflow-visible relative"
             >
+              {/* Tab Ear (Mobile Close Button) */}
+              <button 
+                onClick={() => setShowSearch(false)}
+                className="absolute -left-10 top-24 w-10 h-16 bg-card border border-r-0 border-border rounded-l-2xl flex items-center justify-center text-muted-foreground hover:text-primary transition-all lg:hidden shadow-[-4px_0_10px_rgba(0,0,0,0.1)]"
+              >
+                <span className="material-symbols-outlined">chevron_right</span>
+              </button>
+
               <div className="p-5 border-b border-border bg-card/50 flex flex-col gap-4">
+                {/* Sidebar Switcher (Mobile/Tablet focus) */}
+                <div className="flex items-center gap-1 bg-muted/30 p-1 rounded-xl lg:hidden">
+                  <button 
+                    onClick={() => { setShowQueue(true); setShowSearch(false); }}
+                    className={`flex-1 py-2 text-[10px] font-bold uppercase tracking-wider rounded-lg transition-all ${showQueue ? 'bg-card text-primary shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
+                  >
+                    Queue
+                  </button>
+                  <button 
+                    onClick={() => { setShowSearch(true); setShowQueue(false); }}
+                    className={`flex-1 py-2 text-[10px] font-bold uppercase tracking-wider rounded-lg transition-all ${showSearch ? 'bg-card text-primary shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
+                  >
+                    Search
+                  </button>
+                </div>
+
                 <div className="relative">
                   <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-lg">search</span>
                   <input 
