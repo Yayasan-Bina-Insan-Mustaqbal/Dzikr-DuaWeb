@@ -10,7 +10,7 @@ export const Route = createFileRoute("/play")({
 })
 
 function PlayRoute() {
-  const { queue, nowPlayingIndex, play, isPlaying, setIsPlaying, next, previous, currentTime, duration, seek } = useAudioStore()
+  const { queue, nowPlayingIndex, play, isPlaying, setIsPlaying, next, previous, currentTime, duration, seek, clearQueue } = useAudioStore()
   const [searchQuery, setSearchQuery] = useState("")
   const [searchResults, setSearchResults] = useState<SearchResults>({ chapters: [], invocations: [] })
   const [showQueue, setShowQueue] = useState(true)

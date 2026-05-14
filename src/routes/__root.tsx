@@ -73,6 +73,15 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           replace: true,
         })
       }
+    } else if (compressedQueue) {
+      navigate({
+        search: (prev: any) => ({
+          ...prev,
+          queue: undefined,
+          idx: undefined,
+        }),
+        replace: true,
+      })
     }
   }, [currentQueue, nowPlayingIndex])
 
