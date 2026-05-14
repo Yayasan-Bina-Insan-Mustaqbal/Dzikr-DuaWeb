@@ -72,11 +72,19 @@ function PlayRoute() {
 
         {currentDua ? (
           <div className="max-w-4xl w-full flex flex-col gap-12 text-center relative z-10">
-            <div className="flex flex-col gap-8 transition-opacity duration-500 opacity-100 p-8 rounded-2xl bg-card border border-border shadow-sm">
-              <p className="font-arabic text-[48px] leading-[1.8] text-foreground select-text" dir="rtl">
+            <div className="flex flex-col gap-8 transition-opacity duration-500 opacity-100 p-8 rounded-2xl bg-card border border-border shadow-sm max-h-[80vh] overflow-y-auto custom-scrollbar">
+              <p 
+                className="font-arabic leading-[1.8] text-foreground select-text" 
+                dir="rtl"
+                style={{ 
+                  fontSize: currentDua.arabic.length > 500 ? '24px' : 
+                            currentDua.arabic.length > 200 ? '32px' : 
+                            currentDua.arabic.length > 100 ? '40px' : '48px' 
+                }}
+              >
                 {currentDua.arabic}
               </p>
-              <div className="h-px w-24 bg-border mx-auto rounded-full"></div>
+              <div className="h-px w-24 bg-border mx-auto rounded-full flex-shrink-0"></div>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto italic">
                 "{currentDua.english || currentDua.albanian}"
               </p>
