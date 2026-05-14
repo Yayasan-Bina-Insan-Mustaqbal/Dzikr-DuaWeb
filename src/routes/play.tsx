@@ -128,8 +128,8 @@ function PlayRoute() {
   return (
     <div className="flex flex-1 overflow-hidden h-screen bg-background">
       {/* Main Area (Left) */}
-      <main className="flex-1 overflow-y-auto relative flex flex-col items-center justify-center px-6 lg:px-20 scroll-smooth pt-24">
-        <div className="absolute top-0 left-0 right-0 h-16 flex items-center justify-between px-8 z-20">
+      <main className="flex-1 overflow-y-auto relative flex flex-col items-center justify-center px-6 lg:px-20 scroll-smooth pt-24 landscape:pt-16">
+        <div className="absolute top-0 left-0 right-0 h-16 landscape:h-12 flex items-center justify-between px-8 z-20">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
               <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>auto_awesome</span>
@@ -209,7 +209,7 @@ function PlayRoute() {
 
       {/* Mobile Overlay Backdrop */}
       <div 
-        className={`fixed inset-0 bg-background/80 backdrop-blur-sm z-40 lg:hidden transition-opacity duration-300 ${
+        className={`fixed inset-0 bg-background/80 backdrop-blur-sm z-[60] lg:hidden transition-opacity duration-300 ${
           showQueue || showSearch ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         onClick={() => {
