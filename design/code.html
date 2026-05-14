@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Midnight Sanctuary - Play</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&amp;family=Outfit:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#4A8B9A",
+              "background-light": "#f6f8f8",
+              "background-dark": "#0B0D10",
+              "surface-dark": "#16191F",
+            },
+            fontFamily: {
+              "display": ["Outfit", "sans-serif"],
+              "arabic": ["Amiri", "serif"],
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background-dark text-white font-display min-h-screen overflow-hidden flex flex-col antialiased selection:bg-primary/30">
+<!-- Main Content Area -->
+<div class="flex flex-1 overflow-hidden">
+<!-- Main Area (Left) -->
+<main class="flex-1 overflow-y-auto relative flex flex-col items-center justify-center px-6 lg:px-20 scroll-smooth pt-24"><div class="absolute top-0 left-0 right-0 h-16 flex items-center justify-between px-8 z-20">
+<!-- Branding -->
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+</div>
+<span class="font-display font-semibold text-lg tracking-tight text-white">Midnight <span class="text-primary">Sanctuary</span></span>
+</div>
+<!-- Sidebar Toggles -->
+<div class="flex items-center gap-3">
+<button class="p-2 rounded-lg hover:bg-white/5 text-white/40 hover:text-white transition-all cursor-pointer" title="Toggle Queue">
+<span class="material-symbols-outlined">side_navigation</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-white/5 text-white/40 hover:text-white transition-all cursor-pointer" title="Toggle Search">
+<span class="material-symbols-outlined">right_panel_open</span>
+</button>
+</div>
+</div>
+<!-- Context Header -->
+<div class="absolute top-20 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-surface-dark/50 border border-white/10 backdrop-blur-md flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">wb_sunny</span>
+<span class="text-sm font-medium text-white/80 tracking-wide uppercase">Morning Adhkar</span>
+</div>
+<!-- Reading Content Container -->
+<div class="max-w-4xl w-full flex flex-col gap-12 text-center relative z-10">
+<!-- Active Dua -->
+<div class="flex flex-col gap-8 transition-opacity duration-500 opacity-100 p-8 rounded-2xl bg-surface-dark border border-white/[0.05]">
+<!-- Arabic -->
+<p class="font-arabic text-[48px] leading-[1.8] text-white select-text" dir="rtl">
+                        اللَّهُمَّ بِكَ أَصْبَحْنَا، وَبِكَ أَمْسَيْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ وَإِلَيْكَ النُّشُورُ
+                    </p>
+<div class="h-px w-24 bg-white/10 mx-auto rounded-full"></div>
+<!-- Transliteration -->
+<p class="text-lg md:text-xl text-primary font-medium tracking-wide">
+                        Allahumma bika asbahna, wa bika amsayna, wa bika nahya, wa bika namut, wa ilaykan-nushur.
+                    </p>
+<!-- Translation -->
+<p class="text-base md:text-lg text-white/70 leading-relaxed max-w-2xl mx-auto">
+                        "O Allah, by You we enter the morning, by You we enter the evening, by You we live, by You we die, and to You is the final return."
+                    </p>
+</div>
+<!-- Next Dua Preview (Muted) -->
+<div class="flex flex-col gap-6 opacity-30 scale-95 blur-[1px] pointer-events-none transition-all duration-500 p-8">
+<p class="font-arabic text-3xl md:text-4xl leading-[1.8] text-white" dir="rtl">
+                        أَصْبَحْنَا عَلَى فِطْرَةِ الْإِسْلَامِ وَعَلَى كَلِمَةِ الْإِخْلَاصِ
+                    </p>
+</div>
+</div>
+</main>
+<!-- Center Sidebar (320px) - Player & Queue -->
+<aside class="hidden lg:flex w-[320px] flex-shrink-0 flex-col bg-surface-dark border-l border-white/5 z-10">
+<div class="p-5 border-b border-white/10 flex flex-col gap-5">
+<!-- Now Playing Info -->
+<div class="flex flex-col items-center text-center gap-1 mt-4">
+<h3 class="text-base font-bold text-white leading-tight">Morning Supplication</h3>
+<p class="text-xs text-white/50">Mishary Rashid Alafasy</p>
+</div>
+<!-- Playback Controls -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<button class="text-white/40 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-lg">shuffle</span>
+</button>
+<div class="flex items-center gap-5">
+<button class="text-white/70 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">skip_previous</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-background-dark hover:scale-105 transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">pause</span>
+</button>
+<button class="text-white/70 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">skip_next</span>
+</button>
+</div>
+<button class="text-primary relative">
+<span class="material-symbols-outlined text-lg">repeat</span>
+<span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full"></span>
+</button>
+</div>
+<!-- Progress Scrubber -->
+<div class="flex flex-col gap-1.5">
+<div class="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[35%]"></div>
+</div>
+<div class="flex justify-between text-[10px] font-medium text-white/40 uppercase tracking-wider">
+<span>0:42</span>
+<span>1:20</span>
+</div>
+</div>
+<!-- Volume -->
+<div class="flex items-center gap-2 px-1">
+<span class="material-symbols-outlined text-white/40 text-base">volume_up</span>
+<div class="flex-1 h-1 bg-white/10 rounded-full">
+<div class="h-full bg-white/60 rounded-full w-[70%]"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-5 pb-3 border-b border-white/5 flex items-center justify-between">
+<h2 class="text-sm font-semibold text-white/90 uppercase tracking-wide">Up Next</h2>
+<button class="text-white/40 hover:text-white transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-xl">more_horiz</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-3 flex flex-col gap-1.5">
+<!-- Queue Item: Played/Previous -->
+<div class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors cursor-pointer group opacity-50">
+<div class="w-8 h-8 rounded bg-white/10 flex items-center justify-center flex-shrink-0 relative overflow-hidden">
+<span class="material-symbols-outlined text-white/60 text-lg">check</span>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="text-sm font-medium text-white/80 truncate">Ayatul Kursi</h4>
+<p class="text-xs text-white/40 truncate">Protection</p>
+</div>
+<span class="text-xs text-white/40 font-medium">0:45</span>
+</div>
+<!-- Queue Item: Active -->
+<div class="flex items-center gap-3 p-2.5 rounded-xl bg-white/10 border border-white/5 transition-colors cursor-pointer group relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-l-xl"></div>
+<div class="w-8 h-8 rounded bg-primary/20 flex items-center justify-center flex-shrink-0 text-primary relative">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">graphic_eq</span>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="text-sm font-semibold text-white truncate">Morning Supplication</h4>
+<p class="text-xs text-primary/80 truncate">Entering the morning</p>
+</div>
+<span class="text-xs text-primary font-medium">1:20</span>
+</div>
+<!-- Queue Item: Upcoming -->
+<div class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors cursor-pointer group">
+<div class="w-8 h-8 rounded bg-white/5 flex items-center justify-center flex-shrink-0 relative overflow-hidden group-hover:bg-primary/20 transition-colors text-white/40 group-hover:text-primary">
+<span class="material-symbols-outlined text-lg transition-transform group-hover:scale-110">play_arrow</span>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="text-sm font-medium text-white/80 group-hover:text-white transition-colors truncate">Fitrah of Islam</h4>
+<p class="text-xs text-white/40 group-hover:text-white/60 transition-colors truncate">Faith declaration</p>
+</div>
+<span class="text-xs text-white/40 font-medium">0:55</span>
+</div>
+<!-- Queue Item: Upcoming -->
+<div class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors cursor-pointer group">
+<div class="w-8 h-8 rounded bg-white/5 flex items-center justify-center flex-shrink-0 relative overflow-hidden group-hover:bg-primary/20 transition-colors text-white/40 group-hover:text-primary">
+<span class="material-symbols-outlined text-lg transition-transform group-hover:scale-110">play_arrow</span>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="text-sm font-medium text-white/80 group-hover:text-white transition-colors truncate">Sayyidul Istighfar</h4>
+<p class="text-xs text-white/40 group-hover:text-white/60 transition-colors truncate">The best prayer for forgiveness</p>
+</div>
+<span class="text-xs text-white/40 font-medium">1:15</span>
+</div>
+<!-- Queue Item: Upcoming -->
+<div class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors cursor-pointer group">
+<div class="w-8 h-8 rounded bg-white/5 flex items-center justify-center flex-shrink-0 relative overflow-hidden group-hover:bg-primary/20 transition-colors text-white/40 group-hover:text-primary">
+<span class="material-symbols-outlined text-lg transition-transform group-hover:scale-110">play_arrow</span>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="text-sm font-medium text-white/80 group-hover:text-white transition-colors truncate">Seeking Wellbeing</h4>
+<p class="text-xs text-white/40 group-hover:text-white/60 transition-colors truncate">Al-Afiyah</p>
+</div>
+<span class="text-xs text-white/40 font-medium">0:30</span>
+</div>
+</div>
+</aside>
+<!-- Right Sidebar (320px) - Search -->
+<aside class="hidden lg:flex w-[320px] flex-shrink-0 flex-col bg-surface-dark border-l border-white/5 z-10">
+<div class="p-5 border-b border-white/10 bg-surface-dark/50 flex flex-col gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-white/40 text-lg">search</span>
+<input class="w-full bg-white/5 border border-white/10 rounded-xl py-2.5 pl-10 pr-4 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all" placeholder="Search Duas to add..." type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between p-2 rounded-lg hover:bg-white/5 transition-colors">
+<span class="text-sm text-white/80 truncate">Ayatul Kursi</span>
+<button class="w-7 h-7 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-background-dark transition-all flex items-center justify-center">
+<span class="material-symbols-outlined text-base font-bold">add</span>
+</button>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg hover:bg-white/5 transition-colors">
+<span class="text-sm text-white/80 truncate">Surah Al-Falaq</span>
+<button class="w-7 h-7 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-background-dark transition-all flex items-center justify-center">
+<span class="material-symbols-outlined text-base font-bold">add</span>
+</button>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</body></html>

@@ -1,0 +1,326 @@
+[
+  {
+    "id": 1,
+    "chapter_name": "1.Dhikri i mëngjesit dhe i mbrëmjes",
+    "invocations": [
+      {
+        "id": 1,
+        "audio": "/audios/001_01.mp3",
+        "arabic": "اَلْحَمْدُ للهِ وَحْدَهُ، وَالصَّلاَةُ وَالسَّلاَمُ عَلَى مَنْ لاَ نَبِيَّ بَعْدَهُ",
+        "latin": "Elhamdulil-lahi vahdehu ves-salatu ves-selamu ala men la nebijje ba'dehu",
+        "albanian": "Falënderimi i takon vetëm Allahut, mëshira dhe shpëtimi i Allahut qofshin mbi atë pas të cilit nuk ka më pejgamber tjetër (Muhammedin a.s.)",
+        "reference": "Shënon Taberani në “El-Kebir” 8/311, ndërsa shejh Albani në librin “Sahih et-Tergib vet-Terhib” 1/273, ka thënë: Senedi i këtij hadithi është i mirë (hasen)."
+      },
+      {
+        "id": 2,
+        "audio": "/audios/001_02.mp3",
+        "arabic": "اللّهُ لاَ إِلَـهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ لاَ تَأْخُذُهُ سِنَةٌ وَلاَ نَوْمٌ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلاَّ بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلاَ يُحِيطُونَ بِشَيْءٍ مِّنْ عilmِهِ إِلاَّ بِمَا شَاء وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالأَرْضَ وَلاَ يَؤُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ",
+        "latin": "All-llahu la ilahe il-la huvel-Hajjul-Kajjum, la te'hudhuhu sinetun ve la nevm, lehu ma fis-semavati ve ma fil-erd, men dhel-ledhi jeshfe'u indehu il-la bi idhnihi, ja'lemu ma bejne ejdihim ve ma halfehum, ve la juhitune bi shej'in min ilmihi il-la bima shae, vesi'a kursijjuhus-semavati vel-erda, ve la jeuduhu hifdhuhuma ve huvel-Alijjul-Adhim",
+        "albanian": "Allahu është Një, s’ka zot tjetër pos Tij, Ai është i Gjalli, i Përhershmi. Atë nuk e kap as dremitja as gjumi. Atij i takon çka ka në qiej dhe çka ka në tokë. Kush mund të ndërmjetësojë tek Ai pa lejen e Tij? Ai di çka ka ndodhur para tyre dhe çka do të ndodhë pas tyre. Ata nuk mund të përfshijnë asgjë nga dija e Tij, pos asaj që Ai dëshiron. Kursiu i Tij (dija, pushteti) përfshin qiejt dhe tokën. Mirëmbajtja e tyre nuk i peshon Atij. Ai është i Larti, Madhështori.",
+        "reference": "Kush e lexon këtë ajet (Ajetul Kursi) kur të zgjohet (në mëngjes) do të jetë i mbrojtur nga xhinët deri në mbrëmje, e kush e lexon në mbrëmje do të jetë i mbrojtur deri në mëngjes. Shënon Hakimi 1/562, ndërsa shejh Albani në librin “Sahih et-Tergib vet-Terhib” 1/273, ka thënë: Senedi i tij është i vërtetë (sahih) dhe e shënon duke ia mveshur Nesaiut dhe Taberaniut."
+      },
+      {
+        "id": 3,
+        "audio": "/audios/001_03.mp3",
+        "arabic": "بِسْمِ اللهِ الرَّحْمنِ الرَّحِيمِ. قُلْ هُوَ اللَّهُ أَحَدٌ. اللَّهُ الصَّمَدُ. لَمْ يَلِدْ وَلَمْ يُولَدْ. وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ",
+        "latin": "Bismil-lahir-Rahmanir-Rahim. Kul huvAll-llahu ehad, All-llahus-Samed, lem jelid ve lem juled, ve lem jekun lehu kufuven ehad",
+        "albanian": "Me emrin e Allahut, të Gjithëmëshirshmit, Mëshirëplotit. Thuaj: Ai, Allahu është Një! Allahu është Ai, të Cilit çdo krijesë i drejtohet për çdo nevojë. Ai as nuk ka lindur dikë, as nuk është i lindur. Dhe Atij askush nuk i është i barabartë.",
+        "reference": "“Suretu el-Ihlas, Suretu el-Felek, Suretu en-Nas.” (Këto tri sure lexohen nga tri herë). Kush i lexon këto tri herë në mëngjes dhe tri herë në mbrëmje, do t’i mjaftojnë për çdo gjë. Shënon Ebu Davudi 4/322, Tirmidhiu 5/567, shih “Sahih et-Tirmidhi” 3/182."
+      },
+      {
+        "id": 4,
+        "audio": "/audios/001_04.mp3",
+        "arabic": "بِسْمِ اللهِ الرَّحْمنِ الرَّحِيمِ. قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ. مِن شَرِّ مَا خَلَقَ. وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ. وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ. وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ",
+        "latin": "Bismil-lahir-Rahmanir-Rahim. Kul eudhu bi Rabbil-felek, min sherri ma halaka, ve min sherri gasikin idha vekab, ve min sherri neffathati fil-ukad, ve min sherri hasidin idha hased",
+        "albanian": "Me emrin e Allahut, të Gjithëmëshirshmit, Mëshirëplotit. Thuaj: I mbështetem Zotit të agimit, prej së keqes së çdo krijese që Ai e krijoi. Dhe prej së keqes së natës kur ajo mbulon botën. Dhe prej së keqes së atyre që fryjnë në nyja (kur bëjnë magji). Dhe prej së keqes së smirëkeqit kur ai vepron sipas smirës.",
+        "reference": ""
+      },
+      {
+        "id": 5,
+        "audio": "/audios/001_05.mp3",
+        "arabic": "بِسْمِ اللهِ الرَّحْمنِ الرَّحِيمِ. قُلْ أَعُوذُ بِرَبِّ النَّاسِ. مَلِكِ النَّاسِ. إِلَهِ النَّاسِ. مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ. الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ. مِنَ الْجِنَّةِ وَ النَّاسِ",
+        "latin": "Bismil-lahir-Rahmanir-Rahim. Kul eudhu bi Rabbin-nas, Melikin-nas, Ilahin-nas, min sherril-vesvasil-hannas, el-ledhi juvesvisu fi sudurin-nas, minel-xhinneti ven-nas",
+        "albanian": "Me emrin e Allahut, të Gjithëmëshirshmit, Mëshirëplotit. Thuaj: Mbështetem te Zoti i njerëzve, Sundimtari i njerëzve, i Adhuruari i njerëzve, prej së keqes së cytësit (shejtanit) që fshihet (kur përmendet Allahu), i cili hedh dyshime në zemrat e njerëzve, (qoftë ai cytës) prej xhinëve apo prej njerëzve.",
+        "reference": ""
+      },
+      {
+        "id": 6,
+        "audio": "/audios/001_06.mp3",
+        "arabic": "أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ للهِ، وَالْحَمْدُ للهِ، لاَ إِلَهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هَذَا الْيَوْمِ وَخَيْرَ مَا بَعْدَهُ، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هَذَا الْيَوْمِ وَشَرِّ مَا بَعْدَهُ، رَبِّ أَعُوذُ بِكَ مِنَ الْكَسَلِ وَسُوءِ الْكِبَرِ، رَبِّ أَعُوذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ",
+        "latin": "Asbahna ve asbahal-mulku lil-lah, vel-hamdulil-lah, la ilahe il-lAll-llahu vahdehu la sherike leh, lehul-mulku ve lehul-hamdu ve huve ala kul-li shej'in kadir. Rabbi es'eluke hajre ma fi hadhel-jevmi ve hajre ma ba'dehu, ve eudhu bike min sherri ma fi hadhel-jevmi ve sherri ma ba'dehu. Rabbi eudhu bike minel-keseli ve suil-kiber, Rabbi eudhu bike min adhabin fin-nari ve adhabin fil-kabr",
+        "albanian": "E arritëm mëngjesin, e i tërë sundimi i takon Allahut, Falënderimi është për Allahun, s’ka zot tjetër pos Allahut, i Cili është Një dhe i pashoq, Atij i takon sundimi dhe Falënderimi dhe Ai është i plotfuqishëm mbi çdo gjë. O Zoti im, prej Teje kërkoj të mirën e kësaj dite dhe të ditëve të tjera pas saj, dhe prej Teje kërkoj mbrojtjen nga e keqja e kësaj dite dhe ditëve të tjera pas saj. O Zoti im, kërkoj mbrojtjen Tënde nga lëshimi (pembashia) dhe nga mendjemadhësia. O Zoti im, kërkoj mbrojtjen Tënde nga dënimi i zjarrit dhe nga dënimi i varrit.",
+        "reference": "Në mbrëmje thotë: Emsejna ve emsel-mulku lil-lah... Rabbi es'eluke hajre ma fi hadhihil-lejleti... (E arritëm mbrëmjen, e i tërë sundimi i takon Allahut... O Zoti im, kërkoj prej Teje të mirën e kësaj nate dhe të natës pas saj...). Muslimi 4/2088."
+      },
+      {
+        "id": 7,
+        "audio": "/audios/001_07.mp3",
+        "arabic": "اللّهُـمَّ بِكَ أَصْـبَحْنا وَبِكَ أَمْسَـينا، وَبِكَ نَحْـيا وَبِكَ نَمُـوتُ وَإِلَـيْكَ النُّـشُور",
+        "latin": "All-llahumme bike asbahna ve bike emsejna ve bike nahja ve bike nemutu ve ilejken-nushur",
+        "albanian": "O Allahu im, me emrin Tënd e arritëm mëngjesin dhe me emrin Tënd e arrijmë mbrëmjen, me emrin Tënd jetojmë dhe me emrin Tënd vdesim dhe te Ti është kthimi.",
+        "reference": "Në mbrëmje thotë: All-llahumme bike emsejna ve bike asbahna ve bike nahja ve bike nemutu ve ilejkel-masir. Tirmidhiu 3/142."
+      },
+      {
+        "id": 8,
+        "audio": "/audios/001_08.mp3",
+        "arabic": "اللّهـmَّ أَنْتَ رَبِّـي لا إلهَ إلاّ أَنْتَ ، خَلَقْتَنـي وَأَنا عَبْـدُك ، وَأَنا عَلـى عَهْـدِكَ وَوَعْـدِكَ ما اسْتَـطَعْـت ، أَع_vِذُ بِكَ مِنْ شَـرِّ ما صَنَـعْت ، أَب_vُءُ لَكَ بِنِع_vْمَتِكَ عَلَ_vَّ وَأَب_vُءُ بِذَنْ_vبي فَاغْفِـرْ لي فَإِنَّـهُ لا يَغْـفِرُ الذُّن_vوبَ إلاّ أَنْتَ",
+        "latin": "All-llahumme Ente Rabbi la ilahe il-la Ente, halakteni ve ene abduke ve ene ala ahdike ve va'dike mesteta'tu, eudhu bike min sherri ma sana'tu, ebuu leke bi ni'metike alejje ve ebuu bi dhenbi fagfir li fe innehu la jagfirudh-dhunube il-la Ente",
+        "albanian": "O Allah, Ti je Zoti im, s’ka zot tjetër pos Teje, Ti më ke krijuar dhe unë jam robi Yt, do të qëndroj besnik ndaj marrëveshjes dhe premtimeve Tua, sa të mundem. Kërkoj mbrojtjen Tënde nga e keqja që kam bërë, jam mirënjohës ndaj mirësive Tua ndaj meje dhe i pranoj mëkatet e mia, andaj më fal, se mëkatet nuk i fal askush tjetër pos Teje.",
+        "reference": "Kush e thotë këtë në mbrëmje me bindje dhe vdes po atë natë do të jetë banor i Xhenetit, po ashtu edhe në mëngjes. Buhariu 7/150."
+      },
+      {
+        "id": 9,
+        "audio": "/audios/001_09.mp3",
+        "arabic": "اللّهُـمَّ إِنِّـي أَصْبَـحْتُ أُشْـهِدُك ، وَأُش_vهِدُ حَمَلَـةَ عَـرْشِك ، وَمَلائِكَتِك ، وَجَم_vيعَ خَلْـقِك ، أَنَّـكَ أَنْتَ اللهُ لا إلهَ إلاّ أَنْتَ وَحْـدَكَ لا شَريكَ لَه ، وَأَنَّ مُحَمّـداً عَبْـدُكَ وَرَس_vولُك",
+        "latin": "All-llahumme inni asbahtu ushhiduke ve ushhidu hamelete arshike ve melaiketike ve xhemi'a halkike, enneke EntAll-llahu la ilahe il-la Ente vahdeke la sherike lek, ve enne Muhammeden abduke ve resuluke",
+        "albanian": "O Allahu im, unë u zgjova, dëshmoj para Teje dhe dëshmoj para bartësve të Arshit Tënd, melaikeve Tua dhe të gjitha krijesave Tua, se Ti je Allahu i Vetëm, s’ka zot tjetër pos Teje, Ti je i Vetëm dhe i pashoq, dhe dëshmoj se Muhammedi është rob i Yt dhe i Dërguar i Yt. (4 herë).",
+        "reference": "Kush e thotë këtë 4 herë në mëngjes ose mbrëmje, Allahu do ta lirojë nga zjarri i Xhehenemit. Ebu Davudi 4/317, Buhariu në “El-Edebul Mufred” #1201, Nesaiu në “Amel el-Jevmi ve Lejleh” #9, ndërsa shejh Ibën Bazi në “Tuhfetul-Ahjar” fq.23, ka thënë: Senedi i këtij hadithi është i mirë (hasen)."
+      },
+      {
+        "id": 10,
+        "audio": "/audios/001_10.mp3",
+        "arabic": "اللّهُـمَّ ما أَصْبَـحَ بي مِـنْ نِعْـمَةٍ أَو بِأَحَـدٍ مِـنْ خَلْـقِك ، فَمِـنْكَ وَحْـدَكَ لا شريكَ لَه ، فَلَكَ الْحَمْـدُ وَلَكَ الشُّكْـر",
+        "latin": "All-llahumme ma asbeha bi min ni'metin ev bi ehadin min halkike, feminke vahdeke la sherike lek, felekel-hamdu ve lekesh-shukru",
+        "albanian": "O Allahu im, ajo mirësi që më është dhënë mua apo ndonjë krijese Tënde në këtë mëngjes, vjen vetëm prej Teje, Ti je i Vetëm dhe i pashoq. Ty të takon Falënderimi dhe Mirënjohja.",
+        "reference": "Në mbrëmje thotë: All-llahumme ma emsa bi... (O Allahu im, ajo mirësi që më është dhënë mua në këtë mbrëmje...). Ebu Davudi 4/318, Nesaiu në “Amel el-Jevmi ve Lejleh” #7, Ibën Hibbani “Mavarid” #2361, ndërsa Ibën Bazi ka thënë se senedi i tij është i mirë."
+      },
+      {
+        "id": 11,
+        "audio": "/audios/001_11.mp3",
+        "arabic": "اللّهُـمَّ عافِـني في بَدَنـي ، اللّهُـمَّ عافِـني في سَمْـci ، اللّهُـmَّ عافِـni fi basari, la ilahe il-la Ente. All-llahumme inni eudhu bike minel-kufri vel-fakr, ve eudhu bike min adhabil-kabr, la ilahe il-la Ente",
+        "latin": "All-llahumme afini fi bedeni, All-llahumme afini fi sem'i, All-llahumme afini fi besari, la ilahe il-la Ente. All-llahumme inni eudhu bike minel-kufri vel-fakri, ve eudhu bike min adhabil-kabri, la ilahe il-la Ente",
+        "albanian": "O Allahu im, më jep shëndet në trupin tim, o Allahu im, më jep shëndet në të dëgjuarit tim, o Allahu im, më jep shëndet në të parit tim. S’ka zot tjetër pos Teje. O Allahu im, kërkoj mbrojtjen Tënde nga kufri (mosbesimi) dhe varfëria, dhe kërkoj mbrojtjen Tënde nga dënimi i varrit. S’ka zot tjetër pos Teje. (3 herë).",
+        "reference": "Ebu Davudi 4/324, Ahmedi 5/42, Nesaiu në “Amel el-Jevmi ve Lejleh” #22, Ibën Sunnij #69, ndërsa Ibën Bazi ka thënë: Senedi i këtij hadithi është i mirë."
+      },
+      {
+        "id": 12,
+        "audio": "/audios/001_12.mp3",
+        "arabic": "حَسْبِـيَ اللّهُ لا إلهَ إلاّ هُوَ عَلَـيْهِ تَوَكَّـلْتُ وَهُوَ رَبُّ العَرْشِ العَظـيم",
+        "latin": "HasbijAll-llahu la ilahe il-la huve, alejhi tevekkeltu ve huve Rabbul-arshil-adhim",
+        "albanian": "Më mjafton Allahu, s’ka zot tjetër pos Tij, tek Ai jam mbështetur dhe Ai është Zoti i Arshit të Madh. (7 herë).",
+        "reference": "Kush e thotë këtë 7 herë në mëngjes dhe mbrëmje, Allahu do t’ia plotësojë nevojat e kësaj bote dhe të Ahiretit. Shënon Ibën Sunnij mevkufen #71, ndërsa merfuan Ebu Davudi 4/321, senedin e tij e kanë vërtetuar Shuajb dhe Abdulkadër Arnauti në vlerësimin e librit të Tahaviut fq.133. Shih “Zadul-Mead” 2/376."
+      },
+      {
+        "id": 13,
+        "audio": "/audios/001_13.mp3",
+        "arabic": "اللّهُـمَّ إِنِّـy أَسْـأَلُـكَ العَـfْوَ وَالع_vافِـيةَ في الدُّنْـja vel-ahireh, All-llahumme inni es'elukel-afve vel-afijete fi dini ve dunjaje ve ehli ve mali. All-llahumme-stur avrati ve amin rev'ati. All-llahumme-hfedhni min bejne ejdejje ve min halfi ve an jemini ve an shimali ve min fevki, ve eudhu bi adhemetike en ugtale min tahti",
+        "latin": "All-llahumme inni es'elukel-afve vel-afijete fid-dunja vel-ahireh, All-llahumme inni es'elukel-afve vel-afijete fi dini ve dunjaje ve ehli ve mali. All-llahumme-stur avrati ve amin rev'ati. All-llahumme-hfedhni min bejne ejdejje ve min halfi ve an jemini ve an shimali ve min fevki, ve eudhu bi adhemetike en ugtale min tahti",
+        "albanian": "O Allahu im, kërkoj nga Ti falje dhe shëndet në këtë botë dhe në botën tjetër. O Allahu im, kërkoj nga Ti falje dhe shëndet në fenë time dhe në jetën time, në familjen time dhe në pasurinë time. O Allahu im, mbuloji të metat e mia dhe më qetëso në çastet e frikës. O Allahu im, më mbro nga para dhe prapa, nga e djathta dhe e majta dhe nga lart. Kërkoj mbrojtje me madhërinë Tënde që të mos më lëshojë toka (nga poshtë).",
+        "reference": "Ebu Davudi dhe Ibën Maxheh. Shih “Sahih Ibën Maxheh” 2/332."
+      },
+      {
+        "id": 14,
+        "audio": "/audios/001_14.mp3",
+        "arabic": "اللّهُـmَّ عالِـمَ الغَـيْبِ وَالشَّـهادَةِ فاطِـرَ السَّم_vاواتِ وَالأرْضِ رَبَّ ك_vلِّ شَـيءٍ وَمَليـكَه ، أَشْهَـدُ أَنْ لا إِلهَ إِla Ente, eudhu bike min sherri nefsi ve min sherrish-shejtani ve shirkihi, ve en ekterife ala nefsi suen ev exhurrehu ila muslim",
+        "latin": "All-llahumme Alimel-gajbi vesh-shehadeti, Fatires-semavati vel-erdi, Rabbe kul-li shej'in ve melikehu, eshhedu en la ilahe il-la Ente, eudhu bike min sherri nefsi ve min sherrish-shejtani ve shirkihi, ve en ekterife ala nefsi suen ev exhurrehu ila muslim",
+        "albanian": "O Allahu im, Ti që e di të fshehtën dhe të dukshmen, Krijues i qiejve dhe i tokës, Zot i çdo sendi dhe Mbizotërues i tij, dëshmoj se s’ka zot tjetër pos Teje. Kërkoj mbrojtjen Tënde nga e keqja e vetvetes sime dhe nga e keqja e djallit dhe nga ftesa e tij in shirk, dhe që të mos i bëj keq vetvetes sime e as ndonjë muslimani.",
+        "reference": "Tirmidhiu dhe Ebu Davudi. Shih “Sahih et-Tirmidhi” 3/142."
+      },
+      {
+        "id": 15,
+        "audio": "/audios/001_15.mp3",
+        "arabic": "بِسْمِ اللهِ الَّذي لا يَضُـرُّ مَعَ اسمِـهِ شَيءٌ في الأرْضِ وَلا في السَّم_vاءِ وَهُـوَ السَّمـيعُ العَلـيم",
+        "latin": "Bismil-lahil-ledhi la jedurru me'asmihi shej'un fil-erdi ve la fis-semai ve huves-Sem'iul-Alim",
+        "albanian": "Me emrin e Allahut, pranë emrit të të Cilit nuk bën dëm asgjë në tokë e as në qiell. Ai është që dëgjon dhe di çdo gjë. (3 herë).",
+        "reference": "Kush e thotë 3 herë në mëngjes dhe 3 herë në mbrëmje, nuk do t’i bëjë dëm asgjë. Ebu Davudi 4/323, Tirmidhiu 5/465, Ibën Maxheh dhe Ahmedi. Shih “Sahih Ibën Maxheh” 2/332, ndërsa Ibën Bazi në “Tuhfetul-Ahjar” fq.24, ka thënë: Senedi i këtij hadithi është i mirë (hasen)."
+      },
+      {
+        "id": 16,
+        "audio": "/audios/001_16.mp3",
+        "arabic": "رَضيـتُ بِاللهِ رَبَّـاً وَبِالإسْلامِ ديـناً وَبِمُحَمَّـدٍ صلى الله عليه وسلم نَبِيّـاً",
+        "latin": "Raditu bil-lahi Rabben ve bil-Islami dinen ve bi Muhammedin sel-lAll-llahu alejhi ve sel-leme nebijjen",
+        "albanian": "Jam i kënaqur që Zoti im është Allahu, që feja ime është Islami dhe pejgamberi im është Muhammedi s.a.v.s. (3 herë).",
+        "reference": "Kush e thotë 3 herë in mëngjes dhe 3 herë në mbrëmje, Allahu është i obliguar (e ka marrë përsipër) që ta bëjë atë të kënaqur në Ditën e Gjykimit. Ahmedi 4/337, Nesaiu në “Amel el-Jevmi ve Lejleh” #4, Ibën Sunnij #68, ndërsa shejh Albani e ka bërë të mirë (hasen) në “Silsileh el-Ehadith es-Sahiha” 6/395."
+      },
+      {
+        "id": 17,
+        "audio": "/audios/001_17.mp3",
+        "arabic": "يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ، أَصْلِحْ لِي شَأْنِي كُلَّهُ وَلاَ تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ",
+        "latin": "Ja Hajju ja Kajjumu bi rahmetike estegithu, aslih li she'ni kul-lehu ve la tekilni ila nefsi tarfete ajnin",
+        "albanian": "O i Gjallë, o i Përhershëm, me mëshirën Tënde kërkoj ndihmë, më përmirëso të gjitha punët e mia dhe mos më lër të mbështetem në veten time as sa një mbyllje e syrit.",
+        "reference": "Hakimi e ka vërtetuar, ndërsa Dhehebiu e ka pëlqyer 1/545, shih “Sahih et-Tergib vet-Terhib” 1/273."
+      },
+      {
+        "id": 18,
+        "audio": "/audios/001_18.mp3",
+        "arabic": "أَصْبَحْنَا عَلَى فِطْرَةِ الإِسْلاَمِ، وَعَلَى كَلِمَةِ الإِخْلاَصِ، وَعَلَى دِينِ نَبِيِّنَا مُحَمَّدٍ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ، وَعَلَى مِلَّةِ أَبِينَا إِبْرَاهِيمَ، حَنِيفًا مُسْلِمًا وَمَا كَانَ مِنَ الْمُشْرِكِينَ",
+        "latin": "Asbahna ala fitretil-Islami ve ala kelimetil-ihlasi ve ala dini nebijjina Muhammedin sel-lAll-llahu alejhi ve sel-leme ve ala mil-leti ebina Ibrahime hanifen muslimen ve ma kane minel-mushrikin",
+        "albanian": "E arritëm mëngjesin në natyrshmërinë e Islamit, në fjalën e sinqertë (shehadetin), in fenë e pejgamberit tonë Muhammedit s.a.v.s. dhe në fenë e babait tonë Ibrahimit, i cili ishte i pastër në besim, musliman dhe nuk ishte nga idhujtarët.",
+        "reference": "Në mbrëmje thotë: Emsejna ala fitretil-Islami... Ahmedi 3/406, 407, shih “Sahih el-Xhamiu” 4/209."
+      },
+      {
+        "id": 19,
+        "audio": "/audios/001_19.mp3",
+        "arabic": "سُبْحَانَ اللهِ وَبِحَمْدِهِ",
+        "latin": "SubhanAll-llahi ve bihamdihi",
+        "albanian": "I Lartësuar qoftë Allahu, Atij i takon Falënderimi. (100 herë).",
+        "reference": "Kush e thotë 100 herë në mëngjes ose mbrëmje, askush nuk do të vijë në Ditën e Gjykimit me diçka më të vlefshme sesa ai, përveç atij që ka thënë po aq ose më shumë se ai. Muslimi 4/2071."
+      },
+      {
+        "id": 20,
+        "audio": "/audios/001_20.mp3",
+        "arabic": "لاَ إِلَهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
+        "latin": "La ilahe il-lAll-llahu vahdehu la sherike leh, lehul-mulku ve lehul-hamdu ve huve ala kul-li shej'in kadir",
+        "albanian": "S’ka zot tjetër pos Allahut, i Cili është Një dhe i pashoq, Atij i takon sundimi dhe Falënderimi dhe Ai është i plotfuqishëm mbi çdo gjë. (10 herë, ose 1 herë kur nuk ka mundësi).",
+        "reference": "Nesaiu në “Amel el-Jevmi ve Lejleh” #24, shih “Sahih et-Tergib vet-Terhib” 1/272, “Tuhfetul-Ahjar” të Ibën Bazit fq.24."
+      },
+      {
+        "id": 21,
+        "audio": "/audios/001_21.mp3",
+        "arabic": "لاَ إِلَهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
+        "latin": "La ilahe il-lAll-llahu vahdehu la sherike leh, lehul-mulku ve lehul-hamdu ve huve ala kul-li shej'in kadir",
+        "albanian": "S’ka zot tjetër pos Allahut, i Cili është Një dhe i pashoq, Atij i takon sundimi dhe Falënderimi dhe Ai është i plotfuqishëm mbi çdo gjë. (100 herë në mëngjes).",
+        "reference": "Kush e thotë 100 herë in mëngjes, ka shpërblimin sikur të ketë liruar 10 robër, i shkruhen 100 të mira, i fshihen 100 mëkate, dhe do të jetë i mbrojtur nga djalli deri në mbrëmje. Buhariu 4/95, Muslimi 4/2071."
+      },
+      {
+        "id": 22,
+        "audio": "/audios/001_22.mp3",
+        "arabic": "سُبْحَانَ اللهِ وَبِحَمْدِهِ: عَدَدَ خَلْقِهِ، وَرِضَا نَفْسِهِ، وَزِنَةَ عَرْشِهِ، وَمِدَادَ كَلِمَاتِهِ",
+        "latin": "SubhanAll-llahi ve bihamdihi: adede halkihi ve rida nefsihi ve zinete arshihi ve midade kelimatihi",
+        "albanian": "I Lartësuar qoftë Allahu, Atij i takon Falënderimi aq sa është numri i krijesave të Tij, aq sa dëshiron Ai vetë, aq sa është pesha e Arshit të Tij dhe aq sa është numri i fjalëve të Tij. (3 herë në mëngjes).",
+        "reference": "Muslimi 4/2090."
+      },
+      {
+        "id": 23,
+        "audio": "/audios/001_23.mp3",
+        "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلاً مُتَقَبَّلاً",
+        "latin": "All-llahumme inni es'eluke ilmen nafi'an ve rizkan tajjiben ve amelen mutekabbelan",
+        "albanian": "O Allahu im, kërkoj nga Ti dije të dobishme, furnizim të mirë dhe punë të pranuar. (Në mëngjes).",
+        "reference": "Ibën Maxheh. Shih “Sahih Ibën Maxheh” 1/152."
+      },
+      {
+        "id": 24,
+        "audio": "/audios/001_24.mp3",
+        "arabic": "أَسْتَغْفِرُ اللهَ وَأَتُوبُ إِلَيْهِ",
+        "latin": "Estagfirull-llahi ve etubu ilejhi",
+        "albanian": "Kërkoj falje nga Allahu dhe te Ai pendohem. (100 herë në ditë).",
+        "reference": "Buhariu me “Fet'hul-Bari” 11/101, Muslimi 4/2075."
+      },
+      {
+        "id": 25,
+        "audio": "/audios/001_25.mp3",
+        "arabic": "أَعُوذُ بِكَلِمَاتِ اللهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ",
+        "latin": "Eudhu bi kelimatil-lahit-tammati min sherri ma halaka",
+        "albanian": "Mbështetem në fjalët e përsosura të Allahut nga e keqja e asaj që ka krijuar. (3 herë në mbrëmje).",
+        "reference": "Kush e thotë këtë 3 herë in mbrëmje, nuk do t'i bëjë dëm asgjë atë natë. Shënon Tirmidhiu 3/187, Ibën Maxheh 2/266, ndërsa shejh Albani në “Sahih et-Tirmidhi” 3/187, ka thënë: senedi i tij është i vërtetë (sahih)."
+      },
+      {
+        "id": 26,
+        "audio": "/audios/001_26.mp3",
+        "arabic": "اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبِيِّنَا مُحَمَّدٍ",
+        "latin": "All-llahumme sal-li ve sel-lim ala nebijjina Muhammed",
+        "albanian": "O Allah, mëshiroje dhe shpëtoje pejgamberin tonë Muhammed. (10 herë).",
+        "reference": "Kush dërgon salavat mbi pejgamberin s.a.v.s. 10 herë in mëngjes dhe 10 herë në mbrëmje, do ta arrijë ndërmjetësimi i tij në Ditën e Gjykimit. Shënon Taberani, shih “Sahih et-Tergib vet-Terhib” 1/273."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "chapter_name": "2.Dhikri para fjetjes",
+    "invocations": [
+      {
+        "id": 27,
+        "audio": "/audios/002_01.mp3",
+        "arabic": "I Dërguari (a.s) kur binte në shtrat për të fjetur çdo natë, i bashkonte duart, frynte në to dhe i lexonte: “Kul huvAll-llahu ehad, Kul eudhu bi Rabbil-felek dhe Kul eudhu bi Rabbin-nas”, pastaj me to e fshinte trupin sa të kishte mundësi, duke filluar nga koka, fytyra e pastaj pjesën tjetër të trupit. (Këtë e bënte 3 herë).",
+        "latin": "",
+        "albanian": "Pasi t'i bashkojë duart dhe të fryjë në to, i lexon tri suret e fundit të Kuranit (Ihlas, Felek, Nas) dhe e fshin trupin me to. (3 herë).",
+        "reference": "Buhariu me “Fet'hul-Bari” 9/62, Muslimi 4/1723."
+      },
+      {
+        "id": 28,
+        "audio": "/audios/001_02.mp3",
+        "arabic": "Leximi i Ajetul-Kursisë: “All-llahu la ilahe il-la huvel Hajjul Kajjum...” deri në fund.",
+        "latin": "",
+        "albanian": "Kush e lexon këtë ajet kur të bjerë për të fjetur, do të ketë mbrojtës nga Allahu dhe djalli nuk do t'i afrohet deri në mëngjes.",
+        "reference": "Buhariu me “Fet'hul-Bari” 4/487."
+      },
+      {
+        "id": 29,
+        "audio": "/audios/002_03.mp3",
+        "arabic": "Leximi i dy ajeteve të fundit të sures Bekare: “Amener-Resulu bima unzile ilejhi min Rabbihi vel mu'minun...” deri in fund.",
+        "latin": "",
+        "albanian": "Kush i lexon këto dy ajete in mbrëmje, i mjaftojnë (si mbrojtje).",
+        "reference": "Buhariu me “Fet'hul-Bari” 9/94, Muslimi 1/554."
+      },
+      {
+        "id": 30,
+        "audio": "/audios/002_04.mp3",
+        "arabic": "بِاسْمِكَ رَبِّي وَضَعْتُ جَنْبِي، وَبِكَ أَرْفَعُهُ، فَإِنْ أَمْسَكْتَ نَفْسِي فَارْحَمْهَا، وَإِنْ أَرْسَلْتَهَا فَاحْفَظْهَا، بِمَا تَحْفَظُ بِهِ عِبَادَكَ الصَّالِحِينَ",
+        "latin": "Bismike Rabbi veda'tu xhenbi ve bike erfe'uhu, fe in emsekte nefsi fer-hamha, ve in erselteha fahfedh-ha bima tahfedhu bihi ibadekes-salihin",
+        "albanian": "Me emrin Tënd, o Zoti im, e vendosa trupin tim (për të fjetur) dhe me emrin Tënd e ngre atë. Nëse ma merr shpirtin tim, mëshiroje atë, e nëse e lë (të jetojë), mbroje atë ashtu siç i mbron robërit e Tu të mirë.",
+        "reference": "Buhariu 11/126, Muslimi 4/2084."
+      },
+      {
+        "id": 31,
+        "audio": "/audios/002_05.mp3",
+        "arabic": "اللَّهُمَّ إِنَّكَ خَلَقْتَ نَفْسِي وَأَنْتَ تَوَفَّاهَا، لَكَ مَمَاتُهَا وَمَحْيَاهَا، إِنْ أَحْيَيْتَهَا فَاحْفَظْهَا، وَإِنْ أَمَتَّهَا فَاغْفِرْ لَهَا. اللَّهُمَّ إِنِّي أَS'أَلُكَ العَافِيَةَ",
+        "latin": "All-llahumme inneke halakte nefsi ve Ente teveffaha, leke mematuha ve mahjaha, in ahjejteha fahfedh-ha ve in emetteha fagfir leha. All-llahumme inni es'elukel-afijeh",
+        "albanian": "O Allahu im, Ti e krijove shpirtin tim dhe Ti ma merr atë, in dorën Tënde është vdekja dhe jeta e tij. Nëse e lë të jetojë, mbroje atë, e nëse e bën të vdesë, fale atë. O Allahu im, kërkoj prej Teje shpëtim (shëndet).",
+        "reference": "Muslimi 4/2083, Ahmedi 2/79."
+      },
+      {
+        "id": 32,
+        "audio": "/audios/002_06.mp3",
+        "arabic": "اللَّهُمَّ قِنِي عَذَابَكَ يَوْمَ تَبْعَثُ عِبَادَكَ",
+        "latin": "All-llahumme kini adhabeke jevme teb'athu ibadek",
+        "albanian": "O Allah, më mbro nga dënimi Yt in ditën kur do t'i ringjallësh robërit e Tu. (3 herë kur të shtrihet për të fjetur).",
+        "reference": "Ebu Davudi 4/311, Tirmidhiu 3/143, shih “Sahih et-Tirmidhi” 3/143."
+      },
+      {
+        "id": 33,
+        "audio": "/audios/002_07.mp3",
+        "arabic": "بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا",
+        "latin": "BismikAll-llahumme emutu ve ahja",
+        "albanian": "Me emrin Tënd, o Allah, vdes dhe jetoj.",
+        "reference": "Buhariu me “Fet'hul-Bari” 11/113, Muslimi 4/2083."
+      },
+      {
+        "id": 34,
+        "audio": "/audios/002_08.mp3",
+        "arabic": "SubhanAll-llah (33 herë), Elhamdulil-lah (33 herë), All-llahu Ekber (34 herë).",
+        "latin": "",
+        "albanian": "I Lartësuar qoftë Allahu (33 herë), Falënderimi i takon Allahut (33 herë), Allahu është më i Madhi (34 herë).",
+        "reference": "Buhariu me “Fet'hul-Bari” 7/71, Muslimi 4/2091."
+      },
+      {
+        "id": 35,
+        "audio": "/audios/002_09.mp3",
+        "arabic": "اللَّهُمَّ رَبَّ السَّمَوَاتِ السَّبْعِ وَرَبَّ الأَرْضِ، وَرَبَّ الْعَرْشِ الْعَظِيمِ، رَبَّنَا وَرَبَّ كُلِّ شَيْءٍ، فَالِقَ الْحَبِّ وَالنَّوَى، وَمُنْزِلَ التَّوْرَاةِ وَالإِنْجِيلِ وَالْفُرْقَانِ، أَعُوذُ بِكَ مِنْ شَرِّ كُلِّ شَيْءٍ أَنْتَ آخِذٌ بِنَاصِيَتِهِ. اللَّهُمَّ أَنْتَ الأَوَّلُ فَلَيْسَ قَبْلَكَ شَيْءٌ، وَأَنْتَ الآخِرُ فَلَيْسَ بَعْدَكَ شَيْءٌ، وَأَنْتَ الظَّاهِرُ فَلَيْسَ فَوْقَكَ شَيْءٌ، وَأَنْتَ الْبَاطِنُ فَلَيْسَ دُونَكَ شَيْءٌ، اقْضِ عَنَّا الدَّيْنَ وَأَغْنِنَا مِنَ الْفَقْرِ",
+        "latin": "All-llahumme Rabbes-semavatis-seb'i ve Rabbel-erdi ve Rabbel-arshil-adhim, Rabbena ve Rabbe kul-li shej'in, Falikal-habbi ven-neva ve munzilet-Tevrati vel-Inxhili vel-Furkan, eudhu bike min sherri kul-li shej'in Ente ahidhun bi nasijetihi. All-llahumme Entel-Evvelu fe lejse kableke shej'un, ve Entel-Ahiru fe lejse ba'deke shej'un, ve Entedh-Dhahiru fe lejse fevkake shej'un, ve Entel-Batinu fe lejse duneke shej'un, ikdi anned-dejne ve egnina minel-fakr",
+        "albanian": "O Allahu im, Zot i shtatë qiejve dhe i tokës, Zot i Arshit të Madh, Zoti ynë dhe i çdo sendi, Ti je Ai që bën të mbijnë farat dhe bërthamat, Ti je Ai që e lëshove Tevratin, Inxhilin dhe Furkanin (Kuranin). Kërkoj mbrojtjen Tënde nga çdo gjë që është in dorën Tënde. O Allah, Ti je i Pari e para Teje nuk ka pasur asgjë, Ti je i Fundit e pas Teje nuk do të ketë asgjë, Ti je i Dukshmi e mbi Ty nuk ka asgjë, Ti je i Padukshmi e nën Ty nuk ka asgjë. Na e paguaj borxhin tonë dhe na largo nga varfëria.",
+        "reference": "Muslimi 4/2084."
+      },
+      {
+        "id": 36,
+        "audio": "/audios/002_10.mp3",
+        "arabic": "الْحَمْدُ للهِ الَّذِي أَطْعَمَنَا وَسَقَانَا، وَكَفَانَا، وَآوَانَا، فَكَمْ مِمَّنْ لاَ كَافِيَ لَهُ وَلاَ مُؤْوِيَ",
+        "latin": "Elhamdulil-lahil-ledhi et'amena ve sekana ve kefana ve avana, fe kem mimmen la kafije lehu ve la mu'vije",
+        "albanian": "Falënderimi i takon Allahut, i Cili na ushqeu dhe na dha të pijmë, na mbrojti dhe na strehoi, se sa e sa njerëz nuk kanë kush t'i mbrojë e as kush t'i strehojë.",
+        "reference": "Muslimi 4/2085."
+      },
+      {
+        "id": 37,
+        "audio": "/audios/002_11.mp3",
+        "arabic": "اللَّهُمَّ عَالِمَ الغَيْبِ وَالشَّهَادَةِ فَاطِرَ السَّمَوَاتِ وَالأَرْضِ رَبَّ كُلِّ شَيْءٍ وَمَلِيكَهُ، أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ أَنْتَ، أَعُوذُ بِكَ مِنْ شَرِّ نَفْسِي، وَمِنْ شَرِّ الشَّيْطَانِ وَشِرْكِهِ، وَأَنْ أَقْتَرِفَ عَلَى نَفْسِي سُ_v_vًا، أَوْ أَجُرَّهُ إِلَى مُسْلِمٍ",
+        "latin": "All-llahumme Alimel-gajbi vesh-shehadeti Fatires-semavati vel-erdi Rabbe kul-li shej'in ve melikehu, eshhedu en la ilahe il-la Ente, eudhu bike min sherri nefsi ve min sherrish-shejtani ve shirkihi ve en ekterife ala nefsi suen ev exhurrehu ila muslim",
+        "albanian": "O Allahu im, Ti që e di të fshehtën dhe të dukshmen, Krijues i qiejve dhe i tokës, Zot i çdo sendi dhe Mbizotërues i tij, dëshmoj se s'ka zot tjetër pos Teje. Kërkoj mbrojtjen Tënde nga e keqja e vetvetes sime dhe nga e keqja e djallit dhe nga ftesa e tij in shirk, dhe që të mos i bëj keq vetvetes sime e as ndonjë muslimani.",
+        "reference": "Ebu Davudi 4/317, shih “Sahih et-Tirmidhi” 3/142."
+      },
+      {
+        "id": 38,
+        "audio": "/audios/002_12.mp3",
+        "arabic": "Leximi i dy sureve: Suretu es-Sexhde dhe Suretu el-Mulk.",
+        "latin": "",
+        "albanian": "I Dërguari (a.s) nuk flinte pa i lexuar këto dy sure.",
+        "reference": "Tirmidhiu dhe Nesaiu. Shih “Sahih el-Xhamiu” 4/255."
+      },
+      {
+        "id": 39,
+        "audio": "/audios/002_13.mp3",
+        "arabic": "اللَّهُمَّ أَسْلَمْتُ نَفْسِي إِلَيْكَ، وَفَوَّضْتُ أَمْرِي إِلَيْكَ، وَوَجَّهْتُ وَجْهِي إِلَيْكَ، وَأَلْجَأْتُ ظَهْرِي إِلَيْكَ، رَغْبَةً وَرَهْبَةً إِلَيْكَ، لاَ مَلْجَأَ وَلاَ مَنْجَا مِنْكَ إِلاَّ إِلَيْكَ، آمَنْتُ بِكِتَابِكَ الَّذِي أَنْزَلْتَ، وَبِنَبِيِّكَ الَّذِي أَرْسَلْتَ",
+        "latin": "All-llahumme eslemtu nefsi ilejke ve fevvedtu emri ilejke ve vexheh-tu vexh-hi ilejke ve elxhe'tu dhahri ilejke, ragbeten ve rahbeten ilejke, la melxhee ve la menxha minke il-la ilejke, amentu bi kitabikel-ledhi enzelte ve bi nebijjikel-ledhi erselte",
+        "albanian": "O Allahu im, veten time Ta dorëzova Ty, çështjen time Ta besova Ty, fytyrën time Ta drejtova Ty dhe shpinën time Ta mbështeta Ty, me dëshirë (për shpërblimin Tënd) dhe me frikë (nga dënimi Yt). S'ka strehë e as shpëtim prej Teje përveçse te Ti. Besova in Librin Tënd të cilin e lëshove dhe in Pejgamberin Tënd të cilin e dërgove.",
+        "reference": "“Nëse e thua këtë dhe vdes po atë natë, do të jesh in natyrshmërinë e Islamit”. Buhariu me “Fet'hul-Bari” 11/113, Muslimi 4/2081."
+      }
+    ]
+  }
+]

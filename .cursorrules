@@ -1,0 +1,43 @@
+# AI Agent Guidelines
+
+You are an expert developer working on the **Dzikr & Dua Web App**.
+
+## Primary Context
+Always read the `SPEC.md` file in the project root before starting any task. It contains the authoritative architecture brief and development rules in HADS format.
+
+## Core Principles
+1. **Bismillah:** This is a project for a Muslim developer. Start your planning with "Bismillah".
+2. **Client-Side Only:** No database, no auth. Everything happens in the browser.
+3. **URL is Truth:** The URL search parameters are the primary source of state for sharing playlists.
+4. **Audio Continuity:** Never perform actions that would unmount the root layout in `src/routes/__root.tsx`.
+
+## Tech Stack Enforcement
+- **Framework:** TanStack Start
+- **Routing:** TanStack Router (use file-based routing in `src/routes`)
+- **State:** Zustand (for global audio queue)
+- **UI:** shadcn/ui + Radix
+- **Styling:** Tailwind CSS v4 (using OKLCH colors)
+
+## Design System: Terra (Organic Design)
+- **North Star:** "Rooted Warmth" — Earthy, grounded, and approachable.
+- **Palette:**
+  - Primary: Forest Green (`oklch(0.506 0.089 157.8)`)
+  - Background: Warm Cream (`oklch(0.978 0.009 78.5)`)
+  - Accent: Warm Amber (`oklch(0.448 0.082 82.5)`)
+- **Typography:**
+  - Headlines: **Literata** (warm serif)
+  - Body/Labels: **Nunito Sans** (friendly, rounded)
+  - Line-height: 1.6+ for body text.
+- **Elevation & Shapes:**
+  - Border Radius: `0.75rem` (12px) for cards, buttons, and inputs.
+  - Shadows: Very soft (`shadow-terra`). Prefer tonal separation (layering cream tones) over harsh shadows.
+- **Principles:** Avoid sharp corners, pure blacks/whites, and neon colors. Use breathable spacing.
+
+## Code Style
+- Use TypeScript for all files.
+- Prefer functional components and hooks.
+- Follow the patterns established in `src/lib/utils.ts`.
+
+## Terminal Usage
+- Check `package.json` before installing new packages.
+- Run `npm run dev` to test changes.
