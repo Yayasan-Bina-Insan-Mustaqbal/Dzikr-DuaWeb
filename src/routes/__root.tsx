@@ -19,7 +19,7 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Midnight Sanctuary | Muslim Media Player" },
+      { title: "Dzikr & Dua | Muslim Media Player" },
       { name: "description", content: "A beautiful, stateless web application for Dzikr and Dua." }
     ],
     links: [

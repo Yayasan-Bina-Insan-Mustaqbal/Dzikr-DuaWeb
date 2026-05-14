@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router"
 import { useAudioStore } from "../store/audio"
 import { useState, useEffect } from "react"
 import { searchDhikr } from "../lib/search"
-import { Invocation } from "../types/data"
+import type { Invocation } from "../types/data"
 
 export const Route = createFileRoute("/play")({
   component: PlayRoute,
@@ -34,7 +34,7 @@ function PlayRoute() {
               <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>auto_awesome</span>
             </div>
             <span className="font-heading font-semibold text-lg tracking-tight text-foreground">
-              Midnight <span className="text-primary">Sanctuary</span>
+              Dzikr <span className="text-primary">& Dua</span>
             </span>
           </div>
           <div className="flex items-center gap-3">

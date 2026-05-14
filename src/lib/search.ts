@@ -1,8 +1,8 @@
-import { create, insertMultiple, search as oramaSearch, AnyOrama } from '@orama/orama';
+import { create, insertMultiple, search as oramaSearch } from '@orama/orama';
 import { getChapters } from './data';
-import { Invocation } from '../types/data';
+import type { Invocation } from '../types/data';
 
-let oramaDb: AnyOrama | null = null;
+let oramaDb: any = null;
 
 // Initialize Orama search index locally
 export const initSearchIndex = async () => {
@@ -10,7 +10,7 @@ export const initSearchIndex = async () => {
 
   oramaDb = await create({
     schema: {
-      id: 'number',
+      invocation_id: 'number',
       chapter_name: 'string',
       arabic: 'string',
       latin: 'string',
@@ -24,7 +24,7 @@ export const initSearchIndex = async () => {
   for (const chapter of chapters) {
     for (const inv of chapter.invocations) {
       documents.push({
-        id: inv.id,
+        invocation_id: inv.id,
         chapter_name: chapter.chapter_name,
         arabic: inv.arabic,
         latin: inv.latin,
@@ -53,7 +53,7 @@ export const searchDhikr = async (term: string): Promise<Invocation[]> => {
   const matchedInvocations: Invocation[] = [];
   
   for (const hit of results.hits) {
-    const hitId = hit.document.id as number;
+    const hitId = Number(hit.document.invocation_id);
     for (const chapter of chapters) {
       const inv = chapter.invocations.find((i) => i.id === hitId);
       if (inv) {

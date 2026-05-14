@@ -1,5 +1,5 @@
 import invocationsData from '../data/invocations.json';
-import { Chapter, Invocation } from '../types/data';
+import type { Chapter, Invocation } from '../types/data';
 
 const chapters = invocationsData as Chapter[];
 

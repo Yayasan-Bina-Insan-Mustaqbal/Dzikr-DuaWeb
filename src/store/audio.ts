@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { Invocation } from '../types/data';
+import type { Invocation } from '../types/data';
 
 interface AudioState {
   queue: Invocation[];

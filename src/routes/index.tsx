@@ -42,7 +42,7 @@ function Home() {
         <span className="material-symbols-outlined text-primary text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>auto_awesome</span>
       </div>
       <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-        Midnight <span className="text-primary">Sanctuary</span>
+        Dzikr <span className="text-primary">& Dua</span>
       </h1>
       <p className="text-muted-foreground text-lg mb-8 max-w-md mx-auto">
         {greeting}. Preparing your Dhikr for this time of day...
