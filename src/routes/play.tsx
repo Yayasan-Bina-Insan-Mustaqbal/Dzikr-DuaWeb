@@ -23,6 +23,12 @@ function PlayRoute() {
 
   // Auto-populate queue based on time of day if it's empty
   useEffect(() => {
+    // Auto close sidebars on mobile
+    if (window.innerWidth < 1024) {
+      setShowQueue(false)
+      setShowSearch(false)
+    }
+
     if (useAudioStore.getState().queue.length === 0) {
       const hour = new Date().getHours()
       // Morning: 4:00 to 13:59. Evening: 14:00 to 3:59.
@@ -201,8 +207,19 @@ function PlayRoute() {
         )}
       </main>
 
+      {/* Mobile Overlay Backdrop */}
+      <div 
+        className={`fixed inset-0 bg-background/80 backdrop-blur-sm z-40 lg:hidden transition-opacity duration-300 ${
+          showQueue || showSearch ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={() => {
+          setShowQueue(false)
+          setShowSearch(false)
+        }}
+      />
+
       {/* Sidebars Container (Right) */}
-      <div className="flex h-full flex-shrink-0">
+      <div className="absolute lg:relative right-0 flex h-full flex-shrink-0 z-50 max-w-[100vw] overflow-x-hidden shadow-2xl lg:shadow-none">
         {/* Sidebar 1 - Player & Queue */}
         <AnimatePresence>
           {showQueue && (
@@ -211,7 +228,7 @@ function PlayRoute() {
               animate={{ width: 320, opacity: 1, x: 0 }}
               exit={{ width: 0, opacity: 0, x: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="hidden lg:flex flex-col bg-card border-l border-border z-10 shadow-[0_0_20px_rgba(0,0,0,0.05)] overflow-hidden"
+              className="flex flex-col bg-card border-l border-border z-10 shadow-[0_0_20px_rgba(0,0,0,0.05)] overflow-hidden"
             >
               <div className="p-5 border-b border-border flex flex-col gap-5">
                 {currentDua ? (
@@ -320,7 +337,7 @@ function PlayRoute() {
                         animate={{ opacity: 1, x: 0, height: 'auto', scale: 1 }}
                         exit={{ opacity: 0, x: 20, height: 0, scale: 0.95 }}
                         transition={{ type: "spring", stiffness: 350, damping: 25 }}
-                        className={`flex items-center gap-3 p-2.5 rounded-xl transition-colors cursor-pointer group relative overflow-hidden ${
+                        className={`flex items-center flex-shrink-0 gap-3 p-2.5 rounded-xl transition-colors cursor-pointer group relative overflow-hidden ${
                           isNowPlaying
                             ? 'border border-primary/20'
                             : isPlayed
@@ -397,7 +414,7 @@ function PlayRoute() {
               animate={{ width: 320, opacity: 1, x: 0 }}
               exit={{ width: 0, opacity: 0, x: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="hidden lg:flex flex-col bg-card border-l border-border z-10 shadow-[0_0_20px_rgba(0,0,0,0.05)] overflow-hidden"
+              className="flex flex-col bg-card border-l border-border z-10 shadow-[0_0_20px_rgba(0,0,0,0.05)] overflow-hidden"
             >
               <div className="p-5 border-b border-border bg-card/50 flex flex-col gap-4">
                 <div className="relative">
