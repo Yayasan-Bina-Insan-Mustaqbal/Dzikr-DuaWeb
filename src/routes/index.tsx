@@ -1,57 +1,53 @@
-import { createFileRoute, Link } from "@tanstack/react-router"
+import { createFileRoute, useNavigate } from "@tanstack/react-router"
+import { useEffect, useState } from "react"
 import { getChapters } from "../lib/data"
-import { ChevronRight, Play } from "lucide-react"
 
 export const Route = createFileRoute("/")({ component: Home })
 
 function Home() {
-  const chapters = getChapters()
+  const navigate = useNavigate()
+  const [greeting, setGreeting] = useState("")
+
+  useEffect(() => {
+    const hour = new Date().getHours()
+    let chapterId = 1 // default to morning
+
+    if (hour >= 4 && hour < 12) {
+      setGreeting("Good Morning")
+      chapterId = 1 // Morning Dhikr
+    } else if (hour >= 12 && hour < 18) {
+      setGreeting("Good Afternoon")
+      chapterId = 2 // Afternoon/Evening Dhikr
+    } else {
+      setGreeting("Good Evening")
+      chapterId = 2 // Evening Dhikr
+    }
+
+    // Auto-play by navigating to /play with the appropriate chapter queue
+    // In our simplified json, chapter 1 = morning, 2 = evening.
+    const chapter = getChapters().find(c => c.id === chapterId)
+    if (chapter) {
+      const ids = chapter.invocations.map(i => i.id).join(",")
+      // Optional: Delay the redirect slightly so user sees the intro
+      const timer = setTimeout(() => {
+        navigate({ to: "/play", search: { queue: ids, idx: 0 } })
+      }, 3000)
+      return () => clearTimeout(timer)
+    }
+  }, [navigate])
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      {/* Hero Section */}
-      <section className="mb-16 text-center">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-emerald-400 to-teal-500 bg-clip-text text-transparent">
-          Dzikr & Dua
-        </h1>
-        <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-          Ushqeni shpirtin tuaj me përkujtimin e Allahut. 
-          Një koleksion i thjeshtë dhe i bukur i lutjeve ditore.
-        </p>
-      </section>
-
-      {/* Chapters Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {chapters.map((chapter) => (
-          <Link
-            key={chapter.id}
-            to="/chapters/$chapterId"
-            params={{ chapterId: chapter.id.toString() }}
-            className="group relative overflow-hidden rounded-2xl border border-white/5 bg-white/5 p-6 transition-all hover:bg-white/10 hover:border-emerald-500/30 hover:shadow-[0_0_30px_-10px_rgba(16,185,129,0.3)]"
-          >
-            <div className="flex justify-between items-start mb-4">
-              <div className="h-10 w-10 rounded-xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold group-hover:bg-emerald-500 group-hover:text-white transition-colors">
-                {chapter.id}
-              </div>
-              <ChevronRight className="h-5 w-5 text-white/20 group-hover:text-emerald-400 transition-colors" />
-            </div>
-            
-            <h3 className="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
-              {chapter.title}
-            </h3>
-            
-            <div className="flex items-center gap-3 text-sm text-slate-400">
-              <span className="flex items-center gap-1">
-                <Play className="h-3 w-3" />
-                {chapter.invocations.length} Lutje
-              </span>
-            </div>
-
-            {/* Decorative background element */}
-            <div className="absolute -bottom-10 -right-10 h-32 w-32 bg-emerald-500/5 rounded-full blur-3xl group-hover:bg-emerald-500/10 transition-colors" />
-          </Link>
-        ))}
+    <div className="flex flex-col items-center justify-center min-h-screen bg-background text-foreground text-center px-4">
+      <div className="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center mb-8">
+        <span className="material-symbols-outlined text-primary text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>auto_awesome</span>
       </div>
+      <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
+        Midnight <span className="text-primary">Sanctuary</span>
+      </h1>
+      <p className="text-muted-foreground text-lg mb-8 max-w-md mx-auto">
+        {greeting}. Preparing your Dhikr for this time of day...
+      </p>
+      <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
     </div>
   )
 }

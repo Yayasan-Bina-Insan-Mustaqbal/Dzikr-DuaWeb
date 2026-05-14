@@ -1,9 +1,9 @@
-import { HeadContent, Scripts, createRootRoute, useNavigate } from "@tanstack/react-router"
+import { HeadContent, Scripts, createRootRoute, Outlet, useNavigate } from "@tanstack/react-router"
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools"
 import { TanStackDevtools } from "@tanstack/react-devtools"
 import { AudioPlayer } from "../components/AudioPlayer"
 import { useEffect } from "react"
-import { usePlayerStore } from "../store/usePlayerStore"
+import { useAudioStore } from "../store/audio"
 import { decompressQueue, compressQueue } from "../lib/url"
 import { getInvocationById } from "../lib/data"
 import { z } from "zod"
@@ -17,32 +17,22 @@ export const Route = createRootRoute({
   }),
   head: () => ({
     meta: [
-      {
-        charSet: "utf-8",
-      },
-      {
-        name: "viewport",
-        content: "width=device-width, initial-scale=1",
-      },
-      {
-        title: "Dzikr & Dua | Muslim Media Player",
-      },
-      {
-        name: "description",
-        content: "A beautiful, stateless web application for Dzikr and Dua with continuous playback and easy sharing.",
-      }
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: "Midnight Sanctuary | Muslim Media Player" },
+      { name: "description", content: "A beautiful, stateless web application for Dzikr and Dua." }
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" }
     ],
   }),
   notFoundComponent: () => (
-    <main className="container mx-auto p-4 pt-16">
-      <h1>404</h1>
-      <p>The requested page could not be found.</p>
+    <main className="flex items-center justify-center h-screen bg-background text-foreground">
+      <div className="text-center">
+        <h1 className="text-4xl font-heading font-bold mb-2">404</h1>
+        <p className="text-muted-foreground">The requested page could not be found.</p>
+      </div>
     </main>
   ),
   shellComponent: RootDocument,
@@ -50,16 +40,20 @@ export const Route = createRootRoute({
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   const { queue: compressedQueue, idx } = Route.useSearch()
-  const { setQueue, queue: currentQueue, currentIndex } = usePlayerStore()
+  const { setQueue, queue: currentQueue, nowPlayingIndex, play } = useAudioStore()
   const navigate = useNavigate()
 
   // Sync URL -> Store
   useEffect(() => {
     if (compressedQueue && currentQueue.length === 0) {
-      const ids = decompressQueue(compressedQueue)
+      // Direct ID parsing for simplicity first, or decompress if using lz-string
+      const ids = compressedQueue.split(',').map(Number)
       const invocations = ids.map(id => getInvocationById(id)).filter(Boolean) as any[]
       if (invocations.length > 0) {
-        setQueue(invocations, idx || 0)
+        setQueue(invocations)
+        if (idx !== undefined && idx < invocations.length) {
+          play(idx)
+        }
       }
     }
   }, [compressedQueue, idx])
@@ -67,41 +61,33 @@ function RootDocument({ children }: { children: React.ReactNode }) {
   // Sync Store -> URL
   useEffect(() => {
     if (currentQueue.length > 0) {
-      const ids = currentQueue.map(i => i.id)
-      const newCompressed = compressQueue(ids)
+      const ids = currentQueue.map(i => i.id).join(',')
       
-      if (newCompressed !== compressedQueue || currentIndex !== idx) {
+      if (ids !== compressedQueue || nowPlayingIndex !== idx) {
         navigate({
           search: (prev: any) => ({
             ...prev,
-            queue: newCompressed,
-            idx: currentIndex,
+            queue: ids,
+            idx: nowPlayingIndex,
           }),
-          replace: true, // Don't clutter history
+          replace: true,
         })
       }
     }
-  }, [currentQueue, currentIndex])
+  }, [currentQueue, nowPlayingIndex])
 
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <HeadContent />
       </head>
-      <body className="min-h-screen bg-slate-950 text-slate-50 font-sans antialiased">
-        <main className="pb-32">
-          {children}
-        </main>
+      <body className="min-h-screen bg-background text-foreground font-sans antialiased overflow-hidden selection:bg-primary/30">
+        <Outlet />
         <AudioPlayer />
         <TanStackDevtools
-          config={{
-            position: "bottom-right",
-          }}
+          config={{ position: "bottom-right" }}
           plugins={[
-            {
-              name: "Tanstack Router",
-              render: <TanStackRouterDevtoolsPanel />,
-            },
+            { name: "Tanstack Router", render: <TanStackRouterDevtoolsPanel /> },
           ]}
         />
         <Scripts />
