@@ -361,10 +361,10 @@ function PlayRoute() {
                           <AnimatePresence>
                             {showVersionDropdown && (
                               <motion.div 
-                                initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                                initial={{ opacity: 0, scale: 0.95, y: 10 }}
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                                exit={{ opacity: 0, scale: 0.95, y: -10 }}
-                                className="absolute bottom-full left-0 mb-2 w-48 bg-card border border-border shadow-2xl rounded-2xl overflow-hidden z-50 p-1"
+                                exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                                className="absolute top-full left-0 mt-2 w-48 bg-card border border-border shadow-2xl rounded-2xl overflow-hidden z-50 p-1"
                               >
                                 <div className="px-3 py-2 text-[10px] font-bold text-muted-foreground uppercase tracking-widest border-b border-border/50 mb-1">Select Reciter</div>
                                 {[
