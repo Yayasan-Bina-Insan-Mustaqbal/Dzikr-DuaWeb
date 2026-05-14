@@ -219,7 +219,7 @@ function PlayRoute() {
       />
 
       {/* Sidebars Container (Right) */}
-      <div className="absolute lg:relative right-0 flex h-full flex-shrink-0 z-[100] max-w-[100vw] overflow-x-hidden shadow-2xl lg:shadow-none">
+      <div className="absolute lg:relative right-0 flex h-full flex-shrink-0 z-[100] max-w-[100vw] overflow-visible shadow-2xl lg:shadow-none">
         {/* Sidebar 1 - Player & Queue */}
         <AnimatePresence>
           {showQueue && (
