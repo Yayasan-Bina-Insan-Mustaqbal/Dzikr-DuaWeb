@@ -8,12 +8,18 @@ import { motion, AnimatePresence } from "framer-motion"
 
 export const Route = createFileRoute("/play")({
   component: PlayRoute,
+  validateSearch: (search: Record<string, unknown>) => {
+    return {
+      queue: (search.queue as string) || undefined,
+    }
+  },
 })
 
 function PlayRoute() {
   const { 
     queue, 
     nowPlayingIndex, 
+    setQueue,
     play, 
     isPlaying, 
     setIsPlaying, 
@@ -24,18 +30,28 @@ function PlayRoute() {
     bufferedTime,
     repeatMode,
     selectedVersion,
+    showTranslation,
+    showTransliteration,
+    theme,
     setRepeatMode,
     setSelectedVersion,
+    setShowTranslation,
+    setShowTransliteration,
+    setTheme,
     seek, 
     clearQueue, 
+    addToQueue,
     removeFromQueue 
   } = useAudioStore()
+  const search = Route.useSearch()
   const [searchQuery, setSearchQuery] = useState("")
   const [searchResults, setSearchResults] = useState<SearchResults>({ chapters: [], invocations: [] })
   const [showQueue, setShowQueue] = useState(true)
   const [showSearch, setShowSearch] = useState(true)
+  const [showBrowse, setShowBrowse] = useState(false)
   const [showVersionDropdown, setShowVersionDropdown] = useState(false)
   const [showSettingsDropdown, setShowSettingsDropdown] = useState(false)
+  const [showThemeSelector, setShowThemeSelector] = useState(false)
 
   const carouselRef = useRef<HTMLDivElement>(null)
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null)
@@ -50,7 +66,25 @@ function PlayRoute() {
       setShowSearch(false)
     }
 
-    if (useAudioStore.getState().queue.length === 0) {
+    if (queue.length === 0) {
+      const queueIds = search.queue?.split(',').map(Number) || []
+       
+      if (queueIds.length > 0) {
+        const items = queueIds.map(id => {
+          for (const chapter of getChapters()) {
+            const invocation = chapter.invocations.find(i => i.id === id)
+            if (invocation) return { ...invocation, chapter_name: chapter.chapter_name }
+          }
+          return undefined
+        }).filter(Boolean) as Invocation[]
+        
+        if (items.length > 0) {
+          setQueue(items)
+          return
+        }
+      }
+
+      // Fallback to time-based auto-population if no queue in URL
       const hour = new Date().getHours()
       // Morning: 4:00 to 13:59. Evening: 14:00 to 3:59.
       const isMorning = hour >= 4 && hour < 14
@@ -60,10 +94,10 @@ function PlayRoute() {
       const targetChapter = allChapters.find(c => c.id === targetChapterId)
       
       if (targetChapter) {
-        useAudioStore.getState().setQueue(targetChapter.invocations)
+        setQueue(targetChapter.invocations)
       }
     }
-  }, [])
+  }, [search.queue])
 
   // Auto-scroll to the currently playing Dua
   useEffect(() => {
@@ -117,17 +151,22 @@ function PlayRoute() {
 
   const defaultSuggestions = useMemo(() => {
     const allChapters = getChapters()
-    const popularChapters = allChapters.filter(c => [27, 28, 1].includes(c.id)).slice(0, 3)
-    if (popularChapters.length === 0) popularChapters.push(...allChapters.slice(0, 3))
-
+    
+    // Curated suggestions
+    const morning = allChapters.find(c => c.id === 27)
+    const evening = allChapters.find(c => c.id === 133)
+    const travel = allChapters.find(c => c.id === 96)
+    
+    const curatedChapters = [morning, evening, travel].filter(Boolean) as Chapter[]
+    
     const randomDuas = []
     for (const c of allChapters) {
-      if (c.invocations.length > 0 && !popularChapters.includes(c)) {
+      if (c.invocations.length > 0 && !curatedChapters.includes(c)) {
         randomDuas.push({ ...c.invocations[0], chapter_name: c.chapter_name })
         if (randomDuas.length >= 4) break
       }
     }
-    return { chapters: popularChapters, invocations: randomDuas }
+    return { chapters: curatedChapters, invocations: randomDuas }
   }, [])
 
   const formatTime = (time: number) => {
@@ -137,12 +176,29 @@ function PlayRoute() {
   }
 
   useEffect(() => {
-    if (searchQuery.trim().length > 2) {
+    if (searchQuery.trim().length > 0) {
       searchDhikr(searchQuery).then(setSearchResults)
     } else {
       setSearchResults({ chapters: [], invocations: [] })
     }
   }, [searchQuery])
+
+  const formatArabic = (text: string) => {
+    // Basic logic to highlight matan: de-emphasize brackets/parentheses
+    const parts = text.split(/([\[\]\(\)])/);
+    return parts.map((part, i) => {
+      if (['[', ']', '(', ')'].includes(part)) {
+        return <span key={i} className="opacity-30 text-[0.8em] font-sans">{part}</span>;
+      }
+      // If it's inside parentheses/brackets (very simple heuristic)
+      const prev = parts[i-1];
+      const next = parts[i+1];
+      if ((prev === '(' || prev === '[') && (next === ')' || next === ']')) {
+        return <span key={i} className="opacity-60">{part}</span>;
+      }
+      return <span key={i} className="matan text-primary drop-shadow-[0_2px_10px_rgba(var(--primary),0.2)]">{part}</span>;
+    });
+  };
 
   return (
     <div className="flex flex-1 overflow-hidden h-screen bg-background">
@@ -193,18 +249,71 @@ function PlayRoute() {
                     className="absolute right-0 mt-2 w-48 bg-card border border-border shadow-2xl rounded-2xl overflow-hidden z-50 p-2"
                   >
                     <div className="px-3 py-2 text-[10px] font-bold text-muted-foreground uppercase tracking-widest border-b border-border/50 mb-1">App Settings</div>
-                    <button className="w-full flex items-center gap-3 px-3 py-2 text-sm text-foreground hover:bg-muted rounded-xl transition-colors text-left group">
-                      <span className="material-symbols-outlined text-lg text-muted-foreground group-hover:text-primary">language</span>
-                      <span>Translation</span>
+                    <button 
+                      onClick={() => setShowTranslation(!showTranslation)}
+                      className="w-full flex items-center justify-between px-3 py-2 text-sm text-foreground hover:bg-muted rounded-xl transition-colors text-left group"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="material-symbols-outlined text-lg text-muted-foreground group-hover:text-primary">language</span>
+                        <span>Translation</span>
+                      </div>
+                      <div className={`w-8 h-4 rounded-full relative transition-colors ${showTranslation ? 'bg-primary' : 'bg-muted-foreground/30'}`}>
+                        <div className={`absolute top-1 w-2 h-2 rounded-full bg-white transition-all ${showTranslation ? 'left-5' : 'left-1'}`} />
+                      </div>
                     </button>
-                    <button className="w-full flex items-center gap-3 px-3 py-2 text-sm text-foreground hover:bg-muted rounded-xl transition-colors text-left group">
-                      <span className="material-symbols-outlined text-lg text-muted-foreground group-hover:text-primary">subtitles</span>
-                      <span>Transliteration</span>
+                    <button 
+                      onClick={() => setShowTransliteration(!showTransliteration)}
+                      className="w-full flex items-center justify-between px-3 py-2 text-sm text-foreground hover:bg-muted rounded-xl transition-colors text-left group"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="material-symbols-outlined text-lg text-muted-foreground group-hover:text-primary">subtitles</span>
+                        <span>Transliteration</span>
+                      </div>
+                      <div className={`w-8 h-4 rounded-full relative transition-colors ${showTransliteration ? 'bg-primary' : 'bg-muted-foreground/30'}`}>
+                        <div className={`absolute top-1 w-2 h-2 rounded-full bg-white transition-all ${showTransliteration ? 'left-5' : 'left-1'}`} />
+                      </div>
                     </button>
-                    <button className="w-full flex items-center gap-3 px-3 py-2 text-sm text-foreground hover:bg-muted rounded-xl transition-colors text-left group">
-                      <span className="material-symbols-outlined text-lg text-muted-foreground group-hover:text-primary">palette</span>
-                      <span>Theme</span>
+                    <button 
+                      onClick={() => setShowThemeSelector(!showThemeSelector)}
+                      className="w-full flex items-center justify-between px-3 py-2 text-sm text-foreground hover:bg-muted rounded-xl transition-colors text-left group"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="material-symbols-outlined text-lg text-muted-foreground group-hover:text-primary">palette</span>
+                        <span>Theme</span>
+                      </div>
+                      <span className="material-symbols-outlined text-sm text-muted-foreground">chevron_right</span>
                     </button>
+
+                    <AnimatePresence>
+                      {showThemeSelector && (
+                        <motion.div 
+                          initial={{ x: 20, opacity: 0 }}
+                          animate={{ x: 0, opacity: 1 }}
+                          exit={{ x: 20, opacity: 0 }}
+                          className="absolute inset-0 bg-card p-2 z-10"
+                        >
+                          <button onClick={() => setShowThemeSelector(false)} className="flex items-center gap-2 mb-2 text-[10px] font-bold text-primary uppercase tracking-widest px-1">
+                            <span className="material-symbols-outlined text-sm">chevron_left</span>
+                            Back to Settings
+                          </button>
+                          {[
+                            { id: 'light', name: 'Light', color: 'bg-white border' },
+                            { id: 'dark', name: 'Dark', color: 'bg-zinc-900' },
+                            { id: 'sepia', name: 'Sepia', color: 'bg-[#f4ecd8]' },
+                            { id: 'emerald', name: 'Emerald', color: 'bg-[#064e3b]' }
+                          ].map((t) => (
+                            <button 
+                              key={t.id}
+                              onClick={() => { setTheme(t.id as any); setShowThemeSelector(false); }}
+                              className={`w-full flex items-center gap-3 px-3 py-2 text-sm rounded-xl transition-all ${theme === t.id ? 'bg-primary/10 text-primary font-bold' : 'hover:bg-muted'}`}
+                            >
+                              <div className={`w-4 h-4 rounded-full ${t.color}`} />
+                              <span>{t.name}</span>
+                            </button>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -255,12 +364,19 @@ function PlayRoute() {
                                   dua.arabic.length > 100 ? '40px' : '48px' 
                       }}
                     >
-                      {dua.arabic}
+                      {formatArabic(dua.arabic)}
                     </p>
+                    {showTransliteration && dua.latin && (
+                      <p className="text-sm md:text-base text-primary/60 font-medium tracking-wide">
+                        {dua.latin}
+                      </p>
+                    )}
                     <div className="h-px w-24 bg-border mx-auto rounded-full flex-shrink-0"></div>
-                    <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto italic">
-                      "{dua.english || dua.albanian}"
-                    </p>
+                    {showTranslation && (
+                      <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto italic">
+                        "{dua.english || dua.albanian}"
+                      </p>
+                    )}
                     
                     {/* Hadith Detail / Reference */}
                     {dua.reference && (
@@ -293,11 +409,12 @@ function PlayRoute() {
       {/* Mobile Overlay Backdrop */}
       <div 
         className={`fixed inset-0 bg-background/80 backdrop-blur-sm z-[90] lg:hidden transition-opacity duration-300 ${
-          showQueue || showSearch ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          showQueue || showSearch || showBrowse ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         onClick={() => {
           setShowQueue(false)
           setShowSearch(false)
+          setShowBrowse(false)
         }}
       />
 
@@ -325,13 +442,19 @@ function PlayRoute() {
                 {/* Sidebar Switcher (Mobile/Tablet focus) */}
                 <div className="flex items-center gap-1 bg-muted/30 p-1 rounded-xl lg:hidden">
                   <button 
-                    onClick={() => { setShowQueue(true); setShowSearch(false); }}
+                    onClick={() => { setShowQueue(true); setShowSearch(false); setShowBrowse(false); }}
                     className={`flex-1 py-2 text-[10px] font-bold uppercase tracking-wider rounded-lg transition-all ${showQueue ? 'bg-card text-primary shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
                   >
                     Queue
                   </button>
                   <button 
-                    onClick={() => { setShowSearch(true); setShowQueue(false); }}
+                    onClick={() => { setShowBrowse(true); setShowQueue(false); setShowSearch(false); }}
+                    className={`flex-1 py-2 text-[10px] font-bold uppercase tracking-wider rounded-lg transition-all ${showBrowse ? 'bg-card text-primary shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
+                  >
+                    Browse
+                  </button>
+                  <button 
+                    onClick={() => { setShowSearch(true); setShowQueue(false); setShowBrowse(false); }}
                     className={`flex-1 py-2 text-[10px] font-bold uppercase tracking-wider rounded-lg transition-all ${showSearch ? 'bg-card text-primary shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
                   >
                     Search
@@ -352,10 +475,13 @@ function PlayRoute() {
                         <div className="relative">
                           <button 
                             onClick={() => setShowVersionDropdown(!showVersionDropdown)}
-                            className={`w-8 h-8 flex items-center justify-center rounded-lg transition-all cursor-pointer ${showVersionDropdown ? 'bg-primary/20 text-primary' : 'hover:bg-muted text-muted-foreground hover:text-foreground'}`}
+                            className={`w-8 h-8 flex items-center justify-center rounded-lg transition-all cursor-pointer font-bold text-xs ${showVersionDropdown ? 'bg-primary/20 text-primary' : 'hover:bg-muted text-muted-foreground hover:text-foreground'}`}
                             title="Switch Reciter"
                           >
-                            <span className="material-symbols-outlined text-lg">interpreter_mode</span>
+                            {selectedVersion === 'default' ? 'D' : 
+                             selectedVersion === 'rodja' ? 'R' : 
+                             selectedVersion === 'mburoja-api' ? 'M' : 
+                             selectedVersion.charAt(0).toUpperCase()}
                           </button>
                           
                           <AnimatePresence>
@@ -369,8 +495,8 @@ function PlayRoute() {
                                 <div className="px-3 py-2 text-[10px] font-bold text-muted-foreground uppercase tracking-widest border-b border-border/50 mb-1">Select Reciter</div>
                                 {[
                                   { id: 'default', name: 'Original' },
-                                  { id: 'mishary', name: 'Mishary Alafasy' },
-                                  { id: 'ghamdi', name: 'Saad Al-Ghamdi' }
+                                  { id: 'rodja', name: 'Rodja' },
+                                  { id: 'mburoja-api', name: 'Mburoja API' }
                                 ].map((v) => {
                                   const isAvailable = v.id === 'default' || (currentDua.audio_versions && currentDua.audio_versions[v.id])
                                   const isSelected = selectedVersion === v.id
@@ -451,9 +577,11 @@ function PlayRoute() {
                           }}
                         >
                           {/* Buffered Progress */}
-                          <div 
+                          <motion.div 
                             className="absolute inset-y-0 left-0 bg-primary/20 transition-all duration-300" 
                             style={{ width: `${(bufferedTime / duration) * 100 || 0}%` }}
+                            animate={{ opacity: [0.2, 0.4, 0.2] }}
+                            transition={{ duration: 2, repeat: Infinity }}
                           />
                           {/* Current Progress */}
                           <div 
@@ -585,9 +713,9 @@ function PlayRoute() {
           )}
         </AnimatePresence>
 
-        {/* Sidebar 2 - Search */}
+        {/* Sidebar 2 - Search & Browse */}
         <AnimatePresence>
-          {showSearch && (
+          {(showSearch || showBrowse) && (
             <motion.aside 
               initial={{ width: 0, opacity: 0, x: 20 }}
               animate={{ width: 320, opacity: 1, x: 0 }}
@@ -597,7 +725,7 @@ function PlayRoute() {
             >
               {/* Tab Ear (Mobile Close Button) */}
               <button 
-                onClick={() => setShowSearch(false)}
+                onClick={() => { setShowSearch(false); setShowBrowse(false); }}
                 className="absolute -left-10 top-24 w-10 h-16 bg-card border border-r-0 border-border rounded-l-2xl flex items-center justify-center text-muted-foreground hover:text-primary transition-all lg:hidden shadow-[-4px_0_10px_rgba(0,0,0,0.1)]"
               >
                 <span className="material-symbols-outlined">chevron_right</span>
@@ -607,13 +735,19 @@ function PlayRoute() {
                 {/* Sidebar Switcher (Mobile/Tablet focus) */}
                 <div className="flex items-center gap-1 bg-muted/30 p-1 rounded-xl lg:hidden">
                   <button 
-                    onClick={() => { setShowQueue(true); setShowSearch(false); }}
+                    onClick={() => { setShowQueue(true); setShowSearch(false); setShowBrowse(false); }}
                     className={`flex-1 py-2 text-[10px] font-bold uppercase tracking-wider rounded-lg transition-all ${showQueue ? 'bg-card text-primary shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
                   >
                     Queue
                   </button>
                   <button 
-                    onClick={() => { setShowSearch(true); setShowQueue(false); }}
+                    onClick={() => { setShowBrowse(true); setShowQueue(false); setShowSearch(false); }}
+                    className={`flex-1 py-2 text-[10px] font-bold uppercase tracking-wider rounded-lg transition-all ${showBrowse ? 'bg-card text-primary shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
+                  >
+                    Browse
+                  </button>
+                  <button 
+                    onClick={() => { setShowSearch(true); setShowQueue(false); setShowBrowse(false); }}
                     className={`flex-1 py-2 text-[10px] font-bold uppercase tracking-wider rounded-lg transition-all ${showSearch ? 'bg-card text-primary shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
                   >
                     Search
@@ -638,6 +772,41 @@ function PlayRoute() {
                     const showPlaylists = displayData.chapters.length > 0;
                     const showDuas = displayData.invocations.length > 0;
                     
+                    if (showBrowse) {
+                      const allChapters = getChapters()
+                      return (
+                        <div className="flex flex-col gap-3">
+                          <h3 className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-1">Library</h3>
+                          <div className="flex flex-col gap-1.5 pb-20">
+                            {allChapters.map((chapter) => (
+                              <div key={`browse-${chapter.id}`} className="group flex items-center justify-between p-3 rounded-xl bg-card border border-border/50 hover:border-primary/30 hover:bg-muted/50 transition-all cursor-pointer shadow-sm">
+                                <div className="flex-1 min-w-0" onClick={() => setQueue(chapter.invocations)}>
+                                  <h4 className="text-sm font-semibold text-foreground truncate">{chapter.chapter_name}</h4>
+                                  <p className="text-[11px] text-muted-foreground">{chapter.invocations.length} Duas</p>
+                                </div>
+                                <div className="flex items-center gap-1.5 flex-shrink-0">
+                                  <button 
+                                    onClick={() => setQueue(chapter.invocations)}
+                                    className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all"
+                                    title="Play Playlist"
+                                  >
+                                    <span className="material-symbols-outlined text-lg">playlist_play</span>
+                                  </button>
+                                  <button 
+                                    onClick={() => addToQueue(chapter.invocations)}
+                                    className="w-8 h-8 rounded-lg bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all flex items-center justify-center"
+                                    title="Add to Queue"
+                                  >
+                                    <span className="material-symbols-outlined text-lg">add</span>
+                                  </button>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )
+                    }
+
                     if (isSearching && !showPlaylists && !showDuas) {
                       return (
                         <div className="flex flex-col items-center justify-center py-12 text-center">
@@ -657,20 +826,20 @@ function PlayRoute() {
                             <div className="flex flex-col gap-1.5">
                               {displayData.chapters.map((chapter) => (
                                 <div key={`ch-${chapter.id}`} className="group flex items-center justify-between p-3 rounded-xl bg-card border border-border/50 hover:border-primary/30 hover:bg-muted/50 transition-all cursor-pointer shadow-sm">
-                                  <div className="flex-1 min-w-0" onClick={() => useAudioStore.getState().setQueue(chapter.invocations)}>
+                                  <div className="flex-1 min-w-0" onClick={() => setQueue(chapter.invocations)}>
                                     <h4 className="text-sm font-semibold text-foreground truncate">{chapter.chapter_name}</h4>
                                     <p className="text-[11px] text-muted-foreground">{chapter.invocations.length} Duas</p>
                                   </div>
                                   <div className="flex items-center gap-1.5 flex-shrink-0">
                                     <button 
-                                      onClick={() => useAudioStore.getState().setQueue(chapter.invocations)}
+                                      onClick={() => setQueue(chapter.invocations)}
                                       className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all"
                                       title="Play Playlist"
                                     >
                                       <span className="material-symbols-outlined text-lg">playlist_play</span>
                                     </button>
                                     <button 
-                                      onClick={() => useAudioStore.getState().setQueue([...queue, ...chapter.invocations])}
+                                      onClick={() => addToQueue(chapter.invocations)}
                                       className="w-8 h-8 rounded-lg bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all flex items-center justify-center"
                                       title="Add to Queue"
                                     >
@@ -691,12 +860,12 @@ function PlayRoute() {
                             <div className="flex flex-col gap-1.5">
                               {displayData.invocations.map((res) => (
                                 <div key={`inv-${res.id}`} className="group flex items-center justify-between p-3 rounded-xl hover:bg-muted/50 transition-all cursor-pointer border border-transparent hover:border-border/50">
-                                  <div className="flex-1 min-w-0" onClick={() => useAudioStore.getState().setQueue([...queue, res])}>
+                                  <div className="flex-1 min-w-0" onClick={() => setQueue([res])}>
                                     <h4 className="text-sm font-medium text-foreground truncate group-hover:text-primary transition-colors">{res.name || res.latin}</h4>
                                     <p className="text-[11px] text-muted-foreground truncate">{res.chapter_name}</p>
                                   </div>
                                   <button 
-                                    onClick={() => useAudioStore.getState().setQueue([...queue, res])}
+                                    onClick={() => addToQueue([res])}
                                     className="w-8 h-8 rounded-lg bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all flex items-center justify-center flex-shrink-0"
                                   >
                                     <span className="material-symbols-outlined text-lg">add</span>
