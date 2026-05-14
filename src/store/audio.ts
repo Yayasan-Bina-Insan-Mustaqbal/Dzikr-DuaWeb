@@ -7,6 +7,9 @@ interface AudioState {
   isPlaying: boolean;
   currentTime: number;
   duration: number;
+  bufferedTime: number;
+  repeatMode: 'off' | 'one' | 'all';
+  selectedVersion: string; // Key for audio_versions, e.g. 'mishary'
   setQueue: (queue: Invocation[]) => void;
   play: (index: number) => void;
   next: () => void;
@@ -14,6 +17,9 @@ interface AudioState {
   setIsPlaying: (isPlaying: boolean) => void;
   setCurrentTime: (time: number) => void;
   setDuration: (duration: number) => void;
+  setBufferedTime: (time: number) => void;
+  setRepeatMode: (mode: 'off' | 'one' | 'all') => void;
+  setSelectedVersion: (version: string) => void;
   seek: (time: number) => void;
   clearQueue: () => void;
   removeFromQueue: (index: number) => void;
@@ -25,25 +31,35 @@ export const useAudioStore = create<AudioState>((set) => ({
   isPlaying: false,
   currentTime: 0,
   duration: 0,
+  bufferedTime: 0,
+  repeatMode: 'off',
+  selectedVersion: 'default',
 
   setQueue: (queue) => set({ 
     queue: queue.map(item => ({...item, queueId: item.queueId || Math.random().toString(36).substring(2, 9)})), 
     nowPlayingIndex: queue.length > 0 ? 0 : -1, 
-    currentTime: 0 
+    currentTime: 0,
+    bufferedTime: 0
   }),
   
-  play: (index) => set({ nowPlayingIndex: index, isPlaying: true, currentTime: 0 }),
+  play: (index) => set({ nowPlayingIndex: index, isPlaying: true, currentTime: 0, bufferedTime: 0 }),
   
   next: () => set((state) => {
     if (state.nowPlayingIndex < state.queue.length - 1) {
-      return { nowPlayingIndex: state.nowPlayingIndex + 1, isPlaying: true, currentTime: 0 };
+      return { nowPlayingIndex: state.nowPlayingIndex + 1, isPlaying: true, currentTime: 0, bufferedTime: 0 };
+    }
+    if (state.repeatMode === 'all' && state.queue.length > 0) {
+      return { nowPlayingIndex: 0, isPlaying: true, currentTime: 0, bufferedTime: 0 };
     }
     return { isPlaying: false }; // Reached end of queue
   }),
 
   previous: () => set((state) => {
     if (state.nowPlayingIndex > 0) {
-      return { nowPlayingIndex: state.nowPlayingIndex - 1, isPlaying: true, currentTime: 0 };
+      return { nowPlayingIndex: state.nowPlayingIndex - 1, isPlaying: true, currentTime: 0, bufferedTime: 0 };
+    }
+    if (state.repeatMode === 'all' && state.queue.length > 0) {
+      return { nowPlayingIndex: state.queue.length - 1, isPlaying: true, currentTime: 0, bufferedTime: 0 };
     }
     return state;
   }),
@@ -51,6 +67,9 @@ export const useAudioStore = create<AudioState>((set) => ({
   setIsPlaying: (isPlaying) => set({ isPlaying }),
   setCurrentTime: (currentTime) => set({ currentTime }),
   setDuration: (duration) => set({ duration }),
+  setBufferedTime: (bufferedTime) => set({ bufferedTime }),
+  setRepeatMode: (repeatMode) => set({ repeatMode }),
+  setSelectedVersion: (selectedVersion) => set({ selectedVersion }),
   seek: (time) => set({ currentTime: time }), // This will be used to signal the player to seek
   
   clearQueue: () => set({ queue: [], nowPlayingIndex: -1, isPlaying: false, currentTime: 0, duration: 0 }),

@@ -2,10 +2,29 @@ import { useEffect, useRef } from "react"
 import { useAudioStore } from "../store/audio"
 
 export function AudioPlayer() {
-  const { queue, nowPlayingIndex, isPlaying, currentTime, next, setIsPlaying, setCurrentTime, setDuration } = useAudioStore()
+  const { 
+    queue, 
+    nowPlayingIndex, 
+    isPlaying, 
+    currentTime, 
+    repeatMode,
+    selectedVersion,
+    next, 
+    setIsPlaying, 
+    setCurrentTime, 
+    setDuration,
+    setBufferedTime
+  } = useAudioStore()
   const audioRef = useRef<HTMLAudioElement>(null)
 
   const currentDua = queue[nowPlayingIndex]
+  
+  // Resolve audio source based on selected version
+  const audioSrc = currentDua ? (
+    (selectedVersion !== 'default' && currentDua.audio_versions?.[selectedVersion]) 
+      ? currentDua.audio_versions[selectedVersion] 
+      : currentDua.audio
+  ) : ""
 
   // Handle Play/Pause
   useEffect(() => {
@@ -38,7 +57,19 @@ export function AudioPlayer() {
   }
 
   const handleEnded = () => {
-    next()
+    if (repeatMode === 'one' && audioRef.current) {
+      audioRef.current.currentTime = 0
+      audioRef.current.play().catch(e => console.error("Replay failed", e))
+    } else {
+      next()
+    }
+  }
+
+  const handleProgress = () => {
+    if (audioRef.current && audioRef.current.buffered.length > 0) {
+      const bufferedEnd = audioRef.current.buffered.end(audioRef.current.buffered.length - 1)
+      setBufferedTime(bufferedEnd)
+    }
   }
 
   if (!currentDua) return null
@@ -46,9 +77,10 @@ export function AudioPlayer() {
   return (
     <audio
       ref={audioRef}
-      src={currentDua.audio}
+      src={audioSrc}
       onTimeUpdate={handleTimeUpdate}
       onLoadedMetadata={handleLoadedMetadata}
+      onProgress={handleProgress}
       onEnded={handleEnded}
       onPlay={() => setIsPlaying(true)}
       onPause={() => setIsPlaying(false)}

@@ -11,15 +11,36 @@ export const Route = createFileRoute("/play")({
 })
 
 function PlayRoute() {
-  const { queue, nowPlayingIndex, play, isPlaying, setIsPlaying, next, previous, currentTime, duration, seek, clearQueue, removeFromQueue } = useAudioStore()
+  const { 
+    queue, 
+    nowPlayingIndex, 
+    play, 
+    isPlaying, 
+    setIsPlaying, 
+    next, 
+    previous, 
+    currentTime, 
+    duration, 
+    bufferedTime,
+    repeatMode,
+    selectedVersion,
+    setRepeatMode,
+    setSelectedVersion,
+    seek, 
+    clearQueue, 
+    removeFromQueue 
+  } = useAudioStore()
   const [searchQuery, setSearchQuery] = useState("")
   const [searchResults, setSearchResults] = useState<SearchResults>({ chapters: [], invocations: [] })
   const [showQueue, setShowQueue] = useState(true)
   const [showSearch, setShowSearch] = useState(true)
+  const [showVersionDropdown, setShowVersionDropdown] = useState(false)
+  const [showSettingsDropdown, setShowSettingsDropdown] = useState(false)
 
   const carouselRef = useRef<HTMLDivElement>(null)
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null)
   const isProgrammaticScroll = useRef(false)
+  const currentDua = queue[nowPlayingIndex]
 
   // Auto-populate queue based on time of day if it's empty
   useEffect(() => {
@@ -47,7 +68,7 @@ function PlayRoute() {
   // Auto-scroll to the currently playing Dua
   useEffect(() => {
     if (carouselRef.current && queue.length > 0 && nowPlayingIndex >= 0) {
-      // Calculate target scroll position (assuming each item is 80vh + some padding, but easier is to just use scrollIntoView)
+      // Calculate target scroll position
       const targetElement = document.getElementById(`dua-box-${nowPlayingIndex}`)
       if (targetElement) {
         isProgrammaticScroll.current = true
@@ -115,8 +136,6 @@ function PlayRoute() {
     return `${minutes}:${seconds.toString().padStart(2, '0')}`
   }
 
-  const currentDua = queue[nowPlayingIndex]
-
   useEffect(() => {
     if (searchQuery.trim().length > 2) {
       searchDhikr(searchQuery).then(setSearchResults)
@@ -130,15 +149,69 @@ function PlayRoute() {
       {/* Main Area (Left) */}
       <main className="flex-1 overflow-y-auto relative flex flex-col items-center justify-center px-6 lg:px-20 scroll-smooth pt-24 landscape:pt-16">
         <div className="absolute top-0 left-0 right-0 h-16 landscape:h-12 flex items-center justify-between px-8 z-20">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
-              <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>auto_awesome</span>
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
+                <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>auto_awesome</span>
+              </div>
+              <span className="font-heading font-semibold text-lg tracking-tight text-foreground">
+                Dzikr <span className="text-primary">& Dua</span>
+              </span>
             </div>
-            <span className="font-heading font-semibold text-lg tracking-tight text-foreground">
-              Dzikr <span className="text-primary">& Dua</span>
-            </span>
+            
+            <AnimatePresence mode="wait">
+              {currentDua && (
+                <motion.div 
+                  key={currentDua.id}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 10 }}
+                  className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/5 border border-primary/10"
+                >
+                  <span className="material-symbols-outlined text-primary text-xs" style={{ fontVariationSettings: "'FILL' 1" }}>label</span>
+                  <span className="text-xs font-bold text-foreground/80 tracking-wide uppercase">{currentDua.chapter_name}</span>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
-          <div className="flex items-center gap-3">
+          
+          <div className="flex items-center gap-2">
+            <div className="relative">
+              <button 
+                onClick={() => setShowSettingsDropdown(!showSettingsDropdown)}
+                className={`w-9 h-9 flex items-center justify-center rounded-lg transition-all cursor-pointer ${showSettingsDropdown ? 'bg-primary/20 text-primary' : 'hover:bg-muted text-muted-foreground hover:text-foreground'}`}
+              >
+                <span className="material-symbols-outlined">more_vert</span>
+              </button>
+              
+              <AnimatePresence>
+                {showSettingsDropdown && (
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                    className="absolute right-0 mt-2 w-48 bg-card border border-border shadow-2xl rounded-2xl overflow-hidden z-50 p-2"
+                  >
+                    <div className="px-3 py-2 text-[10px] font-bold text-muted-foreground uppercase tracking-widest border-b border-border/50 mb-1">App Settings</div>
+                    <button className="w-full flex items-center gap-3 px-3 py-2 text-sm text-foreground hover:bg-muted rounded-xl transition-colors text-left group">
+                      <span className="material-symbols-outlined text-lg text-muted-foreground group-hover:text-primary">language</span>
+                      <span>Translation</span>
+                    </button>
+                    <button className="w-full flex items-center gap-3 px-3 py-2 text-sm text-foreground hover:bg-muted rounded-xl transition-colors text-left group">
+                      <span className="material-symbols-outlined text-lg text-muted-foreground group-hover:text-primary">subtitles</span>
+                      <span>Transliteration</span>
+                    </button>
+                    <button className="w-full flex items-center gap-3 px-3 py-2 text-sm text-foreground hover:bg-muted rounded-xl transition-colors text-left group">
+                      <span className="material-symbols-outlined text-lg text-muted-foreground group-hover:text-primary">palette</span>
+                      <span>Theme</span>
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            <div className="w-px h-4 bg-border mx-1"></div>
+
             <button 
               onClick={() => setShowQueue(!showQueue)}
               className={`w-9 h-9 flex items-center justify-center rounded-lg transition-all cursor-pointer ${showQueue ? 'bg-primary/20 text-primary' : 'hover:bg-muted text-muted-foreground hover:text-foreground'}`}
@@ -153,13 +226,6 @@ function PlayRoute() {
             </button>
           </div>
         </div>
-
-        {currentDua && (
-          <div className="absolute top-20 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-card/50 border border-border backdrop-blur-md flex items-center gap-2 z-10 transition-all duration-300">
-            <span className="material-symbols-outlined text-primary text-sm">wb_sunny</span>
-            <span className="text-sm font-medium text-foreground/80 tracking-wide uppercase">{currentDua.chapter_name}</span>
-          </div>
-        )}
 
         {queue.length > 0 ? (
           <div 
@@ -195,6 +261,23 @@ function PlayRoute() {
                     <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto italic">
                       "{dua.english || dua.albanian}"
                     </p>
+                    
+                    {/* Hadith Detail / Reference */}
+                    {dua.reference && (
+                      <div className="mt-4 p-4 rounded-2xl bg-primary/5 border border-primary/10 max-w-xl mx-auto text-left">
+                        <div className="flex items-start gap-3">
+                          <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span className="material-symbols-outlined text-primary text-sm">history_edu</span>
+                          </div>
+                          <div className="flex flex-col gap-1">
+                            <span className="text-[10px] font-bold text-primary uppercase tracking-widest">Hadith Detail</span>
+                            <p className="text-xs md:text-sm text-foreground/70 leading-relaxed italic">
+                              {dua.reference}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               )
@@ -266,9 +349,61 @@ function PlayRoute() {
                     {/* Playback Controls */}
                     <div className="flex flex-col gap-4">
                       <div className="flex items-center justify-between px-2">
-                        <button className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
-                          <span className="material-symbols-outlined text-lg">shuffle</span>
-                        </button>
+                        <div className="relative">
+                          <button 
+                            onClick={() => setShowVersionDropdown(!showVersionDropdown)}
+                            className={`w-8 h-8 flex items-center justify-center rounded-lg transition-all cursor-pointer ${showVersionDropdown ? 'bg-primary/20 text-primary' : 'hover:bg-muted text-muted-foreground hover:text-foreground'}`}
+                            title="Switch Reciter"
+                          >
+                            <span className="material-symbols-outlined text-lg">interpreter_mode</span>
+                          </button>
+                          
+                          <AnimatePresence>
+                            {showVersionDropdown && (
+                              <motion.div 
+                                initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                                animate={{ opacity: 1, scale: 1, y: 0 }}
+                                exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                                className="absolute bottom-full left-0 mb-2 w-48 bg-card border border-border shadow-2xl rounded-2xl overflow-hidden z-50 p-1"
+                              >
+                                <div className="px-3 py-2 text-[10px] font-bold text-muted-foreground uppercase tracking-widest border-b border-border/50 mb-1">Select Reciter</div>
+                                {[
+                                  { id: 'default', name: 'Original' },
+                                  { id: 'mishary', name: 'Mishary Alafasy' },
+                                  { id: 'ghamdi', name: 'Saad Al-Ghamdi' }
+                                ].map((v) => {
+                                  const isAvailable = v.id === 'default' || (currentDua.audio_versions && currentDua.audio_versions[v.id])
+                                  const isSelected = selectedVersion === v.id
+                                  
+                                  return (
+                                    <button 
+                                      key={v.id}
+                                      disabled={!isAvailable}
+                                      onClick={() => {
+                                        setSelectedVersion(v.id)
+                                        setShowVersionDropdown(false)
+                                      }}
+                                      className={`w-full flex items-center justify-between px-3 py-2 text-xs rounded-xl transition-all ${
+                                        isSelected 
+                                          ? 'bg-primary/10 text-primary font-bold' 
+                                          : isAvailable 
+                                            ? 'text-foreground hover:bg-muted' 
+                                            : 'text-muted-foreground/40 cursor-not-allowed'
+                                      }`}
+                                    >
+                                      <div className="flex items-center gap-2">
+                                        <span className={`w-1.5 h-1.5 rounded-full ${isSelected ? 'bg-primary animate-pulse' : 'bg-transparent'}`} />
+                                        <span>{v.name}</span>
+                                      </div>
+                                      {!isAvailable && <span className="text-[9px] opacity-60">N/A</span>}
+                                    </button>
+                                  )
+                                })}
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+
                         <div className="flex items-center gap-5">
                           <button onClick={previous} className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
                             <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>skip_previous</span>
@@ -285,16 +420,29 @@ function PlayRoute() {
                             <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>skip_next</span>
                           </button>
                         </div>
-                        <button className="text-primary relative cursor-pointer">
-                          <span className="material-symbols-outlined text-lg">repeat</span>
-                          <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full"></span>
+                        
+                        <button 
+                          onClick={() => {
+                            const modes: ('off' | 'one' | 'all')[] = ['off', 'one', 'all']
+                            const nextIndex = (modes.indexOf(repeatMode) + 1) % modes.length
+                            setRepeatMode(modes[nextIndex])
+                          }}
+                          className={`relative cursor-pointer transition-colors ${repeatMode !== 'off' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}
+                          title={`Repeat: ${repeatMode}`}
+                        >
+                          <span className="material-symbols-outlined text-lg">
+                            {repeatMode === 'one' ? 'repeat_one' : 'repeat'}
+                          </span>
+                          {repeatMode !== 'off' && (
+                            <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full"></span>
+                          )}
                         </button>
                       </div>
                       
                       {/* Progress Scrubber */}
                       <div className="flex flex-col gap-1.5">
                         <div 
-                          className="h-1.5 w-full bg-border rounded-full overflow-hidden cursor-pointer group relative"
+                          className="h-1.5 w-full bg-border/40 rounded-full overflow-hidden cursor-pointer group relative"
                           onClick={(e) => {
                             const rect = e.currentTarget.getBoundingClientRect()
                             const x = e.clientX - rect.left
@@ -302,14 +450,21 @@ function PlayRoute() {
                             seek(percentage * duration)
                           }}
                         >
+                          {/* Buffered Progress */}
                           <div 
-                            className="h-full bg-primary transition-all duration-150" 
+                            className="absolute inset-y-0 left-0 bg-primary/20 transition-all duration-300" 
+                            style={{ width: `${(bufferedTime / duration) * 100 || 0}%` }}
+                          />
+                          {/* Current Progress */}
+                          <div 
+                            className="absolute inset-y-0 left-0 bg-primary transition-all duration-150 z-10" 
                             style={{ width: `${(currentTime / duration) * 100 || 0}%` }}
-                          ></div>
+                          />
+                          {/* Handle */}
                           <div 
-                            className="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-primary rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity"
+                            className="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-primary rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity z-20"
                             style={{ left: `${(currentTime / duration) * 100 || 0}%`, marginLeft: '-6px' }}
-                          ></div>
+                          />
                         </div>
                         <div className="flex justify-between text-[10px] text-muted-foreground font-medium tabular-nums">
                           <span>{formatTime(currentTime)}</span>
