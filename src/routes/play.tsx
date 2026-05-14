@@ -209,7 +209,7 @@ function PlayRoute() {
 
       {/* Mobile Overlay Backdrop */}
       <div 
-        className={`fixed inset-0 bg-background/80 backdrop-blur-sm z-[60] lg:hidden transition-opacity duration-300 ${
+        className={`fixed inset-0 bg-background/80 backdrop-blur-sm z-[90] lg:hidden transition-opacity duration-300 ${
           showQueue || showSearch ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         onClick={() => {
@@ -219,7 +219,7 @@ function PlayRoute() {
       />
 
       {/* Sidebars Container (Right) */}
-      <div className="absolute lg:relative right-0 flex h-full flex-shrink-0 z-50 max-w-[100vw] overflow-x-hidden shadow-2xl lg:shadow-none">
+      <div className="absolute lg:relative right-0 flex h-full flex-shrink-0 z-[100] max-w-[100vw] overflow-x-hidden shadow-2xl lg:shadow-none">
         {/* Sidebar 1 - Player & Queue */}
         <AnimatePresence>
           {showQueue && (
