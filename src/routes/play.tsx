@@ -458,12 +458,22 @@ function PlayRoute() {
                                     <h4 className="text-sm font-semibold text-foreground truncate">{chapter.chapter_name}</h4>
                                     <p className="text-[11px] text-muted-foreground">{chapter.invocations.length} Duas</p>
                                   </div>
-                                  <button 
-                                    onClick={() => useAudioStore.getState().setQueue(chapter.invocations)}
-                                    className="w-8 h-8 rounded-lg bg-primary/10 text-primary opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center hover:bg-primary hover:text-primary-foreground"
-                                  >
-                                    <span className="material-symbols-outlined text-lg">playlist_play</span>
-                                  </button>
+                                  <div className="flex items-center gap-1.5 flex-shrink-0">
+                                    <button 
+                                      onClick={() => useAudioStore.getState().setQueue(chapter.invocations)}
+                                      className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all"
+                                      title="Play Playlist"
+                                    >
+                                      <span className="material-symbols-outlined text-lg">playlist_play</span>
+                                    </button>
+                                    <button 
+                                      onClick={() => useAudioStore.getState().setQueue([...queue, ...chapter.invocations])}
+                                      className="w-8 h-8 rounded-lg bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all flex items-center justify-center"
+                                      title="Add to Queue"
+                                    >
+                                      <span className="material-symbols-outlined text-lg">add</span>
+                                    </button>
+                                  </div>
                                 </div>
                               ))}
                             </div>
