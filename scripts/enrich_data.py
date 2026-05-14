@@ -6,6 +6,8 @@ import os
 def normalize_arabic(text):
     if not text:
         return ""
+    # Remove literal \n strings that are often artifacts
+    text = text.replace('\\n', ' ').replace('\n', ' ')
     # Remove diacritics
     text = re.sub(r'[\u064B-\u0652]', '', text)
     # Normalize Alif
@@ -55,6 +57,11 @@ def main():
         chapter_name = chapter['chapter_name']
         
         for idx, inv in enumerate(chapter.get('invocations', [])):
+            # Clean Arabic text from artifacts
+            if 'arabic' in inv:
+                inv['arabic'] = inv['arabic'].replace('\\n', ' ').replace('\n', ' ')
+                inv['arabic'] = " ".join(inv['arabic'].split())
+
             # Ensure audio path is correct
             inv['audio'] = f"/audios/{chapter['id']:03d}_{idx + 1:02d}.mp3"
             
