@@ -284,8 +284,9 @@ function PlayRoute() {
       </AnimatePresence>
 
       {/* Main Area (Left) */}
-      <main className="flex-1 overflow-y-auto relative flex flex-col items-center justify-center px-6 lg:px-20 scroll-smooth pt-24 landscape:pt-16">
-        <div className="absolute top-0 left-0 right-0 h-16 landscape:h-12 flex items-center justify-between px-8 z-20">
+      <main className="flex-1 relative flex flex-col items-center scroll-smooth">
+        {/* Top Bar spacing and blur effect for scrolling content */}
+        <div className="sticky top-0 left-0 right-0 h-24 landscape:h-16 bg-background/60 backdrop-blur-xl z-20 flex items-center justify-between px-8 border-b border-border/10">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
@@ -428,7 +429,7 @@ function PlayRoute() {
           <div 
             ref={carouselRef}
             onScroll={handleCarouselScroll}
-            className="max-w-4xl w-full h-[80vh] flex flex-col relative z-10 overflow-y-auto snap-y snap-mandatory custom-scrollbar pt-[20vh] pb-[40vh] gap-[10vh] scroll-smooth"
+            className="flex-1 max-w-4xl w-full flex flex-col relative z-10 overflow-y-auto snap-y snap-mandatory custom-scrollbar pt-[30vh] pb-[50vh] gap-[10vh] scroll-smooth"
           >
             {queue.map((dua, idx) => {
               const isActive = idx === nowPlayingIndex
