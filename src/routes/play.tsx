@@ -65,6 +65,7 @@ function PlayRoute() {
   const carouselRef = useRef<HTMLDivElement>(null)
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null)
   const isProgrammaticScroll = useRef(false)
+  const hasAttemptedInitialPopulation = useRef(false)
   const [showWelcomeModal, setShowWelcomeModal] = useState(true)
   const [showCopied, setShowCopied] = useState(false)
   
@@ -87,7 +88,8 @@ function PlayRoute() {
       setShowSearch(false)
     }
 
-    if (queue.length === 0) {
+    if (queue.length === 0 && !hasAttemptedInitialPopulation.current) {
+      hasAttemptedInitialPopulation.current = true
       const queueIds = search.queue?.split(',').map(Number) || []
        
       if (queueIds.length > 0) {
