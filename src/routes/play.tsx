@@ -162,8 +162,10 @@ function PlayRoute() {
     const morning = allChapters.find(c => c.id === 27)
     const evening = allChapters.find(c => c.id === 133)
     const travel = allChapters.find(c => c.id === 96)
+    const wakingUp = allChapters.find(c => c.id === 1)
+    const sleeping = allChapters.find(c => c.id === 28)
     
-    const curatedChapters = [morning, evening, travel].filter(Boolean) as Chapter[]
+    const curatedChapters = [morning, evening, travel, wakingUp, sleeping].filter(Boolean) as Chapter[]
     
     const randomDuas = []
     for (const c of allChapters) {
