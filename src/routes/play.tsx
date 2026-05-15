@@ -286,7 +286,7 @@ function PlayRoute() {
       {/* Main Area (Left) */}
       <main className="flex-1 relative flex flex-col overflow-y-auto scroll-smooth custom-scrollbar">
         {/* Top Bar - Sticky with blur effect */}
-        <div className="sticky top-0 left-0 right-0 h-20 landscape:h-16 bg-background/60 backdrop-blur-md z-[60] px-8 border-b border-border/10 grid grid-cols-3 items-center">
+        <div className="sticky top-0 left-0 right-0 h-24 landscape:h-20 bg-background/30 backdrop-blur-xl z-[60] px-8 border-b border-border/10 grid grid-cols-3 items-center py-4">
           {/* Left: Logo */}
           <div className="flex items-center justify-start gap-2">
             <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
