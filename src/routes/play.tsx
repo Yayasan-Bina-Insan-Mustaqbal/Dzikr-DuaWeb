@@ -232,7 +232,7 @@ function PlayRoute() {
       if ((prev === '(' || prev === '[') && (next === ')' || next === ']')) {
         return <span key={i} className="opacity-60">{part}</span>;
       }
-      return <span key={i} className="matan text-primary drop-shadow-[0_2px_10px_rgba(var(--primary),0.2)]">{part}</span>;
+      return <span key={i} className="matan text-foreground drop-shadow-[0_2px_10px_rgba(var(--foreground),0.05)]">{part}</span>;
     });
   };
 
@@ -432,7 +432,7 @@ function PlayRoute() {
           <div 
             ref={carouselRef}
             onScroll={handleCarouselScroll}
-            className="flex-1 max-w-4xl w-full mx-auto flex flex-col relative z-10 snap-y snap-mandatory pt-[20vh] pb-[40vh] gap-[10vh]"
+            className="flex-1 max-w-4xl w-full mx-auto flex flex-col relative z-10 snap-y snap-mandatory pt-[30vh] pb-[50vh] gap-[10vh] px-6 md:px-12"
           >
             {queue.map((dua, idx) => {
               const isActive = idx === nowPlayingIndex
@@ -440,8 +440,9 @@ function PlayRoute() {
                 <div 
                   key={dua.queueId || `${dua.id}-${idx}`}
                   id={`dua-box-${idx}`}
-                  className={`w-full flex-shrink-0 snap-center snap-always flex flex-col justify-center py-6 transition-all duration-700 ease-out ${
-                    isActive ? 'opacity-100 scale-100 blur-0' : 'opacity-30 scale-95 blur-[2px]'
+                  onClick={() => play(idx)}
+                  className={`w-full flex-shrink-0 snap-center snap-always flex flex-col justify-center py-6 transition-all duration-700 ease-out cursor-pointer ${
+                    isActive ? 'opacity-100 scale-100 blur-0' : 'opacity-30 scale-95 blur-[2px] hover:opacity-50'
                   }`}
                 >
                   <div className={`flex flex-col gap-8 transition-all duration-500 p-8 rounded-3xl bg-card border shadow-xl ${
