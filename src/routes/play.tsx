@@ -284,45 +284,45 @@ function PlayRoute() {
       </AnimatePresence>
 
       {/* Main Area (Left) */}
-      <main className="flex-1 relative flex flex-col items-center scroll-smooth">
-        {/* Top Bar spacing and blur effect for scrolling content */}
-        <div className="sticky top-0 left-0 right-0 h-24 landscape:h-16 bg-background/60 backdrop-blur-xl z-20 flex items-center justify-between px-8 border-b border-border/10">
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
-                <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>auto_awesome</span>
-              </div>
-              <span className="font-heading font-semibold text-lg tracking-tight text-foreground">
-                Dzikr <span className="text-primary">& Dua</span>
-              </span>
+      <main className="flex-1 relative flex flex-col overflow-y-auto scroll-smooth custom-scrollbar">
+        {/* Top Bar - Sticky with blur effect */}
+        <div className="sticky top-0 left-0 right-0 h-20 landscape:h-16 bg-background/60 backdrop-blur-md z-[60] px-8 border-b border-border/10 grid grid-cols-3 items-center">
+          {/* Left: Logo */}
+          <div className="flex items-center justify-start gap-2">
+            <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
+              <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>auto_awesome</span>
             </div>
-            
+            <span className="font-heading font-semibold text-lg tracking-tight text-foreground hidden sm:inline">
+              Dzikr <span className="text-primary">& Dua</span>
+            </span>
+          </div>
+          
+          {/* Middle: Active Chapter + Settings */}
+          <div className="flex items-center justify-center gap-3">
             <AnimatePresence mode="wait">
               {currentDua && (
                 <motion.div 
                   key={currentDua.id}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 10 }}
-                  className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/5 border border-primary/10"
+                  initial={{ opacity: 0, y: -5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 5 }}
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/5 border border-primary/10 max-w-full overflow-hidden"
                 >
-                  <span className="material-symbols-outlined text-primary text-xs" style={{ fontVariationSettings: "'FILL' 1" }}>label</span>
-                  <span className="text-xs font-bold text-foreground/80 tracking-wide uppercase">{currentDua.chapter_name}</span>
+                  <span className="material-symbols-outlined text-primary text-[10px]" style={{ fontVariationSettings: "'FILL' 1" }}>label</span>
+                  <span className="text-[10px] font-bold text-foreground/80 tracking-wide uppercase truncate">{currentDua.chapter_name}</span>
                 </motion.div>
               )}
             </AnimatePresence>
-          </div>
-          
-          <div className="flex items-center gap-2">
+
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button 
-                  className={`w-9 h-9 flex items-center justify-center rounded-lg transition-all cursor-pointer hover:bg-muted text-muted-foreground hover:text-foreground`}
+                  className="w-8 h-8 flex items-center justify-center rounded-lg transition-all cursor-pointer hover:bg-muted text-muted-foreground hover:text-foreground"
                 >
-                  <span className="material-symbols-outlined">more_vert</span>
+                  <span className="material-symbols-outlined text-xl">more_vert</span>
                 </button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56" align="end">
+              <DropdownMenuContent className="w-56" align="center">
                 <DropdownMenuLabel>App Settings</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 
@@ -407,18 +407,21 @@ function PlayRoute() {
                 </DropdownMenuGroup>
               </DropdownMenuContent>
             </DropdownMenu>
+          </div>
 
-            <div className="w-px h-4 bg-border mx-1"></div>
-
+          {/* Right: Toggles */}
+          <div className="flex items-center justify-end gap-2">
             <button 
               onClick={() => setShowQueue(!showQueue)}
               className={`w-9 h-9 flex items-center justify-center rounded-lg transition-all cursor-pointer ${showQueue ? 'bg-primary/20 text-primary' : 'hover:bg-muted text-muted-foreground hover:text-foreground'}`}
+              title="Player & Queue"
             >
               <span className="material-symbols-outlined">side_navigation</span>
             </button>
             <button 
               onClick={() => setShowSearch(!showSearch)}
               className={`w-9 h-9 flex items-center justify-center rounded-lg transition-all cursor-pointer ${showSearch ? 'bg-primary/20 text-primary' : 'hover:bg-muted text-muted-foreground hover:text-foreground'}`}
+              title="Search"
             >
               <span className="material-symbols-outlined">search</span>
             </button>
@@ -429,7 +432,7 @@ function PlayRoute() {
           <div 
             ref={carouselRef}
             onScroll={handleCarouselScroll}
-            className="flex-1 max-w-4xl w-full flex flex-col relative z-10 overflow-y-auto snap-y snap-mandatory custom-scrollbar pt-[30vh] pb-[50vh] gap-[10vh] scroll-smooth"
+            className="flex-1 max-w-4xl w-full mx-auto flex flex-col relative z-10 snap-y snap-mandatory pt-[20vh] pb-[40vh] gap-[10vh]"
           >
             {queue.map((dua, idx) => {
               const isActive = idx === nowPlayingIndex
