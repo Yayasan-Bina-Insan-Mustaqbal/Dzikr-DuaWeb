@@ -539,13 +539,10 @@ function PlayRoute() {
                         <div className="relative">
                           <button 
                             onClick={() => setShowVersionDropdown(!showVersionDropdown)}
-                            className={`w-8 h-8 flex items-center justify-center rounded-lg transition-all cursor-pointer font-bold text-xs ${showVersionDropdown ? 'bg-primary/20 text-primary' : 'hover:bg-muted text-muted-foreground hover:text-foreground'}`}
+                            className={`w-8 h-8 flex items-center justify-center rounded-lg transition-all cursor-pointer ${showVersionDropdown ? 'bg-primary/20 text-primary' : 'hover:bg-muted text-muted-foreground hover:text-foreground'}`}
                             title="Switch Reciter"
                           >
-                            {selectedVersion === 'default' ? 'D' : 
-                             selectedVersion === 'rodja' ? 'R' : 
-                             selectedVersion === 'mburoja-api' ? 'M' : 
-                             selectedVersion.charAt(0).toUpperCase()}
+                            <span className="material-symbols-outlined text-lg">record_voice_over</span>
                           </button>
                           
                           <AnimatePresence>
