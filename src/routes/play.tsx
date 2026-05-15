@@ -239,10 +239,15 @@ function PlayRoute() {
                 <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>play_arrow</span>
                 <span>Start Recitation</span>
               </button>
-              
-              <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold opacity-50">
-                Remembrance of Allah is the Greatest
-              </p>
+
+              <div className="flex flex-col gap-1">
+                <p className="text-[10px] text-muted-foreground leading-relaxed max-w-[280px]">
+                  Note: Browsers require a manual click to enable high-fidelity audio playback.
+                </p>
+                <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold opacity-50">
+                  Remembrance of Allah is the Greatest
+                </p>
+              </div>
             </motion.div>
           </motion.div>
         )}
