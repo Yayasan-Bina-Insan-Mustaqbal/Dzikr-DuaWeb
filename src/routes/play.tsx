@@ -48,7 +48,6 @@ function PlayRoute() {
   const [searchResults, setSearchResults] = useState<SearchResults>({ chapters: [], invocations: [] })
   const [showQueue, setShowQueue] = useState(true)
   const [showSearch, setShowSearch] = useState(true)
-  const [showBrowse, setShowBrowse] = useState(false)
   const [showVersionDropdown, setShowVersionDropdown] = useState(false)
   const [showSettingsDropdown, setShowSettingsDropdown] = useState(false)
   const [showThemeSelector, setShowThemeSelector] = useState(false)
@@ -481,12 +480,11 @@ function PlayRoute() {
       {/* Mobile Overlay Backdrop */}
       <div 
         className={`fixed inset-0 bg-background/80 backdrop-blur-sm z-[90] lg:hidden transition-opacity duration-300 ${
-          showQueue || showSearch || showBrowse ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          showQueue || showSearch ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         onClick={() => {
           setShowQueue(false)
           setShowSearch(false)
-          setShowBrowse(false)
         }}
       />
 
@@ -500,7 +498,7 @@ function PlayRoute() {
               animate={{ width: 320, opacity: 1, x: 0 }}
               exit={{ width: 0, opacity: 0, x: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="flex flex-col bg-card border-l border-border z-10 shadow-[0_0_20px_rgba(0,0,0,0.05)] overflow-visible relative"
+              className="flex flex-col bg-card border-l border-border z-10 shadow-[0_0_20px_rgba(0,0,0,0.05)] overflow-visible relative h-full"
             >
               {/* Tab Ear (Mobile Close Button) */}
               <button 
@@ -510,23 +508,17 @@ function PlayRoute() {
                 <span className="material-symbols-outlined">chevron_right</span>
               </button>
 
-              <div className="p-5 border-b border-border flex flex-col gap-5">
+              <div className="p-5 border-b border-border flex flex-col gap-5 flex-shrink-0">
                 {/* Sidebar Switcher (Mobile/Tablet focus) */}
                 <div className="flex items-center gap-1 bg-muted/30 p-1 rounded-xl lg:hidden">
                   <button 
-                    onClick={() => { setShowQueue(true); setShowSearch(false); setShowBrowse(false); }}
+                    onClick={() => { setShowQueue(true); setShowSearch(false); }}
                     className={`flex-1 py-2 text-[10px] font-bold uppercase tracking-wider rounded-lg transition-all ${showQueue ? 'bg-card text-primary shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
                   >
                     Queue
                   </button>
                   <button 
-                    onClick={() => { setShowBrowse(true); setShowQueue(false); setShowSearch(false); }}
-                    className={`flex-1 py-2 text-[10px] font-bold uppercase tracking-wider rounded-lg transition-all ${showBrowse ? 'bg-card text-primary shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
-                  >
-                    Browse
-                  </button>
-                  <button 
-                    onClick={() => { setShowSearch(true); setShowQueue(false); setShowBrowse(false); }}
+                    onClick={() => { setShowSearch(true); setShowQueue(false); }}
                     className={`flex-1 py-2 text-[10px] font-bold uppercase tracking-wider rounded-lg transition-all ${showSearch ? 'bg-card text-primary shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
                   >
                     Search
@@ -679,40 +671,58 @@ function PlayRoute() {
               </div>
               
               {/* Queue list */}
-              <div className="p-5 pb-3 border-b border-border flex items-center justify-between">
+              <div className="p-5 pb-3 border-b border-border flex items-center justify-between flex-shrink-0">
                 <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">Up Next</h2>
                 <div className="flex items-center gap-1">
-                  <button 
-                    onClick={async () => {
-                      const shareData = {
-                        title: 'Dzikr & Dua Playlist',
-                        text: `Check out this remembrance playlist: ${currentDua?.chapter_name || 'My Playlist'}`,
-                        url: window.location.href,
-                      };
-                      
-                      if (navigator.share && navigator.canShare?.(shareData)) {
-                        try {
-                          await navigator.share(shareData);
-                        } catch (err) {
-                          if ((err as Error).name !== 'AbortError') {
-                            console.error('Error sharing:', err);
+                  <div className="relative">
+                    <button 
+                      onClick={async () => {
+                        const shareData = {
+                          title: 'Dzikr & Dua Playlist',
+                          text: `Check out this remembrance playlist: ${currentDua?.chapter_name || 'My Playlist'}`,
+                          url: window.location.href,
+                        };
+                        
+                        if (navigator.share && navigator.canShare?.(shareData)) {
+                          try {
+                            await navigator.share(shareData);
+                          } catch (err) {
+                            if ((err as Error).name !== 'AbortError') {
+                              console.error('Error sharing:', err);
+                            }
+                          }
+                        } else {
+                          try {
+                            await navigator.clipboard.writeText(window.location.href);
+                            setShowCopied(true);
+                            setTimeout(() => setShowCopied(false), 2000);
+                          } catch (err) {
+                            console.error('Failed to copy:', err);
                           }
                         }
-                      } else {
-                        // Fallback to clipboard
-                        try {
-                          await navigator.clipboard.writeText(window.location.href);
-                          // We could add a "Copied!" toast here if available
-                        } catch (err) {
-                          console.error('Failed to copy:', err);
-                        }
-                      }
-                    }}
-                    className="p-1.5 text-muted-foreground hover:text-primary transition-colors cursor-pointer rounded-lg hover:bg-primary/10"
-                    title="Share Playlist"
-                  >
-                    <span className="material-symbols-outlined text-lg">share</span>
-                  </button>
+                      }}
+                      className={`p-1.5 transition-all cursor-pointer rounded-lg ${showCopied ? 'text-emerald-500 bg-emerald-500/10' : 'text-muted-foreground hover:text-primary hover:bg-primary/10'}`}
+                      title={showCopied ? "Copied!" : "Share Playlist"}
+                    >
+                      <span className="material-symbols-outlined text-lg">
+                        {showCopied ? 'check_circle' : 'share'}
+                      </span>
+                    </button>
+                    
+                    <AnimatePresence>
+                      {showCopied && (
+                        <motion.div 
+                          initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                          animate={{ opacity: 1, y: -30, scale: 1 }}
+                          exit={{ opacity: 0, y: 10, scale: 0.9 }}
+                          className="absolute left-1/2 -translate-x-1/2 px-2 py-1 rounded-md bg-emerald-500 text-white text-[10px] font-bold whitespace-nowrap shadow-lg pointer-events-none"
+                        >
+                          Copied to clipboard!
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+
                   <button 
                     onClick={() => clearQueue()}
                     className="p-1.5 text-muted-foreground hover:text-destructive transition-colors cursor-pointer rounded-lg hover:bg-destructive/10"
@@ -722,7 +732,7 @@ function PlayRoute() {
                   </button>
                 </div>
               </div>
-              <div className="flex-1 overflow-y-auto p-3 flex flex-col gap-1.5 overflow-x-hidden">
+              <div className="flex-1 overflow-y-auto p-3 flex flex-col gap-1.5 overflow-x-hidden min-h-0 custom-scrollbar">
                 <AnimatePresence initial={false}>
                   {queue.map((item, idx) => {
                     const isNowPlaying = idx === nowPlayingIndex
@@ -808,39 +818,33 @@ function PlayRoute() {
 
         {/* Sidebar 2 - Search & Browse */}
         <AnimatePresence>
-          {(showSearch || showBrowse) && (
+          {showSearch && (
             <motion.aside 
               initial={{ width: 0, opacity: 0, x: 20 }}
               animate={{ width: 320, opacity: 1, x: 0 }}
               exit={{ width: 0, opacity: 0, x: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="flex flex-col bg-card border-l border-border z-10 shadow-[0_0_20px_rgba(0,0,0,0.05)] overflow-visible relative"
+              className="flex flex-col bg-card border-l border-border z-10 shadow-[0_0_20px_rgba(0,0,0,0.05)] overflow-visible relative h-full"
             >
               {/* Tab Ear (Mobile Close Button) */}
               <button 
-                onClick={() => { setShowSearch(false); setShowBrowse(false); }}
+                onClick={() => setShowSearch(false)}
                 className="absolute -left-10 top-24 w-10 h-16 bg-card border border-r-0 border-border rounded-l-2xl flex items-center justify-center text-muted-foreground hover:text-primary transition-all lg:hidden shadow-[-4px_0_10px_rgba(0,0,0,0.1)]"
               >
                 <span className="material-symbols-outlined">chevron_right</span>
               </button>
 
-              <div className="p-5 border-b border-border bg-card/50 flex flex-col gap-4">
+              <div className="p-5 border-b border-border bg-card/50 flex flex-col gap-4 flex-shrink-0">
                 {/* Sidebar Switcher (Mobile/Tablet focus) */}
                 <div className="flex items-center gap-1 bg-muted/30 p-1 rounded-xl lg:hidden">
                   <button 
-                    onClick={() => { setShowQueue(true); setShowSearch(false); setShowBrowse(false); }}
+                    onClick={() => { setShowQueue(true); setShowSearch(false); }}
                     className={`flex-1 py-2 text-[10px] font-bold uppercase tracking-wider rounded-lg transition-all ${showQueue ? 'bg-card text-primary shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
                   >
                     Queue
                   </button>
                   <button 
-                    onClick={() => { setShowBrowse(true); setShowQueue(false); setShowSearch(false); }}
-                    className={`flex-1 py-2 text-[10px] font-bold uppercase tracking-wider rounded-lg transition-all ${showBrowse ? 'bg-card text-primary shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
-                  >
-                    Browse
-                  </button>
-                  <button 
-                    onClick={() => { setShowSearch(true); setShowQueue(false); setShowBrowse(false); }}
+                    onClick={() => { setShowSearch(true); setShowQueue(false); }}
                     className={`flex-1 py-2 text-[10px] font-bold uppercase tracking-wider rounded-lg transition-all ${showSearch ? 'bg-card text-primary shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
                   >
                     Search
@@ -856,83 +860,83 @@ function PlayRoute() {
                     onChange={(e) => setSearchQuery(e.target.value)}
                   />
                 </div>
-                
-                <div className="flex-1 overflow-y-auto min-h-0 flex flex-col gap-1 pr-1 custom-scrollbar">
-                  {searchQuery.trim().length > 2 ? (
-                    <div className="flex flex-col gap-6">
-                      {/* Search Results */}
-                      {searchResults.chapters.length > 0 && (
-                        <div className="flex flex-col gap-3">
-                          <h3 className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-1">Playlists</h3>
-                          {searchResults.chapters.map(chapter => (
-                            <PlaylistCard key={chapter.id} chapter={chapter} />
-                          ))}
-                        </div>
-                      )}
-                      {searchResults.invocations.length > 0 && (
-                        <div className="flex flex-col gap-3">
-                          <h3 className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-1">Direct Results</h3>
-                          {searchResults.invocations.map(res => (
-                            <ZikrCard key={res.id} zikr={res} />
-                          ))}
-                        </div>
-                      )}
-                      {searchResults.chapters.length === 0 && searchResults.invocations.length === 0 && (
-                        <div className="flex flex-col items-center justify-center py-12 text-center">
-                          <span className="material-symbols-outlined text-4xl text-muted-foreground/30 mb-2">search_off</span>
-                          <p className="text-sm text-muted-foreground">No matches found.</p>
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    <div className="flex flex-col gap-1 pb-20">
-                      {/* Accordions */}
-                      <AccordionSection 
-                        id="suggested-playlists" 
-                        title="Suggested Playlists" 
-                        isOpen={openSections.includes('suggested-playlists')} 
-                        onToggle={() => toggleSection('suggested-playlists')}
-                      >
-                        {defaultSuggestions.suggestedPlaylists.map(chapter => (
+              </div>
+              
+              <div className="flex-1 overflow-y-auto min-h-0 flex flex-col gap-1 pr-1 custom-scrollbar pb-20">
+                {searchQuery.trim().length > 2 ? (
+                  <div className="flex flex-col gap-6 p-4">
+                    {/* Search Results */}
+                    {searchResults.chapters.length > 0 && (
+                      <div className="flex flex-col gap-3">
+                        <h3 className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-1">Playlists</h3>
+                        {searchResults.chapters.map(chapter => (
                           <PlaylistCard key={chapter.id} chapter={chapter} />
                         ))}
-                      </AccordionSection>
-
-                      <AccordionSection 
-                        id="suggested-zikr" 
-                        title="Suggested Zikr" 
-                        isOpen={openSections.includes('suggested-zikr')} 
-                        onToggle={() => toggleSection('suggested-zikr')}
-                      >
-                        {defaultSuggestions.suggestedZikr.map(zikr => (
-                          <ZikrCard key={zikr.id} zikr={zikr} />
+                      </div>
+                    )}
+                    {searchResults.invocations.length > 0 && (
+                      <div className="flex flex-col gap-3">
+                        <h3 className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-1">Direct Results</h3>
+                        {searchResults.invocations.map(res => (
+                          <ZikrCard key={res.id} zikr={res} />
                         ))}
-                      </AccordionSection>
+                      </div>
+                    )}
+                    {searchResults.chapters.length === 0 && searchResults.invocations.length === 0 && (
+                      <div className="flex flex-col items-center justify-center py-12 text-center">
+                        <span className="material-symbols-outlined text-4xl text-muted-foreground/30 mb-2">search_off</span>
+                        <p className="text-sm text-muted-foreground">No matches found.</p>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <div className="flex flex-col gap-0">
+                    {/* Accordions */}
+                    <AccordionSection 
+                      id="suggested-playlists" 
+                      title="Suggested Playlists" 
+                      isOpen={openSections.includes('suggested-playlists')} 
+                      onToggle={() => toggleSection('suggested-playlists')}
+                    >
+                      {defaultSuggestions.suggestedPlaylists.map(chapter => (
+                        <PlaylistCard key={chapter.id} chapter={chapter} />
+                      ))}
+                    </AccordionSection>
 
-                      <AccordionSection 
-                        id="all-playlists" 
-                        title="All Playlists" 
-                        isOpen={openSections.includes('all-playlists')} 
-                        onToggle={() => toggleSection('all-playlists')}
-                      >
-                        {defaultSuggestions.allPlaylists.map(chapter => (
-                          <PlaylistCard key={chapter.id} chapter={chapter} />
-                        ))}
-                      </AccordionSection>
+                    <AccordionSection 
+                      id="suggested-zikr" 
+                      title="Suggested Zikr" 
+                      isOpen={openSections.includes('suggested-zikr')} 
+                      onToggle={() => toggleSection('suggested-zikr')}
+                    >
+                      {defaultSuggestions.suggestedZikr.map(zikr => (
+                        <ZikrCard key={zikr.id} zikr={zikr} />
+                      ))}
+                    </AccordionSection>
 
-                      <AccordionSection 
-                        id="all-zikr" 
-                        title="All Zikr" 
-                        isOpen={openSections.includes('all-zikr')} 
-                        onToggle={() => toggleSection('all-zikr')}
-                      >
-                        {defaultSuggestions.allZikr.map(zikr => (
-                          <ZikrCard key={zikr.id} zikr={zikr} />
-                        ))}
-                      </AccordionSection>
-                    </div>
-                  )}
-                </div>
+                    <AccordionSection 
+                      id="all-playlists" 
+                      title="All Playlists" 
+                      isOpen={openSections.includes('all-playlists')} 
+                      onToggle={() => toggleSection('all-playlists')}
+                    >
+                      {defaultSuggestions.allPlaylists.map(chapter => (
+                        <PlaylistCard key={chapter.id} chapter={chapter} />
+                      ))}
+                    </AccordionSection>
+
+                    <AccordionSection 
+                      id="all-zikr" 
+                      title="All Zikr" 
+                      isOpen={openSections.includes('all-zikr')} 
+                      onToggle={() => toggleSection('all-zikr')}
+                    >
+                      {defaultSuggestions.allZikr.map(zikr => (
+                        <ZikrCard key={zikr.id} zikr={zikr} />
+                      ))}
+                    </AccordionSection>
+                  </div>
+                )}
               </div>
             </motion.aside>
           )}
