@@ -4,6 +4,7 @@ export interface Invocation {
   arabic: string;
   latin: string;
   albanian: string;
+  indonesian?: string;
   reference: string;
   name?: string;
   english?: string;

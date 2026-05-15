@@ -385,6 +385,7 @@ function PlayRoute() {
                     </DropdownMenuSubTrigger>
                     <DropdownMenuSubContent className="w-40">
                       {[
+                        { id: 'auto', name: 'Auto', color: 'bg-gradient-to-tr from-zinc-900 to-zinc-100 border' },
                         { id: 'light', name: 'Light', color: 'bg-white border' },
                         { id: 'dark', name: 'Dark', color: 'bg-zinc-900' },
                         { id: 'sepia', name: 'Sepia', color: 'bg-[#f4ecd8]' },

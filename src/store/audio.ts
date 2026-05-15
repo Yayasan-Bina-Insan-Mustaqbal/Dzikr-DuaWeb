@@ -12,7 +12,7 @@ interface AudioState {
   selectedVersion: string;
   translationLang: 'none' | 'english' | 'indonesian' | 'albanian';
   transliterationLang: 'none' | 'latin';
-  theme: 'light' | 'dark' | 'sepia' | 'emerald';
+  theme: 'auto' | 'light' | 'dark' | 'sepia' | 'emerald';
   setQueue: (queue: Invocation[], shouldPlay?: boolean) => void;
   play: (index: number) => void;
   next: () => void;
@@ -25,11 +25,42 @@ interface AudioState {
   setSelectedVersion: (version: string) => void;
   setTranslationLang: (lang: 'none' | 'english' | 'indonesian' | 'albanian') => void;
   setTransliterationLang: (lang: 'none' | 'latin') => void;
-  setTheme: (theme: 'light' | 'dark' | 'sepia' | 'emerald') => void;
+  setTheme: (theme: 'auto' | 'light' | 'dark' | 'sepia' | 'emerald') => void;
   seek: (time: number) => void;
   clearQueue: () => void;
   addToQueue: (items: Invocation[]) => void;
   removeFromQueue: (index: number) => void;
+}
+
+const applyTheme = (theme: 'auto' | 'light' | 'dark' | 'sepia' | 'emerald') => {
+  if (typeof window === 'undefined') return;
+
+  const root = document.documentElement;
+  const isDark = theme === 'dark' || (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  
+  // Manage .dark class for Tailwind
+  if (isDark) {
+    root.classList.add('dark');
+  } else {
+    root.classList.remove('dark');
+  }
+  
+  // Manage data-theme attribute
+  if (theme === 'auto') {
+    root.removeAttribute('data-theme');
+  } else {
+    root.setAttribute('data-theme', theme);
+  }
+};
+
+// Listen for system theme changes
+if (typeof window !== 'undefined') {
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    const currentTheme = useAudioStore.getState().theme;
+    if (currentTheme === 'auto') {
+      applyTheme('auto');
+    }
+  });
 }
 
 export const useAudioStore = create<AudioState>((set) => ({
@@ -43,7 +74,7 @@ export const useAudioStore = create<AudioState>((set) => ({
   selectedVersion: 'default',
   translationLang: 'english',
   transliterationLang: 'latin',
-  theme: 'dark',
+  theme: 'auto',
 
   setQueue: (queue, shouldPlay = true) => set({ 
     queue: queue.map(item => ({...item, queueId: item.queueId || Math.random().toString(36).substring(2, 9)})), 
@@ -99,7 +130,7 @@ export const useAudioStore = create<AudioState>((set) => ({
   setTransliterationLang: (transliterationLang) => set({ transliterationLang }),
   setTheme: (theme) => {
     set({ theme });
-    document.documentElement.setAttribute('data-theme', theme);
+    applyTheme(theme);
   },
   seek: (time) => set({ currentTime: time }),
   

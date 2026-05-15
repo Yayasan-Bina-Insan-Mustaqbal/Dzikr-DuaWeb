@@ -40,8 +40,13 @@ export const Route = createRootRoute({
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   const { queue: compressedQueue, idx } = Route.useSearch()
-  const { setQueue, queue: currentQueue, nowPlayingIndex, play } = useAudioStore()
+  const { setQueue, queue: currentQueue, nowPlayingIndex, play, theme, setTheme } = useAudioStore()
   const navigate = useNavigate()
+
+  // Apply theme on mount and whenever it changes
+  useEffect(() => {
+    setTheme(theme)
+  }, [])
 
   // Sync URL -> Store
   useEffect(() => {
@@ -86,7 +91,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
   }, [currentQueue, nowPlayingIndex])
 
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <HeadContent />
       </head>
@@ -94,7 +99,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <Outlet />
         <AudioPlayer />
         <TanStackDevtools
-          config={{ position: "bottom-right" }}
+          config={{ position: "bottom-left" }}
           plugins={[
             { name: "Tanstack Router", render: <TanStackRouterDevtoolsPanel /> },
           ]}
