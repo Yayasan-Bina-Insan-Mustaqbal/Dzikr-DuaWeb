@@ -23,7 +23,6 @@ INVOCATIONS   = PROJECT_ROOT / "public" / "invocations.json"
 OUTPUT_REPORT = PROJECT_ROOT / "log" / "11. Audio vs Data Verification.md"
 WHISPER_MODEL = "small"          # change to "medium" for higher accuracy
 MIN_AUDIO_BYTES = 500            # skip stub/empty mp3 files (e.g. 133_*.mp3 = 10 bytes)
-CACHE_FILE    = PROJECT_ROOT / "scripts" / "audio_check" / "stt_cache.json"
 
 
 def strip_arabic_diacritics(text: str) -> str:
@@ -55,27 +54,6 @@ def score_label(score: float) -> str:
         return "❌ Mismatch"
     else:
         return "🔇 No Audio"
-
-
-def suggest_better_name(original_name: str, arabic_text: str) -> str:
-    """If original name has numbers, extract first few words of Arabic text for a better name."""
-    # Check for numbers in the original name
-    has_number = any(char.isdigit() for char in original_name)
-    if not has_number:
-        return original_name
-    
-    clean_arabic = strip_arabic_diacritics(arabic_text)
-    words = clean_arabic.split()
-    if not words:
-        return original_name
-        
-    # Take first 4 words as a "special name"
-    better_name = " ".join(words[:4])
-    # If it's too short, maybe add the original context
-    if len(words) < 2:
-        return original_name
-        
-    return better_name
 
 
 def load_invocations():
@@ -111,6 +89,7 @@ def load_invocations():
 def transcribe_audio(model, audio_path: Path) -> str:
     """Transcribe audio and return joined Arabic text."""
     try:
+        from faster_whisper import WhisperModel
         segments, info = model.transcribe(
             str(audio_path),
             language="ar",       # Force Arabic recognition
@@ -123,37 +102,16 @@ def transcribe_audio(model, audio_path: Path) -> str:
         return f"[ERROR: {e}]"
 
 
-def get_file_hash(path: Path) -> str:
-    """Simple hash of file size and mtime to detect changes."""
-    stat = path.stat()
-    return f"{stat.st_size}_{stat.st_mtime}"
-
-
 def main():
-    # Load cache
-    cache = {}
-    if CACHE_FILE.exists():
-        try:
-            with open(CACHE_FILE, "r", encoding="utf-8") as f:
-                cache = json.load(f)
-        except:
-            pass
-
-    # Load model (only if needed)
-    model = None
-    
-    def get_model():
-        nonlocal model
-        if model is None:
-            print("Loading faster-whisper model...", flush=True)
-            try:
-                from faster_whisper import WhisperModel
-                model = WhisperModel(WHISPER_MODEL, device="cpu", compute_type="int8")
-                print(f"Model '{WHISPER_MODEL}' loaded.", flush=True)
-            except ImportError:
-                print("ERROR: faster-whisper not installed. Run: pip install faster-whisper")
-                sys.exit(1)
-        return model
+    # Load model
+    print("Loading faster-whisper model...", flush=True)
+    try:
+        from faster_whisper import WhisperModel
+        model = WhisperModel(WHISPER_MODEL, device="cpu", compute_type="int8")
+        print(f"Model '{WHISPER_MODEL}' loaded.", flush=True)
+    except ImportError:
+        print("ERROR: faster-whisper not installed. Run: pip install faster-whisper")
+        sys.exit(1)
 
     # Load data
     records = load_invocations()
@@ -161,12 +119,12 @@ def main():
     print(f"Loaded {total} invocations from invocations.json", flush=True)
 
     results = []
-    cache_updated = False
-    
     for i, rec in enumerate(records, 1):
         audio_path = rec["audio_file"]
         audio_name = audio_path.name
-        
+
+        print(f"[{i:3d}/{total}] {audio_name} — {rec['name'][:50]}", flush=True)
+
         # Check file exists & is not a stub
         if not audio_path.exists():
             stt_text = "[FILE NOT FOUND]"
@@ -177,28 +135,13 @@ def main():
             score    = 0.0
             label    = "🔇 No Audio"
         else:
-            # Check cache
-            fhash = get_file_hash(audio_path)
-            if audio_name in cache and cache[audio_name].get("hash") == fhash:
-                stt_text = cache[audio_name]["text"]
-                # print(f"[{i:3d}/{total}] {audio_name} — (Cached)", flush=True)
-            else:
-                print(f"[{i:3d}/{total}] {audio_name} — Transcribing...", flush=True)
-                stt_text = transcribe_audio(get_model(), audio_path)
-                cache[audio_name] = {"hash": fhash, "text": stt_text}
-                cache_updated = True
-            
+            stt_text = transcribe_audio(model, audio_path)
             score    = similarity_score(stt_text, rec["arabic"])
             label    = score_label(score)
-            # pct      = f"{score*100:.1f}%"
-            # print(f"         Score: {pct} — {label}", flush=True)
+            pct      = f"{score*100:.1f}%"
+            print(f"         Score: {pct} — {label}", flush=True)
 
-        better_name = suggest_better_name(rec["name"], rec["arabic"])
-        results.append({**rec, "stt": stt_text, "score": score, "label": label, "better_name": better_name})
-
-    if cache_updated:
-        with open(CACHE_FILE, "w", encoding="utf-8") as f:
-            json.dump(cache, f, ensure_ascii=False, indent=2)
+        results.append({**rec, "stt": stt_text, "score": score, "label": label})
 
     # ── Build Markdown report ─────────────────────────────────────────────────
     OUTPUT_REPORT.parent.mkdir(parents=True, exist_ok=True)
@@ -223,8 +166,8 @@ def main():
         f.write(f"| 🔇 No Audio / Stub | {noaudio_count} |\n\n")
 
         f.write("## Full Verification Table\n\n")
-        f.write("| # | Audio File | Chapter | Invocation Name | Better Invocation Name | Arabic (Data) | STT Result | Score | Status |\n")
-        f.write("|---|-----------|---------|-----------------|------------------------|---------------|------------|-------|--------|\n")
+        f.write("| # | Audio File | Chapter | Invocation Name | Arabic (Data) | STT Result | Score | Status |\n")
+        f.write("|---|-----------|---------|-----------------|---------------|------------|-------|--------|\n")
 
         for i, r in enumerate(results, 1):
             arabic_short = r["arabic"][:120].replace("|", "\\|").replace("\n", " ")
@@ -238,7 +181,6 @@ def main():
                 f"| `{r['audio_rel']}` "
                 f"| {chapter_safe} "
                 f"| {name_safe} "
-                f"| {r['better_name']} "
                 f"| {arabic_short} "
                 f"| {stt_short} "
                 f"| {score_pct} "
