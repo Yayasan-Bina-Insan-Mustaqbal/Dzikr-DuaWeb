@@ -63,6 +63,29 @@ if (typeof window !== 'undefined') {
   });
 }
 
+const getInitialLanguage = (): 'english' | 'indonesian' | 'albanian' => {
+  if (typeof window === 'undefined') return 'english';
+  
+  const lang = navigator.language.toLowerCase();
+  if (lang.startsWith('id')) return 'indonesian';
+  if (lang.startsWith('sq')) return 'albanian';
+  
+  // Secondary check: Timezone for country-based detection
+  try {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if (tz.startsWith('Asia/Jakarta') || tz.startsWith('Asia/Makassar') || tz.startsWith('Asia/Jayapura')) {
+      return 'indonesian';
+    }
+    if (tz.startsWith('Europe/Tirane')) {
+      return 'albanian';
+    }
+  } catch (e) {
+    // Ignore
+  }
+  
+  return 'english';
+};
+
 export const useAudioStore = create<AudioState>((set) => ({
   queue: [],
   nowPlayingIndex: -1,
@@ -72,7 +95,7 @@ export const useAudioStore = create<AudioState>((set) => ({
   bufferedTime: 0,
   repeatMode: 'off',
   selectedVersion: 'default',
-  translationLang: 'english',
+  translationLang: getInitialLanguage(),
   transliterationLang: 'latin',
   theme: 'auto',
 
