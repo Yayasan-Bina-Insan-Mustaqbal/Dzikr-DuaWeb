@@ -432,7 +432,7 @@ function PlayRoute() {
           <div 
             ref={carouselRef}
             onScroll={handleCarouselScroll}
-            className="flex-1 max-w-4xl w-full mx-auto flex flex-col relative z-10 snap-y snap-mandatory pt-[30vh] pb-[50vh] gap-[10vh] px-6 md:px-12"
+            className="flex-1 max-w-4xl w-full mx-auto flex flex-col relative z-10 snap-y snap-mandatory pt-[15vh] pb-[25vh] gap-[5vh] px-6 md:px-12"
           >
             {queue.map((dua, idx) => {
               const isActive = idx === nowPlayingIndex
