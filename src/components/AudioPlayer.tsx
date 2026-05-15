@@ -16,6 +16,8 @@ export function AudioPlayer() {
     setBufferedTime
   } = useAudioStore()
   const audioRef = useRef<HTMLAudioElement>(null)
+  const lastSrcRef = useRef<string>("")
+  const isFadingRef = useRef<boolean>(false)
 
   const currentDua = queue[nowPlayingIndex]
   
@@ -26,18 +28,64 @@ export function AudioPlayer() {
       : currentDua.audio
   ) : ""
 
-  // Handle Play/Pause
+  // Handle source changes with fade-out
   useEffect(() => {
-    if (audioRef.current && currentDua) {
-      if (isPlaying) {
-        audioRef.current.play().catch(e => console.error("Playback failed", e))
+    const handleSrcChange = async () => {
+      if (!audioRef.current) return
+      
+      const audio = audioRef.current
+      const newSrc = audioSrc
+      
+      // If already playing and src changes, fade out first
+      if (lastSrcRef.current && lastSrcRef.current !== newSrc && !audio.paused && !isFadingRef.current) {
+        isFadingRef.current = true
+        const startVolume = audio.volume
+        const fadeDuration = 300 // ms
+        const steps = 20
+        const volumeStep = startVolume / steps
+        
+        for (let i = 0; i < steps; i++) {
+          await new Promise(r => setTimeout(r, fadeDuration / steps))
+          audio.volume = Math.max(0, audio.volume - volumeStep)
+        }
+        
+        audio.pause()
+        audio.src = newSrc
+        audio.volume = startVolume
+        isFadingRef.current = false
+        
+        if (isPlaying) {
+          audio.play().catch(e => console.error("Playback failed after fade", e))
+        }
       } else {
-        audioRef.current.pause()
+        audio.src = newSrc
+        if (isPlaying) {
+          audio.play().catch(e => console.error("Playback failed", e))
+        }
+      }
+      
+      lastSrcRef.current = newSrc
+    }
+
+    handleSrcChange()
+  }, [audioSrc, isPlaying])
+
+  // Handle Play/Pause (simple toggle if src is same)
+  useEffect(() => {
+    if (audioRef.current && audioRef.current.src.includes(audioSrc)) {
+      if (isPlaying) {
+        if (audioRef.current.paused && !isFadingRef.current) {
+          audioRef.current.play().catch(e => console.error("Play failed", e))
+        }
+      } else {
+        if (!audioRef.current.paused) {
+          audioRef.current.pause()
+        }
       }
     }
-  }, [currentDua, isPlaying])
+  }, [isPlaying, audioSrc])
 
-  // Handle Seeking (when currentTime in store is updated from outside)
+  // Handle Seeking
   useEffect(() => {
     if (audioRef.current && Math.abs(audioRef.current.currentTime - currentTime) > 1) {
       audioRef.current.currentTime = currentTime
@@ -45,7 +93,7 @@ export function AudioPlayer() {
   }, [currentTime])
 
   const handleTimeUpdate = () => {
-    if (audioRef.current) {
+    if (audioRef.current && !isFadingRef.current) {
       setCurrentTime(audioRef.current.currentTime)
     }
   }
@@ -77,7 +125,6 @@ export function AudioPlayer() {
   return (
     <audio
       ref={audioRef}
-      src={audioSrc}
       onTimeUpdate={handleTimeUpdate}
       onLoadedMetadata={handleLoadedMetadata}
       onProgress={handleProgress}
