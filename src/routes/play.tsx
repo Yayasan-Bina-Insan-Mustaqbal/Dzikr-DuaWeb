@@ -857,7 +857,7 @@ function PlayRoute() {
                   />
                 </div>
                 
-                <div className="flex-1 overflow-y-auto flex flex-col gap-1 pr-1 custom-scrollbar">
+                <div className="flex-1 overflow-y-auto min-h-0 flex flex-col gap-1 pr-1 custom-scrollbar">
                   {searchQuery.trim().length > 2 ? (
                     <div className="flex flex-col gap-6">
                       {/* Search Results */}
