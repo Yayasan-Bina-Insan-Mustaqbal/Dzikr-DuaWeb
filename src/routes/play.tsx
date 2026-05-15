@@ -57,6 +57,17 @@ function PlayRoute() {
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null)
   const isProgrammaticScroll = useRef(false)
   const [showWelcomeModal, setShowWelcomeModal] = useState(true)
+  const [showCopied, setShowCopied] = useState(false)
+  
+  // Accordion state
+  const [openSections, setOpenSections] = useState<string[]>(['suggested-playlists', 'suggested-zikr'])
+  
+  const toggleSection = (id: string) => {
+    setOpenSections(prev => 
+      prev.includes(id) ? prev.filter(s => s !== id) : [...prev, id]
+    )
+  }
+
   const currentDua = queue[nowPlayingIndex]
 
   // Auto-populate queue based on time of day if it's empty
@@ -157,24 +168,34 @@ function PlayRoute() {
 
   const defaultSuggestions = useMemo(() => {
     const allChapters = getChapters()
+    const curatedIds = [27, 133, 96, 1, 28]
     
-    // Curated suggestions
-    const morning = allChapters.find(c => c.id === 27)
-    const evening = allChapters.find(c => c.id === 133)
-    const travel = allChapters.find(c => c.id === 96)
-    const wakingUp = allChapters.find(c => c.id === 1)
-    const sleeping = allChapters.find(c => c.id === 28)
+    const suggestedPlaylists = curatedIds
+      .map(id => allChapters.find(c => c.id === id))
+      .filter(Boolean) as Chapter[]
     
-    const curatedChapters = [morning, evening, travel, wakingUp, sleeping].filter(Boolean) as Chapter[]
+    const allPlaylists = allChapters.filter(c => !curatedIds.includes(c.id))
     
-    const randomDuas = []
+    const suggestedZikr: Invocation[] = []
+    const allZikr: Invocation[] = []
+    
     for (const c of allChapters) {
-      if (c.invocations.length > 0 && !curatedChapters.includes(c)) {
-        randomDuas.push({ ...c.invocations[0], chapter_name: c.chapter_name })
-        if (randomDuas.length >= 4) break
+      if (c.invocations.length > 0) {
+        const chapterZikr = c.invocations.map(i => ({ ...i, chapter_name: c.chapter_name }))
+        if (curatedIds.includes(c.id)) {
+          suggestedZikr.push(...chapterZikr)
+        } else {
+          allZikr.push(...chapterZikr)
+        }
       }
     }
-    return { chapters: curatedChapters, invocations: randomDuas }
+    
+    return { 
+      suggestedPlaylists, 
+      suggestedZikr: suggestedZikr.slice(0, 10),
+      allPlaylists,
+      allZikr 
+    }
   }, [])
 
   const formatTime = (time: number) => {
@@ -192,13 +213,11 @@ function PlayRoute() {
   }, [searchQuery])
 
   const formatArabic = (text: string) => {
-    // Basic logic to highlight matan: de-emphasize brackets/parentheses
     const parts = text.split(/([\[\]\(\)])/);
     return parts.map((part, i) => {
       if (['[', ']', '(', ')'].includes(part)) {
         return <span key={i} className="opacity-30 text-[0.8em] font-sans">{part}</span>;
       }
-      // If it's inside parentheses/brackets (very simple heuristic)
       const prev = parts[i-1];
       const next = parts[i+1];
       if ((prev === '(' || prev === '[') && (next === ')' || next === ']')) {
@@ -838,126 +857,167 @@ function PlayRoute() {
                   />
                 </div>
                 
-                <div className="flex-1 overflow-y-auto flex flex-col gap-6 pr-1 custom-scrollbar">
-                  {/* Render Results or Suggestions based on search query */}
-                  {(() => {
-                    const isSearching = searchQuery.trim().length > 2;
-                    const displayData = isSearching ? searchResults : defaultSuggestions;
-                    const showPlaylists = displayData.chapters.length > 0;
-                    const showDuas = displayData.invocations.length > 0;
-                    
-                    if (showBrowse) {
-                      const allChapters = getChapters()
-                      return (
+                <div className="flex-1 overflow-y-auto flex flex-col gap-1 pr-1 custom-scrollbar">
+                  {searchQuery.trim().length > 2 ? (
+                    <div className="flex flex-col gap-6">
+                      {/* Search Results */}
+                      {searchResults.chapters.length > 0 && (
                         <div className="flex flex-col gap-3">
-                          <h3 className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-1">Library</h3>
-                          <div className="flex flex-col gap-1.5 pb-20">
-                            {allChapters.map((chapter) => (
-                              <div key={`browse-${chapter.id}`} className="group flex items-center justify-between p-3 rounded-xl bg-card border border-border/50 hover:border-primary/30 hover:bg-muted/50 transition-all cursor-pointer shadow-sm">
-                                <div className="flex-1 min-w-0" onClick={() => setQueue(chapter.invocations)}>
-                                  <h4 className="text-sm font-semibold text-foreground truncate">{chapter.chapter_name}</h4>
-                                  <p className="text-[11px] text-muted-foreground">{chapter.invocations.length} Duas</p>
-                                </div>
-                                <div className="flex items-center gap-1.5 flex-shrink-0">
-                                  <button 
-                                    onClick={() => setQueue(chapter.invocations)}
-                                    className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all"
-                                    title="Play Playlist"
-                                  >
-                                    <span className="material-symbols-outlined text-lg">playlist_play</span>
-                                  </button>
-                                  <button 
-                                    onClick={() => addToQueue(chapter.invocations)}
-                                    className="w-8 h-8 rounded-lg bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all flex items-center justify-center"
-                                    title="Add to Queue"
-                                  >
-                                    <span className="material-symbols-outlined text-lg">add</span>
-                                  </button>
-                                </div>
-                              </div>
-                            ))}
-                          </div>
+                          <h3 className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-1">Playlists</h3>
+                          {searchResults.chapters.map(chapter => (
+                            <PlaylistCard key={chapter.id} chapter={chapter} />
+                          ))}
                         </div>
-                      )
-                    }
-
-                    if (isSearching && !showPlaylists && !showDuas) {
-                      return (
+                      )}
+                      {searchResults.invocations.length > 0 && (
+                        <div className="flex flex-col gap-3">
+                          <h3 className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-1">Direct Results</h3>
+                          {searchResults.invocations.map(res => (
+                            <ZikrCard key={res.id} zikr={res} />
+                          ))}
+                        </div>
+                      )}
+                      {searchResults.chapters.length === 0 && searchResults.invocations.length === 0 && (
                         <div className="flex flex-col items-center justify-center py-12 text-center">
                           <span className="material-symbols-outlined text-4xl text-muted-foreground/30 mb-2">search_off</span>
-                          <p className="text-sm text-muted-foreground">No matches found for your search.</p>
+                          <p className="text-sm text-muted-foreground">No matches found.</p>
                         </div>
-                      )
-                    }
+                      )}
+                    </div>
+                  ) : (
+                    <div className="flex flex-col gap-1 pb-20">
+                      {/* Accordions */}
+                      <AccordionSection 
+                        id="suggested-playlists" 
+                        title="Suggested Playlists" 
+                        isOpen={openSections.includes('suggested-playlists')} 
+                        onToggle={() => toggleSection('suggested-playlists')}
+                      >
+                        {defaultSuggestions.suggestedPlaylists.map(chapter => (
+                          <PlaylistCard key={chapter.id} chapter={chapter} />
+                        ))}
+                      </AccordionSection>
 
-                    return (
-                      <>
-                        {showPlaylists && (
-                          <div className="flex flex-col gap-3">
-                            <h3 className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-1">
-                              {isSearching ? "Playlists" : "Suggested Playlists"}
-                            </h3>
-                            <div className="flex flex-col gap-1.5">
-                              {displayData.chapters.map((chapter) => (
-                                <div key={`ch-${chapter.id}`} className="group flex items-center justify-between p-3 rounded-xl bg-card border border-border/50 hover:border-primary/30 hover:bg-muted/50 transition-all cursor-pointer shadow-sm">
-                                  <div className="flex-1 min-w-0" onClick={() => setQueue(chapter.invocations)}>
-                                    <h4 className="text-sm font-semibold text-foreground truncate">{chapter.chapter_name}</h4>
-                                    <p className="text-[11px] text-muted-foreground">{chapter.invocations.length} Duas</p>
-                                  </div>
-                                  <div className="flex items-center gap-1.5 flex-shrink-0">
-                                    <button 
-                                      onClick={() => setQueue(chapter.invocations)}
-                                      className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all"
-                                      title="Play Playlist"
-                                    >
-                                      <span className="material-symbols-outlined text-lg">playlist_play</span>
-                                    </button>
-                                    <button 
-                                      onClick={() => addToQueue(chapter.invocations)}
-                                      className="w-8 h-8 rounded-lg bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all flex items-center justify-center"
-                                      title="Add to Queue"
-                                    >
-                                      <span className="material-symbols-outlined text-lg">add</span>
-                                    </button>
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        )}
+                      <AccordionSection 
+                        id="suggested-zikr" 
+                        title="Suggested Zikr" 
+                        isOpen={openSections.includes('suggested-zikr')} 
+                        onToggle={() => toggleSection('suggested-zikr')}
+                      >
+                        {defaultSuggestions.suggestedZikr.map(zikr => (
+                          <ZikrCard key={zikr.id} zikr={zikr} />
+                        ))}
+                      </AccordionSection>
 
-                        {showDuas && (
-                          <div className="flex flex-col gap-3">
-                            <h3 className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-1">
-                              {isSearching ? "Direct Results" : "Suggested Duas"}
-                            </h3>
-                            <div className="flex flex-col gap-1.5">
-                              {displayData.invocations.map((res) => (
-                                <div key={`inv-${res.id}`} className="group flex items-center justify-between p-3 rounded-xl hover:bg-muted/50 transition-all cursor-pointer border border-transparent hover:border-border/50">
-                                  <div className="flex-1 min-w-0" onClick={() => setQueue([res])}>
-                                    <h4 className="text-sm font-medium text-foreground truncate group-hover:text-primary transition-colors">{res.name || res.latin}</h4>
-                                    <p className="text-[11px] text-muted-foreground truncate">{res.chapter_name}</p>
-                                  </div>
-                                  <button 
-                                    onClick={() => addToQueue([res])}
-                                    className="w-8 h-8 rounded-lg bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all flex items-center justify-center flex-shrink-0"
-                                  >
-                                    <span className="material-symbols-outlined text-lg">add</span>
-                                  </button>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-                      </>
-                    )
-                  })()}
+                      <AccordionSection 
+                        id="all-playlists" 
+                        title="All Playlists" 
+                        isOpen={openSections.includes('all-playlists')} 
+                        onToggle={() => toggleSection('all-playlists')}
+                      >
+                        {defaultSuggestions.allPlaylists.map(chapter => (
+                          <PlaylistCard key={chapter.id} chapter={chapter} />
+                        ))}
+                      </AccordionSection>
+
+                      <AccordionSection 
+                        id="all-zikr" 
+                        title="All Zikr" 
+                        isOpen={openSections.includes('all-zikr')} 
+                        onToggle={() => toggleSection('all-zikr')}
+                      >
+                        {defaultSuggestions.allZikr.map(zikr => (
+                          <ZikrCard key={zikr.id} zikr={zikr} />
+                        ))}
+                      </AccordionSection>
+                    </div>
+                  )}
                 </div>
               </div>
             </motion.aside>
           )}
         </AnimatePresence>
       </div>
+    </div>
+  )
+}
+
+// Helper Components for Accordion and Cards
+function AccordionSection({ id, title, isOpen, onToggle, children }: { id: string, title: string, isOpen: boolean, onToggle: () => void, children: React.ReactNode }) {
+  return (
+    <div className="flex flex-col border-b border-border/30 last:border-0">
+      <button 
+        onClick={onToggle}
+        className="flex items-center justify-between p-4 hover:bg-muted/30 transition-colors group"
+      >
+        <span className={`text-[10px] font-bold uppercase tracking-widest transition-colors ${isOpen ? 'text-primary' : 'text-muted-foreground group-hover:text-foreground'}`}>
+          {title}
+        </span>
+        <span className={`material-symbols-outlined text-sm transition-transform duration-300 ${isOpen ? 'rotate-180 text-primary' : 'text-muted-foreground'}`}>
+          expand_more
+        </span>
+      </button>
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <div className="flex flex-col gap-1.5 p-3 pt-0">
+              {children}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}
+
+function PlaylistCard({ chapter }: { chapter: Chapter }) {
+  const { setQueue, addToQueue } = useAudioStore()
+  return (
+    <div className="group flex items-center justify-between p-3 rounded-xl bg-card border border-border/50 hover:border-primary/30 hover:bg-muted/50 transition-all cursor-pointer shadow-sm">
+      <div className="flex-1 min-w-0" onClick={() => setQueue(chapter.invocations)}>
+        <h4 className="text-sm font-semibold text-foreground truncate group-hover:text-primary transition-colors">{chapter.chapter_name}</h4>
+        <p className="text-[11px] text-muted-foreground">{chapter.invocations.length} Duas</p>
+      </div>
+      <div className="flex items-center gap-1.5 flex-shrink-0">
+        <button 
+          onClick={() => setQueue(chapter.invocations)}
+          className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all"
+          title="Play Playlist"
+        >
+          <span className="material-symbols-outlined text-lg">playlist_play</span>
+        </button>
+        <button 
+          onClick={() => addToQueue(chapter.invocations)}
+          className="w-8 h-8 rounded-lg bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all flex items-center justify-center"
+          title="Add to Queue"
+        >
+          <span className="material-symbols-outlined text-lg">add</span>
+        </button>
+      </div>
+    </div>
+  )
+}
+
+function ZikrCard({ zikr }: { zikr: Invocation }) {
+  const { setQueue, addToQueue } = useAudioStore()
+  return (
+    <div className="group flex items-center justify-between p-3 rounded-xl hover:bg-muted/50 transition-all cursor-pointer border border-transparent hover:border-border/50">
+      <div className="flex-1 min-w-0" onClick={() => setQueue([zikr])}>
+        <h4 className="text-sm font-medium text-foreground truncate group-hover:text-primary transition-colors">{zikr.name || zikr.latin}</h4>
+        <p className="text-[11px] text-muted-foreground truncate">{zikr.chapter_name}</p>
+      </div>
+      <button 
+        onClick={() => addToQueue([zikr])}
+        className="w-8 h-8 rounded-lg bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all flex items-center justify-center flex-shrink-0"
+      >
+        <span className="material-symbols-outlined text-lg">add</span>
+      </button>
     </div>
   )
 }
