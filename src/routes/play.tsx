@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo, useRef } from "react"
 import { searchDhikr, type SearchResults } from "../lib/search"
 import type { Invocation, Chapter } from "../types/data"
 import { getChapters } from "../lib/data"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, Reorder } from "framer-motion"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -53,6 +53,7 @@ function PlayRoute() {
     seek, 
     clearQueue, 
     addToQueue,
+    reorderQueue,
     removeFromQueue 
   } = useAudioStore()
   const search = Route.useSearch()
@@ -732,72 +733,74 @@ function PlayRoute() {
                 </div>
               </div>
               <div className="flex-1 overflow-y-auto p-3 flex flex-col gap-1.5 overflow-x-hidden min-h-0 custom-scrollbar">
-                <AnimatePresence initial={false}>
-                  {queue.map((item, idx) => {
-                    const isNowPlaying = idx === nowPlayingIndex
-                    const isPlayed = idx < nowPlayingIndex
-                    const progressPct = isNowPlaying && duration > 0 ? (currentTime / duration) * 100 : 0
+                <Reorder.Group axis="y" values={queue} onReorder={reorderQueue} className="flex flex-col gap-1.5">
+                  <AnimatePresence initial={false}>
+                    {queue.map((item, idx) => {
+                      const isNowPlaying = idx === nowPlayingIndex
+                      const isPlayed = idx < nowPlayingIndex
+                      const progressPct = isNowPlaying && duration > 0 ? (currentTime / duration) * 100 : 0
 
-                    return (
-                      <motion.div
-                        key={item.queueId || `${item.id}-${idx}`}
-                        layout
-                        initial={{ opacity: 0, x: -20, height: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, x: 0, height: 'auto', scale: 1 }}
-                        exit={{ opacity: 0, x: 20, height: 0, scale: 0.95 }}
-                        transition={{ type: "spring", stiffness: 350, damping: 25 }}
-                        className={`flex items-center flex-shrink-0 gap-3 p-2.5 rounded-xl transition-colors cursor-pointer group relative overflow-hidden ${
-                          isNowPlaying ? 'bg-primary/10 border border-primary/20 shadow-sm' : 'hover:bg-muted border border-transparent'
-                        }`}
-                        onClick={() => play(idx)}
-                      >
-                        {/* Progress background for now playing */}
-                        {isNowPlaying && (
-                          <div 
-                            className="absolute inset-0 bg-primary/10 transition-all duration-300"
-                            style={{ width: `${progressPct}%` }}
-                          />
-                        )}
-
-                        {/* Status icon */}
-                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 relative z-10 ${
-                          isNowPlaying ? 'bg-primary text-primary-foreground' : 
-                          isPlayed ? 'bg-primary/10 text-primary' : 'bg-muted text-muted-foreground'
-                        }`}>
-                          {isNowPlaying ? (
-                            <span className="material-symbols-outlined text-lg" style={{ fontVariationSettings: "'FILL' 1" }}>graphic_eq</span>
-                          ) : isPlayed ? (
-                            <span className="material-symbols-outlined text-lg">check</span>
-                          ) : (
-                            <span className="material-symbols-outlined text-lg transition-transform group-hover:scale-110">play_arrow</span>
-                          )}
-                        </div>
-
-                        {/* Track info */}
-                        <div className="flex-1 min-w-0 relative z-10">
-                          <h4 className={`text-sm font-semibold truncate transition-colors ${
-                            isNowPlaying ? 'text-foreground' : 'text-foreground/80 group-hover:text-foreground'
-                          }`}>{item.name || item.latin}</h4>
-                          <p className={`text-xs truncate transition-colors ${
-                            isNowPlaying ? 'text-primary/80' : 'text-muted-foreground group-hover:text-foreground/60'
-                          }`}>{item.chapter_name}</p>
-                        </div>
-
-                        {/* Delete button — visible on hover */}
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            removeFromQueue(idx)
-                          }}
-                          className="relative z-10 w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 opacity-0 group-hover:opacity-100 transition-all text-muted-foreground hover:text-destructive hover:bg-destructive/10"
-                          title="Remove from queue"
+                      return (
+                        <Reorder.Item
+                          key={item.queueId || `${item.id}-${idx}`}
+                          value={item}
+                          initial={{ opacity: 0, x: -20, height: 0, scale: 0.95 }}
+                          animate={{ opacity: 1, x: 0, height: 'auto', scale: 1 }}
+                          exit={{ opacity: 0, x: 20, height: 0, scale: 0.95 }}
+                          transition={{ type: "spring", stiffness: 350, damping: 25 }}
+                          className={`flex items-center flex-shrink-0 gap-3 p-2.5 rounded-xl transition-colors cursor-grab active:cursor-grabbing group relative overflow-hidden ${
+                            isNowPlaying ? 'bg-primary/10 border border-primary/20 shadow-sm' : 'hover:bg-muted border border-transparent'
+                          }`}
+                          onClick={() => play(idx)}
                         >
-                          <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>close</span>
-                        </button>
-                      </motion.div>
-                    )
-                  })}
-                </AnimatePresence>
+                          {/* Progress background for now playing */}
+                          {isNowPlaying && (
+                            <div 
+                              className="absolute inset-0 bg-primary/10 transition-all duration-300"
+                              style={{ width: `${progressPct}%` }}
+                            />
+                          )}
+
+                          {/* Status icon */}
+                          <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 relative z-10 ${
+                            isNowPlaying ? 'bg-primary text-primary-foreground' : 
+                            isPlayed ? 'bg-primary/10 text-primary' : 'bg-muted text-muted-foreground'
+                          }`}>
+                            {isNowPlaying ? (
+                              <span className="material-symbols-outlined text-lg" style={{ fontVariationSettings: "'FILL' 1" }}>graphic_eq</span>
+                            ) : isPlayed ? (
+                              <span className="material-symbols-outlined text-lg">check</span>
+                            ) : (
+                              <span className="material-symbols-outlined text-lg transition-transform group-hover:scale-110">drag_indicator</span>
+                            )}
+                          </div>
+
+                          {/* Track info */}
+                          <div className="flex-1 min-w-0 relative z-10 pointer-events-none">
+                            <h4 className={`text-sm font-semibold truncate transition-colors ${
+                              isNowPlaying ? 'text-foreground' : 'text-foreground/80 group-hover:text-foreground'
+                            }`}>{item.name || item.latin}</h4>
+                            <p className={`text-xs truncate transition-colors ${
+                              isNowPlaying ? 'text-primary/80' : 'text-muted-foreground group-hover:text-foreground/60'
+                            }`}>{item.chapter_name}</p>
+                          </div>
+
+                          {/* Delete button — visible on hover */}
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              removeFromQueue(idx)
+                            }}
+                            className="relative z-10 w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 opacity-0 group-hover:opacity-100 transition-all text-muted-foreground hover:text-destructive hover:bg-destructive/10 cursor-pointer"
+                            title="Remove from queue"
+                          >
+                            <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>close</span>
+                          </button>
+                        </Reorder.Item>
+                      )
+                    })}
+                  </AnimatePresence>
+                </Reorder.Group>
               </div>
             </motion.aside>
           )}

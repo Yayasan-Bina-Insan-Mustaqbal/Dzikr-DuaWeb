@@ -29,6 +29,7 @@ interface AudioState {
   seek: (time: number) => void;
   clearQueue: () => void;
   addToQueue: (items: Invocation[]) => void;
+  reorderQueue: (newQueue: Invocation[]) => void;
   removeFromQueue: (index: number) => void;
 }
 
@@ -121,6 +122,16 @@ export const useAudioStore = create<AudioState>((set) => ({
     };
   }),
   
+  reorderQueue: (newQueue) => set((state) => {
+    // If something is playing, we need to find its new index
+    let newIndex = state.nowPlayingIndex;
+    if (state.nowPlayingIndex !== -1 && state.queue[state.nowPlayingIndex]) {
+      const currentItem = state.queue[state.nowPlayingIndex];
+      newIndex = newQueue.findIndex(item => item.queueId === currentItem.queueId);
+    }
+    return { queue: newQueue, nowPlayingIndex: newIndex };
+  }),
+
   play: (index) => set({ nowPlayingIndex: index, isPlaying: true, currentTime: 0, bufferedTime: 0 }),
   
   next: () => set((state) => {
