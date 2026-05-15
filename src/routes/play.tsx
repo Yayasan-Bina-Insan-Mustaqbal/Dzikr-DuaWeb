@@ -222,18 +222,7 @@ function PlayRoute() {
   }, [searchQuery])
 
   const formatArabic = (text: string) => {
-    const parts = text.split(/([\[\]\(\)])/);
-    return parts.map((part, i) => {
-      if (['[', ']', '(', ')'].includes(part)) {
-        return <span key={i} className="opacity-30 text-[0.8em] font-sans">{part}</span>;
-      }
-      const prev = parts[i-1];
-      const next = parts[i+1];
-      if ((prev === '(' || prev === '[') && (next === ')' || next === ']')) {
-        return <span key={i} className="opacity-60">{part}</span>;
-      }
-      return <span key={i} className="matan text-foreground drop-shadow-[0_2px_10px_rgba(var(--foreground),0.05)]">{part}</span>;
-    });
+    return <span className="text-primary drop-shadow-[0_2px_10px_rgba(var(--primary),0.1)]">{text}</span>;
   };
 
   return (
