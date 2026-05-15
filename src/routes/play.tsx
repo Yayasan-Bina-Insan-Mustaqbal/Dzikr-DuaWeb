@@ -56,7 +56,29 @@ function PlayRoute() {
   const carouselRef = useRef<HTMLDivElement>(null)
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null)
   const isProgrammaticScroll = useRef(false)
+  const hasAttemptedAutoPlay = useRef(false)
   const currentDua = queue[nowPlayingIndex]
+
+  // Auto-play on first interaction
+  useEffect(() => {
+    const handleFirstInteraction = () => {
+      if (!isPlaying && queue.length > 0 && !hasAttemptedAutoPlay.current) {
+        setIsPlaying(true)
+        hasAttemptedAutoPlay.current = true
+        // Clean up listener after first interaction
+        window.removeEventListener('click', handleFirstInteraction)
+        window.removeEventListener('touchstart', handleFirstInteraction)
+      }
+    }
+
+    window.addEventListener('click', handleFirstInteraction)
+    window.addEventListener('touchstart', handleFirstInteraction)
+
+    return () => {
+      window.removeEventListener('click', handleFirstInteraction)
+      window.removeEventListener('touchstart', handleFirstInteraction)
+    }
+  }, [isPlaying, queue.length, setIsPlaying])
 
   // Auto-populate queue based on time of day if it's empty
   useEffect(() => {
