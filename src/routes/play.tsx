@@ -222,7 +222,7 @@ function PlayRoute() {
   }, [searchQuery])
 
   const formatArabic = (text: string) => {
-    return <span className="text-primary drop-shadow-[0_2px_10px_rgba(var(--primary),0.1)]">{text}</span>;
+    return <span className="text-foreground drop-shadow-[0_2px_10px_rgba(var(--foreground),0.05)]">{text}</span>;
   };
 
   return (
