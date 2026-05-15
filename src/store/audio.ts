@@ -13,7 +13,7 @@ interface AudioState {
   showTranslation: boolean;
   showTransliteration: boolean;
   theme: 'light' | 'dark' | 'sepia' | 'emerald';
-  setQueue: (queue: Invocation[]) => void;
+  setQueue: (queue: Invocation[], shouldPlay?: boolean) => void;
   play: (index: number) => void;
   next: () => void;
   previous: () => void;
@@ -45,10 +45,10 @@ export const useAudioStore = create<AudioState>((set) => ({
   showTransliteration: true,
   theme: 'dark',
 
-  setQueue: (queue) => set({ 
+  setQueue: (queue, shouldPlay = true) => set({ 
     queue: queue.map(item => ({...item, queueId: item.queueId || Math.random().toString(36).substring(2, 9)})), 
     nowPlayingIndex: queue.length > 0 ? 0 : -1, 
-    isPlaying: queue.length > 0,
+    isPlaying: queue.length > 0 && shouldPlay,
     currentTime: 0,
     bufferedTime: 0
   }),

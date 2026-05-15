@@ -79,7 +79,7 @@ function PlayRoute() {
         }).filter(Boolean) as Invocation[]
         
         if (items.length > 0) {
-          setQueue(items)
+          setQueue(items, false)
           return
         }
       }
@@ -94,7 +94,7 @@ function PlayRoute() {
       const targetChapter = allChapters.find(c => c.id === targetChapterId)
       
       if (targetChapter) {
-        setQueue(targetChapter.invocations)
+        setQueue(targetChapter.invocations, false)
       }
     }
   }, [search.queue])
