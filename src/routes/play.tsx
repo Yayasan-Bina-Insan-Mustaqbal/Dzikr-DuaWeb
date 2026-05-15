@@ -711,7 +711,7 @@ function PlayRoute() {
                           }
                         }
                       }}
-                      className={`p-1.5 transition-all cursor-pointer rounded-lg ${showCopied ? 'text-emerald-500 bg-emerald-500/10' : 'text-muted-foreground hover:text-primary hover:bg-primary/10'}`}
+                      className={`p-1.5 transition-all cursor-pointer rounded-lg ${showCopied ? 'text-primary bg-primary/10' : 'text-muted-foreground hover:text-primary hover:bg-primary/10'}`}
                       title={showCopied ? "Copied!" : "Share Playlist"}
                     >
                       <span className="material-symbols-outlined text-lg">
@@ -725,7 +725,7 @@ function PlayRoute() {
                           initial={{ opacity: 0, y: 10, scale: 0.9 }}
                           animate={{ opacity: 1, y: -30, scale: 1 }}
                           exit={{ opacity: 0, y: 10, scale: 0.9 }}
-                          className="absolute left-1/2 -translate-x-1/2 px-2 py-1 rounded-md bg-emerald-500 text-white text-[10px] font-bold whitespace-nowrap shadow-lg pointer-events-none"
+                          className="absolute left-1/2 -translate-x-1/2 px-2 py-1 rounded-md bg-primary text-primary-foreground text-[10px] font-bold whitespace-nowrap shadow-lg pointer-events-none"
                         >
                           Copied to clipboard!
                         </motion.div>
@@ -773,7 +773,7 @@ function PlayRoute() {
                         {/* Status icon */}
                         <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 relative z-10 ${
                           isNowPlaying ? 'bg-primary text-primary-foreground' : 
-                          isPlayed ? 'bg-emerald-500/10 text-emerald-500' : 'bg-muted text-muted-foreground'
+                          isPlayed ? 'bg-primary/10 text-primary' : 'bg-muted text-muted-foreground'
                         }`}>
                           {isNowPlaying ? (
                             <span className="material-symbols-outlined text-lg" style={{ fontVariationSettings: "'FILL' 1" }}>graphic_eq</span>
