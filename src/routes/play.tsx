@@ -5,6 +5,18 @@ import { searchDhikr, type SearchResults } from "../lib/search"
 import type { Invocation, Chapter } from "../types/data"
 import { getChapters } from "../lib/data"
 import { motion, AnimatePresence } from "framer-motion"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "../components/ui/dropdown-menu"
 
 export const Route = createFileRoute("/play")({
   component: PlayRoute,
@@ -30,13 +42,13 @@ function PlayRoute() {
     bufferedTime,
     repeatMode,
     selectedVersion,
-    showTranslation,
-    showTransliteration,
+    translationLang,
+    transliterationLang,
     theme,
     setRepeatMode,
     setSelectedVersion,
-    setShowTranslation,
-    setShowTransliteration,
+    setTranslationLang,
+    setTransliterationLang,
     setTheme,
     seek, 
     clearQueue, 
@@ -49,8 +61,6 @@ function PlayRoute() {
   const [showQueue, setShowQueue] = useState(true)
   const [showSearch, setShowSearch] = useState(true)
   const [showVersionDropdown, setShowVersionDropdown] = useState(false)
-  const [showSettingsDropdown, setShowSettingsDropdown] = useState(false)
-  const [showThemeSelector, setShowThemeSelector] = useState(false)
 
   const carouselRef = useRef<HTMLDivElement>(null)
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null)
@@ -303,92 +313,98 @@ function PlayRoute() {
           </div>
           
           <div className="flex items-center gap-2">
-            <div className="relative">
-              <button 
-                onClick={() => setShowSettingsDropdown(!showSettingsDropdown)}
-                className={`w-9 h-9 flex items-center justify-center rounded-lg transition-all cursor-pointer ${showSettingsDropdown ? 'bg-primary/20 text-primary' : 'hover:bg-muted text-muted-foreground hover:text-foreground'}`}
-              >
-                <span className="material-symbols-outlined">more_vert</span>
-              </button>
-              
-              <AnimatePresence>
-                {showSettingsDropdown && (
-                  <motion.div 
-                    initial={{ opacity: 0, scale: 0.95, y: 10 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.95, y: 10 }}
-                    className="absolute right-0 mt-2 w-48 bg-card border border-border shadow-2xl rounded-2xl overflow-hidden z-50 p-2"
-                  >
-                    <div className="px-3 py-2 text-[10px] font-bold text-muted-foreground uppercase tracking-widest border-b border-border/50 mb-1">App Settings</div>
-                    <button 
-                      onClick={() => setShowTranslation(!showTranslation)}
-                      className="w-full flex items-center justify-between px-3 py-2 text-sm text-foreground hover:bg-muted rounded-xl transition-colors text-left group"
-                    >
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button 
+                  className={`w-9 h-9 flex items-center justify-center rounded-lg transition-all cursor-pointer hover:bg-muted text-muted-foreground hover:text-foreground`}
+                >
+                  <span className="material-symbols-outlined">more_vert</span>
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56" align="end">
+                <DropdownMenuLabel>App Settings</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                
+                <DropdownMenuGroup>
+                  <DropdownMenuSub>
+                    <DropdownMenuSubTrigger>
                       <div className="flex items-center gap-3">
-                        <span className="material-symbols-outlined text-lg text-muted-foreground group-hover:text-primary">language</span>
+                        <span className="material-symbols-outlined text-lg">language</span>
                         <span>Translation</span>
                       </div>
-                      <div className={`w-8 h-4 rounded-full relative transition-colors ${showTranslation ? 'bg-primary' : 'bg-muted-foreground/30'}`}>
-                        <div className={`absolute top-1 w-2 h-2 rounded-full bg-white transition-all ${showTranslation ? 'left-5' : 'left-1'}`} />
-                      </div>
-                    </button>
-                    <button 
-                      onClick={() => setShowTransliteration(!showTransliteration)}
-                      className="w-full flex items-center justify-between px-3 py-2 text-sm text-foreground hover:bg-muted rounded-xl transition-colors text-left group"
-                    >
+                    </DropdownMenuSubTrigger>
+                    <DropdownMenuSubContent className="w-40">
+                      {[
+                        { id: 'none', name: 'None' },
+                        { id: 'english', name: 'English' },
+                        { id: 'indonesian', name: 'Indonesian' },
+                        { id: 'albanian', name: 'Albanian' }
+                      ].map((lang) => (
+                        <DropdownMenuItem 
+                          key={lang.id} 
+                          onClick={() => setTranslationLang(lang.id as any)}
+                          className={translationLang === lang.id ? "bg-primary/10 text-primary font-bold" : ""}
+                        >
+                          {lang.name}
+                          {translationLang === lang.id && <span className="material-symbols-outlined ml-auto text-xs">check</span>}
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuSubContent>
+                  </DropdownMenuSub>
+
+                  <DropdownMenuSub>
+                    <DropdownMenuSubTrigger>
                       <div className="flex items-center gap-3">
-                        <span className="material-symbols-outlined text-lg text-muted-foreground group-hover:text-primary">subtitles</span>
+                        <span className="material-symbols-outlined text-lg">subtitles</span>
                         <span>Transliteration</span>
                       </div>
-                      <div className={`w-8 h-4 rounded-full relative transition-colors ${showTransliteration ? 'bg-primary' : 'bg-muted-foreground/30'}`}>
-                        <div className={`absolute top-1 w-2 h-2 rounded-full bg-white transition-all ${showTransliteration ? 'left-5' : 'left-1'}`} />
-                      </div>
-                    </button>
-                    <button 
-                      onClick={() => setShowThemeSelector(!showThemeSelector)}
-                      className="w-full flex items-center justify-between px-3 py-2 text-sm text-foreground hover:bg-muted rounded-xl transition-colors text-left group"
-                    >
+                    </DropdownMenuSubTrigger>
+                    <DropdownMenuSubContent className="w-40">
+                      {[
+                        { id: 'none', name: 'None' },
+                        { id: 'latin', name: 'Latin' }
+                      ].map((lang) => (
+                        <DropdownMenuItem 
+                          key={lang.id} 
+                          onClick={() => setTransliterationLang(lang.id as any)}
+                          className={transliterationLang === lang.id ? "bg-primary/10 text-primary font-bold" : ""}
+                        >
+                          {lang.name}
+                          {transliterationLang === lang.id && <span className="material-symbols-outlined ml-auto text-xs">check</span>}
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuSubContent>
+                  </DropdownMenuSub>
+
+                  <DropdownMenuSub>
+                    <DropdownMenuSubTrigger>
                       <div className="flex items-center gap-3">
-                        <span className="material-symbols-outlined text-lg text-muted-foreground group-hover:text-primary">palette</span>
+                        <span className="material-symbols-outlined text-lg">palette</span>
                         <span>Theme</span>
                       </div>
-                      <span className="material-symbols-outlined text-sm text-muted-foreground">chevron_right</span>
-                    </button>
-
-                    <AnimatePresence>
-                      {showThemeSelector && (
-                        <motion.div 
-                          initial={{ x: 20, opacity: 0 }}
-                          animate={{ x: 0, opacity: 1 }}
-                          exit={{ x: 20, opacity: 0 }}
-                          className="absolute inset-0 bg-card p-2 z-10"
+                    </DropdownMenuSubTrigger>
+                    <DropdownMenuSubContent className="w-40">
+                      {[
+                        { id: 'light', name: 'Light', color: 'bg-white border' },
+                        { id: 'dark', name: 'Dark', color: 'bg-zinc-900' },
+                        { id: 'sepia', name: 'Sepia', color: 'bg-[#f4ecd8]' },
+                        { id: 'emerald', name: 'Emerald', color: 'bg-[#064e3b]' }
+                      ].map((t) => (
+                        <DropdownMenuItem 
+                          key={t.id} 
+                          onClick={() => setTheme(t.id as any)}
+                          className={theme === t.id ? "bg-primary/10 text-primary font-bold" : ""}
                         >
-                          <button onClick={() => setShowThemeSelector(false)} className="flex items-center gap-2 mb-2 text-[10px] font-bold text-primary uppercase tracking-widest px-1">
-                            <span className="material-symbols-outlined text-sm">chevron_left</span>
-                            Back to Settings
-                          </button>
-                          {[
-                            { id: 'light', name: 'Light', color: 'bg-white border' },
-                            { id: 'dark', name: 'Dark', color: 'bg-zinc-900' },
-                            { id: 'sepia', name: 'Sepia', color: 'bg-[#f4ecd8]' },
-                            { id: 'emerald', name: 'Emerald', color: 'bg-[#064e3b]' }
-                          ].map((t) => (
-                            <button 
-                              key={t.id}
-                              onClick={() => { setTheme(t.id as any); setShowThemeSelector(false); }}
-                              className={`w-full flex items-center gap-3 px-3 py-2 text-sm rounded-xl transition-all ${theme === t.id ? 'bg-primary/10 text-primary font-bold' : 'hover:bg-muted'}`}
-                            >
-                              <div className={`w-4 h-4 rounded-full ${t.color}`} />
-                              <span>{t.name}</span>
-                            </button>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+                          <div className={`w-3 h-3 rounded-full mr-2 ${t.color}`} />
+                          {t.name}
+                          {theme === t.id && <span className="material-symbols-outlined ml-auto text-xs">check</span>}
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuSubContent>
+                  </DropdownMenuSub>
+                </DropdownMenuGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
             <div className="w-px h-4 bg-border mx-1"></div>
 
@@ -437,33 +453,19 @@ function PlayRoute() {
                     >
                       {formatArabic(dua.arabic)}
                     </p>
-                    {showTransliteration && dua.latin && (
+                    {transliterationLang !== 'none' && dua.latin && (
                       <p className="text-sm md:text-base text-primary/60 font-medium tracking-wide">
                         {dua.latin}
                       </p>
                     )}
                     <div className="h-px w-24 bg-border mx-auto rounded-full flex-shrink-0"></div>
-                    {showTranslation && (
+                    {translationLang !== 'none' && (
                       <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto italic">
-                        "{dua.english || dua.albanian}"
+                        "{translationLang === 'english' ? dua.english : 
+                          translationLang === 'indonesian' ? (dua as any).indonesian || dua.english :
+                          translationLang === 'albanian' ? dua.albanian || dua.english : 
+                          dua.english}"
                       </p>
-                    )}
-                    
-                    {/* Hadith Detail / Reference */}
-                    {dua.reference && (
-                      <div className="mt-4 p-4 rounded-2xl bg-primary/5 border border-primary/10 max-w-xl mx-auto text-left">
-                        <div className="flex items-start gap-3">
-                          <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <span className="material-symbols-outlined text-primary text-sm">history_edu</span>
-                          </div>
-                          <div className="flex flex-col gap-1">
-                            <span className="text-[10px] font-bold text-primary uppercase tracking-widest">Hadith Detail</span>
-                            <p className="text-xs md:text-sm text-foreground/70 leading-relaxed italic">
-                              {dua.reference}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
                     )}
                   </div>
                 </div>
@@ -471,8 +473,11 @@ function PlayRoute() {
             })}
           </div>
         ) : (
-          <div className="text-center text-muted-foreground">
-            <p>Your queue is empty. Search to add Duas.</p>
+          <div className="flex flex-col items-center gap-6 opacity-30">
+            <div className="w-24 h-24 rounded-[32px] bg-primary/20 flex items-center justify-center">
+              <span className="material-symbols-outlined text-primary text-5xl" style={{ fontVariationSettings: "'FILL' 1" }}>auto_awesome</span>
+            </div>
+            <p className="text-xl font-medium">Add some Dzikr to start</p>
           </div>
         )}
       </main>
@@ -748,34 +753,22 @@ function PlayRoute() {
                         exit={{ opacity: 0, x: 20, height: 0, scale: 0.95 }}
                         transition={{ type: "spring", stiffness: 350, damping: 25 }}
                         className={`flex items-center flex-shrink-0 gap-3 p-2.5 rounded-xl transition-colors cursor-pointer group relative overflow-hidden ${
-                          isNowPlaying
-                            ? 'border border-primary/20'
-                            : isPlayed
-                              ? 'opacity-50 hover:bg-muted'
-                              : 'hover:bg-muted'
+                          isNowPlaying ? 'bg-primary/10 border border-primary/20 shadow-sm' : 'hover:bg-muted border border-transparent'
                         }`}
                         onClick={() => play(idx)}
                       >
-                        {/* Progress fill background for now-playing */}
+                        {/* Progress background for now playing */}
                         {isNowPlaying && (
-                          <>
-                            {/* Full bg tint */}
-                            <div className="absolute inset-0 bg-primary/10" />
-                            {/* Animated progress fill */}
-                            <div
-                              className="absolute left-0 top-0 bottom-0 bg-primary/20 transition-[width] duration-300 ease-linear"
-                              style={{ width: `${progressPct}%` }}
-                            />
-                            {/* Left accent bar */}
-                            <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-l-xl" />
-                          </>
+                          <div 
+                            className="absolute inset-0 bg-primary/10 transition-all duration-300"
+                            style={{ width: `${progressPct}%` }}
+                          />
                         )}
 
-                        {/* Icon */}
-                        <div className={`w-8 h-8 rounded flex items-center justify-center flex-shrink-0 relative z-10 transition-colors ${
-                          isNowPlaying
-                            ? 'bg-primary/20 text-primary'
-                            : 'bg-muted text-muted-foreground group-hover:text-primary group-hover:bg-primary/10'
+                        {/* Status icon */}
+                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 relative z-10 ${
+                          isNowPlaying ? 'bg-primary text-primary-foreground' : 
+                          isPlayed ? 'bg-emerald-500/10 text-emerald-500' : 'bg-muted text-muted-foreground'
                         }`}>
                           {isNowPlaying ? (
                             <span className="material-symbols-outlined text-lg" style={{ fontVariationSettings: "'FILL' 1" }}>graphic_eq</span>

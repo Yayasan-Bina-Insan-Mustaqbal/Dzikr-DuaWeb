@@ -10,8 +10,8 @@ interface AudioState {
   bufferedTime: number;
   repeatMode: 'off' | 'one' | 'all';
   selectedVersion: string;
-  showTranslation: boolean;
-  showTransliteration: boolean;
+  translationLang: 'none' | 'english' | 'indonesian' | 'albanian';
+  transliterationLang: 'none' | 'latin';
   theme: 'light' | 'dark' | 'sepia' | 'emerald';
   setQueue: (queue: Invocation[], shouldPlay?: boolean) => void;
   play: (index: number) => void;
@@ -23,8 +23,8 @@ interface AudioState {
   setBufferedTime: (time: number) => void;
   setRepeatMode: (mode: 'off' | 'one' | 'all') => void;
   setSelectedVersion: (version: string) => void;
-  setShowTranslation: (show: boolean) => void;
-  setShowTransliteration: (show: boolean) => void;
+  setTranslationLang: (lang: 'none' | 'english' | 'indonesian' | 'albanian') => void;
+  setTransliterationLang: (lang: 'none' | 'latin') => void;
   setTheme: (theme: 'light' | 'dark' | 'sepia' | 'emerald') => void;
   seek: (time: number) => void;
   clearQueue: () => void;
@@ -41,8 +41,8 @@ export const useAudioStore = create<AudioState>((set) => ({
   bufferedTime: 0,
   repeatMode: 'off',
   selectedVersion: 'default',
-  showTranslation: true,
-  showTransliteration: true,
+  translationLang: 'english',
+  transliterationLang: 'latin',
   theme: 'dark',
 
   setQueue: (queue, shouldPlay = true) => set({ 
@@ -95,8 +95,8 @@ export const useAudioStore = create<AudioState>((set) => ({
   setBufferedTime: (bufferedTime) => set({ bufferedTime }),
   setRepeatMode: (repeatMode) => set({ repeatMode }),
   setSelectedVersion: (selectedVersion) => set({ selectedVersion }),
-  setShowTranslation: (showTranslation) => set({ showTranslation }),
-  setShowTransliteration: (showTransliteration) => set({ showTransliteration }),
+  setTranslationLang: (translationLang) => set({ translationLang }),
+  setTransliterationLang: (transliterationLang) => set({ transliterationLang }),
   setTheme: (theme) => {
     set({ theme });
     document.documentElement.setAttribute('data-theme', theme);
