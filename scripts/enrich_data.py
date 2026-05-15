@@ -1,123 +1,133 @@
+
 import json
-import csv
 import re
 import os
 
-def normalize_arabic(text):
+def clean_text(text):
     if not text:
         return ""
-    # Remove literal \n strings that are often artifacts
-    text = text.replace('\\n', ' ').replace('\n', ' ')
-    # Remove diacritics
-    text = re.sub(r'[\u064B-\u0652]', '', text)
-    # Normalize Alif
-    text = re.sub(r'[\u0622\u0623\u0625]', '\u0627', text)
-    # Remove extra spaces and newlines
-    text = " ".join(text.split())
-    return text
+    # Remove footnote numbers like [1], [15], etc.
+    text = re.sub(r'\[\d+\]', '', text)
+    # Remove reference tags like [Al-Baqarah/2: 255]
+    text = re.sub(r'\[[^\]]+\]', '', text)
+    # Remove trailing numbers
+    text = re.sub(r'\s*\d+\s*$', '', text)
+    # Normalize whitespace
+    text = ' '.join(text.split())
+    # Fix quotes
+    text = text.replace('‘', "'").replace('’', "'").replace('“', '"').replace('”', '"')
+    # Fix common OCR/translation errors
+    text = text.replace('صلي الله عليه وسلم', 'ﷺ')
+    return text.strip()
 
-def main():
-    json_path = 'src/data/invocations.json'
-    csv_path = 'src/data/kaggle_duas.csv'
-    hisn_en_path = 'src/data/hisn_en.json'
+def extract_pdf_translations(file_path):
+    with open(file_path, 'r', encoding='utf-8') as f:
+        content = f.read()
     
-    # Load primary data
-    with open(json_path, 'r', encoding='utf-8') as f:
+    parts = re.split(r'Daftar Pustaka', content, flags=re.IGNORECASE)
+    main_content = parts[0]
+    
+    # PDF uses various quotes: standard ", curly “, and single curly ‘
+    pattern = re.compile(r'(\d+)\.\s+[“"‘](.*?)[”"’]', re.DOTALL)
+    matches = pattern.findall(main_content)
+    
+    translations = {}
+    for num, text in matches:
+        translations[num] = clean_text(text)
+    
+    return translations
+
+def extract_rodja_from_scratchpad(file_path):
+    with open(file_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    morning_match = re.search(r'MORNING_DZIKR_START(.*?)MORNING_DZIKR_END', content, re.DOTALL)
+    evening_match = re.search(r'EVENING_DZIKR_START(.*?)EVENING_DZIKR_END', content, re.DOTALL)
+    
+    def parse_section(text):
+        # Match text between double curly quotes
+        pattern = re.compile(r'“([^”]+)”', re.DOTALL)
+        matches = pattern.findall(text)
+        
+        filtered = []
+        for m in matches:
+            m = clean_text(m)
+            if len(m) > 20 and "Dzikir Pagi Petang dan Sesudah Shalat Fardhu" not in m:
+                filtered.append(m)
+        return filtered
+
+    morning = parse_section(morning_match.group(1)) if morning_match else []
+    evening = parse_section(evening_match.group(1)) if evening_match else []
+    
+    return morning, evening
+
+def enrich():
+    base_dir = '/home/abuhafi/Project/Dzikr&Dua/Dzikr&DuaWeb/Dzikr&Dua'
+    inv_path = f'{base_dir}/src/data/invocations.json'
+    pdf_text_path = f'{base_dir}/src/data/hisnul_muslim.txt'
+    scratchpad_path = '/home/abuhafi/.gemini/antigravity/brain/a1822af6-f29d-448e-a82b-897e2d195677/browser/scratchpad_ugd59zxv.md'
+    
+    with open(inv_path, 'r') as f:
         data = json.load(f)
-        
-    # Load English Hisnul Muslim mapping
-    with open(hisn_en_path, 'r', encoding='utf-8-sig') as f:
-        hisn_en_data = json.load(f)
     
-    # Create a lookup for chapters by ID
-    hisn_chapters = {item['ID']: item for item in hisn_en_data.get('English', [])}
-        
-    # Load Kaggle fallback data
-    csv_data = []
-    if os.path.exists(csv_path):
-        with open(csv_path, 'r', encoding='utf-8') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                row['norm_arabic'] = normalize_arabic(row['arabic_text'])
-                csv_data.append(row)
-            
-    chapters = data
+    pdf_trans = extract_pdf_translations(pdf_text_path)
+    rodja_morning, rodja_evening = extract_rodja_from_scratchpad(scratchpad_path)
     
-    for chapter in chapters:
-        chapter_id = chapter.get('id')
-        hisn_chapter = hisn_chapters.get(chapter_id)
-        
-        if hisn_chapter:
-            chapter['chapter_name'] = hisn_chapter['TITLE']
-        
-        # Remove redundant field
-        if 'chapter_name_en' in chapter:
-            del chapter['chapter_name_en']
-        
-        chapter_name = chapter['chapter_name']
-        
-        for idx, inv in enumerate(chapter.get('invocations', [])):
-            # Clean Arabic text from artifacts
-            if 'arabic' in inv:
-                inv['arabic'] = inv['arabic'].replace('\\n', ' ').replace('\n', ' ')
-                inv['arabic'] = " ".join(inv['arabic'].split())
+    print(f"Extracted {len(pdf_trans)} translations from PDF")
 
-            # Ensure audio path is correct
-            inv['audio'] = f"/audios/{chapter['id']:03d}_{idx + 1:02d}.mp3"
+    for chapter in data:
+        c_id = chapter['id']
+        invs = chapter['invocations']
+        
+        for inv in invs:
+            inv_id = inv['id']
             
-            if hisn_chapter and idx < len(hisn_chapter.get('TEXT', [])):
-                hisn_inv = hisn_chapter['TEXT'][idx]
-                # Update Arabic and English from hisn_en.json as it's the most reliable for translations
-                if hisn_inv.get('ARABIC_TEXT'):
-                    inv['arabic'] = hisn_inv['ARABIC_TEXT']
-                if hisn_inv.get('TRANSLATED_TEXT'):
-                    inv['english'] = hisn_inv['TRANSLATED_TEXT']
-            
-            # 2. Try to get better Name from Kaggle dataset
-            norm_inv = normalize_arabic(inv['arabic'])
-            found_kaggle = False
-            
-            for csv_row in csv_data:
-                csv_norm = normalize_arabic(csv_row['arabic_text'])
-                if norm_inv == csv_norm:
-                    inv['name'] = csv_row['title']
-                    if not inv.get('english'):
-                        inv['english'] = csv_row['english_meaning']
-                    found_kaggle = True
-                    break
-            
-            if not found_kaggle:
-                for csv_row in csv_data:
-                    csv_norm = normalize_arabic(csv_row['arabic_text'])
-                    if csv_norm and (csv_norm in norm_inv or norm_inv in csv_norm):
-                        if len(csv_norm) < 20 and len(norm_inv) > 100:
-                            continue
-                        if len(norm_inv) > 50 and csv_row['title'] in ['Alhamdulillah', 'SubhanAllah', 'Allahu Akbar']:
-                            continue
-                        inv['name'] = csv_row['title']
-                        if not inv.get('english'):
-                            inv['english'] = csv_row['english_meaning']
-                        found_kaggle = True
-                        break
-            
-            if not found_kaggle:
-                # Use chapter name as base if not matched in Kaggle
-                if len(chapter.get('invocations', [])) > 1:
-                    inv['name'] = f"{chapter_name} ({idx + 1})"
+            # Morning Adhkar (Chapter 27)
+            if c_id == 27:
+                mapping = {
+                    76: 1, 77: [2, 3, 4], 78: 5, 79: 6, 80: 7, 83: 8, 85: 9, 86: 10,
+                    87: 11, 88: 12, 89: 13, 91: 14, 93: 15, 95: 16, 96: 17, 92: 18, 97: 19
+                }
+                if inv_id in mapping:
+                    target = mapping[inv_id]
+                    if isinstance(target, list):
+                        parts = [rodja_morning[t] for t in target if t < len(rodja_morning)]
+                        inv['indonesian'] = "\n\n".join(parts)
+                    elif target < len(rodja_morning):
+                        inv['indonesian'] = rodja_morning[target]
                 else:
-                    inv['name'] = chapter_name
+                    book_id = str(inv_id - 1) if inv_id < 77 else str(inv_id - 2)
+                    if book_id in pdf_trans:
+                        inv['indonesian'] = pdf_trans[book_id]
             
-            # Add chapter name reference for easy display
-            inv['chapter_name'] = chapter_name
+            # Evening Adhkar (Chapter 133)
+            elif c_id == 133:
+                mapping = {
+                    412: 1, 413: [2, 3, 4], 414: 5, 415: 6, 416: 7, 419: 8, 421: 9, 422: 10,
+                    423: 11, 424: 12, 425: 13, 427: 14, 429: 15, 431: 16, 432: 17, 433: 18
+                }
+                if inv_id in mapping:
+                    target = mapping[inv_id]
+                    if isinstance(target, list):
+                        parts = [rodja_evening[t] for t in target if t < len(rodja_evening)]
+                        inv['indonesian'] = "\n\n".join(parts)
+                    elif target < len(rodja_evening):
+                        inv['indonesian'] = rodja_evening[target]
+                else:
+                    book_id = str(inv_id - 337) if inv_id < 413 else str(inv_id - 338)
+                    if book_id in pdf_trans:
+                        inv['indonesian'] = pdf_trans[book_id]
             
-            # Cleanup: ensure 'english' is never empty
-            if not inv.get('english'):
-                inv['english'] = inv.get('albanian', 'Translation missing')
-                
-    with open(json_path, 'w', encoding='utf-8') as f:
+            else:
+                # Generic match
+                book_id = str(inv_id)
+                if book_id in pdf_trans:
+                    inv['indonesian'] = pdf_trans[book_id]
+
+    with open(inv_path, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
     
-    print("Successfully enriched and translated data to English.")
+    print(f"Successfully enriched {inv_path}")
 
 if __name__ == "__main__":
-    main()
+    enrich()
