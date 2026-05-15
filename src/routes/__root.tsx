@@ -90,7 +90,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body className="min-h-screen bg-background text-foreground font-sans antialiased overflow-hidden selection:bg-primary/30">
+      <body className="min-h-screen bg-background text-foreground font-sans antialiased selection:bg-primary/30">
         <Outlet />
         <AudioPlayer />
         <TanStackDevtools
