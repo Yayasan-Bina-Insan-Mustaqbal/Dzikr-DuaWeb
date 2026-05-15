@@ -664,9 +664,30 @@ function PlayRoute() {
                 <h2 className="text-sm font-semibold text-foreground uppercase tracking-wide">Up Next</h2>
                 <div className="flex items-center gap-1">
                   <button 
-                    onClick={() => {
-                      navigator.clipboard.writeText(window.location.href);
-                      // Optional: Add toast notification here
+                    onClick={async () => {
+                      const shareData = {
+                        title: 'Dzikr & Dua Playlist',
+                        text: `Check out this remembrance playlist: ${currentDua?.chapter_name || 'My Playlist'}`,
+                        url: window.location.href,
+                      };
+                      
+                      if (navigator.share && navigator.canShare?.(shareData)) {
+                        try {
+                          await navigator.share(shareData);
+                        } catch (err) {
+                          if ((err as Error).name !== 'AbortError') {
+                            console.error('Error sharing:', err);
+                          }
+                        }
+                      } else {
+                        // Fallback to clipboard
+                        try {
+                          await navigator.clipboard.writeText(window.location.href);
+                          // We could add a "Copied!" toast here if available
+                        } catch (err) {
+                          console.error('Failed to copy:', err);
+                        }
+                      }
                     }}
                     className="p-1.5 text-muted-foreground hover:text-primary transition-colors cursor-pointer rounded-lg hover:bg-primary/10"
                     title="Share Playlist"
