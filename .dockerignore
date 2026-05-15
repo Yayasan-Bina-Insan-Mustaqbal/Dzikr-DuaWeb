@@ -4,3 +4,15 @@ node_modules
 dist
 .env
 *.log
+.output
+.tanstack
+temp_chunks
+final_cuts
+scripts/**/.venv
+scripts/**/__pycache__
+*.tar.gz
+public/audios
+design
+evening_text.txt
+morning_text.txt
+rodja_morning_transcript.txt
