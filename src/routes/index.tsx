@@ -88,6 +88,115 @@ function LandingPage() {
         </div>
       </section>
 
+      {/* Mobile App Promotion Section */}
+      <section className="py-24 px-6 relative overflow-hidden bg-primary/5">
+        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="flex-1 text-left"
+          >
+            <h2 className="text-4xl md:text-5xl font-heading font-black tracking-tight mb-6 leading-tight">
+              Take Your Remembrance <br />
+              <span className="text-primary">Everywhere You Go</span>
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
+              Experience Dzikr & Dua as a native Android app. Designed for seamless recitation with system integration, offline support, and high-fidelity audio transitions.
+            </p>
+            
+            <div className="flex flex-wrap gap-4 mb-10">
+              <a 
+                href="#" // Replace with real link when available
+                className="flex items-center gap-3 px-6 py-3 bg-zinc-900 text-white rounded-2xl hover:bg-zinc-800 transition-all shadow-xl shadow-zinc-900/10"
+              >
+                <span className="material-symbols-outlined text-2xl">android</span>
+                <div className="flex flex-col items-start leading-none">
+                  <span className="text-[10px] uppercase font-bold opacity-60">Get it on</span>
+                  <span className="text-lg font-bold">Google Play</span>
+                </div>
+              </a>
+              <a 
+                href="#" // Replace with real link when available
+                className="flex items-center gap-3 px-6 py-3 bg-zinc-900 text-white rounded-2xl hover:bg-zinc-800 transition-all shadow-xl shadow-zinc-900/10 opacity-50 cursor-not-allowed"
+              >
+                <span className="material-symbols-outlined text-2xl">apple</span>
+                <div className="flex flex-col items-start leading-none">
+                  <span className="text-[10px] uppercase font-bold opacity-60">Coming soon on</span>
+                  <span className="text-lg font-bold">App Store</span>
+                </div>
+              </a>
+            </div>
+
+            <div className="grid grid-cols-2 gap-6">
+              <div className="flex items-start gap-3">
+                <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                  <span className="material-symbols-outlined text-primary text-xs">check</span>
+                </div>
+                <span className="text-sm font-semibold">Offline Access</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                  <span className="material-symbols-outlined text-primary text-xs">check</span>
+                </div>
+                <span className="text-sm font-semibold">Background Play</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                  <span className="material-symbols-outlined text-primary text-xs">check</span>
+                </div>
+                <span className="text-sm font-semibold">Native Experience</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                  <span className="material-symbols-outlined text-primary text-xs">check</span>
+                </div>
+                <span className="text-sm font-semibold">Real-time Sync</span>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="flex-1 relative flex justify-center"
+          >
+            {/* Simple device frame placeholder using CSS */}
+            <div className="relative w-[280px] h-[580px] bg-zinc-900 rounded-[3rem] border-8 border-zinc-800 shadow-2xl shadow-primary/20 flex flex-col overflow-hidden">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-zinc-800 rounded-b-2xl z-10" />
+              <div className="flex-1 bg-background p-4 flex flex-col gap-4 pt-10">
+                <div className="h-4 w-20 bg-primary/20 rounded-full" />
+                <div className="h-40 w-full bg-card border border-border/50 rounded-2xl flex flex-col items-center justify-center gap-2">
+                  <span className="material-symbols-outlined text-primary text-3xl">auto_awesome</span>
+                  <div className="h-2 w-24 bg-muted rounded-full" />
+                </div>
+                <div className="space-y-2">
+                  <div className="h-3 w-full bg-muted rounded-full" />
+                  <div className="h-3 w-2/3 bg-muted rounded-full" />
+                </div>
+                <div className="mt-auto h-24 w-full bg-primary/10 rounded-2xl border border-primary/20 p-3 flex flex-col gap-2">
+                   <div className="flex justify-between items-center">
+                    <div className="h-2 w-12 bg-primary/30 rounded-full" />
+                    <div className="h-2 w-8 bg-primary/30 rounded-full" />
+                   </div>
+                   <div className="h-1.5 w-full bg-primary/20 rounded-full" />
+                   <div className="flex justify-center gap-4 mt-2">
+                    <div className="w-8 h-8 rounded-full bg-primary/20" />
+                    <div className="w-10 h-10 rounded-full bg-primary" />
+                    <div className="w-8 h-8 rounded-full bg-primary/20" />
+                   </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Floating accent elements */}
+            <div className="absolute -top-10 -right-10 w-32 h-32 bg-emerald-500/20 rounded-full blur-3xl" />
+            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-primary/20 rounded-full blur-3xl" />
+          </motion.div>
+        </div>
+      </section>
+
       {/* Features Grid */}
       <section id="features" className="py-24 px-6 bg-muted/30">
         <div className="max-w-6xl mx-auto">
