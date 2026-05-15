@@ -56,29 +56,8 @@ function PlayRoute() {
   const carouselRef = useRef<HTMLDivElement>(null)
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null)
   const isProgrammaticScroll = useRef(false)
-  const hasAttemptedAutoPlay = useRef(false)
+  const [showWelcomeModal, setShowWelcomeModal] = useState(true)
   const currentDua = queue[nowPlayingIndex]
-
-  // Auto-play on first interaction
-  useEffect(() => {
-    const handleFirstInteraction = () => {
-      if (!isPlaying && queue.length > 0 && !hasAttemptedAutoPlay.current) {
-        setIsPlaying(true)
-        hasAttemptedAutoPlay.current = true
-        // Clean up listener after first interaction
-        window.removeEventListener('click', handleFirstInteraction)
-        window.removeEventListener('touchstart', handleFirstInteraction)
-      }
-    }
-
-    window.addEventListener('click', handleFirstInteraction)
-    window.addEventListener('touchstart', handleFirstInteraction)
-
-    return () => {
-      window.removeEventListener('click', handleFirstInteraction)
-      window.removeEventListener('touchstart', handleFirstInteraction)
-    }
-  }, [isPlaying, queue.length, setIsPlaying])
 
   // Auto-populate queue based on time of day if it's empty
   useEffect(() => {
@@ -120,6 +99,11 @@ function PlayRoute() {
       }
     }
   }, [search.queue])
+
+  const handleStartPlayback = () => {
+    setShowWelcomeModal(false)
+    setIsPlaying(true)
+  }
 
   // Auto-scroll to the currently playing Dua
   useEffect(() => {
@@ -224,6 +208,46 @@ function PlayRoute() {
 
   return (
     <div className="flex flex-1 overflow-hidden h-screen bg-background">
+      {/* Welcome Modal / Auto-play Overlay */}
+      <AnimatePresence>
+        {showWelcomeModal && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[200] flex items-center justify-center bg-background/60 backdrop-blur-xl p-6"
+          >
+            <motion.div 
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              className="max-w-md w-full bg-card border border-border/50 shadow-2xl rounded-[32px] p-8 flex flex-col items-center text-center gap-6"
+            >
+              <div className="w-20 h-20 rounded-3xl bg-primary/20 flex items-center justify-center mb-2">
+                <span className="material-symbols-outlined text-primary text-4xl" style={{ fontVariationSettings: "'FILL' 1" }}>auto_awesome</span>
+              </div>
+              <div className="flex flex-col gap-2">
+                <h2 className="text-2xl font-bold text-foreground">Bismillah</h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  Welcome to <span className="text-foreground font-semibold">Dzikr & Dua</span>. Your playlist is ready. Tap play to begin your remembrance.
+                </p>
+              </div>
+              
+              <button 
+                onClick={handleStartPlayback}
+                className="w-full py-4 rounded-2xl bg-primary text-primary-foreground font-bold text-lg flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-primary/20 cursor-pointer"
+              >
+                <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>play_arrow</span>
+                <span>Start Recitation</span>
+              </button>
+              
+              <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold opacity-50">
+                Remembrance of Allah is the Greatest
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Main Area (Left) */}
       <main className="flex-1 overflow-y-auto relative flex flex-col items-center justify-center px-6 lg:px-20 scroll-smooth pt-24 landscape:pt-16">
         <div className="absolute top-0 left-0 right-0 h-16 landscape:h-12 flex items-center justify-between px-8 z-20">
