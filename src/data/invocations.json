@@ -1171,7 +1171,14 @@
         "english": " Allah - there is no deity except Him, the Ever-Living, the Sustainer of [all] existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is [presently] before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great.",
         "chapter_name": "Morning Adhkar",
         "indonesian": "Allah tidak ada Ilah (yang berhak diibadahi) melainkan Dia Yang Hidup Kekal lagi terus menerus mengurus (makhluk-Nya); tidak mengantuk dan tidak tidur. Kepunyaan-Nya apa yang ada di langit dan di bumi. Tidak ada yang dapat memberi syafa'at di sisi Allah tanpa izin-Nya. Allah mengetahui apa-apa yang (berada) dihadapan mereka, dan dibelakang mereka dan mereka tidak mengetahui apa-apa dari Ilmu Allah melainkan apa yang dikehendaki-Nya. Kursi Allah meliputi langit dan bumi. Dan Allah tidak merasa berat memelihara keduanya, Allah Mahatinggi lagi Mahabesar.",
-        "internal_id": "Against Shaitan"
+        "internal_id": "Against Shaitan",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_morning.mp3",
+            "startTime": 12,
+            "endTime": 72
+          }
+        }
       },
       {
         "id": 77,
@@ -1184,7 +1191,14 @@
         "english": "([Soorah al-Ikhlaas (112)]( 1 )   Say, He is Allah, [who is] One,( 2 )   Allah, the Eternal Refuge.( 3 )   He neither begets nor is born,( 4 )   Nor is there to Him any equivalent.)([Soorah al-Falaq (113)] ( 1 )   Say, I seek refuge in the Lord of daybreak( 2 )   From the evil of that which He created( 3 )   And from the evil of darkness when it settles( 4 )   And from the evil of the blowers in knots( 5 )   And from the evil of an envier when he envies. )([Soorah an-Naas (114)])( 1 )   Say, I seek refuge in the Lord of mankind,( 2 )   The Sovereign of mankind.( 3 )   The God of mankind,( 4 )   From the evil of the retreating whisperer -( 5 )   Who whispers [evil] into the breasts of mankind -( 6 )   From among the jinn and mankind.",
         "chapter_name": "Morning Adhkar",
         "indonesian": "Katakanlah, Dia-lah Allah Yang Maha Esa. Allah adalah (Rabb) yang segala sesuatu bergantung kepada-Nya. Dia tidak beranak dan tidak pula diperanakkan. Dan tidak ada seorang pun yang setara dengan-Nya.'\n\nKatakanlah: 'Aku berlindung kepada Rabb Yang menguasai (waktu) Shubuh dari kejahatan makhluk-Nya. Dan dari kejahatan malam apabila telah gelap gulita. Dan dari kejahatan wanita-wanita tukang sihir yang meniup buhul-buhul. Serta dari kejahatan orang yang dengki apabila dia dengki.\n\nKatakanlah, 'Aku berlindung kepada Rabb (yang memelihara dan menguasai) manusia. Raja manusia. Sembahan (Ilah) manusia. Dari kejahatan (bisikan) syaitan yang biasa bersembunyi. Yang membisikkan (kejahatan) ke dalam dada-dada manusia. Dari golongan jin dan manusia.'",
-        "internal_id": "Morning Adhkar (2)"
+        "internal_id": "Morning Adhkar (2)",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_morning.mp3",
+            "startTime": 121,
+            "endTime": 421
+          }
+        }
       },
       {
         "id": 78,
@@ -1197,7 +1211,14 @@
         "english": "‘We have reached the morning and at this very time unto Allaah, belongs all sovereignty , and all praise is for Allaah. None has the right to be worshipped except Allaah, alone, without any partner, to Him belong all sovereignty and praise and He is over all things omnipotent. My Lord, I ask You for the good of this day and the good of what follows it and I take refuge in You from the evil of this day and the evil of what follows it . My Lord, I take refuge in You from laziness and senility. My Lord, I take refuge in You from torment in the Fire and punishment in the grave.’",
         "chapter_name": "Morning Adhkar",
         "indonesian": "Kami telah memasuki waktu pagi dan kerajaan hanya milik Allah, segala puji hanya milik Allah. Tidak ada ilah yang berhak diibadahi dengan benar kecuali Allah Yang Maha Esa, tiada sekutu bagi-Nya. Bagi-Nya kerajaan dan bagi-Nya pujian. Dia-lah Yang Mahakuasa atas segala sesuatu. Wahai Rabb, aku mohon kepada-Mu kebaikan di hari ini dan kebaikan sesudahnya. Aku berlindung kepada-Mu dari kejahatan hari ini dan kejahatan sesudahnya. Wahai Rabb, aku berlindung kepada-Mu dari kemalasan dan kejelekan di hari tua. Wahai Rabb, aku berlindung kepada-Mu dari siksaan di Neraka dan siksaan di kubur.",
-        "internal_id": "Morning Adhkar (3)"
+        "internal_id": "Morning Adhkar (3)",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_morning.mp3",
+            "startTime": 445,
+            "endTime": 486
+          }
+        }
       },
       {
         "id": 79,
@@ -1210,7 +1231,14 @@
         "english": "(O Allah, by your leave we have reached the morning and by Your leave we have reached the evening, by Your leave we live and die and unto You is our resurrection.)[In the evening:](O Allah, by Your leave we have reached the evening and by Your leave we have reached the morning, by Your leave we live and die and unto You is our return.)",
         "chapter_name": "Morning Adhkar",
         "indonesian": "Ya Allah, dengan rahmat dan pertolongan-Mu kami memasuki waktu pagi, dan dengan rahmat dan pertolongan-Mu kami memasuki waktu sore. Dengan rahmat dan kehendak-Mu kami hidup dan dengan rahmat dan kehendak-Mu kami mati. Dan kepada-Mu kebangkitan (bagi semua makhluk).",
-        "internal_id": "Morning Adhkar (4)"
+        "internal_id": "Morning Adhkar (4)",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_morning.mp3",
+            "startTime": 491,
+            "endTime": 545
+          }
+        }
       },
       {
         "id": 80,
@@ -1223,7 +1251,14 @@
         "english": "(O Allah, You are my Lord, none has the right to be worshipped except You, You created me and I am Your servant and I abide to Your covenant and promise as best I can, I take refuge in You from the evil of which I have committed.  I acknowledge Your favour upon me and I acknowledge my sin, so forgive me, for verily none can forgive sin except You.)",
         "chapter_name": "Morning Adhkar",
         "indonesian": "Ya Allah, Engkau adalah Rabb-ku, tidak ada Ilah (yang berhak diibadahi dengan benar) kecuali Engkau, Engkau-lah yang menciptakanku. Aku adalah hamba-Mu. Aku akan setia pada perjanjianku dengan-Mu semampuku. Aku berlindung kepada-Mu dari kejelekan (apa) yang kuperbuat. Aku mengakui nikmat-Mu (yang diberikan) kepadaku dan aku mengakui dosaku, oleh karena itu, ampunilah aku. Sesungguhnya tidak ada yang dapat mengampuni dosa kecuali Engkau.",
-        "internal_id": "Sayyid ul Istighfar"
+        "internal_id": "Sayyid ul Istighfar",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_morning.mp3",
+            "startTime": 568,
+            "endTime": 593
+          }
+        }
       },
       {
         "id": 81,
@@ -1236,7 +1271,14 @@
         "english": "(O Allah, verily I have reached the morning and call on You, the bearers of Your throne, Your angles, and all of Your creation to witness that You are Allah, none has the right to be worshipped except You, alone, without partner and that Muhammad is Your Servant and Messenger.) (four times in the morning & evening)(Note: for the evening, one reads (amsaytu) instead of (asbahtu).)",
         "chapter_name": "Morning Adhkar",
         "indonesian": "Ya Allah! Nikmat yang kuterima atau diterima oleh seseorang di antara makhlukMu di pagi ini adalah dariMu. Maha Esa Engkau, tiada sekutu bagi-Mu. BagiMu segala puji dan kepadaMu panjatan syukur (dari seluruh makhluk-Mu).",
-        "internal_id": "Morning Adhkar (6)"
+        "internal_id": "Morning Adhkar (6)",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_morning.mp3",
+            "startTime": 631,
+            "endTime": 698
+          }
+        }
       },
       {
         "id": 82,
@@ -1249,7 +1291,14 @@
         "english": "(O Allah, what blessing I or any of Your creation have risen upon, is from You alone, without partner, so for You is all praise and unto You all thanks.)(…whoever says this in the morning has indeed offered his day’s thanks and whoever says this in the evening has indeed offered his night’s thanks.)(Note: for the evening, one reads (amsa) instead of (asbaha).)",
         "chapter_name": "Morning Adhkar",
         "indonesian": "Ya Allah! Selamatkan tubuhku (dari penyakit dan yang tidak aku inginkan). Ya Allah, selamatkan pendengaranku (dari penyakit dan maksiat atau sesuatu yang tidak aku inginkan). Ya Allah, selamatkan penglihatanku, tiada Tuhan (yang berhak disembah) kecuali Engkau. Ya Allah! Sesungguhnya aku berlindung kepadaMu dari kekufuran dan kefakiran. Aku berlindung kepadaMu dari siksa kubur, tiada Tuhan (yang berhak disembah) kecuali Engkau.\" (Dibaca tiga kali di waktu pagi dan sore).",
-        "internal_id": "Morning Adhkar (7)"
+        "internal_id": "Morning Adhkar (7)",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_morning.mp3",
+            "startTime": 738,
+            "endTime": 773
+          }
+        }
       },
       {
         "id": 83,
@@ -1262,7 +1311,14 @@
         "english": "(O Allah, grant my body health, O Allah, grant my hearing health, O Allah, grant my sight health.  None has the right to be worshipped except You.)(three times) (O Allah, I take refuge with You from disbelief and poverty, and I take refuge with You from the punishment of the grave.  None has the right to be worshipped except You. (three times))",
         "chapter_name": "Morning Adhkar",
         "indonesian": "Ya Allah, selamatkanlah tubuhku (dari penyakit dan dari apa yang tidak aku inginkan). Ya Allah, selamatkanlah pendengaranku (dari penyakit dan maksiat atau dari apa yang tidak aku inginkan). Ya Allah, selamatkanlah penglihatanku, tidak ada Ilah yang berhak diibadahi dengan benar kecuali Engkau. Ya Allah, sesungguhnya aku berlindung kepada-Mu dari kekufuran dan kefakiran. Aku berlindung kepada-Mu dari siksa kubur, tidak ada Ilah yang berhak diibadahi dengan benar kecuali Engkau.",
-        "internal_id": "Morning Adhkar (8)"
+        "internal_id": "Morning Adhkar (8)",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_morning.mp3",
+            "startTime": 822,
+            "endTime": 847
+          }
+        }
       },
       {
         "id": 84,
@@ -1275,7 +1331,14 @@
         "english": "Allah is Sufficient for me, none has the right to be worshipped except Him, upon Him I rely and He is Lord of the exalted throne.’ (Recite seven times in Arabic.)",
         "chapter_name": "Morning Adhkar",
         "indonesian": "Ya Allah! Sesungguhnya aku memohon kebajikan dan keselamatan di dunia dan akhirat. Ya Allah, sesungguhnya aku memohon kebajikan dan keselamatan dalam agama, dunia, keluarga dan hartaku. Ya Allah, tutupilah auratku (aib dan sesuatu yang tidak layak dilihat orang) dan tenteramkanlah aku dari rasa takut. Ya Allah! Peliharalah aku dari muka, belakang, kanan, kiri dan atasku. Aku berlindung dengan kebesaranMu, agar aku tidak disambar dari bawahku (oleh ulat atau bumi pecah yang membuat aku jatuh dan lain-lain).",
-        "internal_id": "Morning Adhkar (9)"
+        "internal_id": "Morning Adhkar (9)",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_morning.mp3",
+            "startTime": 885,
+            "endTime": 911
+          }
+        }
       },
       {
         "id": 85,
@@ -1288,7 +1351,14 @@
         "english": "O Allah, I ask You for pardon and well-being in this life and the next. O Allah, I ask You for pardon and well-being in my religious and worldly affairs, and my family and my wealth. O Allah, veil my weaknesses and set at ease my dismay. O Allah, preserve me from the front and from behind and on my right and on my left and from above, and I take refuge with You lest I be swallowed up by the earth.",
         "chapter_name": "Morning Adhkar",
         "indonesian": "Ya Allah, sesungguhnya aku memohon kebajikan dan keselamatan di dunia dan akhirat. Ya Allah, sesungguhnya aku memohon kebajikan dan keselamatan dalam agama, dunia, keluarga dan hartaku. Ya Allah, tutupilah auratku (aib dan sesuatu yang tidak layak dilihat orang) dan tentramkan-lah aku dari rasa takut. Ya Allah, peliharalah aku dari depan, belakang, kanan, kiri dan dari atasku. Aku berlindung dengan kebesaran-Mu, agar aku tidak disambar dari bawahku (aku berlindung dari dibenamkan ke dalam bumi).",
-        "internal_id": "Morning Adhkar (10)"
+        "internal_id": "Morning Adhkar (10)",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_morning.mp3",
+            "startTime": 927,
+            "endTime": 960
+          }
+        }
       },
       {
         "id": 86,
@@ -1301,7 +1371,14 @@
         "english": "(O Allah, Knower of the unseen and the seen, Creator of the heavens and the Earth, Lord and Sovereign of all things, I bear witness that none has the right to be worshipped except You. I take refuge in You from the evil of my soul and from the evil and shirk of the devil, and from committing wrong against my soul or bringing such upon another Muslim.)(shirk: to associate others with Allah in those things which are specific to Him.  This can occur in (1) belief, e.g. to believe that other than Allah has the power to benefit or harm, (2) speech, e.g. to swear by other than Allah and (3) action, e.g. to bow or prostrate to other than Allah.)",
         "chapter_name": "Morning Adhkar",
         "indonesian": "Ya Allah Yang Mahamengetahui yang ghaib dan yang nyata, wahai Rabb Pencipta langit dan bumi, Rabb atas segala sesuatu dan Yang Merajainya. Aku bersaksi bahwa tidak ada Ilah yang berhak diibadahi dengan benar kecuali Engkau. Aku berlindung kepada-Mu dari kejahatan diriku, syaitan dan ajakannya menyekutukan Allah (aku berlindung kepada-Mu) dari berbuat kejelekan atas diriku atau mendorong seorang muslim kepadanya.",
-        "internal_id": "Morning Adhkar (11)"
+        "internal_id": "Morning Adhkar (11)",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_morning.mp3",
+            "startTime": 975,
+            "endTime": 988
+          }
+        }
       },
       {
         "id": 87,
@@ -1314,7 +1391,14 @@
         "english": "(In the name of Allah with whose name nothing is harmed on earth nor in the heavens and He is The All-Seeing, The All-Knowing.’(three times))",
         "chapter_name": "Morning Adhkar",
         "indonesian": "Dengan Menyebut Nama Allah, yang dengan Nama-Nya tidak ada satupun yang membahayakan, baik di bumi maupun dilangit. Dia-lah Yang Mahamendengar dan Maha mengetahui.",
-        "internal_id": "Before Eating"
+        "internal_id": "Before Eating",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_morning.mp3",
+            "startTime": 1015,
+            "endTime": 1037
+          }
+        }
       },
       {
         "id": 88,
@@ -1327,7 +1411,14 @@
         "english": "(I am pleased with Allah as a Lord, and Islam as a religion and Muhammad  as a Prophet.’(three times))",
         "chapter_name": "Morning Adhkar",
         "indonesian": "Aku rela (ridha) Allah sebagai Rabb-ku (untukku dan orang lain), Islam sebagai agamaku and Muhammad صلي الله عليه وسلم sebagai Nabiku (yang diutus oleh Allah).",
-        "internal_id": "Morning Adhkar (13)"
+        "internal_id": "Morning Adhkar (13)",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_morning.mp3",
+            "startTime": 1059,
+            "endTime": 1069
+          }
+        }
       },
       {
         "id": 89,
@@ -1340,7 +1431,14 @@
         "english": "(O Ever Living, O Self-Subsisting and Supporter of all, by Your mercy I seek assistance, rectify for me all of my affairs and do not leave me to myself, even for the blink of an eye.)",
         "chapter_name": "Morning Adhkar",
         "indonesian": "Wahai Rabb Yang Maha hidup, Wahai Rabb Yang Maha berdiri sendiri (tidak butuh segala sesuatu) dengan rahmat-Mu aku meminta pertolongan, perbaikilah segala urusanku dan jangan diserahkan (urusanku) kepada diriku sendiri meskipun hanya sekejap mata (tanpa mendapat pertolongan dari-Mu).",
-        "internal_id": "Morning Adhkar (14)"
+        "internal_id": "Morning Adhkar (14)",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_morning.mp3",
+            "startTime": 1089,
+            "endTime": 1091
+          }
+        }
       },
       {
         "id": 90,
@@ -1353,7 +1451,14 @@
         "english": "(We have reached the morning and at this very time all sovereignty belongs to Allah, Lord of the worlds. O Allah, I ask You for the good of this day, its triumphs and its victories, its light and its blessings and its guidance, and I take refuge in You from the evil of this day and the evil that follows it.)[For the evening, the supplication is read as follows:](We have reached the evening and at this very time all sovereignty belongs to Allah, Lord of the worlds. O Allah, I ask You for the good of tonight, its triumphs and its victories, its light and its blessings and its guidance, and I take refuge in You from the evil of tonight and the evil that follows it.)",
         "chapter_name": "Morning Adhkar",
         "indonesian": "Di waktu pagi kami memegang agama Islam, kalimat ikhlas, agama Nabi kita Muhammad, dan agama ayah kami Ibrahim, yang berdiri di atas jalan yang lurus, muslim dan tidak tergolong orangorang musyrik.",
-        "internal_id": "Morning Adhkar (15)"
+        "internal_id": "Morning Adhkar (15)",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_morning.mp3",
+            "startTime": 1097,
+            "endTime": 1113
+          }
+        }
       },
       {
         "id": 91,
@@ -4342,7 +4447,14 @@
         "english": " Allah - there is no deity except Him, the Ever-Living, the Sustainer of [all] existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is [presently] before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great.",
         "chapter_name": "Evening Adhkar",
         "indonesian": "Dengan menyebut nama Allah Yang Maha Pengasih lagi Maha Penyayang. Katakanlah: Dialah Allah, Yang Maha Esa. Allah adalah Ilah yang bergantung kepada- Nya segala urusan. Dia tidak beranak dan tiada pula diperanakkan, dan tidak ada seorang pun yang setara dengan Dia. Dengan menyebut nama Allah Yang Maha Pengasih lagi Maha Penyayang. Katakanlah: Aku berlindung kepada Rabb yang menguasai Subuh, dari kejahatan makhluk-Nya, dan dari kejahatan malam apabila telah gelap gulita, dan dari kejahatankejahatan wanita tukang sihir yang menghembus pada buhul-buhul, dan dari kejahatan orang yang dengki apabila ia dengki. Dengan menyebut nama Allah Yang Maha Pengasih lagi Maha Penyayang. Katakanlah: Aku berlindung kepada Rabb manusia. Raja manusia. Sembahan manusia, dari kejahatan (bisikan) syaitan yang biasa bersembunyi, yang membisikkan (kejahatan) ke dalam dada manusia, dari jin dan manusia.92",
-        "internal_id": "Against Shaitan"
+        "internal_id": "Against Shaitan",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_evening.mp3",
+            "startTime": 12,
+            "endTime": 73
+          }
+        }
       },
       {
         "id": 77,
@@ -4355,7 +4467,14 @@
         "english": "([Soorah al-Ikhlaas (112)]( 1 )   Say, He is Allah, [who is] One,( 2 )   Allah, the Eternal Refuge.( 3 )   He neither begets nor is born,( 4 )   Nor is there to Him any equivalent.)([Soorah al-Falaq (113)] ( 1 )   Say, I seek refuge in the Lord of daybreak( 2 )   From the evil of that which He created( 3 )   And from the evil of darkness when it settles( 4 )   And from the evil of the blowers in knots( 5 )   And from the evil of an envier when he envies. )([Soorah an-Naas (114)])( 1 )   Say, I seek refuge in the Lord of mankind,( 2 )   The Sovereign of mankind.( 3 )   The God of mankind,( 4 )   From the evil of the retreating whisperer -( 5 )   Who whispers [evil] into the breasts of mankind -( 6 )   From among the jinn and mankind.",
         "chapter_name": "Evening Adhkar",
         "indonesian": "Kami telah memasuki waktu pagi dan kerajaan hanya milik Allah, segala puji bagi Allah. Tidak ada Tuhan (yang berhak disembah) kecuali Allah Yang Maha Esa, tiada sekutu bagiNya. Bagi-Nya kerajaan dan bagiNya pujian. Dia-lah Yang Mahakuasa",
-        "internal_id": "Evening Adhkar (2)"
+        "internal_id": "Evening Adhkar (2)",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_evening.mp3",
+            "startTime": 121,
+            "endTime": 421
+          }
+        }
       },
       {
         "id": 78,
@@ -4368,7 +4487,14 @@
         "english": "‘We have reached the evening and at this very time unto Allaah, belongs all sovereignty , and all praise is for Allaah. None has the right to be worshipped except Allaah, alone, without any partner, to Him belong all sovereignty and praise and He is over all things omnipotent. My Lord, I ask You for the good of this day and the good of what follows it and I take refuge in You from the evil of this day and the evil of what follows it . My Lord, I take refuge in You from laziness and senility. My Lord, I take refuge in You from torment in the Fire and punishment in the grave.’",
         "chapter_name": "Evening Adhkar",
         "indonesian": "Ya Allah, dengan rahmat dan pertolonganMu kami memasuki waktu pagi, dan dengan rahmat dan pertolonganMu kami memasuki waktu sore. Dengan rahmat dan pertolonganMu kami hidup dan dengan kehendakMu kami mati. Dan kepadaMu kebangkitan (bagi semua makhluk).",
-        "internal_id": "Evening Adhkar (3)"
+        "internal_id": "Evening Adhkar (3)",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_evening.mp3",
+            "startTime": 445,
+            "endTime": 486
+          }
+        }
       },
       {
         "id": 79,
@@ -4381,7 +4507,14 @@
         "english": "(O Allah, by your leave we have reached the evening and by Your leave we have reached the evening, by Your leave we live and die and unto You is our resurrection.)[In the evening:](O Allah, by Your leave we have reached the evening and by Your leave we have reached the evening, by Your leave we live and die and unto You is our return.)",
         "chapter_name": "Evening Adhkar",
         "indonesian": "Ya Allah! Engkau adalah Tuhanku, tidak ada Tuhan yang berhak disembah kecuali Engkau, Engkaulah yang menciptakan aku. Aku adalah hambaMu. Aku akan setia pada perjanjianku denganMu semampuku. Aku berlindung kepadaMu dari kejelekan yang kuperbuat. Aku mengakui nikmatMu kepadaku dan aku mengakui dosaku, oleh karena itu, ampunilah aku. Sesungguhnya tiada yang mengampuni dosa kecuali Engkau.",
-        "internal_id": "Evening Adhkar (4)"
+        "internal_id": "Evening Adhkar (4)",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_evening.mp3",
+            "startTime": 534,
+            "endTime": 545
+          }
+        }
       },
       {
         "id": 80,
@@ -4394,7 +4527,14 @@
         "english": "(O Allah, You are my Lord, none has the right to be worshipped except You, You created me and I am Your servant and I abide to Your covenant and promise as best I can, I take refuge in You from the evil of which I have committed.  I acknowledge Your favour upon me and I acknowledge my sin, so forgive me, for verily none can forgive sin except You.)",
         "chapter_name": "Evening Adhkar",
         "indonesian": "Ya Allah! Sesungguhnya aku di waktu pagi ini mempersaksikan Engkau, malaikat yang memikul arasyMu, malaikat-malaikat dan seluruh makhlukMu, bahwa sesungguhnya Engkau adalah Allah, tiada Tuhan yang berhak disembah kecuali Engkau Yang Maha Esa, tiada sekutu bagiMu dan sesungguhnya Muhammad adalah hamba dan utusan-Mu.\" (Dibaca empat kali waktu pagi dan sore).",
-        "internal_id": "Sayyid ul Istighfar"
+        "internal_id": "Sayyid ul Istighfar",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_evening.mp3",
+            "startTime": 568,
+            "endTime": 593
+          }
+        }
       },
       {
         "id": 81,
@@ -4407,7 +4547,14 @@
         "english": "(O Allah, verily I have reached the evening and call on You, the bearers of Your throne, Your angles, and all of Your creation to witness that You are Allah, none has the right to be worshipped except You, alone, without partner and that Muhammad is Your Servant and Messenger.) (four times in the evening & evening)(Note: for the evening, one reads (amsaytu) instead of (asbahtu).)",
         "chapter_name": "Evening Adhkar",
         "indonesian": "Ya Allah! Nikmat yang kuterima atau diterima oleh seseorang di antara makhlukMu di pagi ini adalah dariMu. Maha Esa Engkau, tiada sekutu bagi-Mu. BagiMu segala puji dan kepadaMu panjatan syukur (dari seluruh makhluk-Mu).",
-        "internal_id": "Evening Adhkar (6)"
+        "internal_id": "Evening Adhkar (6)",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_evening.mp3",
+            "startTime": 630,
+            "endTime": 697
+          }
+        }
       },
       {
         "id": 82,
@@ -4420,7 +4567,14 @@
         "english": "(O Allah, what blessing I or any of Your creation have risen upon, is from You alone, without partner, so for You is all praise and unto You all thanks.)(…whoever says this in the evening has indeed offered his day’s thanks and whoever says this in the evening has indeed offered his night’s thanks.)(Note: for the evening, one reads (amsa) instead of (asbaha).)",
         "chapter_name": "Evening Adhkar",
         "indonesian": "Ya Allah! Selamatkan tubuhku (dari penyakit dan yang tidak aku inginkan). Ya Allah, selamatkan pendengaranku (dari penyakit dan maksiat atau sesuatu yang tidak aku inginkan). Ya Allah, selamatkan penglihatanku, tiada Tuhan (yang berhak disembah) kecuali Engkau. Ya Allah! Sesungguhnya aku berlindung kepadaMu dari kekufuran dan kefakiran. Aku berlindung kepadaMu dari siksa kubur, tiada Tuhan (yang berhak disembah) kecuali Engkau.\" (Dibaca tiga kali di waktu pagi dan sore).",
-        "internal_id": "Evening Adhkar (7)"
+        "internal_id": "Evening Adhkar (7)",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_evening.mp3",
+            "startTime": 737,
+            "endTime": 773
+          }
+        }
       },
       {
         "id": 83,
@@ -4433,7 +4587,14 @@
         "english": "(O Allah, grant my body health, O Allah, grant my hearing health, O Allah, grant my sight health.  None has the right to be worshipped except You.)(three times) (O Allah, I take refuge with You from disbelief and poverty, and I take refuge with You from the punishment of the grave.  None has the right to be worshipped except You. (three times))",
         "chapter_name": "Evening Adhkar",
         "indonesian": "Allah-lah yang mencukupi (segala kebutuhanku), tiada Tuhan (yang berhak disembah) kecuali Dia, kepadaNya aku bertawakal. Dia-lah Tuhan yang menguasai 'Arsy yang agung.\" (Dibaca tujuh kali waktu pagi dan sore).",
-        "internal_id": "Evening Adhkar (8)"
+        "internal_id": "Evening Adhkar (8)",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_evening.mp3",
+            "startTime": 821,
+            "endTime": 845
+          }
+        }
       },
       {
         "id": 84,
@@ -4446,7 +4607,14 @@
         "english": "Allah is Sufficient for me, none has the right to be worshipped except Him, upon Him I rely and He is Lord of the exalted throne.’ (Recite seven times in Arabic.)",
         "chapter_name": "Evening Adhkar",
         "indonesian": "Ya Allah! Sesungguhnya aku memohon kebajikan dan keselamatan di dunia dan akhirat. Ya Allah, sesungguhnya aku memohon kebajikan dan keselamatan dalam agama, dunia, keluarga dan hartaku. Ya Allah, tutupilah auratku (aib dan sesuatu yang tidak layak dilihat orang) dan tenteramkanlah aku dari rasa takut. Ya Allah! Peliharalah aku dari muka, belakang, kanan, kiri dan atasku. Aku berlindung dengan kebesaranMu, agar aku tidak disambar dari bawahku (oleh ulat atau bumi pecah yang membuat aku jatuh dan lain-lain).",
-        "internal_id": "Evening Adhkar (9)"
+        "internal_id": "Evening Adhkar (9)",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_evening.mp3",
+            "startTime": 883,
+            "endTime": 910
+          }
+        }
       },
       {
         "id": 85,
@@ -4459,7 +4627,14 @@
         "english": "O Allah, I ask You for pardon and well-being in this life and the next. O Allah, I ask You for pardon and well-being in my religious and worldly affairs, and my family and my wealth. O Allah, veil my weaknesses and set at ease my dismay. O Allah, preserve me from the front and from behind and on my right and on my left and from above, and I take refuge with You lest I be swallowed up by the earth.",
         "chapter_name": "Evening Adhkar",
         "indonesian": "Ya Allah! Yang Maha Mengetahui yang ghaib dan yang nyata, wahai Tuhan pencipta langit dan bumi, Tuhan segala sesuatu dan yang merajainya. Aku bersaksi bahwa tidak ada Tuhan yang hak kecuali Engkau. Aku berlindung kepadaMu dari kejahatan diriku, setan dan balatentaranya, dan aku (berlindung kepadaMu) dari berbuat kejelekan terhadap diriku atau menyeretnya kepada seorang muslim.",
-        "internal_id": "Evening Adhkar (10)"
+        "internal_id": "Evening Adhkar (10)",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_evening.mp3",
+            "startTime": 926,
+            "endTime": 959
+          }
+        }
       },
       {
         "id": 86,
@@ -4472,7 +4647,14 @@
         "english": "(O Allah, Knower of the unseen and the seen, Creator of the heavens and the Earth, Lord and Sovereign of all things, I bear witness that none has the right to be worshipped except You. I take refuge in You from the evil of my soul and from the evil and shirk of the devil, and from committing wrong against my soul or bringing such upon another Muslim.)(shirk: to associate others with Allah in those things which are specific to Him.  This can occur in (1) belief, e.g. to believe that other than Allah has the power to benefit or harm, (2) speech, e.g. to swear by other than Allah and (3) action, e.g. to bow or prostrate to other than Allah.)",
         "chapter_name": "Evening Adhkar",
         "indonesian": "Dengan nama Allah yang bila disebut, segala sesuatu di bumi dan langit tidak akan berbahaya, Dia-lah Yang Maha Mendengar lagi Maha Mengetahui.\" (Dibaca tiga kali).",
-        "internal_id": "Evening Adhkar (11)"
+        "internal_id": "Evening Adhkar (11)",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_evening.mp3",
+            "startTime": 975,
+            "endTime": 988
+          }
+        }
       },
       {
         "id": 87,
@@ -4485,7 +4667,14 @@
         "english": "(In the name of Allah with whose name nothing is harmed on earth nor in the heavens and He is The All-Seeing, The All-Knowing.’(three times))",
         "chapter_name": "Evening Adhkar",
         "indonesian": "Aku rela Allah sebagai Tuhan, Islam sebagai agama dan Muhammad sebagai nabi (yang diutus oleh Allah).\" (Dibaca tiga kali).",
-        "internal_id": "Before Eating"
+        "internal_id": "Before Eating",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_evening.mp3",
+            "startTime": 1014,
+            "endTime": 1037
+          }
+        }
       },
       {
         "id": 88,
@@ -4498,7 +4687,14 @@
         "english": "(I am pleased with Allah as a Lord, and Islam as a religion and Muhammad  as a Prophet.’(three times))",
         "chapter_name": "Evening Adhkar",
         "indonesian": "Wahai Tuhan Yang Maha Hidup, wahai Tuhan Yang Berdiri Sendiri (tidak butuh segala sesuatu), dengan rahmat-Mu aku minta pertolongan, perbaikilah segala urusanku dan jangan diserahkan kepadaku sekalipun sekejap mata (tanpa mendapat pertolongan dariMu).",
-        "internal_id": "Evening Adhkar (13)"
+        "internal_id": "Evening Adhkar (13)",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_evening.mp3",
+            "startTime": 1058,
+            "endTime": 1068
+          }
+        }
       },
       {
         "id": 89,
@@ -4511,7 +4707,14 @@
         "english": "(O Ever Living, O Self-Subsisting and Supporter of all, by Your mercy I seek assistance, rectify for me all of my affairs and do not leave me to myself, even for the blink of an eye.)",
         "chapter_name": "Evening Adhkar",
         "indonesian": "\"Kami masuk pagi, sedang kerajaan hanya milik Allah, Tuhan seru sekalian alam. Ya Allah, sesungguhnya aku memohon kepadaMu agar memperoleh kebaikan, pembuka (rahmat), pertolongan, cahaya, berkah dan petunjuk di hari ini. Aku berlindung kpadaMu dari kejelekan apa yang ada di dalamnya dan kejahatan sesudahnya.",
-        "internal_id": "Evening Adhkar (14)"
+        "internal_id": "Evening Adhkar (14)",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_evening.mp3",
+            "startTime": 1088,
+            "endTime": 1091
+          }
+        }
       },
       {
         "id": 90,
@@ -4524,7 +4727,14 @@
         "english": "(We have reached the evening and at this very time all sovereignty belongs to Allah, Lord of the worlds. O Allah, I ask You for the good of this day, its triumphs and its victories, its light and its blessings and its guidance, and I take refuge in You from the evil of this day and the evil that follows it.)[For the evening, the supplication is read as follows:](We have reached the evening and at this very time all sovereignty belongs to Allah, Lord of the worlds. O Allah, I ask You for the good of tonight, its triumphs and its victories, its light and its blessings and its guidance, and I take refuge in You from the evil of tonight and the evil that follows it.)",
         "chapter_name": "Evening Adhkar",
         "indonesian": "Di waktu pagi kami memegang agama Islam, kalimat ikhlas, agama Nabi kita Muhammad, dan agama ayah kami Ibrahim, yang berdiri di atas jalan yang lurus, muslim dan tidak tergolong orangorang musyrik.",
-        "internal_id": "Evening Adhkar (15)"
+        "internal_id": "Evening Adhkar (15)",
+        "audio_versions": {
+          "rodja": {
+            "src": "/audios/rodja_evening.mp3",
+            "startTime": 1097,
+            "endTime": 1112
+          }
+        }
       },
       {
         "id": 91,

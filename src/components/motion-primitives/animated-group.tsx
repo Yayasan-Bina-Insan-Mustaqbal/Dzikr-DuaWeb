@@ -1,10 +1,5 @@
-'use client';
-import {
-  motion,
-  AnimatePresence,
-  Transition,
-  Variants,
-} from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import type { Transition, Variants } from 'framer-motion';
 import React, { ReactNode } from 'react';
 
 export type AnimatedGroupProps = {

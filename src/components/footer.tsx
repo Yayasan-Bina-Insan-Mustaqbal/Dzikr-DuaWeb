@@ -14,6 +14,10 @@ const links = [
         href: '/play?q=travel',
     },
     {
+        title: 'Feedback',
+        href: 'https://fbdzikrdua.insanmustaqbal.or.id',
+    },
+    {
         title: 'Privacy Policy',
         href: '#',
     },
@@ -58,6 +62,30 @@ export default function FooterSection() {
                         </svg>
                     </a>
                 </div>
+                <div className="my-12 flex flex-col items-center gap-6">
+                    <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground/60">Developed for</p>
+                    <div className="flex flex-col items-center gap-4">
+                        <img 
+                            src="/hsiITvibathon.png" 
+                            alt="HSI-IT Vibathon" 
+                            className="h-16 w-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
+                        />
+                        <p className="text-sm font-medium text-muted-foreground max-w-xs">
+                            Proudly developed as part of the <span className="text-foreground">HSI-IT Vibathon</span> event by HSI Abdullah Roy.
+                        </p>
+                    </div>
+                </div>
+
+                <div className="my-12 pt-8 border-t border-border/30">
+                    <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground/60 mb-6">Data Sources & Credits</p>
+                    <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-xs text-muted-foreground">
+                        <a href="https://github.com/BetimShala/mburoja-api" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Mburoja API</a>
+                        <a href="https://www.kaggle.com/code/ahsanneural/islamic-dua-adhkar/input" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Islamic Dua Dataset</a>
+                        <a href="https://github.com/wafaaelmaandy/Hisn-Muslim-Json" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Hisn Muslim JSON</a>
+                        <a href="https://hisnmuslim.com/i/en/1" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">HisnMuslim.com</a>
+                    </div>
+                </div>
+
                 <p className="text-muted-foreground text-sm">
                     Built with love for the Ummah. May Allah accept our remembrance.
                 </p>

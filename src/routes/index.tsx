@@ -1,8 +1,8 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router"
-import { motion } from "framer-motion"
 import HeroSection1 from "@/components/hero-section-1"
 import MobileHeroSection from "@/components/hero-section-3"
 import Features11 from "@/components/features-11"
+import GithubCTA from "@/components/github-cta"
 import FooterSection from "@/components/footer"
 
 export const Route = createFileRoute("/")({ component: LandingPage })
@@ -38,6 +38,9 @@ function LandingPage() {
 
       {/* Features Grid */}
       <Features11 />
+
+      {/* GitHub Contribute Section */}
+      <GithubCTA />
 
       {/* Footer */}
       <FooterSection />

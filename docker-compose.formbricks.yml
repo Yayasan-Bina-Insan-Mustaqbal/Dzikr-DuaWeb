@@ -1,0 +1,44 @@
+version: '3.3'
+
+services:
+  formbricks-db:
+    image: pgvector/pgvector:pg15
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=${FORMBRICKS_DB_PASSWORD:-super_secure_password}
+    volumes:
+      - formbricks-db-data:/var/lib/postgresql/data
+    networks:
+      - formbricks-network
+
+  formbricks-redis:
+    image: redis:alpine
+    restart: always
+    networks:
+      - formbricks-network
+
+  formbricks:
+    image: ghcr.io/formbricks/formbricks:latest
+    restart: always
+    depends_on:
+      - formbricks-db
+      - formbricks-redis
+    ports:
+      - "3001:3000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:${FORMBRICKS_DB_PASSWORD:-super_secure_password}@formbricks-db:5432/postgres
+      - REDIS_URL=redis://formbricks-redis:6379
+      - WEBAPP_URL=${FORMBRICKS_WEBAPP_URL:-http://localhost:3001}
+      - NEXTAUTH_URL=${FORMBRICKS_WEBAPP_URL:-http://localhost:3001}
+      - NEXTAUTH_SECRET=${FORMBRICKS_NEXTAUTH_SECRET}
+      - ENCRYPTION_KEY=${FORMBRICKS_ENCRYPTION_KEY}
+      - EMAIL_VERIFICATION_DISABLED=1
+    networks:
+      - formbricks-network
+
+networks:
+  formbricks-network:
+    driver: bridge
+
+volumes:
+  formbricks-db-data:

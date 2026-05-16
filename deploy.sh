@@ -19,7 +19,7 @@ if [ ! -d "public/audios" ]; then
 fi
 
 echo "Creating archive..."
-tar -czf /tmp/project.tar.gz \
+tar -chzf /tmp/project.tar.gz \
   --exclude 'node_modules' \
   --exclude '.git' \
   --exclude '.output' \

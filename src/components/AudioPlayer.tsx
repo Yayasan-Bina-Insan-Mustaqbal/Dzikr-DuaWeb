@@ -28,12 +28,27 @@ export function AudioPlayer() {
 
   const currentDua = queue[nowPlayingIndex]
   
-  // Resolve audio source based on selected version
+  // Resolve audio source and metadata based on selected version
+  const audioMetadata = currentDua?.audio_versions?.[selectedVersion]
+  const isObjectMetadata = typeof audioMetadata === 'object' && audioMetadata !== null
+  
   const audioSrc = currentDua ? (
-    (selectedVersion !== 'default' && currentDua.audio_versions?.[selectedVersion]) 
-      ? currentDua.audio_versions[selectedVersion] 
-      : currentDua.audio
+    isObjectMetadata ? (audioMetadata as any).src : (
+      (selectedVersion !== 'default' && typeof audioMetadata === 'string') 
+        ? audioMetadata 
+        : currentDua.audio
+    )
   ) : ""
+
+  const startTime = isObjectMetadata ? (audioMetadata as any).startTime : undefined
+  const endTime = isObjectMetadata ? (audioMetadata as any).endTime : undefined
+
+  // Handle Seek to StartTime when track changes
+  useEffect(() => {
+    if (audioRef.current && startTime !== undefined) {
+      audioRef.current.currentTime = startTime
+    }
+  }, [audioSrc, startTime])
 
   // Handle Play/Pause state changes
   useEffect(() => {
@@ -56,7 +71,7 @@ export function AudioPlayer() {
     }
   }, [isPlaying, audioSrc])
 
-  // Handle Seeking
+  // Handle Seeking from store
   useEffect(() => {
     if (audioRef.current && Math.abs(audioRef.current.currentTime - currentTime) > 1.5) {
       audioRef.current.currentTime = currentTime
@@ -65,19 +80,29 @@ export function AudioPlayer() {
 
   const handleTimeUpdate = () => {
     if (audioRef.current) {
-      setCurrentTime(audioRef.current.currentTime)
+      const current = audioRef.current.currentTime
+      setCurrentTime(current)
+      
+      // Handle endTime
+      if (endTime !== undefined && current >= endTime) {
+        handleEnded()
+      }
     }
   }
 
   const handleLoadedMetadata = () => {
     if (audioRef.current) {
       setDuration(audioRef.current.duration)
+      // If we have startTime, ensure we start there
+      if (startTime !== undefined) {
+        audioRef.current.currentTime = startTime
+      }
     }
   }
 
   const handleEnded = () => {
     if (repeatMode === 'one' && audioRef.current) {
-      audioRef.current.currentTime = 0
+      audioRef.current.currentTime = startTime || 0
       audioRef.current.play().catch(e => console.error("Replay failed", e))
     } else {
       next()

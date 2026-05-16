@@ -4,6 +4,7 @@ import { TanStackDevtools } from "@tanstack/react-devtools"
 import { useEffect } from "react"
 import { z } from "zod"
 import { AudioPlayer } from "../components/AudioPlayer"
+import { FormbricksProvider } from "../components/FormbricksProvider"
 import { useAudioStore } from "../store/audio"
 import { compressQueue, decompressQueue } from "../lib/url"
 import { getInvocationById } from "../lib/data"
@@ -96,6 +97,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body className="min-h-screen bg-background text-foreground font-sans antialiased selection:bg-primary/30">
+        <FormbricksProvider />
         <Outlet />
         <AudioPlayer />
         <TanStackDevtools

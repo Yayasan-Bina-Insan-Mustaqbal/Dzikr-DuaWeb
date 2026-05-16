@@ -1,5 +1,5 @@
 import React from 'react'
-import { AndroidLogo } from '@phosphor-icons/react'
+import { RocketLaunch } from '@phosphor-icons/react'
 import { Button } from '@/components/ui/button'
 import { TextEffect } from '@/components/motion-primitives/text-effect'
 import { AnimatedGroup } from '@/components/motion-primitives/animated-group'
@@ -61,11 +61,11 @@ export default function MobileHeroSection() {
                             }}
                             className="mt-12">
                             <div className="flex flex-wrap justify-center gap-4 mb-20">
-                                <Button size="lg" className="h-14 px-8 rounded-2xl bg-zinc-900 text-white hover:bg-zinc-800 transition-all shadow-xl shadow-zinc-900/10 gap-3">
-                                    <AndroidLogo size={24} weight="fill" />
+                                <Button size="lg" className="h-14 px-8 rounded-2xl bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-xl shadow-primary/20 gap-3 cursor-pointer">
+                                    <RocketLaunch size={24} weight="bold" />
                                     <div className="flex flex-col items-start leading-none text-left">
-                                        <span className="text-[10px] uppercase font-bold opacity-60">Get it on</span>
-                                        <span className="text-lg font-bold">Google Play</span>
+                                        <span className="text-[10px] uppercase font-bold opacity-60">Join Early Access</span>
+                                        <span className="text-lg font-bold">Become a Tester</span>
                                     </div>
                                 </Button>
                                 <Button size="lg" variant="outline" className="h-14 px-8 rounded-2xl opacity-50 cursor-not-allowed gap-3">

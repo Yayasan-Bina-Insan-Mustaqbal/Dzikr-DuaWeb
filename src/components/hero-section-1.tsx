@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from '@tanstack/react-router'
+import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { TextEffect } from '@/components/motion-primitives/text-effect'
 import { AnimatedGroup } from '@/components/motion-primitives/animated-group'
@@ -50,16 +51,22 @@ export default function HeroSection1() {
 
                 <div className="bg-radial from-primary/10 relative mx-auto mt-24 max-w-5xl to-transparent to-70% pb-12">
                     <div className="relative rounded-2xl border bg-background/50 p-2 shadow-2xl backdrop-blur-sm lg:rounded-[2.5rem]">
-                        <div className="relative h-[24rem] overflow-hidden rounded-xl border bg-muted lg:h-[32rem] lg:rounded-[2rem]">
+                        <div className="relative h-[24rem] overflow-hidden rounded-xl border bg-muted lg:h-[36rem] lg:rounded-[2rem]">
+                            {/* Main App Screenshot */}
                             <img 
-                                src="/minified_card.png" 
-                                alt="Dzikr & Dua App Preview" 
-                                className="w-full h-full object-cover"
+                                src="/screenshots/web_desktop.png" 
+                                alt="Dzikr & Dua App Interface" 
+                                className="w-full h-full object-cover object-top opacity-90"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
+
+                            <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent"></div>
                         </div>
                     </div>
-                    <div className="absolute inset-x-0 bottom-0 h-64 bg-linear-to-t from-background to-transparent"></div>
+                    {/* Decorative elements */}
+                    <div className="absolute -top-12 -left-12 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10 animate-pulse"></div>
+                    <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl -z-10 animate-pulse [animation-delay:2s]"></div>
+                    
+                    <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-background to-transparent"></div>
                 </div>
             </section>
         </main>

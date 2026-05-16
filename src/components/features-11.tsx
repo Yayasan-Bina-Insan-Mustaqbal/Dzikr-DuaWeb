@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { Globe, Palette, SpeakerHigh, BookOpen, Clock, Translate, DeviceMobile } from '@phosphor-icons/react'
+import { Globe, Palette, SpeakerHigh, BookOpen, Clock, Translate, DeviceMobile, MagnifyingGlass, ShareNetwork } from '@phosphor-icons/react'
 
 export default function Features11() {
     return (
@@ -10,6 +10,7 @@ export default function Features11() {
                     <p className="text-muted-foreground max-w-xl mx-auto text-lg">Modern technology meets spiritual tradition. Every feature is built to help you stay connected with your Creator.</p>
                 </div>
                 <div className="mx-auto grid gap-4 sm:grid-cols-5">
+                    {/* Row 1 */}
                     <Card className="group overflow-hidden shadow-zinc-950/5 sm:col-span-3 sm:rounded-none sm:rounded-tl-3xl border-border/50">
                         <CardHeader>
                             <div className="md:p-6 text-left">
@@ -20,16 +21,6 @@ export default function Features11() {
                                 <p className="text-muted-foreground mt-3 max-w-sm text-sm">Switch seamlessly between multiple high-quality audio sources including Rodja and Mburoja. Experience immersive soundscapes designed for focus.</p>
                             </div>
                         </CardHeader>
-
-                        <div className="relative h-fit pl-6 md:pl-12 pb-6">
-                            <div className="bg-background overflow-hidden rounded-tl-3xl border-l border-t pl-4 pt-4 shadow-2xl">
-                                <img
-                                    src="/screenshots/android_mobile_2.jpg"
-                                    alt="Player View"
-                                    className="w-full h-auto object-cover rounded-tl-2xl"
-                                />
-                            </div>
-                        </div>
                     </Card>
 
                     <Card className="group overflow-hidden shadow-zinc-950/5 sm:col-span-2 sm:rounded-none sm:rounded-tr-3xl border-border/50">
@@ -54,7 +45,8 @@ export default function Features11() {
                         </CardContent>
                     </Card>
 
-                    <Card className="group p-6 shadow-zinc-950/5 sm:col-span-2 sm:rounded-none sm:rounded-bl-3xl border-border/50 md:p-12">
+                    {/* Row 2 */}
+                    <Card className="group p-6 shadow-zinc-950/5 sm:col-span-2 sm:rounded-none border-border/50 md:p-12">
                         <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-8 mx-auto">
                             <BookOpen size={24} weight="bold" />
                         </div>
@@ -70,7 +62,7 @@ export default function Features11() {
                         </div>
                     </Card>
 
-                    <Card className="group relative shadow-zinc-950/5 sm:col-span-3 sm:rounded-none sm:rounded-br-3xl border-border/50">
+                    <Card className="group relative shadow-zinc-950/5 sm:col-span-3 sm:rounded-none border-border/50">
                         <CardHeader className="p-6 md:p-12 text-left">
                             <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6">
                                 <Clock size={24} weight="bold" />
@@ -94,6 +86,27 @@ export default function Features11() {
                                 </div>
                             </div>
                         </CardContent>
+                    </Card>
+
+                    {/* Row 3 */}
+                    <Card className="group overflow-hidden shadow-zinc-950/5 sm:col-span-3 sm:rounded-none sm:rounded-bl-3xl border-border/50">
+                        <CardHeader className="p-6 md:p-12 text-left">
+                            <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6">
+                                <MagnifyingGlass size={24} weight="bold" />
+                            </div>
+                            <p className="font-bold text-xl">Global Instant Search</p>
+                            <p className="text-muted-foreground mt-2 max-w-sm text-sm">Find any dhikr instantly. Search across Arabic, translations, and transliterations with lightning-fast local indexing.</p>
+                        </CardHeader>
+                    </Card>
+
+                    <Card className="group overflow-hidden shadow-zinc-950/5 sm:col-span-2 sm:rounded-none sm:rounded-br-3xl border-border/50">
+                        <CardHeader className="p-6 md:p-12 text-left">
+                            <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6">
+                                <ShareNetwork size={24} weight="bold" />
+                            </div>
+                            <p className="font-bold text-xl">Shareable Links</p>
+                            <p className="text-muted-foreground mt-2 max-w-sm text-sm">Share your favorite recitations or entire custom playlists with friends and family using smart compressed links.</p>
+                        </CardHeader>
                     </Card>
                 </div>
             </div>
