@@ -18,5 +18,5 @@ export interface Chapter {
   id: number;
   chapter_name: string;
   chapter_name_en?: string;
-  invocations: Invocation[];
+  invocations: Array<Invocation>;
 }

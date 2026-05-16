@@ -1,12 +1,12 @@
-import { HeadContent, Scripts, createRootRoute, Outlet, useNavigate } from "@tanstack/react-router"
+import { HeadContent, Outlet, Scripts, createRootRoute, useNavigate } from "@tanstack/react-router"
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools"
 import { TanStackDevtools } from "@tanstack/react-devtools"
-import { AudioPlayer } from "../components/AudioPlayer"
 import { useEffect } from "react"
-import { useAudioStore } from "../store/audio"
-import { decompressQueue, compressQueue } from "../lib/url"
-import { getInvocationById } from "../lib/data"
 import { z } from "zod"
+import { AudioPlayer } from "../components/AudioPlayer"
+import { useAudioStore } from "../store/audio"
+import { compressQueue, decompressQueue } from "../lib/url"
+import { getInvocationById } from "../lib/data"
 
 import appCss from "../styles.css?url"
 
@@ -53,7 +53,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     if (compressedQueue && currentQueue.length === 0) {
       // Direct ID parsing for simplicity first, or decompress if using lz-string
       const ids = compressedQueue.split(',').map(Number)
-      const invocations = ids.map(id => getInvocationById(id)).filter(Boolean) as any[]
+      const invocations = ids.map(id => getInvocationById(id)).filter(Boolean) as Array<any>
       if (invocations.length > 0) {
         setQueue(invocations)
         if (idx !== undefined && idx < invocations.length) {

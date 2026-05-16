@@ -12,6 +12,12 @@ if [ -z "$DEPLOY_PASSWORD" ] || [ -z "$DEPLOY_HOST" ] || [ -z "$DEPLOY_USER" ] |
   exit 1
 fi
 
+# Ensure critical assets exist
+if [ ! -d "public/audios" ]; then
+  echo "❌ Error: public/audios directory not found!"
+  exit 1
+fi
+
 echo "Creating archive..."
 tar -czf /tmp/project.tar.gz \
   --exclude 'node_modules' \

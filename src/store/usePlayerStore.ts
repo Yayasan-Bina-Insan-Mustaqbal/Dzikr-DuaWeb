@@ -1,13 +1,13 @@
 import { create } from 'zustand';
-import { Invocation } from '../types/data';
+import type { Invocation } from '../types/data';
 
 interface PlayerState {
-  queue: Invocation[];
+  queue: Array<Invocation>;
   currentIndex: number;
   isPlaying: boolean;
   
   // Actions
-  setQueue: (queue: Invocation[], startIndex?: number) => void;
+  setQueue: (queue: Array<Invocation>, startIndex?: number) => void;
   addToQueue: (invocation: Invocation) => void;
   removeFromQueue: (index: number) => void;
   play: () => void;

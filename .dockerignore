@@ -11,7 +11,6 @@ final_cuts
 scripts/**/.venv
 scripts/**/__pycache__
 *.tar.gz
-public/audios
 design
 evening_text.txt
 morning_text.txt

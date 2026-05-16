@@ -1,10 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router"
+import { useEffect, useMemo, useRef, useState } from "react"
+import { AnimatePresence, Reorder, motion } from "framer-motion"
 import { useAudioStore } from "../store/audio"
-import { useState, useEffect, useMemo, useRef } from "react"
-import { searchDhikr, type SearchResults } from "../lib/search"
-import type { Invocation, Chapter } from "../types/data"
+import {  searchDhikr } from "../lib/search"
 import { getChapters } from "../lib/data"
-import { motion, AnimatePresence, Reorder } from "framer-motion"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,6 +16,8 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "../components/ui/dropdown-menu"
+import type {SearchResults} from "../lib/search";
+import type { Chapter, Invocation } from "../types/data"
 
 export const Route = createFileRoute("/play")({
   component: PlayRoute,
@@ -54,7 +55,8 @@ function PlayRoute() {
     clearQueue, 
     addToQueue,
     reorderQueue,
-    removeFromQueue 
+    removeFromQueue,
+    audioElement
   } = useAudioStore()
   const search = Route.useSearch()
   const [searchQuery, setSearchQuery] = useState("")
@@ -71,7 +73,7 @@ function PlayRoute() {
   const [showCopied, setShowCopied] = useState(false)
   
   // Accordion state
-  const [openSections, setOpenSections] = useState<string[]>(['suggested-playlists', 'suggested-zikr'])
+  const [openSections, setOpenSections] = useState<Array<string>>(['suggested-playlists', 'suggested-zikr'])
   
   const toggleSection = (id: string) => {
     setOpenSections(prev => 
@@ -100,7 +102,7 @@ function PlayRoute() {
             if (invocation) return { ...invocation, chapter_name: chapter.chapter_name }
           }
           return undefined
-        }).filter(Boolean) as Invocation[]
+        }).filter(Boolean) as Array<Invocation>
         
         if (items.length > 0) {
           setQueue(items, false)
@@ -126,6 +128,9 @@ function PlayRoute() {
   const handleStartPlayback = () => {
     setShowWelcomeModal(false)
     setIsPlaying(true)
+    if (audioElement) {
+      audioElement.play().catch(e => console.error("Initial playback failed", e))
+    }
   }
 
   // Auto-scroll to the currently playing Dua
@@ -184,12 +189,12 @@ function PlayRoute() {
     
     const suggestedPlaylists = curatedIds
       .map(id => allChapters.find(c => c.id === id))
-      .filter(Boolean) as Chapter[]
+      .filter(Boolean) as Array<Chapter>
     
     const allPlaylists = allChapters.filter(c => !curatedIds.includes(c.id))
     
-    const suggestedZikr: Invocation[] = []
-    const allZikr: Invocation[] = []
+    const suggestedZikr: Array<Invocation> = []
+    const allZikr: Array<Invocation> = []
     
     for (const c of allChapters) {
       if (c.invocations.length > 0) {
@@ -613,7 +618,7 @@ function PlayRoute() {
                         
                         <button 
                           onClick={() => {
-                            const modes: ('off' | 'one' | 'all')[] = ['off', 'one', 'all']
+                            const modes: Array<'off' | 'one' | 'all'> = ['off', 'one', 'all']
                             const nextIndex = (modes.indexOf(repeatMode) + 1) % modes.length
                             setRepeatMode(modes[nextIndex])
                           }}

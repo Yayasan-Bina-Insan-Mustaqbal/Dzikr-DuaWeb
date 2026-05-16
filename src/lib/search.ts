@@ -1,12 +1,12 @@
 import { create, insertMultiple, search as oramaSearch } from '@orama/orama';
 import { getChapters } from './data';
-import type { Invocation, Chapter } from '../types/data';
+import type { Chapter, Invocation } from '../types/data';
 
 let oramaDb: any = null;
 
 export interface SearchResults {
-  chapters: Chapter[];
-  invocations: Invocation[];
+  chapters: Array<Chapter>;
+  invocations: Array<Invocation>;
 }
 
 // Initialize Orama search index locally
@@ -78,13 +78,13 @@ export const searchDhikr = async (term: string): Promise<SearchResults> => {
   });
 
   const chapters = getChapters();
-  const matchedInvocations: Invocation[] = [];
-  const matchedChapters: Chapter[] = [];
+  const matchedInvocations: Array<Invocation> = [];
+  const matchedChapters: Array<Chapter> = [];
   const seenChapters = new Set<number>();
   const seenInvocations = new Set<number>();
   
   for (const hit of results.hits) {
-    const doc = hit.document as any;
+    const doc = hit.document;
     
     if (doc.type === 'chapter') {
       const chapter = chapters.find(c => c.id === doc.chapter_id);

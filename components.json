@@ -12,6 +12,8 @@
   },
   "iconLibrary": "phosphor",
   "rtl": false,
+  "menuColor": "inverted",
+  "menuAccent": "subtle",
   "aliases": {
     "components": "@/components",
     "utils": "@/lib/utils",
@@ -19,7 +21,8 @@
     "lib": "@/lib",
     "hooks": "@/hooks"
   },
-  "menuColor": "inverted",
-  "menuAccent": "subtle",
-  "registries": {}
+  "registries": {
+    "@tailark": "https://tailark.com/r/{name}.json",
+    "@motion-primitives": "https://motion-primitives.com/c/{name}.json"
+  }
 }

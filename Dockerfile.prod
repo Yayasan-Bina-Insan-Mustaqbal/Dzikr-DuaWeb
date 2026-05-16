@@ -5,11 +5,22 @@ RUN bun install --frozen-lockfile
 COPY . .
 RUN bun run build
 
+# Verify build output
+RUN ls -la .output/public/audios/ | head -n 5
+
 FROM oven/bun:latest AS runner
 WORKDIR /app
+
+# Only copy the essential .output directory
 COPY --from=builder /app/.output ./.output
 COPY --from=builder /app/package.json ./
+
+# Set permissions for public assets
+RUN chmod -R 755 .output/public
+
 ENV NODE_ENV=production
 ENV PORT=3000
 EXPOSE 3000
+
+# Use bun to run the server
 CMD ["bun", "run", ".output/server/index.mjs"]

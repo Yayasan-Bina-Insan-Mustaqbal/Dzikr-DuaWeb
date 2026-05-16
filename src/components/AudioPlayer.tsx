@@ -13,11 +13,18 @@ export function AudioPlayer() {
     setIsPlaying, 
     setCurrentTime, 
     setDuration,
-    setBufferedTime
+    setBufferedTime,
+    setAudioElement
   } = useAudioStore()
   const audioRef = useRef<HTMLAudioElement>(null)
-  const lastSrcRef = useRef<string>("")
-  const isFadingRef = useRef<boolean>(false)
+  const isTransitioningRef = useRef<boolean>(false)
+
+  useEffect(() => {
+    if (audioRef.current) {
+      setAudioElement(audioRef.current)
+    }
+    return () => setAudioElement(null)
+  }, [setAudioElement])
 
   const currentDua = queue[nowPlayingIndex]
   
@@ -28,72 +35,36 @@ export function AudioPlayer() {
       : currentDua.audio
   ) : ""
 
-  // Handle source changes with fade-out
+  // Handle Play/Pause state changes
   useEffect(() => {
-    const handleSrcChange = async () => {
-      if (!audioRef.current) return
-      
-      const audio = audioRef.current
-      const newSrc = audioSrc
-      
-      // If already playing and src changes, fade out first
-      if (lastSrcRef.current && lastSrcRef.current !== newSrc && !audio.paused && !isFadingRef.current) {
-        isFadingRef.current = true
-        const startVolume = audio.volume
-        const fadeDuration = 300 // ms
-        const steps = 20
-        const volumeStep = startVolume / steps
-        
-        for (let i = 0; i < steps; i++) {
-          await new Promise(r => setTimeout(r, fadeDuration / steps))
-          audio.volume = Math.max(0, audio.volume - volumeStep)
-        }
-        
-        audio.pause()
-        audio.src = newSrc
-        audio.volume = startVolume
-        isFadingRef.current = false
-        
-        if (isPlaying) {
-          audio.play().catch(e => console.error("Playback failed after fade", e))
-        }
-      } else {
-        audio.src = newSrc
-        if (isPlaying) {
-          audio.play().catch(e => console.error("Playback failed", e))
-        }
+    const audio = audioRef.current
+    if (!audio || !audioSrc) return
+
+    if (isPlaying) {
+      if (audio.paused) {
+        audio.play().catch(error => {
+          // Only log real errors, not the "interrupted by new load" ones
+          if (error.name !== 'AbortError') {
+            console.error("Playback failed:", error)
+          }
+        })
       }
-      
-      lastSrcRef.current = newSrc
-    }
-
-    handleSrcChange()
-  }, [audioSrc, isPlaying])
-
-  // Handle Play/Pause (simple toggle if src is same)
-  useEffect(() => {
-    if (audioRef.current && audioRef.current.src.includes(audioSrc)) {
-      if (isPlaying) {
-        if (audioRef.current.paused && !isFadingRef.current) {
-          audioRef.current.play().catch(e => console.error("Play failed", e))
-        }
-      } else {
-        if (!audioRef.current.paused) {
-          audioRef.current.pause()
-        }
+    } else {
+      if (!audio.paused) {
+        audio.pause()
       }
     }
   }, [isPlaying, audioSrc])
 
   // Handle Seeking
   useEffect(() => {
-    if (audioRef.current && Math.abs(audioRef.current.currentTime - currentTime) > 1) {
+    if (audioRef.current && Math.abs(audioRef.current.currentTime - currentTime) > 1.5) {
       audioRef.current.currentTime = currentTime
     }
   }, [currentTime])
 
   const handleTimeUpdate = () => {
-    if (audioRef.current && !isFadingRef.current) {
+    if (audioRef.current) {
       setCurrentTime(audioRef.current.currentTime)
     }
   }
@@ -120,17 +91,31 @@ export function AudioPlayer() {
     }
   }
 
+  const handleError = (e: any) => {
+    const error = audioRef.current?.error
+    if (error?.code !== 4) { // Ignore abort errors
+      console.error("Audio Error:", {
+        code: error?.code,
+        message: error?.message,
+        src: audioRef.current?.src,
+        event: e
+      })
+    }
+  }
+
   if (!currentDua) return null
 
   return (
     <audio
       ref={audioRef}
+      src={audioSrc}
       onTimeUpdate={handleTimeUpdate}
       onLoadedMetadata={handleLoadedMetadata}
       onProgress={handleProgress}
       onEnded={handleEnded}
       onPlay={() => setIsPlaying(true)}
       onPause={() => setIsPlaying(false)}
+      onError={handleError}
       className="hidden"
     />
   )

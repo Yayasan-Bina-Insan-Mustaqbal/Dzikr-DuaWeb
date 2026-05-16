@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import type { Invocation } from '../types/data';
 
 interface AudioState {
-  queue: Invocation[];
+  queue: Array<Invocation>;
   nowPlayingIndex: number;
   isPlaying: boolean;
   currentTime: number;
@@ -13,7 +13,9 @@ interface AudioState {
   translationLang: 'none' | 'english' | 'indonesian' | 'albanian';
   transliterationLang: 'none' | 'latin';
   theme: 'auto' | 'light' | 'dark' | 'sepia' | 'emerald';
-  setQueue: (queue: Invocation[], shouldPlay?: boolean) => void;
+  audioElement: HTMLAudioElement | null;
+  setAudioElement: (el: HTMLAudioElement | null) => void;
+  setQueue: (queue: Array<Invocation>, shouldPlay?: boolean) => void;
   play: (index: number) => void;
   next: () => void;
   previous: () => void;
@@ -28,8 +30,8 @@ interface AudioState {
   setTheme: (theme: 'auto' | 'light' | 'dark' | 'sepia' | 'emerald') => void;
   seek: (time: number) => void;
   clearQueue: () => void;
-  addToQueue: (items: Invocation[]) => void;
-  reorderQueue: (newQueue: Invocation[]) => void;
+  addToQueue: (items: Array<Invocation>) => void;
+  reorderQueue: (newQueue: Array<Invocation>) => void;
   removeFromQueue: (index: number) => void;
 }
 
@@ -99,6 +101,9 @@ export const useAudioStore = create<AudioState>((set) => ({
   translationLang: getInitialLanguage(),
   transliterationLang: 'latin',
   theme: 'auto',
+  audioElement: null,
+
+  setAudioElement: (audioElement) => set({ audioElement }),
 
   setQueue: (queue, shouldPlay = true) => set({ 
     queue: queue.map(item => ({...item, queueId: item.queueId || Math.random().toString(36).substring(2, 9)})), 

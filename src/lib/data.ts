@@ -1,9 +1,9 @@
 import invocationsData from '../data/invocations.json';
 import type { Chapter, Invocation } from '../types/data';
 
-const chapters = invocationsData as Chapter[];
+const chapters = invocationsData as Array<Chapter>;
 
-export const getChapters = (): Chapter[] => {
+export const getChapters = (): Array<Chapter> => {
   return chapters;
 };
 
@@ -19,9 +19,9 @@ export const getInvocationById = (id: number): Invocation | undefined => {
   return undefined;
 };
 
-export const searchInvocations = (query: string): Invocation[] => {
+export const searchInvocations = (query: string): Array<Invocation> => {
   const normalizedQuery = query.toLowerCase();
-  const results: Invocation[] = [];
+  const results: Array<Invocation> = [];
 
   for (const chapter of chapters) {
     for (const invocation of chapter.invocations) {
