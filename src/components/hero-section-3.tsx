@@ -61,13 +61,19 @@ export default function MobileHeroSection() {
                             }}
                             className="mt-12">
                             <div className="flex flex-wrap justify-center gap-4 mb-20">
-                                <Button size="lg" className="h-14 px-8 rounded-2xl bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-xl shadow-primary/20 gap-3 cursor-pointer">
-                                    <RocketLaunch size={24} weight="bold" />
-                                    <div className="flex flex-col items-start leading-none text-left">
-                                        <span className="text-[10px] uppercase font-bold opacity-60">Join Early Access</span>
-                                        <span className="text-lg font-bold">Become a Tester</span>
-                                    </div>
-                                </Button>
+                                <a 
+                                    href="https://appdistribution.firebase.google.com/testerapps/1:734814370063:android:1d0ea63297521c106fe67a/releases/4ijdf5i0etr20" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                >
+                                    <Button size="lg" className="h-14 px-8 rounded-2xl bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-xl shadow-primary/20 gap-3 cursor-pointer">
+                                        <RocketLaunch size={24} weight="bold" />
+                                        <div className="flex flex-col items-start leading-none text-left">
+                                            <span className="text-[10px] uppercase font-bold opacity-60">Join Early Access</span>
+                                            <span className="text-lg font-bold">Become a Tester</span>
+                                        </div>
+                                    </Button>
+                                </a>
                                 <Button size="lg" variant="outline" className="h-14 px-8 rounded-2xl opacity-50 cursor-not-allowed gap-3">
                                     <div className="flex flex-col items-start leading-none text-left">
                                         <span className="text-[10px] uppercase font-bold opacity-60">Coming soon on</span>

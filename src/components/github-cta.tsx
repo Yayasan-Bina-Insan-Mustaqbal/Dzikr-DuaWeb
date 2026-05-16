@@ -86,7 +86,7 @@ export default function GithubCTA() {
           </motion.a>
 
           <motion.a
-            href="https://fbdzikrdua.insanmustaqbal.or.id"
+            href="https://fbdzikrdua.insanmustaqbal.or.id/s/cmp7ylxkx000sq6018s8qw07d"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
