@@ -12,7 +12,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as PlayRouteImport } from './routes/play'
 import { Route as ContributeRouteImport } from './routes/contribute'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ApiContributeRouteImport } from './routes/api/contribute'
 
 const PlayRoute = PlayRouteImport.update({
   id: '/play',
@@ -29,44 +28,35 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiContributeRoute = ApiContributeRouteImport.update({
-  id: '/api/contribute',
-  path: '/api/contribute',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contribute': typeof ContributeRoute
   '/play': typeof PlayRoute
-  '/api/contribute': typeof ApiContributeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contribute': typeof ContributeRoute
   '/play': typeof PlayRoute
-  '/api/contribute': typeof ApiContributeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contribute': typeof ContributeRoute
   '/play': typeof PlayRoute
-  '/api/contribute': typeof ApiContributeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contribute' | '/play' | '/api/contribute'
+  fullPaths: '/' | '/contribute' | '/play'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contribute' | '/play' | '/api/contribute'
-  id: '__root__' | '/' | '/contribute' | '/play' | '/api/contribute'
+  to: '/' | '/contribute' | '/play'
+  id: '__root__' | '/' | '/contribute' | '/play'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContributeRoute: typeof ContributeRoute
   PlayRoute: typeof PlayRoute
-  ApiContributeRoute: typeof ApiContributeRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -92,13 +82,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/contribute': {
-      id: '/api/contribute'
-      path: '/api/contribute'
-      fullPath: '/api/contribute'
-      preLoaderRoute: typeof ApiContributeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
@@ -106,7 +89,6 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContributeRoute: ContributeRoute,
   PlayRoute: PlayRoute,
-  ApiContributeRoute: ApiContributeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

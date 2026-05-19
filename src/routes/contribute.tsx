@@ -1,6 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router"
 import { useState, useMemo, useEffect, useRef } from "react"
 import { AnimatePresence, motion } from "framer-motion"
+import { exchangeCodeServerFn, submitContributionServerFn } from "../lib/contributeServer"
 
 export const Route = createFileRoute("/contribute")({
   component: ContributeRoute,
@@ -166,10 +167,9 @@ function ContributeRoute() {
     
     if (code) {
       setIsAuthenticating(true)
-      fetch(`/api/contribute?action=exchange&code=${code}`)
-        .then(res => res.json())
-        .then(data => {
-          if (data.token) {
+      exchangeCodeServerFn({ data: code })
+        .then((data: any) => {
+          if (data && data.token) {
             const userObj = {
               username: data.username,
               avatarUrl: data.avatarUrl,
@@ -177,11 +177,9 @@ function ContributeRoute() {
             }
             setGitHubUser(userObj)
             localStorage.setItem("dzikr_dua_github_user", JSON.stringify(userObj))
-          } else {
-            console.error("Exchange failed:", data.error)
           }
         })
-        .catch(err => {
+        .catch((err: any) => {
           console.error("OAuth exchange network error:", err)
         })
         .finally(() => {
@@ -1114,27 +1112,21 @@ function ContributeRoute() {
         }
       })
       
-      // 3. Post changes to the API server endpoint
-      const res = await fetch("/api/contribute", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          action: "submit",
+      // 3. Post changes to the API server function
+      const data = await submitContributionServerFn({
+        data: {
           token: gitHubUser?.token || "",
           username: gitHubUser?.username || "local-developer",
           changes: changesPayload,
           audioBlobs
-        })
+        }
       })
       
-      const data = await res.json()
-      if (res.status === 200 && data.success) {
+      if (data && data.success) {
         setPrUrl(data.prUrl || "local-sandbox")
         setPrTimelineStep("opened")
       } else {
-        alert(`Failed to submit changes: ${data.error || "Unknown server error"}`)
+        alert("Failed to submit changes: Unknown server error")
         setPrTimelineStep("idle")
       }
     } catch (err: any) {
