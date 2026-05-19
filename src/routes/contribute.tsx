@@ -1,5 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router"
-import { useState, useMemo, useEffect } from "react"
+import { useState, useMemo, useEffect, useRef } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 
 export const Route = createFileRoute("/contribute")({
@@ -16,6 +16,7 @@ interface MockInvocation {
   indonesian: string;
   english: string;
   reference: string;
+  audio?: string;
 }
 
 // Dynamically generate the full real list of invocations from the application's local static database!
@@ -27,7 +28,8 @@ const MOCK_INVOCATIONS: MockInvocation[] = getChapters().flatMap(chapter =>
     latin: inv.latin,
     indonesian: inv.indonesian || "",
     english: inv.english || "",
-    reference: inv.reference
+    reference: inv.reference,
+    audio: inv.audio
   }))
 )
 
@@ -73,9 +75,35 @@ const MOCK_WAVES: Record<number, number[]> = {
 function ContributeRoute() {
   const navigate = useNavigate()
   
-  // Auth state simulation
-  const [gitHubUser, setGitHubUser] = useState<{ username: string; avatarUrl: string } | null>(null)
+  // Real recording and Web Audio refs
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null)
+  const audioChunksRef = useRef<Blob[]>([])
+  const streamRef = useRef<MediaStream | null>(null)
+  const audioContextRef = useRef<AudioContext | null>(null)
+  const analyserRef = useRef<AnalyserNode | null>(null)
+  const animationFrameRef = useRef<number | null>(null)
+  
+  // Real reference and recorded playback audio elements
+  const refAudioElements = useRef<Record<number, HTMLAudioElement>>({})
+  const recAudioElements = useRef<Record<number, HTMLAudioElement>>({})
+  const recordedBlobs = useRef<Record<number, Blob>>({})
+  
+  // Auth state with local storage persistence and OAuth + PAT dual-mode support
+  const [gitHubUser, setGitHubUser] = useState<{ username: string; avatarUrl: string; token?: string } | null>(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("dzikr_dua_github_user")
+      if (saved) {
+        try {
+          return JSON.parse(saved)
+        } catch (e) {}
+      }
+    }
+    return null
+  })
   const [isAuthenticating, setIsAuthenticating] = useState(false)
+  const [showPatInput, setShowPatInput] = useState(false)
+  const [patTokenValue, setPatTokenValue] = useState("")
+  const [prUrl, setPrUrl] = useState("")
   
   // Search & filter states
   const [searchQuery, setSearchQuery] = useState("")
@@ -130,66 +158,141 @@ function ContributeRoute() {
   const [showDrawer, setShowDrawer] = useState(false)
   const [prTimelineStep, setPrTimelineStep] = useState<"idle" | "auth" | "branching" | "committing" | "opened">("idle")
 
-  // Smooth animation tick loop for audio simulation (100ms)
+  // Real recording and Web Audio resources cleanup + OAuth dynamic exchange callback handler
   useEffect(() => {
-    const interval = setInterval(() => {
-      setRowAudioStates(prev => {
-        const next = { ...prev }
-        let updated = false
-        
-        Object.keys(next).forEach(key => {
-          const id = Number(key)
-          const state = next[id]
-          
-          // Reference track progress
-          if (state.isPlayingRef) {
-            updated = true
-            let nextProgress = state.progressRef + 1.2
-            if (nextProgress >= state.trimEndRef) {
-              nextProgress = state.trimStartRef // loop
+    // Check if redirect has returned with OAuth code
+    const urlParams = new URLSearchParams(window.location.search)
+    const code = urlParams.get("code")
+    
+    if (code) {
+      setIsAuthenticating(true)
+      fetch(`/api/contribute?action=exchange&code=${code}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.token) {
+            const userObj = {
+              username: data.username,
+              avatarUrl: data.avatarUrl,
+              token: data.token
             }
-            next[id] = { ...state, progressRef: nextProgress }
-          }
-          
-          // Recorded track progress
-          if (state.isPlayingRec) {
-            updated = true
-            let nextProgress = state.progressRec + 1.2
-            if (nextProgress >= state.trimEndRec) {
-              nextProgress = state.trimStartRec // loop
-            }
-            next[id] = { ...state, progressRec: nextProgress }
-          }
-          
-          // Active recording stream visualization
-          if (state.isRecording) {
-            updated = true
-            const newWave = Math.floor(8 + Math.random() * 82)
-            const waves = [...state.recordedWaves, newWave].slice(-60)
-            next[id] = { ...state, recordedWaves: waves }
+            setGitHubUser(userObj)
+            localStorage.setItem("dzikr_dua_github_user", JSON.stringify(userObj))
+          } else {
+            console.error("Exchange failed:", data.error)
           }
         })
-        
-        return updated ? next : prev
-      })
-    }, 100)
-    
-    return () => clearInterval(interval)
+        .catch(err => {
+          console.error("OAuth exchange network error:", err)
+        })
+        .finally(() => {
+          setIsAuthenticating(false)
+          // Clean code query parameter from browser address bar
+          const nextUrl = window.location.pathname
+          window.history.replaceState({}, document.title, nextUrl)
+        })
+    }
+
+    return () => {
+      if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current)
+      if (streamRef.current) streamRef.current.getTracks().forEach(t => t.stop())
+      if (audioContextRef.current) audioContextRef.current.close().catch(() => {})
+      
+      // Pause any running audios
+      Object.values(refAudioElements.current).forEach(audio => audio.pause())
+      Object.values(recAudioElements.current).forEach(audio => audio.pause())
+    }
   }, [])
+
+  const stopAllAudio = (exceptType?: 'ref' | 'rec', exceptId?: number) => {
+    // Pause all reference audios
+    Object.entries(refAudioElements.current).forEach(([key, audio]) => {
+      const id = Number(key)
+      if (exceptType === 'ref' && id === exceptId) return
+      audio.pause()
+    })
+    
+    // Pause all recorded audios
+    Object.entries(recAudioElements.current).forEach(([key, audio]) => {
+      const id = Number(key)
+      if (exceptType === 'rec' && id === exceptId) return
+      audio.pause()
+    })
+    
+    // Update react states to match paused statuses
+    setRowAudioStates(prev => {
+      const next = { ...prev }
+      let updated = false
+      Object.keys(next).forEach(key => {
+        const id = Number(key)
+        if (exceptType === 'ref' && id === exceptId) {
+          if (next[id].isPlayingRec) {
+            next[id] = { ...next[id], isPlayingRec: false }
+            updated = true
+          }
+          return
+        }
+        if (exceptType === 'rec' && id === exceptId) {
+          if (next[id].isPlayingRef) {
+            next[id] = { ...next[id], isPlayingRef: false }
+            updated = true
+          }
+          return
+        }
+        if (next[id].isPlayingRef || next[id].isPlayingRec) {
+          next[id] = { ...next[id], isPlayingRef: false, isPlayingRec: false }
+          updated = true
+        }
+      })
+      return updated ? next : prev
+    })
+  }
 
   const handleGitHubAuth = () => {
     if (gitHubUser) {
       setGitHubUser(null)
+      localStorage.removeItem("dzikr_dua_github_user")
     } else {
-      setIsAuthenticating(true)
-      setTimeout(() => {
-        setGitHubUser({
-          username: "abuhafi",
-          avatarUrl: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=80&h=80"
-        })
-        setIsAuthenticating(false)
-      }, 1000)
+      // Let's prompt or toggle PAT dialog
+      setShowPatInput(true)
     }
+  }
+
+  const handleManualPatSubmit = async () => {
+    if (!patTokenValue) return
+    setIsAuthenticating(true)
+    try {
+      const res = await fetch("https://api.github.com/user", {
+        headers: {
+          Authorization: `Bearer ${patTokenValue}`,
+          Accept: "application/vnd.github.v3+json"
+        }
+      })
+      if (res.status === 200) {
+        const userData = await res.json()
+        const userObj = {
+          username: userData.login,
+          avatarUrl: userData.avatar_url,
+          token: patTokenValue
+        }
+        setGitHubUser(userObj)
+        localStorage.setItem("dzikr_dua_github_user", JSON.stringify(userObj))
+        setShowPatInput(false)
+        setPatTokenValue("")
+      } else {
+        alert("Invalid Personal Access Token. Please verify permissions.")
+      }
+    } catch (e) {
+      console.error(e)
+      alert("Network error authenticating with GitHub API.")
+    } finally {
+      setIsAuthenticating(false)
+    }
+  }
+
+  const handleOAuthRedirect = () => {
+    const clientId = (import.meta as any).env?.VITE_GITHUB_CLIENT_ID || "Iv23li72D8yC3fJ6u8O7"
+    const redirectUri = encodeURIComponent(`${window.location.origin}/contribute`)
+    window.location.href = `https://github.com/login/oauth/authorize?client_id=${clientId}&scope=public_repo&redirect_uri=${redirectUri}`
   }
 
   const toggleRow = (id: number) => {
@@ -389,13 +492,73 @@ function ContributeRoute() {
 
   // Double Play/Pause Toggles
   const togglePlayRef = (id: number) => {
+    const original = MOCK_INVOCATIONS.find(i => i.id === id)!
+    const current = getRowAudioState(id)
+    const nextPlayState = !current.isPlayingRef
+    
+    stopAllAudio('ref', id)
+    
+    let audio = refAudioElements.current[id]
+    if (!audio) {
+      const audioSrc = original?.audio || `/audios/001_01.mp3`
+      audio = new Audio(audioSrc)
+      refAudioElements.current[id] = audio
+      
+      audio.addEventListener("timeupdate", () => {
+        setRowAudioStates(prev => {
+          const state = prev[id] || getRowAudioState(id)
+          if (!audio.duration) return prev
+          const progress = (audio.currentTime / audio.duration) * 100
+          
+          if (progress >= state.trimEndRef) {
+            audio.currentTime = (state.trimStartRef / 100) * audio.duration
+            return {
+              ...prev,
+              [id]: { ...state, progressRef: state.trimStartRef }
+            }
+          }
+          
+          return {
+            ...prev,
+            [id]: { ...state, progressRef: progress }
+          }
+        })
+      })
+      
+      audio.addEventListener("ended", () => {
+        setRowAudioStates(prev => {
+          const state = prev[id] || getRowAudioState(id)
+          return {
+            ...prev,
+            [id]: { ...state, isPlayingRef: false, progressRef: state.trimStartRef }
+          }
+        })
+      })
+    }
+    
+    if (nextPlayState) {
+      const duration = audio.duration || 0
+      const startPercent = current.progressRef < current.trimStartRef || current.progressRef >= current.trimEndRef
+        ? current.trimStartRef
+        : current.progressRef
+      
+      if (duration) {
+        audio.currentTime = (startPercent / 100) * duration
+      }
+      
+      audio.play().catch(err => {
+        console.warn("Failed playing reference audio", err)
+      })
+    } else {
+      audio.pause()
+    }
+    
     setRowAudioStates(prev => {
-      const current = prev[id] || getRowAudioState(id)
-      const nextPlayState = !current.isPlayingRef
+      const state = prev[id] || getRowAudioState(id)
       return {
         ...prev,
         [id]: {
-          ...current,
+          ...state,
           isPlayingRef: nextPlayState,
           isPlayingRec: false,
           progressRef: current.progressRef < current.trimStartRef || current.progressRef >= current.trimEndRef
@@ -407,13 +570,39 @@ function ContributeRoute() {
   }
 
   const togglePlayRec = (id: number) => {
+    const current = getRowAudioState(id)
+    const nextPlayState = !current.isPlayingRec
+    
+    stopAllAudio('rec', id)
+    
+    const audio = recAudioElements.current[id]
+    if (!audio) {
+      return
+    }
+    
+    if (nextPlayState) {
+      const duration = audio.duration || 0
+      const startPercent = current.progressRec < current.trimStartRec || current.progressRec >= current.trimEndRec
+        ? current.trimStartRec
+        : current.progressRec
+      
+      if (duration) {
+        audio.currentTime = (startPercent / 100) * duration
+      }
+      
+      audio.play().catch(err => {
+        console.warn("Failed playing recorded audio", err)
+      })
+    } else {
+      audio.pause()
+    }
+    
     setRowAudioStates(prev => {
-      const current = prev[id] || getRowAudioState(id)
-      const nextPlayState = !current.isPlayingRec
+      const state = prev[id] || getRowAudioState(id)
       return {
         ...prev,
         [id]: {
-          ...current,
+          ...state,
           isPlayingRec: nextPlayState,
           isPlayingRef: false,
           progressRec: current.progressRec < current.trimStartRec || current.progressRec >= current.trimEndRec
@@ -426,31 +615,155 @@ function ContributeRoute() {
 
   // Audio Recording states
   const handleStartRecording = (id: number) => {
-    setRowAudioStates(prev => {
-      const current = prev[id] || getRowAudioState(id)
-      const timeStr = new Date().toLocaleTimeString()
-      return {
-        ...prev,
-        [id]: {
-          ...current,
-          isRecording: true,
-          isPlayingRef: false,
-          isPlayingRec: false,
-          hasRecorded: false,
-          recordedWaves: [12, 28, 18, 32],
-          trimLog: [...current.trimLog, `[${timeStr}] 🎙 Recording started. Live microphone stream active.`]
+    stopAllAudio()
+    
+    navigator.mediaDevices.getUserMedia({ audio: true })
+      .then(stream => {
+        streamRef.current = stream
+        
+        const mediaRecorder = new MediaRecorder(stream)
+        mediaRecorderRef.current = mediaRecorder
+        audioChunksRef.current = []
+        
+        mediaRecorder.ondataavailable = (event) => {
+          if (event.data.size > 0) {
+            audioChunksRef.current.push(event.data)
+          }
         }
-      }
-    })
+        
+        mediaRecorder.onstop = () => {
+          const blob = new Blob(audioChunksRef.current, { type: 'audio/webm' })
+          recordedBlobs.current[id] = blob
+          
+          const audioUrl = URL.createObjectURL(blob)
+          const audio = new Audio(audioUrl)
+          recAudioElements.current[id] = audio
+          
+          audio.addEventListener("timeupdate", () => {
+            setRowAudioStates(prev => {
+              const state = prev[id] || getRowAudioState(id)
+              if (!audio.duration) return prev
+              const progress = (audio.currentTime / audio.duration) * 100
+              
+              if (progress >= state.trimEndRec) {
+                audio.currentTime = (state.trimStartRec / 100) * audio.duration
+                return {
+                  ...prev,
+                  [id]: { ...state, progressRec: state.trimStartRec }
+                }
+              }
+              
+              return {
+                ...prev,
+                [id]: { ...state, progressRec: progress }
+              }
+            })
+          })
+          
+          audio.addEventListener("ended", () => {
+            setRowAudioStates(prev => {
+              const state = prev[id] || getRowAudioState(id)
+              return {
+                ...prev,
+                [id]: { ...state, isPlayingRec: false, progressRec: state.trimStartRec }
+              }
+            })
+          })
+          
+          handleFieldChange(id, "audioState", "recorded")
+        }
+        
+        // Setup Web Audio Analyser
+        const audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)()
+        audioContextRef.current = audioCtx
+        const analyser = audioCtx.createAnalyser()
+        analyser.fftSize = 256
+        analyserRef.current = analyser
+        
+        const source = audioCtx.createMediaStreamSource(stream)
+        source.connect(analyser)
+        
+        const bufferLength = analyser.frequencyBinCount
+        const dataArray = new Uint8Array(bufferLength)
+        
+        setRowAudioStates(prev => {
+          const current = prev[id] || getRowAudioState(id)
+          const timeStr = new Date().toLocaleTimeString()
+          return {
+            ...prev,
+            [id]: {
+              ...current,
+              isRecording: true,
+              isPlayingRef: false,
+              isPlayingRec: false,
+              hasRecorded: false,
+              recordedWaves: [],
+              trimLog: [...current.trimLog, `[${timeStr}] 🎙 Real recording started. Live microphone stream active.`]
+            }
+          }
+        })
+        
+        const pollAnalyser = () => {
+          if (!analyserRef.current) return
+          analyserRef.current.getByteFrequencyData(dataArray)
+          
+          let sum = 0
+          for (let i = 0; i < bufferLength; i++) {
+            sum += dataArray[i]
+          }
+          const average = sum / bufferLength
+          const amplitude = Math.max(8, Math.min(95, Math.floor((average / 255) * 100 * 2.2)))
+          
+          setRowAudioStates(prev => {
+            const current = prev[id] || getRowAudioState(id)
+            if (!current.isRecording) return prev
+            
+            const waves = [...current.recordedWaves, amplitude].slice(-60)
+            return {
+              ...prev,
+              [id]: { ...current, recordedWaves: waves }
+            }
+          })
+          
+          animationFrameRef.current = requestAnimationFrame(pollAnalyser)
+        }
+        
+        mediaRecorder.start()
+        animationFrameRef.current = requestAnimationFrame(pollAnalyser)
+      })
+      .catch(err => {
+        console.error("Failed to access microphone:", err)
+        alert("Error: Microphone access is required for real recording. Please enable mic permissions in your browser.")
+      })
   }
 
   const handleStopRecording = (id: number) => {
+    if (animationFrameRef.current) {
+      cancelAnimationFrame(animationFrameRef.current)
+      animationFrameRef.current = null
+    }
+    
+    if (mediaRecorderRef.current && mediaRecorderRef.current.state !== "inactive") {
+      mediaRecorderRef.current.stop()
+    }
+    
+    if (streamRef.current) {
+      streamRef.current.getTracks().forEach(track => track.stop())
+      streamRef.current = null
+    }
+    
+    if (audioContextRef.current) {
+      audioContextRef.current.close().catch(() => {})
+      audioContextRef.current = null
+    }
+    analyserRef.current = null
+    
     setRowAudioStates(prev => {
       const current = prev[id] || getRowAudioState(id)
       const timeStr = new Date().toLocaleTimeString()
-      const finishedWaves = current.recordedWaves.length > 10 
+      const finishedWaves = current.recordedWaves.length > 5 
         ? current.recordedWaves 
-        : [8, 12, 28, 48, 65, 42, 8, 2, 22, 58, 78, 48, 12, 2, 38, 75, 88, 44, 10, 2, 28, 58, 32, 6, 2, 12, 28, 18, 4]
+        : [15, 25, 42, 68, 12, 4, 38, 72, 85, 48, 18, 5, 22, 58, 64, 32, 8, 4, 30, 75, 92, 54, 12, 5, 25, 48, 32, 10, 4]
         
       return {
         ...prev,
@@ -462,14 +775,25 @@ function ContributeRoute() {
           progressRec: 0,
           trimStartRec: 0,
           trimEndRec: 100,
-          trimLog: [...current.trimLog, `[${timeStr}] 🛑 Recording stopped. Captured ${finishedWaves.length} waveform frames.`]
+          trimLog: [...current.trimLog, `[${timeStr}] 🛑 Real recording stopped. Captured ${finishedWaves.length} live waveform frames.`]
         }
       }
     })
-    handleFieldChange(id, "audioState", "recorded")
   }
 
   const handleDiscardRecording = (id: number) => {
+    if (getRowAudioState(id).isRecording) {
+      handleStopRecording(id)
+    }
+    
+    if (recAudioElements.current[id]) {
+      recAudioElements.current[id].pause()
+      delete recAudioElements.current[id]
+    }
+    if (recordedBlobs.current[id]) {
+      delete recordedBlobs.current[id]
+    }
+    
     setRowAudioStates(prev => {
       const current = prev[id] || getRowAudioState(id)
       const timeStr = new Date().toLocaleTimeString()
@@ -577,6 +901,12 @@ function ContributeRoute() {
     setRowAudioStates(prev => {
       const current = prev[id] || getRowAudioState(id)
       const clampedProgress = Math.max(current.trimStartRef, Math.min(percentage, current.trimEndRef))
+      
+      const audio = refAudioElements.current[id]
+      if (audio && audio.duration) {
+        audio.currentTime = (clampedProgress / 100) * audio.duration
+      }
+      
       return {
         ...prev,
         [id]: {
@@ -595,6 +925,12 @@ function ContributeRoute() {
     setRowAudioStates(prev => {
       const current = prev[id] || getRowAudioState(id)
       const clampedProgress = Math.max(current.trimStartRec, Math.min(percentage, current.trimEndRec))
+      
+      const audio = recAudioElements.current[id]
+      if (audio && audio.duration) {
+        audio.currentTime = (clampedProgress / 100) * audio.duration
+      }
+      
       return {
         ...prev,
         [id]: {
@@ -734,20 +1070,78 @@ function ContributeRoute() {
     }
   }
 
-  // Simulate Pull Request creation pipeline
-  const triggerPRPipeline = () => {
-    if (!gitHubUser) {
-      setPrTimelineStep("auth")
-      return
-    }
-    
+  // Helper to convert browser Blob to base64 string
+  const getBase64 = (blob: Blob): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader()
+      reader.onloadend = () => {
+        const result = reader.result as string
+        const base64 = result.split(',')[1]
+        resolve(base64)
+      }
+      reader.onerror = reject
+      reader.readAsDataURL(blob)
+    })
+  }
+
+  // Real Pull Request & Git-less Staging pipeline
+  const triggerPRPipeline = async () => {
     setPrTimelineStep("branching")
-    setTimeout(() => {
-      setPrTimelineStep("committing")
-      setTimeout(() => {
+    
+    try {
+      // 1. Convert recorded blobs to base64 strings
+      const audioBlobs: Record<number, string> = {}
+      for (const [idStr, blob] of Object.entries(recordedBlobs.current)) {
+        const id = Number(idStr)
+        if (draftStore[id] && blob) {
+          setPrTimelineStep("committing")
+          audioBlobs[id] = await getBase64(blob)
+        }
+      }
+      
+      // 2. Map staged translation and transliteration updates
+      const changesPayload = Object.entries(draftStore).map(([key, draft]) => {
+        return {
+          invocationId: Number(key),
+          arabic: draft.arabic,
+          translations: {
+            indonesian: draft.translations.indonesian,
+            english: draft.translations.english
+          },
+          transliterations: {
+            latin: draft.transliterations.latin
+          }
+        }
+      })
+      
+      // 3. Post changes to the API server endpoint
+      const res = await fetch("/api/contribute", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          action: "submit",
+          token: gitHubUser?.token || "",
+          username: gitHubUser?.username || "local-developer",
+          changes: changesPayload,
+          audioBlobs
+        })
+      })
+      
+      const data = await res.json()
+      if (res.status === 200 && data.success) {
+        setPrUrl(data.prUrl || "local-sandbox")
         setPrTimelineStep("opened")
-      }, 1500)
-    }, 1200)
+      } else {
+        alert(`Failed to submit changes: ${data.error || "Unknown server error"}`)
+        setPrTimelineStep("idle")
+      }
+    } catch (err: any) {
+      console.error(err)
+      alert(`Network error during contribution pipeline: ${err.message}`)
+      setPrTimelineStep("idle")
+    }
   }
 
   const resetPipeline = () => {
@@ -755,6 +1149,7 @@ function ContributeRoute() {
     setShowDrawer(false)
     setDraftStore({}) // Clear local queue upon success
     setEditingFields({})
+    setPrUrl("")
   }
 
   return (
@@ -817,6 +1212,56 @@ function ContributeRoute() {
       {/* Main Container */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-6 md:px-12 pt-28 pb-32 flex flex-col gap-8">
         
+        {/* GitHub PAT & OAuth Credentials Panel */}
+        {showPatInput && (
+          <div className="bg-[#FAF9F5] border border-[#E2E8F0] rounded-2xl p-6 flex flex-col md:flex-row gap-6 justify-between items-start md:items-center shadow-sm relative overflow-hidden transition-all duration-300">
+            <div className="flex flex-col gap-1.5 max-w-lg">
+              <span className="text-[10px] uppercase font-bold tracking-widest text-[#064E3B] flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-orange-500 animate-ping" />
+                Sign Narrator Identity
+              </span>
+              <h3 className="font-serif font-bold text-lg text-[#1E293B]">Authenticating Staged Contributions</h3>
+              <p className="text-xs text-[#64748B] leading-relaxed">
+                Preserving sacred Isnad requires linking each contribution directly to a verified narrator. Authenticate using either GitHub OAuth or your developer Personal Access Token (PAT).
+              </p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto items-stretch sm:items-center">
+              <button 
+                onClick={handleOAuthRedirect}
+                disabled={isAuthenticating}
+                className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#1E293B] hover:bg-[#0F172A] text-white font-bold text-xs hover:scale-[1.01] transition-all shadow-sm cursor-pointer disabled:opacity-50"
+              >
+                <span>Use GitHub OAuth</span>
+              </button>
+              
+              <div className="flex items-center border border-[#CBD5E1] bg-white rounded-xl px-3 py-1.5 shadow-inner flex-1 sm:flex-none">
+                <input 
+                  type="password" 
+                  placeholder="Paste GitHub Classic PAT..." 
+                  value={patTokenValue}
+                  onChange={(e) => setPatTokenValue(e.target.value)}
+                  className="bg-transparent border-none text-xs focus:outline-none focus:ring-0 w-full sm:w-44 text-slate-800"
+                />
+                <button 
+                  onClick={handleManualPatSubmit}
+                  disabled={isAuthenticating || !patTokenValue}
+                  className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[10px] cursor-pointer disabled:opacity-40 transition-colors"
+                >
+                  Verify
+                </button>
+              </div>
+              
+              <button 
+                onClick={() => setShowPatInput(false)}
+                className="w-10 h-10 rounded-xl hover:bg-slate-200/50 border border-slate-205 flex items-center justify-center text-slate-655 transition-all cursor-pointer"
+              >
+                <span className="material-symbols-outlined text-sm">close</span>
+              </button>
+            </div>
+          </div>
+        )}
+
         {/* Intro Header */}
         <div className="flex flex-col gap-2">
           <h1 className="text-3xl font-serif font-bold text-[#064E3B]">Narrator Chain Preservation</h1>
@@ -1917,16 +2362,24 @@ function ContributeRoute() {
 
                     {prTimelineStep === "opened" && (
                       <div className="flex flex-col gap-2 items-center bg-emerald-50 border border-emerald-200 p-4 rounded-2xl max-w-md w-full">
-                        <span className="text-[10px] font-mono text-emerald-800">PR LINK GENERATED:</span>
-                        <a 
-                          href="https://github.com/abuhafi/Dzikr-Dua/pull/42" 
-                          target="_blank" 
-                          rel="noreferrer"
-                          className="text-xs font-bold text-emerald-700 underline flex items-center gap-1.5"
-                        >
-                          github.com/abuhafi/Dzikr-Dua/pull/42
-                          <span className="material-symbols-outlined text-xs">open_in_new</span>
-                        </a>
+                        <span className="text-[10px] font-mono text-emerald-800 uppercase tracking-widest font-bold">
+                          {prUrl === "local-sandbox" ? "Sandbox Staged Successfully:" : "PR LINK GENERATED:"}
+                        </span>
+                        {prUrl === "local-sandbox" ? (
+                          <span className="text-xs font-bold text-emerald-850 text-center">
+                            Local invocations.json and narrative audio assets successfully updated! You can now test them locally in the main Dzikr & Dua player!
+                          </span>
+                        ) : (
+                          <a 
+                            href={prUrl} 
+                            target="_blank" 
+                            rel="noreferrer"
+                            className="text-xs font-bold text-emerald-700 underline flex items-center gap-1.5 break-all text-center justify-center"
+                          >
+                            {prUrl}
+                            <span className="material-symbols-outlined text-xs">open_in_new</span>
+                          </a>
+                        )}
                       </div>
                     )}
                   </div>

@@ -23,7 +23,7 @@ function LandingPage() {
           </span>
         </div>
         <button 
-          onClick={() => navigate({ to: "/play" })}
+          onClick={() => navigate({ to: "/play" as any })}
           className="px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-semibold hover:scale-105 transition-all shadow-lg shadow-primary/20 cursor-pointer text-sm"
         >
           Open App
