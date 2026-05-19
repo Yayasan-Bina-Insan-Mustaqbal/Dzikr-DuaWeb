@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router"
+import { createFileRoute, useNavigate } from "@tanstack/react-router"
 import { useEffect, useMemo, useRef, useState } from "react"
 import { AnimatePresence, Reorder, motion } from "framer-motion"
 import { useAudioStore } from "../store/audio"
@@ -58,6 +58,7 @@ function PlayRoute() {
     removeFromQueue,
     audioElement
   } = useAudioStore()
+  const navigate = useNavigate()
   const search = Route.useSearch()
   const [searchQuery, setSearchQuery] = useState("")
   const [searchResults, setSearchResults] = useState<SearchResults>({ chapters: [], invocations: [] })
@@ -321,6 +322,14 @@ function PlayRoute() {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56" align="center">
                 <DropdownMenuLabel>App Settings</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                
+                <DropdownMenuItem onClick={() => navigate({ to: "/contribute" })}>
+                  <div className="flex items-center gap-3 text-primary font-semibold">
+                    <span className="material-symbols-outlined text-lg" style={{ fontVariationSettings: "'FILL' 1" }}>auto_awesome</span>
+                    <span>Contribution Hub</span>
+                  </div>
+                </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 
                 <DropdownMenuGroup>

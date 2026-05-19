@@ -39,5 +39,6 @@ Always read the `SPEC.md` file in the project root before starting any task. It 
 - Follow the patterns established in `src/lib/utils.ts`.
 
 ## Terminal Usage
-- Check `package.json` before installing new packages.
-- Run `npm run dev` to test changes.
+- Check `package.json` before installing new packages. Use `bun` as the primary package manager.
+- **NEVER use Docker or docker-compose.**
+- Run `bun run dev` on the host to test changes.

@@ -15,7 +15,7 @@ const links = [
     },
     {
         title: 'Feedback',
-        href: 'https://fbdzikrdua.insanmustaqbal.or.id',
+        href: 'https://fbdzikrdua.insanmustaqbal.or.id/s/cmp7ylxkx000sq6018s8qw07d',
     },
     {
         title: 'Privacy Policy',
