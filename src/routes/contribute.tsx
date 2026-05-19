@@ -6,7 +6,8 @@ export const Route = createFileRoute("/contribute")({
   component: ContributeRoute,
 })
 
-// High-fidelity fake invocations for the contribution workspace
+import { getChapters } from "../lib/data"
+
 interface MockInvocation {
   id: number;
   chapter_name: string;
@@ -17,35 +18,18 @@ interface MockInvocation {
   reference: string;
 }
 
-const MOCK_INVOCATIONS: MockInvocation[] = [
-  {
-    id: 1,
-    chapter_name: "Morning Adhkar",
-    arabic: "أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ",
-    latin: "Aṣbaḥnā wa-aṣbaḥa al-mulku lillāhi, wal-ḥamdu lillāhi, lā ilāha illallāhu waḥdahu lā sharīka lahu",
-    indonesian: "Kami memasuki pagi hari dan kerajaan hanya milik Allah, segala puji bagi Allah. Tidak ada sembahan yang berhak disembah selain Allah Yang Maha Esa...",
-    english: "We have entered the morning and at this very time the whole kingdom belongs to Allah, and all praise is due to Allah. There is no deity worthy of worship except Allah alone...",
-    reference: "HR. Muslim (no. 2723)"
-  },
-  {
-    id: 2,
-    chapter_name: "Evening Adhkar",
-    arabic: "اللَّهُمَّ بِكَ أَمْسَيْنَا، وَبِكَ أَصْبَحْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ، وَإِلَيْكَ الْمَصِيرُ",
-    latin: "Allāhumma bika amsaynā, wa-bika aṣbaḥnā, wa-bika naḥyā, wa-bika namūtu, wa-ilayka al-maṣīr",
-    indonesian: "Ya Allah, dengan rahmat-Mu kami memasuki malam hari, dengan-Mu kami memasuki pagi hari, dengan-Mu kami hidup, dengan-Mu kami mati, dan kepada-Mu tempat kembali.",
-    english: "O Allah, by Your grace we enter the evening, by Your grace we enter the morning, by Your grace we live, by Your grace we die, and to You is the final return.",
-    reference: "HR. Abu Dawud (no. 5068)"
-  },
-  {
-    id: 3,
-    chapter_name: "Ayat Kursi (Upon Waking)",
-    arabic: "اللَّهُ لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ",
-    latin: "Allāhu lā ilāha illā huwal-ḥayyul-qayyūm, lā ta'khuthuhu sinatun wa-lā nawm...",
-    indonesian: "Allah, tidak ada tuhan melainkan Dia. Yang Hidup kekal lagi terus menerus mengurus (makhluk-Nya); tidak mengantuk dan tidak tidur. Kepunyaan-Nya apa yang di langit dan di bumi...",
-    english: "Allah! There is no deity worthy of worship except Him, the Ever-Living, the Sustainer of all existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens...",
-    reference: "Surah Al-Baqarah (255)"
-  }
-]
+// Dynamically generate the full real list of invocations from the application's local static database!
+const MOCK_INVOCATIONS: MockInvocation[] = getChapters().flatMap(chapter => 
+  chapter.invocations.map(inv => ({
+    id: inv.id,
+    chapter_name: chapter.chapter_name,
+    arabic: inv.arabic,
+    latin: inv.latin,
+    indonesian: inv.indonesian || "",
+    english: inv.english || "",
+    reference: inv.reference
+  }))
+)
 
 interface DraftContribution {
   invocationId: number;
@@ -779,7 +763,7 @@ function ContributeRoute() {
       <nav className="fixed top-0 left-0 right-0 h-20 border-b border-[#E2E8F0] bg-white/80 backdrop-blur-md z-50 px-6 md:px-12 flex items-center justify-between shadow-sm">
         <div className="flex items-center gap-4">
           <button 
-            onClick={() => navigate({ to: "/play" })}
+            onClick={() => navigate({ to: "/play" as any })}
             className="w-10 h-10 rounded-xl hover:bg-[#F1F5F9] border border-[#E2E8F0] flex items-center justify-center transition-all cursor-pointer"
           >
             <span className="material-symbols-outlined text-[#64748B]">arrow_back</span>
