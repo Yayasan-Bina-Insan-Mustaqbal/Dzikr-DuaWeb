@@ -1,0 +1,33 @@
+{
+  "id": 278,
+  "name": "Alhamdulillah",
+  "arabic": "اَلْحَمْدُ لِلهِ وَحْدَهُ، وَالصَّلاَةُ وَالسَّلاَمُ عَلَى مَنْ لاَ نَبِيَّ بَعْدَهُ",
+  "metadata": {
+    "reference": "Shënohet nga Enesi se i Dërguari (paqja e Allahut qoftë mbi të) ka thënë: “Të ulem me një popull i cili e përmend Allahun prej namazit të sabahut e deri sa të lind dielli është më e dashur për mua se sa t’i liroj katër robër prej bijve të Ismailit dhe të ulem me një popull i cili e përmend Allahun prej namazit të ikindisë e deri sa të perëndojë dielli është më e dashur për mua se sa t’i liroj katër robër”. Ebu Davudi hadithi nr: 3667. Shejh Albani thotë hadith hasen “Ebu Davud” 2/698.",
+    "chapter_name": "Evening Adhkar",
+    "internal_id": "Alhamdulillah"
+  },
+  "transliterations": {
+    "latin": "Elhamdulil-lahi vahdeh, ves-salatu ves-selamu ala men la nebijje badeh"
+  },
+  "translations": {
+    "albanian": "Falënderimi i takon vetëm Allahut, mëshira dhe shpëtimi i Allahut qofshin mbi atë pas të cilit nuk ka më të Dërguar - Muhamedin.",
+    "english": "‘O Allaah, send prayers and peace upon our Prophet Muhammad.’ [ten times]",
+    "indonesian": "Ya Allah, limpahkanlah shalawat dan salam kepada Nabi kami Muhammad. (Dibaca 10 kali). 114 Bacaan Sebelum Tidur"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "278_Alhamdulillah_default_1.mp3",
+      "path": "/invocations/278_Alhamdulillah/278_Alhamdulillah_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "278_Alhamdulillah_Mishary_1.mp3",
+      "path": "/invocations/278_Alhamdulillah/278_Alhamdulillah_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

@@ -1,0 +1,33 @@
+{
+  "id": 161,
+  "name": "O Allah, send upon us...",
+  "arabic": "((اللَّهُمَّ اسْقِنَا غَيْثاً مُغِيثاً مَرِيئاً مَرِيعاً، نَافِعاً غَيْرَ ضَارٍّ، عَاجِلاً غَيْرَ آجِلٍ)).",
+  "metadata": {
+    "reference": "Ebu Davudi 1/303, të cilën Albani e ka bërë të vërtetë në librin “Sahih Ebu Davud” 1/216.",
+    "chapter_name": "Dua for Rain",
+    "internal_id": "Dua for Rain (1)"
+  },
+  "transliterations": {
+    "latin": "All-llahumme eskina gajthen mugithen meri’en meri’an nafi’an gajre darrin axhilen gajre axhilin"
+  },
+  "translations": {
+    "albanian": "O Allahu im, të lutem na lësho shi të këndshëm, freskues, të dobishëm e jo të dëmshëm, të menjëhershëm e jo të vonuar.",
+    "english": "(O Allah, send upon us helpful, wholesome and healthy rain, beneficial not harmful rain, now, not later.)",
+    "indonesian": "Ya Allah! Jadikan kematian anak ini sebagai simpanan pahala dan amal baik serta pahala buat kami."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "161_O_Allah_send_upon_us_default_1.mp3",
+      "path": "/invocations/161_O_Allah_send_upon_us/161_O_Allah_send_upon_us_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "161_O_Allah_send_upon_us_Mishary_1.mp3",
+      "path": "/invocations/161_O_Allah_send_upon_us/161_O_Allah_send_upon_us_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

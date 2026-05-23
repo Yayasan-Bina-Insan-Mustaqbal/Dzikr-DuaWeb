@@ -1,0 +1,33 @@
+{
+  "id": 15,
+  "name": "How perfect You are O...",
+  "arabic": "(سُبْحانَكَ اللَّهُمَّ وَبِحَمْدِكَ، أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ أَنْتَ، أَسْتَغْفِرُكَ وَأَتوبُ إِلَيْكَ).",
+  "metadata": {
+    "reference": "Nesaiu në librin e tij “Amel el-jevmi ve lejleh” fq.173, “Irvaul-Galil” 1/135 dhe 2/94.",
+    "chapter_name": "After Ablution",
+    "internal_id": "After Ablution (3)"
+  },
+  "transliterations": {
+    "latin": "Subhaneke All-llahumme ve bihamdike, Eshhedu en la ilahe il-la Ente estagfiruke ve etubu ilejke"
+  },
+  "translations": {
+    "albanian": "I Lartësuar, i pa të meta je Ti o Allahu im, Ty të takon Falënderimi, dëshmoj se nuk ka hyjni që meriton të adhurohet përveç Teje, kërkoj falje nga Ti dhe tek Ti pendohem.",
+    "english": "(How perfect You are O Allah, and I praise You, I bear witness that none has the right to be worshipped except You, I seek Your forgiveness and turn in repentance to You.)",
+    "indonesian": "Maha Suci Engkau, ya Allah, aku memuji kepadaMu. Aku bersaksi, bahwa tiada Tuhan yang haq selain Engkau, aku minta ampun dan bertaubat kepadaMu\". 25 Doa Keluar Masuk Rumah"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "15_How_perfect_You_are_O_default_1.mp3",
+      "path": "/invocations/15_How_perfect_You_are_O/15_How_perfect_You_are_O_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "15_How_perfect_You_are_O_Mishary_1.mp3",
+      "path": "/invocations/15_How_perfect_You_are_O/15_How_perfect_You_are_O_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

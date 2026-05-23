@@ -1,0 +1,33 @@
+{
+  "id": 46,
+  "name": "O Allah, I take refuge...",
+  "arabic": "((اللَّهُمَّ إِنِّي أَعُوذُ بِرِضَاكَ مِنْ سَخَطِكَ، وَبِمُعَافَاتِكَ مِنْ عُقوبَتِكَ، وَأَعُوذُ بِكَ مِنْكَ، لاَ أُحْصِي ثَنَاءً عَلَيْكَ، أَنْتَ كَمَا أَثْنَيْتَ عَلَى نَفْسِكَ)).",
+  "metadata": {
+    "reference": "Muslimi 1/532.",
+    "chapter_name": "During Sujood",
+    "internal_id": "During Sujood (7)"
+  },
+  "transliterations": {
+    "latin": "All-llahumme inni eudhu bi ridake min sehatik, ve bi muafatike min ukubetik, ve eudhu bike minke, la uhsi thenaen Alejke, Ente kema ethnejte ala Nefsike"
+  },
+  "translations": {
+    "albanian": "O Allahu im, kërkoj strehim përmes kënaqësisë Tënde nga hidhërimi Yt, si dhe me faljen Tënde nga dënimi Yt. Kërkoj mbrojtjen Tënde nga Ti, unë nuk mund të të madhëroj aq sa meriton Ti; Ti je i Madhëruar ashtu siç e ke përshkruar Vetveten.",
+    "english": "(O Allah, I take refuge within Your pleasure from Your displeasure and within Your pardon from Your punishment, and I take refuge in You from You. I cannot enumerate Your praise, You are as You have praised Yourself.)",
+    "indonesian": "Ya Allah, ampunilah seluruh dosaku yang kecil dan besar, yang telah lewat dan yang akan datang, yang kulakukan dengan terangterangan dan yang tersembunyi."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "46_O_Allah_I_take_refuge_default_1.mp3",
+      "path": "/invocations/46_O_Allah_I_take_refuge/46_O_Allah_I_take_refuge_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "46_O_Allah_I_take_refuge_Mishary_1.mp3",
+      "path": "/invocations/46_O_Allah_I_take_refuge/46_O_Allah_I_take_refuge_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

@@ -1,0 +1,33 @@
+{
+  "id": 69,
+  "name": "Recitation of 3 Quls",
+  "arabic": "بسم الله الرحمن الرحيم ﴿قُلْ هُوَ اللَّهُ أَحَدٌ* اللَّهُ الصَّمَدُ* لَمْ يَلِدْ وَلَمْ يُولَدْ* وَلَمْ يَكُن لَّهُ كُفُواً أَحَدٌ﴾، بسم الله الرحمن الرحيم ﴿قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ* مِن شَرِّ مَا خَلَقَ* وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ* وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ* وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ﴾،بسم الله الرحمن الرحيم ﴿قُلْ أَعُوذُ بِرَبِّ النَّاسِ* مَلِكِ النَّاسِ* إِلَهِ النَّاسِ* مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ* الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ* مِنَ الْجِنَّةِ وَ النَّاسِ﴾ بَعْدَ كُلِّ صَلاَةٍ.",
+  "metadata": {
+    "reference": "Ebu Davudi 2/86, Nesaiu 3/68, Sahih et-Tirmidhi 3/182: “Kush i thotë këto sure tri herë në mëngjes dhe në mbrëmje i mjaftojnë për çdo gjë”.",
+    "chapter_name": "After Prayer",
+    "internal_id": "After Prayer (5)"
+  },
+  "transliterations": {
+    "latin": "Kul huvAll-llahu ehad, All-llahus-samed, lem jelid ve lem juled, ve lem jekun lehu kufuven ehad"
+  },
+  "translations": {
+    "albanian": "Pas çdo namazi nga një herë, kurse pas namazit të sabahut dhe akshamit nga tri herë. \\nThuaj: “Ai është Allahu, Një dhe i Vetëm! Allahu është Absoluti, të Cilit i përgjërohet gjithçka në amshim. Ai as nuk lind, as nuk është i lindur. Dhe askush nuk është i barabartë (a i krahasueshëm) me Atë!”\\n",
+    "english": "The following three Soorahs should be recited once after Zuhr, 'Asr and 'Ishaa prayers and thrice after the Fajr and Maghrib prayers.[Soorah al-Ikhlaas (112)] [Soorah al-Falaq (113)] [Soorah an-Naas (114)]",
+    "indonesian": "Maha Suci Allah, segala puji bagi Allah. Dan Allah Maha Besar. (Tiga puluh tiga kali). Tidak ada Tuhan (yang hak disembah) kecuali Allah Yang Maha Esa, tidak ada sekutu bagiNya. BagiNya kerajaan. BagiNya pujaan. Dia-lah Yang Mahakuasa atas segala sesuatu."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "69_Recitation_of_3_Quls_default_1.mp3",
+      "path": "/invocations/69_Recitation_of_3_Quls/69_Recitation_of_3_Quls_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "69_Recitation_of_3_Quls_Mishary_1.mp3",
+      "path": "/invocations/69_Recitation_of_3_Quls/69_Recitation_of_3_Quls_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

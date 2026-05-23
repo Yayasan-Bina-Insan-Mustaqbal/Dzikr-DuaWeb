@@ -6,6 +6,17 @@ import { promisify } from "util"
 
 const execAsync = promisify(exec)
 
+function sanitizeName(name: string): string {
+  // Remove parentheses
+  let sanitized = name.replace(/[\(\)]/g, '');
+  // Replace non-alphanumeric (except space/hyphen/underscore) with empty
+  sanitized = sanitized.replace(/[^a-zA-Z0-9\s_\-]/g, '');
+  // Replace spaces and consecutive underscores with a single underscore
+  sanitized = sanitized.replace(/[\s\-]+/g, '_');
+  sanitized = sanitized.replace(/_+/g, '_');
+  return sanitized.trim().replace(/^_+|_+$/g, '');
+}
+
 // Direct upstream details
 const UPSTREAM_OWNER = "decaller"
 const UPSTREAM_REPO = "Dzikr-DuaWeb"
@@ -71,13 +82,9 @@ interface SubmitPayload {
   changes: Array<{
     invocationId: number
     arabic: string
-    translations: {
-      indonesian: string
-      english: string
-    }
-    transliterations: {
-      latin: string
-    }
+    description?: string
+    translations: Record<string, string>
+    transliterations: Record<string, string>
   }>
   audioBlobs: Record<number, string>
 }
@@ -112,19 +119,33 @@ export const submitContributionServerFn = createServerFn({ method: "POST" })
         mkdirSync(scratchDir, { recursive: true })
       }
       
-      const contributionsDir = join(process.cwd(), "public/audios/contributions")
-      if (!existsSync(contributionsDir)) {
-        mkdirSync(contributionsDir, { recursive: true })
-      }
-      
       for (const [key, base64Data] of Object.entries(audioBlobs)) {
         const invocationId = Number(key)
+        
+        // Find the name of the invocation to determine its decentralized folder name
+        let invName = ""
+        for (const chapter of currentChapters) {
+          const inv = chapter.invocations.find((i: any) => i.id === invocationId)
+          if (inv) {
+            invName = inv.name || inv.internal_id || `Invocation ${invocationId}`
+            break
+          }
+        }
+        
+        const sanitizedName = sanitizeName(invName)
+        const invFolder = join(process.cwd(), "public/invocations", `${invocationId}_${sanitizedName}`)
+        if (!existsSync(invFolder)) {
+          mkdirSync(invFolder, { recursive: true })
+        }
+        
+        const reciter = username || "local-developer"
+        const version = "1"
+        const outputMp3Filename = `${invocationId}_${sanitizedName}_${reciter}_${version}.mp3`
+        const finalMp3Path = join(invFolder, outputMp3Filename)
         
         // Decode raw WebM/Wav buffer from base64
         const audioBuffer = Buffer.from(base64Data as string, "base64")
         const tempInputPath = join(scratchDir, `input-${invocationId}-${Date.now()}.webm`)
-        const outputMp3Filename = `${invocationId}_contrib.mp3`
-        const finalMp3Path = join(contributionsDir, outputMp3Filename)
         
         // Write temporary WebM recording file
         writeFileSync(tempInputPath, audioBuffer)
@@ -132,23 +153,23 @@ export const submitContributionServerFn = createServerFn({ method: "POST" })
         // Standardized MP3 conversion: 16-bit PCM / 44.1kHz standard compression
         try {
           await execAsync(`ffmpeg -y -i "${tempInputPath}" -codec:a libmp3lame -b:a 128k "${finalMp3Path}"`)
-          savedAudioPaths[invocationId] = `/audios/contributions/${outputMp3Filename}`
+          savedAudioPaths[invocationId] = `/invocations/${invocationId}_${sanitizedName}/${outputMp3Filename}`
           
           // For GitHub commits, read back the MP3 file into Base64
           if (!isSandboxMode) {
             const mp3Buffer = readFileSync(finalMp3Path)
-            updatedFiles[`public/audios/contributions/${outputMp3Filename}`] = mp3Buffer.toString("base64")
+            updatedFiles[`public/invocations/${invocationId}_${sanitizedName}/${outputMp3Filename}`] = mp3Buffer.toString("base64")
           }
         } catch (err: any) {
           console.error(`Ffmpeg conversion error for invocation #${invocationId}:`, err)
           // Fallback directly to raw WebM if ffmpeg is unable to process
-          const fallbackFilename = `${invocationId}_contrib.webm`
-          const fallbackPath = join(contributionsDir, fallbackFilename)
+          const fallbackFilename = `${invocationId}_${sanitizedName}_${reciter}_${version}.webm`
+          const fallbackPath = join(invFolder, fallbackFilename)
           writeFileSync(fallbackPath, audioBuffer)
-          savedAudioPaths[invocationId] = `/audios/contributions/${fallbackFilename}`
+          savedAudioPaths[invocationId] = `/invocations/${invocationId}_${sanitizedName}/${fallbackFilename}`
           
           if (!isSandboxMode) {
-            updatedFiles[`public/audios/contributions/${fallbackFilename}`] = base64Data as string
+            updatedFiles[`public/invocations/${invocationId}_${sanitizedName}/${fallbackFilename}`] = base64Data as string
           }
         } finally {
           // Clean up temporary workspace input file
@@ -162,60 +183,152 @@ export const submitContributionServerFn = createServerFn({ method: "POST" })
       }
     }
     
-    // B. Map staged translation and transliteration corrections to the invocations JSON database
+    // B. Map staged translation and transliteration corrections to both central and decentralized databases
     for (const change of changes) {
       const id = change.invocationId
       
-      // Traverse chapters to find the corresponding invocation
+      let invName = ""
+      let chapterName = ""
+      let targetInv: any = null
+      
       for (const chapter of currentChapters) {
         const inv = chapter.invocations.find((i: any) => i.id === id)
         if (inv) {
-          // Apply text edits
-          if (change.arabic) inv.arabic = change.arabic
-          
-          if (change.translations) {
-            Object.entries(change.translations).forEach(([lang, text]) => {
-              if (lang === "indonesian") inv.indonesian = text
-              else if (lang === "english") inv.english = text
-              else {
-                if (!inv.additional_translations) inv.additional_translations = {}
-                inv.additional_translations[lang] = text
-              }
-            })
-          }
-          
-          if (change.transliterations) {
-            Object.entries(change.transliterations).forEach(([lang, text]) => {
-              if (lang === "latin") inv.latin = text
-              else {
-                if (!inv.additional_transliterations) inv.additional_transliterations = {}
-                inv.additional_transliterations[lang] = text
-              }
-            })
-          }
-          
-          // Apply audio path if recorded
-          if (savedAudioPaths[id]) {
-            inv.audio = savedAudioPaths[id]
-          }
-          
-          // Append isnad tracking (attribution metadata)
-          const metadata = {
-            github_username: username || "local-developer",
-            timestamp: timeStr,
-            role: savedAudioPaths[id] ? "Narrator & Editor" : "Editor"
-          }
-          
-          if (!inv.attribution_chain) {
-            inv.attribution_chain = []
-          }
-          inv.attribution_chain.push(metadata)
+          targetInv = inv
+          invName = inv.name || inv.internal_id || `Invocation ${id}`
+          chapterName = chapter.chapter_name
           break
         }
       }
+      
+      if (!targetInv) continue
+      
+      const sanitizedName = sanitizeName(invName)
+      const invFolder = join(process.cwd(), "public/invocations", `${id}_${sanitizedName}`)
+      if (!existsSync(invFolder)) {
+        mkdirSync(invFolder, { recursive: true })
+      }
+      
+      // Read existing data.json from the decentralized folder or initialize it
+      const dataJsonPath = join(invFolder, "data.json")
+      let dataJson: any = {
+        id,
+        name: invName,
+        arabic: targetInv.arabic || "",
+        metadata: {
+          reference: targetInv.reference || "",
+          chapter_name: chapterName,
+          internal_id: targetInv.internal_id || ""
+        },
+        transliterations: {},
+        translations: {},
+        audio: []
+      }
+      
+      if (existsSync(dataJsonPath)) {
+        try {
+          dataJson = JSON.parse(readFileSync(dataJsonPath, "utf-8"))
+        } catch (e) {
+          console.error("Error reading decentralized data.json file", e)
+        }
+      }
+      
+      // Apply Arabic text edits
+      if (change.arabic) {
+        targetInv.arabic = change.arabic
+        dataJson.arabic = change.arabic
+      }
+      
+      // Apply description edits
+      if (change.description !== undefined) {
+        targetInv.description = change.description
+        dataJson.description = change.description
+      }
+      
+      // Apply translation edits
+      if (change.translations) {
+        Object.entries(change.translations).forEach(([lang, text]) => {
+          // Central JSON database mapping
+          if (lang === "indonesian") targetInv.indonesian = text
+          else if (lang === "english") targetInv.english = text
+          else {
+            if (!targetInv.additional_translations) targetInv.additional_translations = {}
+            targetInv.additional_translations[lang] = text
+          }
+          // Decentralized data.json mapping
+          if (!dataJson.translations) dataJson.translations = {}
+          dataJson.translations[lang] = text
+        })
+      }
+      
+      // Apply transliteration edits
+      if (change.transliterations) {
+        Object.entries(change.transliterations).forEach(([lang, text]) => {
+          // Central JSON database mapping
+          if (lang === "latin") targetInv.latin = text
+          else {
+            if (!targetInv.additional_transliterations) targetInv.additional_transliterations = {}
+            targetInv.additional_transliterations[lang] = text
+          }
+          // Decentralized data.json mapping
+          if (!dataJson.transliterations) dataJson.transliterations = {}
+          dataJson.transliterations[lang] = text
+        })
+      }
+      
+      // Apply audio path if recorded
+      if (savedAudioPaths[id]) {
+        targetInv.audio = savedAudioPaths[id]
+        
+        // Add or update the audio version inside data.json
+        const reciter = username || "local-developer"
+        const version = "1"
+        const audioFilename = savedAudioPaths[id].split('/').pop() || ""
+        
+        if (!dataJson.audio) dataJson.audio = []
+        
+        const existingAudioIdx = dataJson.audio.findIndex((a: any) => a.reciter === reciter && a.version === version)
+        const audioEntry = {
+          reciter,
+          version,
+          filename: audioFilename,
+          path: savedAudioPaths[id]
+        }
+        
+        if (existingAudioIdx > -1) {
+          dataJson.audio[existingAudioIdx] = audioEntry
+        } else {
+          dataJson.audio.push(audioEntry)
+        }
+      }
+      
+      // Append isnad tracking metadata (attribution chain)
+      const attributionMetadata = {
+        github_username: username || "local-developer",
+        timestamp: timeStr,
+        role: savedAudioPaths[id] ? "Narrator & Editor" : "Editor"
+      }
+      
+      if (!targetInv.attribution_chain) {
+        targetInv.attribution_chain = []
+      }
+      targetInv.attribution_chain.push(attributionMetadata)
+      
+      if (!dataJson.attribution_chain) {
+        dataJson.attribution_chain = []
+      }
+      dataJson.attribution_chain.push(attributionMetadata)
+      
+      // Save data.json in Sandbox mode directly, or add to production updatedFiles payload
+      const updatedDataJsonStr = JSON.stringify(dataJson, null, 2)
+      if (isSandboxMode) {
+        writeFileSync(dataJsonPath, updatedDataJsonStr)
+      } else {
+        updatedFiles[`public/invocations/${id}_${sanitizedName}/data.json`] = Buffer.from(updatedDataJsonStr).toString("base64")
+      }
     }
     
-    // Formulate updated invocations string
+    // Formulate updated central invocations string
     const updatedJsonString = JSON.stringify(currentChapters, null, 2)
     
     // Handle Local Sandbox Write

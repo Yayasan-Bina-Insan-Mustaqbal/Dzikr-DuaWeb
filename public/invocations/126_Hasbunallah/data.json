@@ -1,0 +1,33 @@
+{
+  "id": 126,
+  "name": "Hasbunallah",
+  "arabic": "((حَسْبُنا اللَّهُ وَنِعْمَ الْوَكِيلُ)).",
+  "metadata": {
+    "reference": "Buhariu 5/172.",
+    "chapter_name": "Meeting Adversary/Ruler",
+    "internal_id": "Hasbunallah"
+  },
+  "transliterations": {
+    "latin": "HasbunAll-llahu ve ni’mel-Vekil"
+  },
+  "translations": {
+    "albanian": "Na mjafton neve Allahu, Ai është mbrojtësi më i mirë.",
+    "english": "(Allah is sufficient for us, and how fine a trustee (He is).)",
+    "indonesian": "Ya Allah! Sesungguhnya aku menjadikan Engkau di leher mereka (agar kekuatan mereka tidak berdaya dalam berhadapan dengan kami). Dan aku berlindung kepadaMu dari kejelekan mereka."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "126_Hasbunallah_default_1.mp3",
+      "path": "/invocations/126_Hasbunallah/126_Hasbunallah_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "126_Hasbunallah_Mishary_1.mp3",
+      "path": "/invocations/126_Hasbunallah/126_Hasbunallah_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

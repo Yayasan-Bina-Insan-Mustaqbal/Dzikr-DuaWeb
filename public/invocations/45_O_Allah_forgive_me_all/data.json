@@ -1,0 +1,33 @@
+{
+  "id": 45,
+  "name": "O Allah, forgive me all...",
+  "arabic": "((اللَّهُمَّ اغْفِرْ لِي ذَنْبِي كُلَّهُ: دِقَّهُ وَجِلَّهُ، وَأَوَّلَهُ وَآخِرَهُ، وَعَلاَنِيَّتَهُ وَسِرَّهُ)).",
+  "metadata": {
+    "reference": "Muslimi 1/350.",
+    "chapter_name": "During Sujood",
+    "internal_id": "During Sujood (6)"
+  },
+  "transliterations": {
+    "latin": "All-llahumme-gfir li dhenbi kul-lehu, dikkahu ve xhil-lehu, ve evvelehu ve ahirehu ve alanijetehu ve sirrehu"
+  },
+  "translations": {
+    "albanian": "O Allahu im, m’i fal mua të gjitha mëkatet e mia, të voglat dhe të mëdhatë, të parat dhe të fundit, të dukshmet dhe të fshehtat.",
+    "english": "(O Allah, forgive me all of my sins, the small and great of them, the first and last of them, and the seen and hidden of them.)",
+    "indonesian": "Maha suci Tuhan yang memiliki Keperkasaan, Kerajaan, Kebesaran dan Keagungan.61"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "45_O_Allah_forgive_me_all_default_1.mp3",
+      "path": "/invocations/45_O_Allah_forgive_me_all/45_O_Allah_forgive_me_all_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "45_O_Allah_forgive_me_all_Mishary_1.mp3",
+      "path": "/invocations/45_O_Allah_forgive_me_all/45_O_Allah_forgive_me_all_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

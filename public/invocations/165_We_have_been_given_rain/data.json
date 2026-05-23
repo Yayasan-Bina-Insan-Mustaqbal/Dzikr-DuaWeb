@@ -1,0 +1,33 @@
+{
+  "id": 165,
+  "name": "We have been given rain...",
+  "arabic": "((مُطِرْنَا بِفَضْلِ اللَّهِ وَرَحْمَتِهِ)).",
+  "metadata": {
+    "reference": "Buhariu 1/205, Muslimi 1/83.",
+    "chapter_name": "After it Rains",
+    "internal_id": "After it Rains (1)"
+  },
+  "transliterations": {
+    "latin": "Mutirna bi fadlil-lahi ve rahmetihi"
+  },
+  "translations": {
+    "albanian": "U furnizuam me shi, me mirësinë e Allahut dhe mëshirën e Tij.",
+    "english": "(We have been given rain by the grace and mercy of Allah.)",
+    "indonesian": "Semoga kesejahteraan untukmu, wahai penduduk kampung (Barzakh) dari orang-orang mukmin dan muslim. Sesungguhnya kami –insya Allah- akan menyusulkan, kami mohon kepada Allah untuk kami dan kamu, agar diberi keselamatan (dari apa yang tidak diinginkan). 186 Doa Jika ada Halilintar dan Angin Ribut"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "165_We_have_been_given_rain_default_1.mp3",
+      "path": "/invocations/165_We_have_been_given_rain/165_We_have_been_given_rain_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "165_We_have_been_given_rain_Mishary_1.mp3",
+      "path": "/invocations/165_We_have_been_given_rain/165_We_have_been_given_rain_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

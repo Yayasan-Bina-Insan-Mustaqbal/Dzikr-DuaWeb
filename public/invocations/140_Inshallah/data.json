@@ -1,0 +1,33 @@
+{
+  "id": 140,
+  "name": "Inshallah",
+  "arabic": "((لاَ بأْسَ طَهُورٌ إِنْ شَاءَ اللَّهُ)).",
+  "metadata": {
+    "reference": "“Fet’hul-Bari” 10/118.",
+    "chapter_name": "Visiting the Sick",
+    "internal_id": "Inshallah"
+  },
+  "transliterations": {
+    "latin": "La be’se tahurun insha-All-llah"
+  },
+  "translations": {
+    "albanian": "Nuk ka gjë, pastrim nga mëkatet InshAllah.",
+    "english": "(Never mind, may it (the sickness) be a purification, if Allah wills.)",
+    "indonesian": "Tidaklah ada seorang hamba berbuat suatu dosa, lantas berwudhu dengan sempurna kemudian berdiri untuk melakukan shalat dua ra'kaat, kemudian membaca istighfar kecuali pasti diampuni dosanya. 159 Doa Mengusir Syaitan"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "140_Inshallah_default_1.mp3",
+      "path": "/invocations/140_Inshallah/140_Inshallah_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "140_Inshallah_Mishary_1.mp3",
+      "path": "/invocations/140_Inshallah/140_Inshallah_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

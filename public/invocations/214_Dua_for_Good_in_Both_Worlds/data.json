@@ -1,0 +1,33 @@
+{
+  "id": 214,
+  "name": "Dua for Good in Both Worlds",
+  "arabic": "((﴿رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ﴾)).",
+  "metadata": {
+    "reference": "Ebu Davudi 2/179, Ahmedi 3/411 dhe Begaviu në “Sherh es-Sunneh” 7/128. Shejh Albani e ka bërë të mirë në “Sahih Ebi Davud” 1/354, ndërsa ajeti është në suren Bekare 201.",
+    "chapter_name": "Corner to Black Stone",
+    "internal_id": "Dua for Good in Both Worlds"
+  },
+  "transliterations": {
+    "latin": "Rabbena atina fid-dunja haseneten ve fil-ahireti haseneten vekina adhaben-nar"
+  },
+  "translations": {
+    "albanian": "O Zoti ynë, na jep të mira në këtë botë dhe të mira në Ahiret, si dhe na ruaj prej dënimit të Xhehenemit.",
+    "english": "The Prophet PBUH used to say between the Yemeni corner and the black stone: (O our Lord, grant us the best in this life and the best in the next life, and protect us from the punishment of the Fire.)",
+    "indonesian": "Dari Jabir Radhiallahu'anhu, dia berkata: \"Kami apabila berjalan naik, membaca takbir, dan apabila kami turun, membaca tasbih.\" 236 102- DOA MUSAFIR KETIKA MENJELANG SUBUH"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "214_Dua_for_Good_in_Both_Worlds_default_1.mp3",
+      "path": "/invocations/214_Dua_for_Good_in_Both_Worlds/214_Dua_for_Good_in_Both_Worlds_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "214_Dua_for_Good_in_Both_Worlds_Mishary_1.mp3",
+      "path": "/invocations/214_Dua_for_Good_in_Both_Worlds/214_Dua_for_Good_in_Both_Worlds_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

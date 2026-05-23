@@ -1,0 +1,33 @@
+{
+  "id": 79,
+  "name": "Evening: By Your leave we rise",
+  "arabic": "((اللَّهُمَّ بِكَ أَمْسَيْنَا، وَبِكَ أَمْسَيْنَا ، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ وَإِلَيْكَ المَصِيرُ)). [وإذا أمسى قال: اللَّهم بك أمسينا، وبك أصبحنا، وبك نحيا، وبك نموت، وإليك المصير.]",
+  "metadata": {
+    "reference": "Ndërsa në mbrëmje “Allahume bike emsejna ve bike esbah-na ve bike nahja ve bike nemutu ve ilejkel-mesir” (O Zot, me emrin Tënd e arrijmë mbrëmjen dhe me emrin Tënd e arrijmë mëngjesin, me emrin Tënd ngjallemi dhe me emrin tënd vdesim dhe te Ti është tubimi).\\nTirmidhiu 5/466 “Sahih et-Tirmidhi” 3/142.",
+    "chapter_name": "Evening Adhkar",
+    "internal_id": "Evening Adhkar (4)"
+  },
+  "transliterations": {
+    "latin": "All-llahume bike esbahna ve bike emsejna ve bike nahja ve bike nemutu ve ilejken-nushur"
+  },
+  "translations": {
+    "albanian": "O Allahu im, me emrin Tënd e arrijmë mëngjesin dhe me emrin Tënd e arrijmë mbrëmjen, me emrin Tënd ngjallemi dhe me emrin Tënd vdesim dhe tek Ti është kthimi.",
+    "english": "(O Allah, by your leave we have reached the evening and by Your leave we have reached the evening, by Your leave we live and die and unto You is our resurrection.)[In the evening:](O Allah, by Your leave we have reached the evening and by Your leave we have reached the evening, by Your leave we live and die and unto You is our return.)",
+    "indonesian": "Ya Allah! Engkau adalah Tuhanku, tidak ada Tuhan yang berhak disembah kecuali Engkau, Engkaulah yang menciptakan aku. Aku adalah hambaMu. Aku akan setia pada perjanjianku denganMu semampuku. Aku berlindung kepadaMu dari kejelekan yang kuperbuat. Aku mengakui nikmatMu kepadaku dan aku mengakui dosaku, oleh karena itu, ampunilah aku. Sesungguhnya tiada yang mengampuni dosa kecuali Engkau."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "79_Evening_By_Your_leave_we_rise_default_1.mp3",
+      "path": "/invocations/79_Evening_By_Your_leave_we_rise/79_Evening_By_Your_leave_we_rise_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "79_Evening_By_Your_leave_we_rise_Mishary_1.mp3",
+      "path": "/invocations/79_Evening_By_Your_leave_we_rise/79_Evening_By_Your_leave_we_rise_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

@@ -1,0 +1,33 @@
+{
+  "id": 93,
+  "name": "Evening: Oneness (10x or 1x)",
+  "arabic": "((لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ)) (عشرَ مرَّات) ، أَوْ (مرَّةً واحدةً عندَ الكَسَلِ).",
+  "metadata": {
+    "reference": "Ebu Davudi 4/319, Ibën Maxheh dhe Ahmedi 4/60, “Sahih et-Tergib vet-Terhib” 1/270 dhe “Sahih Ebu Davud” 3/957, “Sahih Ibën Maxheh” 2/331 dhe “Zadul-Me’ad” 2/377.",
+    "chapter_name": "Evening Adhkar",
+    "internal_id": "Evening Adhkar (18)"
+  },
+  "transliterations": {
+    "latin": "La Ilahe il-lAll-llahu vahdehu la sherike leh, lehul-mulku ve lehul-hamdu ve huve ala kul-li shejin kadir. (10 herë, ose një herë kur përton)."
+  },
+  "translations": {
+    "albanian": "Nuk ka hyjni që meriton të adhurohet përveç Allahut, të Vetëm e i pa rival. Atij i takon Sundimi dhe Lavdërimi dhe Ai është i Gjithëfuqishëm mbi çdo gjë.",
+    "english": "(None has the right to be worshipped except Allah, alone, without partner, to Him belongs all sovereignty and praise, and He is over all things omnipotent.)( [ten times or once if lazy])",
+    "indonesian": "Tidak ada Tuhan yang berhak disembah selain Allah Yang Maha Esa, tidak ada sekutu bagiNya. BagiNya kerajaan dan segala pujian. Dia-lah yang berkuasa atas segala sesuatu.\" (Dibaca seratus kali setiap pagi hari)."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "93_Evening_Oneness_10x_or_1x_default_1.mp3",
+      "path": "/invocations/93_Evening_Oneness_10x_or_1x/93_Evening_Oneness_10x_or_1x_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "93_Evening_Oneness_10x_or_1x_Mishary_1.mp3",
+      "path": "/invocations/93_Evening_Oneness_10x_or_1x/93_Evening_Oneness_10x_or_1x_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

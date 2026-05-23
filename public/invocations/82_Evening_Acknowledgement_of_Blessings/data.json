@@ -1,0 +1,33 @@
+{
+  "id": 82,
+  "name": "Evening: Acknowledgement of Blessings",
+  "arabic": "((اللَّهُمَّ مَا أَمْسَى بِي مِنْ نِعْمَةٍ أَوْ بِأَحَدٍ مِنْ خَلْقِكَ فَمِنْكَ وَحْدَكَ لاَ شَرِيكَ لَكَ، فَلَكَ الْحَمْدُ وَلَكَ الشُّكْرُ)). [وإذا أمسى قال: اللَّهم ما أمسى بي...]",
+  "metadata": {
+    "reference": "Ndërsa në mbrëmje thotë: Allahumme ma emsa bi min ni’metin ev bi ehadin min halkike, fe minke vahdeke la sherike lek, fe lekel-hamdu ve lekesh-shukru…",
+    "chapter_name": "Evening Adhkar",
+    "internal_id": "Evening Adhkar (7)"
+  },
+  "transliterations": {
+    "latin": "All-llahume ma asbaha bi  min ni’metin ev bi ehadin min halkike, fe minke vahdeke la sherike lek, fe lekel-hamdu ve lekesh-shukru"
+  },
+  "translations": {
+    "albanian": "O Allahu im, ajo që më është dhënë mua apo ndonjërit prej krijesave Tua nga begatitë e tëra është vetëm nga Ti që Je i pashoq; Ty të qoftë lavdërimi dhe Falënderimi.",
+    "english": "(O Allah, what blessing I or any of Your creation have risen upon, is from You alone, without partner, so for You is all praise and unto You all thanks.)(…whoever says this in the evening has indeed offered his day’s thanks and whoever says this in the evening has indeed offered his night’s thanks.)(Note: for the evening, one reads (amsa) instead of (asbaha).)",
+    "indonesian": "Ya Allah! Selamatkan tubuhku (dari penyakit dan yang tidak aku inginkan). Ya Allah, selamatkan pendengaranku (dari penyakit dan maksiat atau sesuatu yang tidak aku inginkan). Ya Allah, selamatkan penglihatanku, tiada Tuhan (yang berhak disembah) kecuali Engkau. Ya Allah! Sesungguhnya aku berlindung kepadaMu dari kekufuran dan kefakiran. Aku berlindung kepadaMu dari siksa kubur, tiada Tuhan (yang berhak disembah) kecuali Engkau.\" (Dibaca tiga kali di waktu pagi dan sore)."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "82_Evening_Acknowledgement_of_Blessings_default_1.mp3",
+      "path": "/invocations/82_Evening_Acknowledgement_of_Blessings/82_Evening_Acknowledgement_of_Blessings_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "82_Evening_Acknowledgement_of_Blessings_Mishary_1.mp3",
+      "path": "/invocations/82_Evening_Acknowledgement_of_Blessings/82_Evening_Acknowledgement_of_Blessings_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

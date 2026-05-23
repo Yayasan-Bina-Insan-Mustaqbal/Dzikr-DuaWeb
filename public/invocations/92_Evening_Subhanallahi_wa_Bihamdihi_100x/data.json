@@ -1,0 +1,33 @@
+{
+  "id": 92,
+  "name": "Evening: Subhanallahi wa Bihamdihi (100x)",
+  "arabic": "((سُبْحَانَ اللَّهِ وَبِحَمْدِهِ)) (مائة مرَّةٍ).",
+  "metadata": {
+    "reference": "“Kush e thotë këtë lutje në mëngjes dhe në mbrëmje 100 herë, askush s’do të vijë Ditën e Kiametit me diç më të vlefshme se ky, përveç atij i cili ka thënë sikur ky apo më tepër.” Muslimi 4/2071.",
+    "chapter_name": "Evening Adhkar",
+    "internal_id": "SubhanAllah"
+  },
+  "transliterations": {
+    "latin": "SubhanAll-llahi ve bihamdihi. (100 herë)."
+  },
+  "translations": {
+    "albanian": "I Lartësuar qoftë Allahu, Atij i takon Lavdërimi.",
+    "english": "(How perfect Allah is and I praise Him.)(one hundred times)",
+    "indonesian": "Tidak ada Tuhan yang berhak disembah selain Allah Yang Maha Esa, tidak ada sekutu bagiNya. BagiNya kerajaan dan segala pujian. Dia-lah yang berkuasa atas segala sesuatu.\" (Dibaca sepuluh kali, atau cukup sekali dalam keadaan malas)."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "92_Evening_Subhanallahi_wa_Bihamdihi_100x_default_1.mp3",
+      "path": "/invocations/92_Evening_Subhanallahi_wa_Bihamdihi_100x/92_Evening_Subhanallahi_wa_Bihamdihi_100x_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "92_Evening_Subhanallahi_wa_Bihamdihi_100x_Mishary_1.mp3",
+      "path": "/invocations/92_Evening_Subhanallahi_wa_Bihamdihi_100x/92_Evening_Subhanallahi_wa_Bihamdihi_100x_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

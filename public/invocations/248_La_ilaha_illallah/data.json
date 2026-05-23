@@ -1,0 +1,33 @@
+{
+  "id": 248,
+  "name": "La ilaha illallah",
+  "arabic": "((لاَ إِلَهَ إِلاَّ اللَّهُ!)).",
+  "metadata": {
+    "reference": "Buhariu “Fet’hul-Bari” 6/181 dhe Muslimi 4/2208.",
+    "chapter_name": "Frightened",
+    "internal_id": "La ilaha illallah"
+  },
+  "transliterations": {
+    "latin": "La Ilahe il-lAll-llah"
+  },
+  "translations": {
+    "albanian": "Nuk ka të adhuruar tjetër përveç Allahut.",
+    "english": "(None has the right to be worshipped except Allah.)",
+    "indonesian": "Rasulullah Shallallahu'alaihi wasallam bersabda: \"Demi Allah! Sesungguhnya aku minta ampun kepada Allah dan bertaubat kepadaNya dalam sehari lebih dari tujuh puluh kali."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "248_La_ilaha_illallah_default_1.mp3",
+      "path": "/invocations/248_La_ilaha_illallah/248_La_ilaha_illallah_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "248_La_ilaha_illallah_Mishary_1.mp3",
+      "path": "/invocations/248_La_ilaha_illallah/248_La_ilaha_illallah_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

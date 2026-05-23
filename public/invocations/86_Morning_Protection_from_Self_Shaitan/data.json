@@ -1,0 +1,33 @@
+{
+  "id": 86,
+  "name": "Morning: Protection from Self & Shaitan",
+  "arabic": "((اللَّهُمَّ عَالِمَ الغَيْبِ وَالشَّهَادَةِ فَاطِرَ السَّمَوَاتِ وَالْأَرْضِ، رَبَّ كُلِّ شَيْءٍ وَمَلِيكَهُ، أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ أَنْتَ، أَعُوذُ بِكَ مِنْ شَرِّ نَفْسِي، وَمِنْ شَرِّ الشَّيْطانِ وَشَرَكِهِ، وَأَنْ أَقْتَرِفَ عَلَى  نَفْسِي سُوءاً، أَوْ أَجُرَّهُ إِلَى مُسْلِمٍ)).",
+  "metadata": {
+    "reference": "Tirmidhiu dhe Ebu Davudi. “Sahih et-Tirmidhi” 3/142.",
+    "chapter_name": "Morning Adhkar",
+    "internal_id": "Morning Adhkar (11)"
+  },
+  "transliterations": {
+    "latin": "All-llahumme alimel-gajbi vesh-shehadeti fatires-semavati vel-erdi, Rabbe kul-le shej’in ve melikehu, eshhedu en la Ilahe il-la ente, eudhu bike min sherri nefsi ve sherrish-shejtani ve shirkihi, ve en akterife ala nefsi su’en ev exhurrehu ila muslimin"
+  },
+  "translations": {
+    "albanian": "O Allahu im, Ti je Ai i Cili i di të fshehtat dhe të dukshmet, Krijues i qiejve dhe i tokës, Zot i çdo sendi dhe Mbizotërues i saj, dëshmoj se nuk ka të adhuruar tjetër përveç Teje; kërkoj mbrojtjen Tënde nga e keqja e vetes sime, nga e keqja e djallit dhe nga ajo që djalli të shpie në idhujtari, si dhe kërkoj të më mbrosh që vetvetes e as ndonjë muslimani të mos i bëj dëm.",
+    "english": "(O Allah, Knower of the unseen and the seen, Creator of the heavens and the Earth, Lord and Sovereign of all things, I bear witness that none has the right to be worshipped except You. I take refuge in You from the evil of my soul and from the evil and shirk of the devil, and from committing wrong against my soul or bringing such upon another Muslim.)(shirk: to associate others with Allah in those things which are specific to Him.  This can occur in (1) belief, e.g. to believe that other than Allah has the power to benefit or harm, (2) speech, e.g. to swear by other than Allah and (3) action, e.g. to bow or prostrate to other than Allah.)",
+    "indonesian": "Ya Allah Yang Mahamengetahui yang ghaib dan yang nyata, wahai Rabb Pencipta langit dan bumi, Rabb atas segala sesuatu dan Yang Merajainya. Aku bersaksi bahwa tidak ada Ilah yang berhak diibadahi dengan benar kecuali Engkau. Aku berlindung kepada-Mu dari kejahatan diriku, syaitan dan ajakannya menyekutukan Allah (aku berlindung kepada-Mu) dari berbuat kejelekan atas diriku atau mendorong seorang muslim kepadanya."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "86_Morning_Protection_from_Self_Shaitan_default_1.mp3",
+      "path": "/invocations/86_Morning_Protection_from_Self_Shaitan/86_Morning_Protection_from_Self_Shaitan_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "86_Morning_Protection_from_Self_Shaitan_Mishary_1.mp3",
+      "path": "/invocations/86_Morning_Protection_from_Self_Shaitan/86_Morning_Protection_from_Self_Shaitan_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

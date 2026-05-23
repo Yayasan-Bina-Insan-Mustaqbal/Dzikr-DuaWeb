@@ -1,0 +1,33 @@
+{
+  "id": 163,
+  "name": "O Allah, provide water for...",
+  "arabic": "((اللَّهُمَّ اسْقِ عِبَادَكَ، وَبَهَائِمَكَ، وَانْشُرْ رَحْمَتَكَ، وَأَحْيِي بَلَدَكَ الْمَيِّتَ)).",
+  "metadata": {
+    "reference": "Ebu Davudi 1/305, Albani e ka bërë këtë hadith të mirë (hasen). Shih “Sahih Ebu Davud” 1/218.",
+    "chapter_name": "Dua for Rain",
+    "internal_id": "Dua for Rain (3)"
+  },
+  "transliterations": {
+    "latin": "All-llahumme iski ibádek, ve behaimek ven-shur rahmetek, ve Ahji beledekel-mejjit"
+  },
+  "translations": {
+    "albanian": "O Allahu im, begatoji me ujë robërit e Tu dhe gjallesat Tua, shpërndaje mëshirën Tënde dhe gjallëroje këtë vendin Tënd të vdekur.",
+    "english": "(O Allah, provide water for Your servants and Your cattle, spread out Your mercy and resurrect Your dead land.)",
+    "indonesian": "Bismillaahi wa 'alaa sunnati Rasulillaah. artinya, \"Dengan nama Allah dan di atas petunjuk Rasulullah"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "163_O_Allah_provide_water_for_default_1.mp3",
+      "path": "/invocations/163_O_Allah_provide_water_for/163_O_Allah_provide_water_for_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "163_O_Allah_provide_water_for_Mishary_1.mp3",
+      "path": "/invocations/163_O_Allah_provide_water_for/163_O_Allah_provide_water_for_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

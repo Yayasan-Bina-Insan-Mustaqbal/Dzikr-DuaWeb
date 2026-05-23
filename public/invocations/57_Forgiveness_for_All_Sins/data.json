@@ -1,0 +1,33 @@
+{
+  "id": 57,
+  "name": "Forgiveness for All Sins",
+  "arabic": "((اللَّهُمَّ اغْفِرْ لِي مَا قَدَّمْتُ، وَمَا أَخَّرْتُ، وَمَا أَسْرَرْتُ، وَمَا أَعْلَنْتُ، وَمَا أَسْرَفْتُ، وَمَا أَنْتَ أَعْلَمُ بِهِ مِنِّي. أَنْتَ الْمُقَدِّمُ، وَأَنْتَ الْمُؤَخِّرُ لاَ إِلَهَ إِلاَّ أَنْتَ)).",
+  "metadata": {
+    "reference": "Ebu Davudi 2/86, Nesaiu 3/53. Hadith i vërtetë sipas shejh Albanit, shih “Sahih Ebu Davud” 1/284.",
+    "chapter_name": "Before Ending Prayer",
+    "internal_id": "Before Ending Prayer (4)"
+  },
+  "transliterations": {
+    "latin": "All-llahumme-gfir li ma kaddemtu ve ma ahhartu, ve ma esrertu ve ma a’ëlentu, ve ma esreftu ve ma Ente A’ëlemu bihi minni. Entel-Mukaddimu ve Entel-Muahhiru, La Ilahe il-la Ente"
+  },
+  "translations": {
+    "albanian": "O Allahu im, m’i fal mëkatet e mia të mëparshme dhe të tanishme, ato që i kam bërë fshehurazi dhe haptazi, si dhe ato me të cilat e kam ngarkuar veten, e për të cilat Ti e di më mirë se unë; Ti je i Pari dhe Ti je i Fundit, nuk ka hyjni që meriton të adhurohet përveç Teje.",
+    "english": "(O Allah, forgive me for those sins which have come to pass as well as those which shall come to pass, and those I have committed in secret as well as those I have made public, and where I have exceeded all bounds as well as those things about which You are more knowledgeable. You are Al-Muqaddim and Al-Mu-akhkhir.  None has the right to be worshipped except You.)(Meaning of Al-Muqaddim and Al-Mu-akhkhir: Allah puts forward and favours whom He wills from amongst His creation just as He defers and holds back whom He wills in accordance to His wisdom.  E.g.  Favouring man over the rest of creation, favouring the Prophets over the rest of mankind, favouring Muhammad  over all the Prophets and Messengers…etc.)",
+    "indonesian": "Ya Allah! Sesungguhnya aku banyak menganiaya diriku, dan tidak ada yang mengampuni dosa-dosa kecuali Engkau. Oleh karena itu, ampunilah dosa-dosaku dan berilah rahmat kepadaku. Sesungguhnya Engkau Maha Pengampun dan Maha Penyayang."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "57_Forgiveness_for_All_Sins_default_1.mp3",
+      "path": "/invocations/57_Forgiveness_for_All_Sins/57_Forgiveness_for_All_Sins_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "57_Forgiveness_for_All_Sins_Mishary_1.mp3",
+      "path": "/invocations/57_Forgiveness_for_All_Sins/57_Forgiveness_for_All_Sins_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

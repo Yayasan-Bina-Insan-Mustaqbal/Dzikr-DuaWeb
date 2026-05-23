@@ -1,0 +1,33 @@
+{
+  "id": 175,
+  "name": "Dua for Host",
+  "arabic": " ((اللَّهُمَّ بَارِكْ لَهُمْ فِيمَا رَزَقْتَهُم، وَاغْفِرْ لَهُمْ وَارْحَمْهُمْ)).",
+  "metadata": {
+    "reference": "Muslimi 3/1615.",
+    "chapter_name": "Dua for Host",
+    "internal_id": "Dua for Host"
+  },
+  "transliterations": {
+    "latin": "All-llahumme barik lehum fi ma rezaktehum vagfir lehum verhamhum"
+  },
+  "translations": {
+    "albanian": "O Allahu im bekoji në atë që i ke furnizuar, falu mëkatet dhe mëshiroji ata.",
+    "english": "(O Allah, bless for them, that which You have provided them, forgive them and have mercy upon them.)",
+    "indonesian": "Allah Maha Besar. Ya Allah! Tampakkan bulan tanggal satu itu kepada kami dengan membawa keamanan dan keimanan, keselamatan dan Islam serta mendapat taufik untuk menjalankan apa yang Engkau senang dan rela. Tuhan kami dan Tuhanmu (wahai bulan sabit) adalah Allah."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "175_Dua_for_Host_default_1.mp3",
+      "path": "/invocations/175_Dua_for_Host/175_Dua_for_Host_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "175_Dua_for_Host_Mishary_1.mp3",
+      "path": "/invocations/175_Dua_for_Host/175_Dua_for_Host_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

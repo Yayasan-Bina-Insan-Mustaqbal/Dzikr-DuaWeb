@@ -1,0 +1,33 @@
+{
+  "id": 168,
+  "name": "Inshallah",
+  "arabic": "((ذَهَبَ الظَّمَأُ وَابْتَلَّتِ العُرُوقُ، وَثَبَتَ الْأَجْرُ إِنْ شَاءَ اللَّهُ)).",
+  "metadata": {
+    "reference": "Ebu Davudi 2/306 dhe të tjerë. “Sahih el-Xhamiu” 4/209.",
+    "chapter_name": "Breaking Fast",
+    "internal_id": "Inshallah"
+  },
+  "transliterations": {
+    "latin": "Dhehebe edh-dhameu, veb-tel-letil-uruku ve thebetel-exhru inshaAll-llah"
+  },
+  "translations": {
+    "albanian": "Kaloi etja, u lagën venat dhe u realizua shpërblimi inshAllah.",
+    "english": "(The thirst has gone and the veins are quenched, and reward is confirmed, if Allah wills.)",
+    "indonesian": "Maha Suci Allah yang halilintar bertasbih dengan memujiNya, begitu juga para malaikat, karena takut kepadaNya.\" 189 Doa Meminta Hujan dam Menghentikan Hujan"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "168_Inshallah_default_1.mp3",
+      "path": "/invocations/168_Inshallah/168_Inshallah_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "168_Inshallah_Mishary_1.mp3",
+      "path": "/invocations/168_Inshallah/168_Inshallah_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

@@ -1,0 +1,33 @@
+{
+  "id": 97,
+  "name": "Morning: Istighfar (100x)",
+  "arabic": "((أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ)) (مِائَةَ مَرَّةٍ فِي الْيَوْمِ).",
+  "metadata": {
+    "reference": "Buhariu “Fet’hul-Bari” 11/101.",
+    "chapter_name": "Morning Adhkar",
+    "internal_id": "Istighfar"
+  },
+  "transliterations": {
+    "latin": "Estagfirull-llahe ve etubu ilejhi. (100 herë në ditë)."
+  },
+  "translations": {
+    "albanian": "Kërkoj faljen e Allahut dhe tek Ai pendohem.",
+    "english": "‘I seek Allaah’s forgiveness and I turn to Him in repentance.’ [one hundred times a day]",
+    "indonesian": "Aku memohon ampunan kepada Allah dan bertaubat kepada-Nya."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "97_Morning_Istighfar_100x_default_1.mp3",
+      "path": "/invocations/97_Morning_Istighfar_100x/97_Morning_Istighfar_100x_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "97_Morning_Istighfar_100x_Mishary_1.mp3",
+      "path": "/invocations/97_Morning_Istighfar_100x/97_Morning_Istighfar_100x_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

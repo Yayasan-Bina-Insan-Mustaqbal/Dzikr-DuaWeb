@@ -1,0 +1,33 @@
+{
+  "id": 179,
+  "name": "First Dates",
+  "arabic": "((اللَّهُمَّ بَارِكْ لَنَا فِي ثَمَرِنَا، وَبَارِكْ لَنَا فِي مَدِينَتِنَا، وَبَارِكْ لَنَا فِي صَاعِنَا، وَبَارِكْ لَنَا فِي مُدِّنَا)).",
+  "metadata": {
+    "reference": "Muslimi 2/1000.",
+    "chapter_name": "First Dates",
+    "internal_id": "First Dates"
+  },
+  "transliterations": {
+    "latin": "All-llahumme barik lena fi themerina, ve barik lena fi medinetina, ve barik lena fi si’ina, ve barik lena fi muddina"
+  },
+  "translations": {
+    "albanian": "O Allahu im, na i beko frytet tona, na e beko qytetin tonë, na i beko njësitë matëse tona (sain dhe muddin) me të cilat matim.",
+    "english": "(O Allah, bless our fruit for us, bless our town for us, bless our saAA for us and bless our mudd for us.)(A saAA is equivalent to four mudds and a mudd is equivalent to a dry measure of an average man’s two palms.)",
+    "indonesian": "Rasulullah Shallallahu'alaihi wasallam bersabda 200: \"Barangsiapa yang diberi rezeki oleh Allah berupa makanan, hendaklah membaca:"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "179_First_Dates_default_1.mp3",
+      "path": "/invocations/179_First_Dates/179_First_Dates_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "179_First_Dates_Mishary_1.mp3",
+      "path": "/invocations/179_First_Dates/179_First_Dates_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

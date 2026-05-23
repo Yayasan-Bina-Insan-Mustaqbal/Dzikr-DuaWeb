@@ -1,0 +1,33 @@
+{
+  "id": 67,
+  "name": "Glorification (Subhanallah)",
+  "arabic": "((لَا إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ، وَلَهُ الْحَمدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ. لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ، لاَ إِلَهَ إِلاَّ اللَّهُ، وَلاَ نَعْبُدُ إِلاَّ إِيَّاهُ, لَهُ النِّعْمَةُ وَلَهُ الْفَضْلُ وَلَهُ الثَّنَاءُ الْحَسَنُ، لَا إِلَهَ إِلاَّ اللَّهُ مُخْلِصِينَ لَهُ الدِّينَ وَلَوْ كَرِهَ الكَافِرُونَ)).",
+  "metadata": {
+    "reference": "Shënon Muslimi 1/415.",
+    "chapter_name": "After Prayer",
+    "internal_id": "After Prayer (3)"
+  },
+  "transliterations": {
+    "latin": "La ilahe il-lAll-llahu vahdehu la sherike leh, lehul mulku ve lehul hamdu ve huve ala kul-li shejin kadir, la havle ve la kuvete il-la bil-lah, la ilahe il-lAll-llahu ve la na’budu il-la ijjahu lehun-ni’metu ve lehul-fadlu ve lehuth-thenaul hasen. La ilahe il-lAll-llahu muhlisine lehud-din ve lev kerihel-kafirun"
+  },
+  "translations": {
+    "albanian": "Nuk ka hyjni që meriton të adhurohet përveç Allahut, të Vetëm e i pa rival. Atij i takon Sundimi dhe Lavdërimi, Ai është i Gjithëfuqishmi mbi çdo gjë. Nuk ka ndryshim e as forcë pa ndihmën e Allahut; nuk ka Zot tjetër përveç Allahut dhe nuk e adhurojmë askënd tjetër përveç Tij, dhuntitë dhe mirësitë janë prej Tij dhe vetëm Atij i takon lavdërimi më i mirë. Nuk ka të adhuruar tjetër përveç Allahut. Me sinqeritet Atij i besojmë dhe i nënshtrohemi, edhe pse këtë e urrejnë pabesimtarët.",
+    "english": "(None has the right to be worshipped except Allah, alone, without partner, to Him belongs all sovereignty and praise and He is over all things omnipotent.  There is no might nor power except with Allah, none has the right to be worshipped except Allah and we worship none except Him.  For Him is all favour, grace, and glorious praise.  None has the right to be worshipped except Allah and we are sincere in faith and devotion to Him although the disbelievers detest it.)",
+    "indonesian": "Tiada Tuhan yang berhak disembah selain Allah Yang Maha Esa, tidak ada sekutu bagiNya. BagiNya puji dan bagi-Nya kerajaan. Dia Maha Kuasa atas segala sesuatu. Ya Allah, tidak ada yang mencegah apa yang Engkau berikan dan tidak ada yang memberi apa yang Engkau cegah. Tidak berguna kekayaan dan kemuliaan itu bagi pemiliknya (selain iman dan amal shalihnya). Hanya dari-Mu kekayaan dan kemuliaan."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "67_Glorification_Subhanallah_default_1.mp3",
+      "path": "/invocations/67_Glorification_Subhanallah/67_Glorification_Subhanallah_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "67_Glorification_Subhanallah_Mishary_1.mp3",
+      "path": "/invocations/67_Glorification_Subhanallah/67_Glorification_Subhanallah_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

@@ -1,0 +1,33 @@
+{
+  "id": 194,
+  "name": "Fear of Shirk",
+  "arabic": "((اللَّهُمَّ إِنِّي أَعُوذُ بِكَ أَنْ أُشْرِكَ بِكَ وَأَنَا أَعْلَمُ، وَأَسْتَغْفِرُكَ لِمَا لاَ أَعْلَمُ)).",
+  "metadata": {
+    "reference": "Ahmedi 4/403 dhe të tjerë, “Sahih el-Xhamiu” 3/233 dhe “Sahih et-Tergib vet-Terhib” të autorit Albani 1/19.",
+    "chapter_name": "Fear of Shirk",
+    "internal_id": "Fear of Shirk"
+  },
+  "transliterations": {
+    "latin": "All-llahumme inni eudhu bike en ushrike bike ve ene a’ëlemu ve estagfiruke lima la a’ëlemu"
+  },
+  "translations": {
+    "albanian": "O Allahu im, kërkoj mbrojtjen Tënde nga shirku të cilin e di dhe kërkoj faljen Tënde për atë që nuk e di.",
+    "english": "(shirk: to associate others with Allah in those things which are specific to Him.  This can occur in (1) belief, e.g. to believe that other than Allah has the power to benefit or harm, (2) speech, e.g. to swear by other than Allah and (3) action, e.g. to bow or prostrate to other than Allah.)(O Allah, I take refuge in You lest I should commit shirk with You knowingly and I seek Your forgiveness for what I do unknowingly.)",
+    "indonesian": "Segala puji bagi Allah yang menyelamatkan aku dari sesuatu yang Allah memberi cobaan kepadamu. Dan Allah telah memberi kemuliaan kepadaku, melebihi orang banyak."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "194_Fear_of_Shirk_default_1.mp3",
+      "path": "/invocations/194_Fear_of_Shirk/194_Fear_of_Shirk_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "194_Fear_of_Shirk_Mishary_1.mp3",
+      "path": "/invocations/194_Fear_of_Shirk/194_Fear_of_Shirk_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

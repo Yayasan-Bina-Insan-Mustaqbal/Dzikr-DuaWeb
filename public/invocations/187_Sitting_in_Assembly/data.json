@@ -1,0 +1,33 @@
+{
+  "id": 187,
+  "name": "Sitting in Assembly",
+  "arabic": "((عَنِ ابْنِ عُمَرَ رضي الله عنه قَاَلَ: كَانَ يُعَدُّ لِرَسُولِ اللَّهِ صلى الله عليه وسلم فِي الْمَجْلِسِ الوَاحِدِ مِائَةُ مَرَّةٍ مِنْ قَبْلِ أَنْ يَقُومَ: ((رَبِّ اغْفِرْ لِي، وَتُبْ عَلَيَّ، إِنَّكَ أَنْتَ التَّوَّابُ الغَفُورُ)).",
+  "metadata": {
+    "reference": "Tirmidhiu dhe të tjerë, “Sahih et-Tirmidhi” 3/153 dhe “Sahih Ibën Maxheh” 2/321.",
+    "chapter_name": "Sitting in Assembly",
+    "internal_id": "Sitting in Assembly"
+  },
+  "transliterations": {
+    "latin": "Rabbi-gfir li ve tub alejje, inneke Ente et-Tevvabul-Gafur"
+  },
+  "translations": {
+    "albanian": "O Zoti im, më fal dhe ma prano pendimin, sepse Ti je Pranues i faljes dhe i pendimit.",
+    "english": "(Ibn AAumar  said: It would be counted that the Messenger of Allah  would say one hundred times at any one sitting before getting up: (O my Lord, forgive me and turn towards me (to accept my repentance). Verily You are The Oft-Returning. The Oft-Forgiving.))",
+    "indonesian": "Ya Allah! Berilah berkah buah-buahan kami, berilah berkah kota kami, berilah berkah gantangan kami (sehingga di antara kami tidak sering mengurangi timbangan) dan berilah berkah mud kami."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "187_Sitting_in_Assembly_default_1.mp3",
+      "path": "/invocations/187_Sitting_in_Assembly/187_Sitting_in_Assembly_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "187_Sitting_in_Assembly_Mishary_1.mp3",
+      "path": "/invocations/187_Sitting_in_Assembly/187_Sitting_in_Assembly_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

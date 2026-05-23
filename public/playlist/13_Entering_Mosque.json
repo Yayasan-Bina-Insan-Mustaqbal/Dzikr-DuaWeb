@@ -1,0 +1,19 @@
+{
+  "id": 13,
+  "name": "Entering Mosque",
+  "invocations": [
+    {
+      "id": 21,
+      "name": "Entering Mosque"
+    },
+    {
+      "id": 276,
+      "name": "Before Eating"
+    },
+    {
+      "id": 277,
+      "name": "Entering Mosque"
+    }
+  ],
+  "description": ""
+}

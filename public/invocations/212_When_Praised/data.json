@@ -1,0 +1,33 @@
+{
+  "id": 212,
+  "name": "When Praised",
+  "arabic": "((اللَّهُمَّ لاَ تُؤَاخِذْنِي بِمَا يَقُولُونَ، وَاغْفِرْ لِي مَا لاَ يَعْلَمُونَ، [وَاجْعَلْنِي خَيْراً مِمَّا يَظُّنُّونَ])).",
+  "metadata": {
+    "reference": "Buhariu në “Edebul Mufred” #761, senedin e këtij hadithi e ka autentifikuar Albani në “Sahih Edebul Mufred” #585, ndërsa ajo që është ndërmjet kllapave është pjesa e Bejhekiut e marrë nga libri i tij “Shuabul-Iman” 4/228, me rrugë tjetër të transmetimit.",
+    "chapter_name": "When Praised",
+    "internal_id": "When Praised"
+  },
+  "transliterations": {
+    "latin": "All-llahumme la tuahidhni bima jeku-lun, vagfir li ma la ja’ëlemun [vexh-alni hajren mimma jedhunnun]"
+  },
+  "translations": {
+    "albanian": "O Allahu im, mos më dëno për atë që thonë, m’i fal ato që nuk i di, [dhe më bën më të mirë se sa më mendojnë të tjerët].",
+    "english": "O Allah, do not call me to account for what they say and forgive me for what they have no knowledge of [and make me better than they imagine].",
+    "indonesian": "Aku menitipkan agamamu, amanatmu dan perbuatanmu yang terakhir kepada Allah."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "212_When_Praised_default_1.mp3",
+      "path": "/invocations/212_When_Praised/212_When_Praised_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "212_When_Praised_Mishary_1.mp3",
+      "path": "/invocations/212_When_Praised/212_When_Praised_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

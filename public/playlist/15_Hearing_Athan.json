@@ -1,0 +1,19 @@
+{
+  "id": 15,
+  "name": "Hearing Athan",
+  "invocations": [
+    {
+      "id": 23,
+      "name": "‘One repeats just as the..."
+    },
+    {
+      "id": 24,
+      "name": "Immediately following the declaration of..."
+    },
+    {
+      "id": 25,
+      "name": "‘One should then send prayers..."
+    }
+  ],
+  "description": ""
+}

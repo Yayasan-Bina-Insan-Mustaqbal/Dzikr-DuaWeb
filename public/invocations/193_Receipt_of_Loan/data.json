@@ -1,0 +1,33 @@
+{
+  "id": 193,
+  "name": "Receipt of Loan",
+  "arabic": "((بارَكَ اللَّهُ لَكَ فِي أَهْلِكَ وَمَالِكَ، إِنَّمَا جَزَاءُ السَّلَفِ الْحَمْدُ وَالأَدَاءُ)).",
+  "metadata": {
+    "reference": "Nesaiu në “Amel el-Jevmi ve Lejleh” fq. 300 dhe Ibën Maxheh 2/809, “Sahih Ibën Maxheh” 2/55",
+    "chapter_name": "Receipt of Loan",
+    "internal_id": "Receipt of Loan"
+  },
+  "transliterations": {
+    "latin": "BarekAll-llahu leke fi Ehlike ve malike, inn-ema xhezaus-selefi el hamdu vel-edau"
+  },
+  "translations": {
+    "albanian": "Të bekoftë Allahu në familjen dhe pasurinë Tënde, vërtetë shpërblimi i borxhit është falënderimi dhe kthimi.",
+    "english": "(May Allah bless for you, your family and wealth. Surely commendation and payment are the reward for a loan.)",
+    "indonesian": "Aku berlindung kepada Allah dan setan yang terkutuk.\" 214 Doa Untuk Cobaan"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "193_Receipt_of_Loan_default_1.mp3",
+      "path": "/invocations/193_Receipt_of_Loan/193_Receipt_of_Loan_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "193_Receipt_of_Loan_Mishary_1.mp3",
+      "path": "/invocations/193_Receipt_of_Loan/193_Receipt_of_Loan_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

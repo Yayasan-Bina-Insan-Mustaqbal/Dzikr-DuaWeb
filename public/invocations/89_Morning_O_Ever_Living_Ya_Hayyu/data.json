@@ -1,0 +1,33 @@
+{
+  "id": 89,
+  "name": "Morning: O Ever Living (Ya Hayyu)",
+  "arabic": "((يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغيثُ أَصْلِحْ لِي شَأْنِيَ كُلَّهُ وَلاَ تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ)).",
+  "metadata": {
+    "reference": "Hakimi, i cili e ka bërë këtë hadith të vërtetë (sahih) si dhe e ka pëlqyer edhe Dhehebiu 1/545. Shih “Sahih et-Tergib vet-Terhib” 1/273.",
+    "chapter_name": "Morning Adhkar",
+    "internal_id": "Morning Adhkar (14)"
+  },
+  "transliterations": {
+    "latin": "Ja Hajju ja Kajjumu bi rahmetike estegithu aslih li she’ni kul-lehu ve la tekilni ila nefsi tarfete ajnin"
+  },
+  "translations": {
+    "albanian": "O i Gjallë përgjithmonë, O Mbikëqyrës i çdo gjëje, me mëshirën Tënde kërkoj ndihmë, ma përmirëso tërë gjendjen time dhe mos më lër të mbështetem në veten time, as sa një përpëlitje e syrit.",
+    "english": "(O Ever Living, O Self-Subsisting and Supporter of all, by Your mercy I seek assistance, rectify for me all of my affairs and do not leave me to myself, even for the blink of an eye.)",
+    "indonesian": "Wahai Rabb Yang Maha hidup, Wahai Rabb Yang Maha berdiri sendiri (tidak butuh segala sesuatu) dengan rahmat-Mu aku meminta pertolongan, perbaikilah segala urusanku dan jangan diserahkan (urusanku) kepada diriku sendiri meskipun hanya sekejap mata (tanpa mendapat pertolongan dari-Mu)."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "89_Morning_O_Ever_Living_Ya_Hayyu_default_1.mp3",
+      "path": "/invocations/89_Morning_O_Ever_Living_Ya_Hayyu/89_Morning_O_Ever_Living_Ya_Hayyu_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "89_Morning_O_Ever_Living_Ya_Hayyu_Mishary_1.mp3",
+      "path": "/invocations/89_Morning_O_Ever_Living_Ya_Hayyu/89_Morning_O_Ever_Living_Ya_Hayyu_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

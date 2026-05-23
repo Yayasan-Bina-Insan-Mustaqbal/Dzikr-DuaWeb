@@ -1,0 +1,33 @@
+{
+  "id": 97,
+  "name": "Evening: Istighfar (100x)",
+  "arabic": "((اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبَيِّنَا مُحَمَّدٍ)) (عشرَ مرَّاتٍ).",
+  "metadata": {
+    "reference": "Buhariu “Fet’hul-Bari” 11/101.",
+    "chapter_name": "Evening Adhkar",
+    "internal_id": "Evening Adhkar (22)"
+  },
+  "transliterations": {
+    "latin": "Estagfirull-llahe ve etubu ilejhi. (100 herë në ditë)."
+  },
+  "translations": {
+    "albanian": "Kërkoj faljen e Allahut dhe tek Ai pendohem.",
+    "english": "‘O Allaah, send prayers and peace upon our Prophet Muhammad.’ [ten times]",
+    "indonesian": "Aku berlindung dengan kalimat-kalimat Allah yang sempurna dari kejahatan makhluk yang diciptakanNya. (Dibaca 3 kali pada sore hari)."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "97_Evening_Istighfar_100x_default_1.mp3",
+      "path": "/invocations/97_Evening_Istighfar_100x/97_Evening_Istighfar_100x_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "97_Evening_Istighfar_100x_Mishary_1.mp3",
+      "path": "/invocations/97_Evening_Istighfar_100x/97_Evening_Istighfar_100x_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

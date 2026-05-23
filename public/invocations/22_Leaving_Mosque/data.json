@@ -1,0 +1,33 @@
+{
+  "id": 22,
+  "name": "Leaving Mosque",
+  "arabic": "((يَبْدَأُ بِرِجْلِهِ الْيُسْرَى))  وَيَقُولُ: ((بِسْمِ اللَّهِ وَالصّلَاةُ وَالسَّلَامُ عَلَى رَسُولِ اللَّهِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِك، اللَّهُمَّ اعْصِمْنِي مِنَ الشَّيْطَانِ الرَّجِيمِ)).",
+  "metadata": {
+    "reference": "Ibën Maxheh. Shih “Sahih Ibën Maxheh” 1/129.",
+    "chapter_name": "Leaving Mosque",
+    "internal_id": "Leaving Mosque"
+  },
+  "transliterations": {
+    "latin": "Bismil-lah ves-salatu ves-selamu ala resulil-lah, All-llahumme inni es-eluke min fadlike, All-llahumme aësimni minesh-shejtanir-raxhim"
+  },
+  "translations": {
+    "albanian": "Me emrin e Allahut, përshëndetjet dhe shpëtimi i Allahut qoftë mbi të Dërguarin e Tij, o Allah unë kërkoj nga mirësitë Tua, O Allah, më mbroj nga shejtani i mallkuar.",
+    "english": "(In the name of Allah, and prayers and peace be upon the Messenger of Allah.  O Allah, I ask You from Your favour.  O Allah, guard me from the accursed devil.)",
+    "indonesian": "38 \"Seseorang yang mendengarkan adzan, hendaklah mengucapkan sebagaimana yang diucapkan oleh muadzin, kecuali dalam kalimat: Hayya 'alash shalaah dan Hayya 'alal falaah. Maka mengucapkan:"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "22_Leaving_Mosque_default_1.mp3",
+      "path": "/invocations/22_Leaving_Mosque/22_Leaving_Mosque_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "22_Leaving_Mosque_Mishary_1.mp3",
+      "path": "/invocations/22_Leaving_Mosque/22_Leaving_Mosque_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

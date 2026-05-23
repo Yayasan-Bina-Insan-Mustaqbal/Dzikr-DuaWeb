@@ -1,0 +1,33 @@
+{
+  "id": 113,
+  "name": "Fear/Loneliness at Night",
+  "arabic": "((أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ غَضَبِهِ وَعِقَابِهِ، وَشَرِّ عِبَادِهِ، وَمِنْ هَمَزَاتِ الشَّياطِينِ وَأَنْ يَحْضُرُونِ)).",
+  "metadata": {
+    "reference": "Ebu Davudi 4/12, “Sahih et-Tirmidhi” 3/171.",
+    "chapter_name": "Fear/Loneliness at Night",
+    "internal_id": "Fear/Loneliness at Night"
+  },
+  "transliterations": {
+    "latin": "Eudhu bi kelimatil-lahit-tammati, min gadabihi ve ikabihi ve sherri ibadihi ve min hemezatish-shejatin ve en jahdurun"
+  },
+  "translations": {
+    "albanian": "Kërkoj mbrojtje me fjalët e përsosura të Allahut nga hidhërimi i Tij, nga dëmi i robërve të Tij, nga vesveset e djajve dhe nga afrimi i tyre.",
+    "english": "(I take refuge in the perfect words of Allah from His anger and punishment, and from the evil of His servants, and from the madness and appearance of devils.)",
+    "indonesian": "Aku berlindung dengan kalimat Allah yang sempurna dari kemarahan dan siksaanNya, serta kejahatan hamba-hambaNya, dan dari godaan setan (bisikannya) serta jangan sampai mereka hadir (kepadaku)."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "113_FearLoneliness_at_Night_default_1.mp3",
+      "path": "/invocations/113_FearLoneliness_at_Night/113_FearLoneliness_at_Night_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "113_FearLoneliness_at_Night_Mishary_1.mp3",
+      "path": "/invocations/113_FearLoneliness_at_Night/113_FearLoneliness_at_Night_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

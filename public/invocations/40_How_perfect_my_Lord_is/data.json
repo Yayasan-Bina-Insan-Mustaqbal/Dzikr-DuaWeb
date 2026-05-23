@@ -1,0 +1,33 @@
+{
+  "id": 40,
+  "name": "How perfect my Lord is,...",
+  "arabic": "((سُبْحَانَ رَبِّيَ الأَعْلَى)) ثلاث مرَّاتٍ.",
+  "metadata": {
+    "reference": "Transmetojnë autorët e katër suneneve dhe Ahmedi. “Sahih et-Tirmidhi” 1/83.",
+    "chapter_name": "During Sujood",
+    "internal_id": "During Sujood (1)"
+  },
+  "transliterations": {
+    "latin": "Subhane Rabbijel-a’la (3 herë)"
+  },
+  "translations": {
+    "albanian": "I Madhëruar qoftë Zoti im i Lartë.",
+    "english": "(How perfect my Lord is, The Most High.’(three times))",
+    "indonesian": "(Aku memujiMu dengan) pujian sepenuh langit dan sepenuh bumi, sepenuh apa yang di antara keduanya, sepenuh apa yang Engkau kehendaki setelah itu. Wahai Tuhan yang layak dipuji dan diagungkan, Yang paling berhak dikatakan oleh seorang hamba dan kami seluruhnya adalah hambaMu. Ya Allah tidak ada yang dapat menghalangi apa yang Engkau berikan dan tidak ada pula yang dapat memberi apa yang Engkau halangi, tidak bermanfaat kekayaan bagi orang yang memilikinya (kecuali iman dan amal shalihnya), hanya dariMu kekayaan itu.56 Doa Sujud"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "40_How_perfect_my_Lord_is_default_1.mp3",
+      "path": "/invocations/40_How_perfect_my_Lord_is/40_How_perfect_my_Lord_is_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "40_How_perfect_my_Lord_is_Mishary_1.mp3",
+      "path": "/invocations/40_How_perfect_my_Lord_is/40_How_perfect_my_Lord_is_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

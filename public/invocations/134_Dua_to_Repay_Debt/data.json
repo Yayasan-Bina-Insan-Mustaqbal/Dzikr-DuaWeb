@@ -1,0 +1,33 @@
+{
+  "id": 134,
+  "name": "Dua to Repay Debt",
+  "arabic": "((اللَّهُمَّ اكْفِنِي بِحَلاَلِكَ عَنْ حَرَامِكَ، وَأَغْنِنِي بِفَضْلِكِ عَمَّنْ سِوَاكَ)).",
+  "metadata": {
+    "reference": "Shënon Tirmidhiu 5/560, “Sahih et-Tirmidhi” 3/180.",
+    "chapter_name": "Settling Debt",
+    "internal_id": "Dua to Repay Debt"
+  },
+  "transliterations": {
+    "latin": "All-llahummek-fini bi halalike an haramike ve agnini bi fadlike ammen sivake"
+  },
+  "translations": {
+    "albanian": "O Allahu im, më bëj që të më mjaftojë hallalli Yt dhe të mos i afrohem haramit, si dhe më bëj të pasur me mirësitë Tua, që të mos kërkoj prej tjetërkujt përveç prej Teje.",
+    "english": "(O Allah, make what is lawful enough for me, as opposed to what is unlawful, and spare me by Your grace, of need of others.)",
+    "indonesian": "Hendaklah mengatakan: Allah."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "134_Dua_to_Repay_Debt_default_1.mp3",
+      "path": "/invocations/134_Dua_to_Repay_Debt/134_Dua_to_Repay_Debt_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "134_Dua_to_Repay_Debt_Mishary_1.mp3",
+      "path": "/invocations/134_Dua_to_Repay_Debt/134_Dua_to_Repay_Debt_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

@@ -1,0 +1,33 @@
+{
+  "id": 96,
+  "name": "Evening: Knowledge & Provisions",
+  "arabic": "((أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ)) (مِائَةَ مَرَّةٍ فِي الْيَوْمِ).",
+  "metadata": {
+    "reference": "Ibën Sunnijj në “Amel el-Jevmi ve Lejleh” nr. 54. Ibën Ma-xheh nr. 925; isnadin e këtij hadithi e kanë bërë të mirë (hasen) Shuajb dhe Abdulkadër Arnauti “Zadul-Me’ad” 2/375.",
+    "chapter_name": "Evening Adhkar",
+    "internal_id": "Istighfar"
+  },
+  "transliterations": {
+    "latin": "All-llahumme inni es’eluke ilmen nafi’an ve rizkan tajjiben ve amelen mutekabbelen. (çdo mëngjes)."
+  },
+  "translations": {
+    "albanian": "O Allahu im, të lutem më jep dituri të dobishme e furnizim të mirë dhe të lutem Të m’i pranosh veprat e mia.",
+    "english": "‘I seek Allaah’s forgiveness and I turn to Him in repentance.’ [one hundred times a day]",
+    "indonesian": "Aku memohon ampun kepada Allah dan bertobat kepadaNya. (Dibaca 100 kali dalam sehari)."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "96_Evening_Knowledge_Provisions_default_1.mp3",
+      "path": "/invocations/96_Evening_Knowledge_Provisions/96_Evening_Knowledge_Provisions_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "96_Evening_Knowledge_Provisions_Mishary_1.mp3",
+      "path": "/invocations/96_Evening_Knowledge_Provisions/96_Evening_Knowledge_Provisions_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

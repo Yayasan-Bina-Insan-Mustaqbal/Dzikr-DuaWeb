@@ -1,0 +1,33 @@
+{
+  "id": 108,
+  "name": "All praise is for Allah,...",
+  "arabic": "((الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا، وَكَفَانَا، وَآوَانَا، فَكَمْ مِمَّنْ لاَ كَافِيَ لَهُ وَلاَ مُؤْوِيَ)).",
+  "metadata": {
+    "reference": "Muslimi 4/2085.",
+    "chapter_name": "Before Sleeping",
+    "internal_id": "Before Sleeping (10)"
+  },
+  "transliterations": {
+    "latin": "Elhamdulil-lahil-ledhi et’amena ve sekana, ve kefana, ve avana, fe kem mimmen la kafije lehu ve la mu’vije"
+  },
+  "translations": {
+    "albanian": "Falënderimi i qoftë Allahut i cili na jep të hamë dhe të pimë, na jep veshmbathje dhe na strehon. Sa ka të atillë që nuk kanë as veshmbathje e as strehim.",
+    "english": "(All praise is for Allah, Who fed us and gave us drink, and Who is sufficient for us and has sheltered us, for how many have none to suffice them or shelter them.)",
+    "indonesian": "Segala puji bagi Allah yang memberi makan kami, memberi minum kami, mencukupi kami, dan memberi tempat berteduh. Berapa banyak orang yang tidak mendapatkan siapa yang memberi kecukupan dan tempat berteduh."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "108_All_praise_is_for_Allah_default_1.mp3",
+      "path": "/invocations/108_All_praise_is_for_Allah/108_All_praise_is_for_Allah_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "108_All_praise_is_for_Allah_Mishary_1.mp3",
+      "path": "/invocations/108_All_praise_is_for_Allah/108_All_praise_is_for_Allah_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

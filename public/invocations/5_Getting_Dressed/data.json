@@ -1,0 +1,33 @@
+{
+  "id": 5,
+  "name": "Getting Dressed",
+  "arabic": "(الْحَمْدُ للَّهِ الَّذِي كَسَانِي هَذَا (الثَّوْبَ) وَرَزَقَنِيهِ مِنْ غَيْرِ حَوْلٍ مِنِّي وَلاَ قُوَّة...)",
+  "metadata": {
+    "reference": "Ebu Davudi, Tirmidhiu dhe Ibën Maxheh “Irvaul-Galil” 7/47",
+    "chapter_name": "Getting Dressed",
+    "internal_id": "Getting Dressed"
+  },
+  "transliterations": {
+    "latin": "Elhamdulil-lahil-ledhi kesani hadha (eth-thevbe) ve rezekanihi min gajri havlin minni ve la kuvvetin..."
+  },
+  "translations": {
+    "albanian": "Falënderimi i takon Allahut, i Cili ma mundësoi ta vesh këtë rrobë dhe më furnizoi me lehtësi me të, pa ndihmën dhe fuqinë time...",
+    "english": "(All Praise is for Allah who has clothed me with this garment and provided it for me, with no power nor might from myself.)",
+    "indonesian": "Irwa'ul Ghalil Fii Takhrij Ahadits Manaarus Sabiil (9 Jilid); Syaikh Muhammad Nashiruddin Al-Albani rahimahullah. Penerbit: AlMaktabah Al-Islamiy, Bairut- Libanon."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "5_Getting_Dressed_default_1.mp3",
+      "path": "/invocations/5_Getting_Dressed/5_Getting_Dressed_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "5_Getting_Dressed_Mishary_1.mp3",
+      "path": "/invocations/5_Getting_Dressed/5_Getting_Dressed_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

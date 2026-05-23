@@ -1,0 +1,33 @@
+{
+  "id": 249,
+  "name": "Before Eating",
+  "arabic": "((بِسْمِ اللَّهِ وَاللَّهُ أَكْبَرُ [اللَّهُمَّ مِنْكَ وَلَكَ] اللَّهُمَّ تَقَبَّلْ مِنِّي)).",
+  "metadata": {
+    "reference": "Muslimi 3/1557 dhe Bejhekiu 9/287, pjesa e hadithit ndërmjet kllapave gjendet te Bejhekiu 9/287. Fjalinë e fundit e kam cekur në bazë të kuptimit nga transmetimi i Muslimit.",
+    "chapter_name": "Slaughtering/Sacrificing",
+    "internal_id": "Before Eating"
+  },
+  "transliterations": {
+    "latin": "Bismil-lah, vAll-llahu Ekber, [All-llahumme minke ve leke] All-llahumme tekabbel minni"
+  },
+  "translations": {
+    "albanian": "Me emrin e Allahut, Allahu është më i madhi [O Allahu im kjo është nga Ti dhe për Ty], O Allahu im, pranoje këtë nga unë.",
+    "english": "(In the name of Allah, and Allah is the greatest.  O Allah, (it is) from You and belongs to You, O Allah, accept this from me.)",
+    "indonesian": "Rasulullah Shallallahu'alaihi wasallam bersabda: \"Wahai manusia! Bertaubatlah kepada Allah, sesungguhnya aku bertaubat kepada-Nya seratus kali dalam sehari."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "249_Before_Eating_default_1.mp3",
+      "path": "/invocations/249_Before_Eating/249_Before_Eating_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "249_Before_Eating_Mishary_1.mp3",
+      "path": "/invocations/249_Before_Eating/249_Before_Eating_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

@@ -1,0 +1,33 @@
+{
+  "id": 64,
+  "name": "O Allah, I ask You,...",
+  "arabic": "((اللَّهُمَّ إِنِّي أَسْأَلُكَ بِأَنَّي أَشْهَدُ أَنَّكَ أَنْتَ اللَّهُ لاَ إِلَهَ إِلاَّ أَنْتَ الْأَحَدُ الصَّمَدُ الَّذِي لَمْ يَلِدْ وَلَمْ يُولَدْ وَلَمْ يَكُنْ لَهُ كُفُواً أَحَدٌ)) .",
+  "metadata": {
+    "reference": "Ebu Davudi 2/62, Tirmidhiu 5/515, Ibën Maxheh 2/1267, Ahmedi 5/360, “Sahih Ibën Maxheh” 2/329 dhe “Sahih et-Tirmidhi” 3/163, Muslimi 1/414.",
+    "chapter_name": "Before Ending Prayer",
+    "internal_id": "Before Ending Prayer (11)"
+  },
+  "transliterations": {
+    "latin": "All-llahumme inni es’luke bi enni eshhedu enneke Ente All-llahu La i-Ilahe il-la Ente El-Ehadus-Samed el-ledhi lem jelid ve lem juled ve lem jekun lehu kufuven ehad"
+  },
+  "translations": {
+    "albanian": "O Allahu im, unë të lutem Ty duke dëshmuar se Ti je Allahu, nuk ka të adhuruar tjetër me të drejtë përveç Teje, i Vetëm dhe i panevojshëm për askënd, i Cili nuk ka lindur askënd e as nuk është i lindur prej askujt. Ti nuk përngjason me askënd.",
+    "english": "(O Allah, I ask You, as I bear witness that You are Allah, none has the right to be worshipped except You, The One, AS-Samad Who begets not nor was He begotten and there is none like unto Him.)(AS-Samad: The Self-Sufficient Master, Possessor of perfect attributes whom all of creation turn to in all their needs.)",
+    "indonesian": "Ya Allah! Aku mohon kepadaMu. Sesungguhnya bagiMu segala pujian, tiada Tuhan (yang hak disembah) kecuali Engkau Yang Maha Esa, tiada sekutu bagiMu, Maha Pemberi nikmat, Pencipta langit dan bumi tanpa contoh sebelumnya. Wahai Tuhan Yang Maha Agung dan Maha Pemurah, wahai Tuhan Yang Hidup, wahai Tuhan yang mengurusi segala sesuatu, sesungguhnya aku mohon kepadaMu agar dimasukkan ke Surga dan aku berlindung kepadaMu dari siksa Neraka."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "64_O_Allah_I_ask_You_default_1.mp3",
+      "path": "/invocations/64_O_Allah_I_ask_You/64_O_Allah_I_ask_You_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "64_O_Allah_I_ask_You_Mishary_1.mp3",
+      "path": "/invocations/64_O_Allah_I_ask_You/64_O_Allah_I_ask_You_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

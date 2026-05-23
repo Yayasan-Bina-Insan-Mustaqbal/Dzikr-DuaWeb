@@ -1,0 +1,33 @@
+{
+  "id": 25,
+  "name": "‘One should then send prayers...",
+  "arabic": " ((يُصَلِّي عَلَى النَّبِيِّ صلى الله عليه وسلم بَعْدَ فَرَاغِهِ مِنْ إِجَابَةِ الْمُؤَذِّنِ)).",
+  "metadata": {
+    "reference": "Buhariu 1/152.\\nKjo është shtojcë e Bejhekiut 1/410. Dijetari AbdulAziz Ibën Baz, senedin e këtij hadithi e ka bërë të mirë (hasen), “Tuhfetul Ahjar”, fq.38”.\\nTirmidhiu, Ebu Davudi dhe Ahmedi, “Irvaul-Galil” 1/262.\\n",
+    "chapter_name": "Hearing Athan",
+    "internal_id": "Hearing Athan (3)"
+  },
+  "transliterations": {
+    "latin": "All-llahumme Rabbe hadhihi ed-da’vetit-tammeh ves-salatil-kaimeh, ati Muhammedenil-vesilete vel-fadileh, veb’ath-hu mekamen mahmuden el-ledhi ve’adteh, [inneke la tuhliful-miad]"
+  },
+  "translations": {
+    "albanian": "Pas mbarimit të ezanit duhet thënë:\\n\\nO Allahu im, Zot i kësaj thirrjeje të plotë dhe i namazit që do të falet, jepi Muhamedit ndërmjetësimin dhe nderimin, si dhe dërgoje atë në vendin e lavdishëm të cilin ia ke premtuar. Pa dyshim, Ti e mban premtimin e dhënë.  Me të vërtetë Ti nuk e thyen premtimin.” \\n\\nBëj dua ndërmjet ezanit dhe ikametit, ngase me të vërtetë duaja në ketë kohë nuk refuzohet.\\n",
+    "english": "‘One should then send prayers on the Prophet (sal-Allaahu 'alayhe wa sallam) after answering the call of the mu.adhdhin’.",
+    "indonesian": "Ya Allah, Tuhan Pemilik panggilan yang sempurna (adzan) ini dan shalat (wajib) yang didirikan. Berilah Al-Wasilah (derajat di Surga, yang tidak akan diberikan selain kepada Nabi dan fadhilah kepada Muhammad. Dan bangkitkan beliau sehingga bisa menempati maqam terpuji yang telah Engkau janjikan. Sesungguhnya Engkau tidak menyalahi janji\"."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "25_One_should_then_send_prayers_default_1.mp3",
+      "path": "/invocations/25_One_should_then_send_prayers/25_One_should_then_send_prayers_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "25_One_should_then_send_prayers_Mishary_1.mp3",
+      "path": "/invocations/25_One_should_then_send_prayers/25_One_should_then_send_prayers_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

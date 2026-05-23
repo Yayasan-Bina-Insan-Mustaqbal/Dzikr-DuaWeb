@@ -1,0 +1,33 @@
+{
+  "id": 10,
+  "name": "Before Eating",
+  "arabic": "([بِسْمِ اللَّهِ] اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْخُبْثِ وَالْخَبائِث).",
+  "metadata": {
+    "reference": "Buhariu 1/45 dhe Muslimi 1/283, shtojcën (Bismil-lahin) në fillim të hadithit e shënon Seid ibën Mensuri “Fet’hul-Bari” 1/244.",
+    "chapter_name": "Entering Restroom",
+    "internal_id": "Before Eating"
+  },
+  "transliterations": {
+    "latin": "[[Bismil-lah] All-llahumme inni eudhu bike minel-hubthi vel-habaithi"
+  },
+  "translations": {
+    "albanian": "Me emrin e Allahut, O Zoti im kërkoj që të më mbrosh nga të fëlliqurit (shejtanët) dhe të fëlliqurat (xhinët).",
+    "english": "((In the name of Allah).  O Allah, I take refuge with you from all evil and evil-doers.)",
+    "indonesian": "Dengan nama Allah. Ya Allah, sesungguhnya aku berlindung kepadaMu dari godaan setan laki-laki dan perempuan\"."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "10_Before_Eating_default_1.mp3",
+      "path": "/invocations/10_Before_Eating/10_Before_Eating_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "10_Before_Eating_Mishary_1.mp3",
+      "path": "/invocations/10_Before_Eating/10_Before_Eating_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

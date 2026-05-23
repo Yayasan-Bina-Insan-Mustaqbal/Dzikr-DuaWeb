@@ -1,0 +1,33 @@
+{
+  "id": 129,
+  "name": "Against Enemy",
+  "arabic": "((اللَّهُمَّ مُنْزِلَ الْكِتَابِ، سَرِيعَ الْحِسَابِ، اهْزِمِ الأَحْزَابَ، اللَّهُمَّ اهزِمْهُمْ وَزَلْزِلْهُمْ)).",
+  "metadata": {
+    "reference": "Muslimi 3/1362.",
+    "chapter_name": "Against Enemy",
+    "internal_id": "Against Enemy"
+  },
+  "transliterations": {
+    "latin": "All-llahumme munzilel-kitabi, seri’al-hisabi, ihzimil-ahzabe, All-llahumme ihzimhum ve zelzilhum"
+  },
+  "translations": {
+    "albanian": "O Allahu im, Shpallësi i librave, Llogaritësi i shpejtë, mposhti grupacionet. O Allahu im, mposhti dhe shkatërroj ato.",
+    "english": "(O Allah, Revealer of the Book, Swift at reckoning, defeat the confederates. O Allah, defeat them and convulse them.)",
+    "indonesian": "Ya Allah, Tuhan Penguasa tujuh langit, Tuhan Penguasa 'Arsy yang agung. Jadilah Engkau pelindung bagiku dari Fulan bin Fulan, dan para kelompoknya dari makhlukMu. Jangan ada seorang pun dari mereka menyakitiku atau melampaui batas terhadapku. Sungguh kuat perlindunganMu, dan agunglah pujiMu. Tiada Tuhan yang berhak disembah selain Engkau."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "129_Against_Enemy_default_1.mp3",
+      "path": "/invocations/129_Against_Enemy/129_Against_Enemy_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "129_Against_Enemy_Mishary_1.mp3",
+      "path": "/invocations/129_Against_Enemy/129_Against_Enemy_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

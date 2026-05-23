@@ -1,0 +1,33 @@
+{
+  "id": 176,
+  "name": "Offer of Drink",
+  "arabic": "((اللَّهُمَّ أَطْعِمْ مَنْ أَطْعَمَنِي، وَاسْقِ مَنْ سَقَانِي)).",
+  "metadata": {
+    "reference": "Muslimi 3/126.",
+    "chapter_name": "Offer of Drink",
+    "internal_id": "Offer of Drink"
+  },
+  "transliterations": {
+    "latin": "All-llahumme et’im men et’ameni ve-ski men sekani"
+  },
+  "translations": {
+    "albanian": "O Allahu im, ushqeje atë që më ushqeu mua dhe jepi të pijë atij që më dha të pi mua.",
+    "english": "(O Allah, feed him who fed me, and provide with drink him who provided me with drink.)",
+    "indonesian": "Telah hilang rasa haus, dan urat-urat telah basah serta pahala akan tetap, insya Allah."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "176_Offer_of_Drink_default_1.mp3",
+      "path": "/invocations/176_Offer_of_Drink/176_Offer_of_Drink_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "176_Offer_of_Drink_Mishary_1.mp3",
+      "path": "/invocations/176_Offer_of_Drink/176_Offer_of_Drink_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

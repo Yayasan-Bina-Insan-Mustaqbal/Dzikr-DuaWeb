@@ -1,0 +1,33 @@
+{
+  "id": 38,
+  "name": "Our Lord, for You is...",
+  "arabic": "((رَبَّنَا وَلَكَ الْحَمْدُ، حَمْداً كَثيراً طَيِّباً مُبارَكاً فِيهِ)).",
+  "metadata": {
+    "reference": "Buhariu “Fet’hul-Bari” 2/282.",
+    "chapter_name": "Rising from Ruku'",
+    "internal_id": "Rising from Ruku' (2)"
+  },
+  "transliterations": {
+    "latin": "Rabbena ve lekel-hamd, hamden kethiren tajjiben mubareken fíhi"
+  },
+  "translations": {
+    "albanian": "Zoti ynë, Ty të takon Falënderimi, Falënderimi i shumtë, i cili është plotë mirësi dhe bekim.",
+    "english": "(Our Lord, for You is all praise, an abundant beautiful blessed praise.)",
+    "indonesian": "Semoga Allah mendengar pujian orang yang memujiNya."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "38_Our_Lord_for_You_is_default_1.mp3",
+      "path": "/invocations/38_Our_Lord_for_You_is/38_Our_Lord_for_You_is_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "38_Our_Lord_for_You_is_Mishary_1.mp3",
+      "path": "/invocations/38_Our_Lord_for_You_is/38_Our_Lord_for_You_is_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

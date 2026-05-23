@@ -1,0 +1,33 @@
+{
+  "id": 68,
+  "name": "Tasbih, Tahmid, Takbir",
+  "arabic": "((سُبْحَانَ اللَّهِ، وَالْحَمْدُ لِلَّهِ، وَاللَّهُ أَكْبَرُ (ثلاثاً وثلاثين) لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ)).",
+  "metadata": {
+    "reference": "Muslimi 1/418, “Kush e thotë këtë pas çdo namazi do t’i falen mëkatet edhe nëse ato janë sa shkuma e detit.” Po ashtu Ebu Davudi 2/86, Nesaiu 3/68, “Sahih et-Tirmidhi”.",
+    "chapter_name": "After Prayer",
+    "internal_id": "After Prayer (4)"
+  },
+  "transliterations": {
+    "latin": "SubhanAll-llah, vel-hamdulil-lah, vAll-llahu Ekber (33 herë). La ilahe il-lAll-llahu vahdehu la sherike leh, lehul mulku ve lehul hamdu ve huve ala kul-li shejin kadir"
+  },
+  "translations": {
+    "albanian": "I pastër është Allahu nga çdo e metë, Falënderimi i përket vetëm Allahut,       Allahu është më i Madhi. Nuk ka hyjni që meriton të adhurohet përveç Allahut, të Vetëm e i pa rival. Atij i takon Sundimi dhe Lavdërimi dhe Ai është i Gjithëfuqishëm mbi çdo gjë.",
+    "english": "(How perfect Allah is, all praise is for Allah, and Allah is the greatest.(thirty-three times) (None has the right to be worshipped except Allah, alone, without partner, to Him belongs all sovereignty and praise and He is over all things omnipotent.))",
+    "indonesian": "Tiada Tuhan (yang berhak disembah) kecuali Allah, Yang Maha Esa, tidak ada sekutu bagiNya. BagiNya kerajaan dan pujaan. Dia Mahakuasa atas segala sesuatu. Tidak ada daya dan kekuatan kecuali (dengan pertolongan) Allah. Tiada Tuhan (yang hak disembah) kecuali Allah. Kami tidak menyembah kecuali kepadaNya. Bagi-Nya nikmat, anugerah dan pujaan yang baik. Tiada Tuhan (yang hak disembah) kecuali Allah, dengan"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "68_Tasbih_Tahmid_Takbir_default_1.mp3",
+      "path": "/invocations/68_Tasbih_Tahmid_Takbir/68_Tasbih_Tahmid_Takbir_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "68_Tasbih_Tahmid_Takbir_Mishary_1.mp3",
+      "path": "/invocations/68_Tasbih_Tahmid_Takbir/68_Tasbih_Tahmid_Takbir_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

@@ -1174,7 +1174,7 @@
         "internal_id": "Against Shaitan",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_morning.mp3",
+            "src": "/rodja/rodja_morning.mp3",
             "startTime": 12,
             "endTime": 72
           }
@@ -1194,7 +1194,7 @@
         "internal_id": "Morning Adhkar (2)",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_morning.mp3",
+            "src": "/rodja/rodja_morning.mp3",
             "startTime": 121,
             "endTime": 421
           }
@@ -1214,7 +1214,7 @@
         "internal_id": "Morning Adhkar (3)",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_morning.mp3",
+            "src": "/rodja/rodja_morning.mp3",
             "startTime": 445,
             "endTime": 486
           }
@@ -1234,7 +1234,7 @@
         "internal_id": "Morning Adhkar (4)",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_morning.mp3",
+            "src": "/rodja/rodja_morning.mp3",
             "startTime": 491,
             "endTime": 545
           }
@@ -1254,7 +1254,7 @@
         "internal_id": "Sayyid ul Istighfar",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_morning.mp3",
+            "src": "/rodja/rodja_morning.mp3",
             "startTime": 568,
             "endTime": 593
           }
@@ -1274,7 +1274,7 @@
         "internal_id": "Morning Adhkar (6)",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_morning.mp3",
+            "src": "/rodja/rodja_morning.mp3",
             "startTime": 631,
             "endTime": 698
           }
@@ -1294,7 +1294,7 @@
         "internal_id": "Morning Adhkar (7)",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_morning.mp3",
+            "src": "/rodja/rodja_morning.mp3",
             "startTime": 738,
             "endTime": 773
           }
@@ -1314,7 +1314,7 @@
         "internal_id": "Morning Adhkar (8)",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_morning.mp3",
+            "src": "/rodja/rodja_morning.mp3",
             "startTime": 822,
             "endTime": 847
           }
@@ -1334,7 +1334,7 @@
         "internal_id": "Morning Adhkar (9)",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_morning.mp3",
+            "src": "/rodja/rodja_morning.mp3",
             "startTime": 885,
             "endTime": 911
           }
@@ -1354,7 +1354,7 @@
         "internal_id": "Morning Adhkar (10)",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_morning.mp3",
+            "src": "/rodja/rodja_morning.mp3",
             "startTime": 927,
             "endTime": 960
           }
@@ -1374,7 +1374,7 @@
         "internal_id": "Morning Adhkar (11)",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_morning.mp3",
+            "src": "/rodja/rodja_morning.mp3",
             "startTime": 975,
             "endTime": 988
           }
@@ -1394,7 +1394,7 @@
         "internal_id": "Before Eating",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_morning.mp3",
+            "src": "/rodja/rodja_morning.mp3",
             "startTime": 1015,
             "endTime": 1037
           }
@@ -1414,7 +1414,7 @@
         "internal_id": "Morning Adhkar (13)",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_morning.mp3",
+            "src": "/rodja/rodja_morning.mp3",
             "startTime": 1059,
             "endTime": 1069
           }
@@ -1434,7 +1434,7 @@
         "internal_id": "Morning Adhkar (14)",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_morning.mp3",
+            "src": "/rodja/rodja_morning.mp3",
             "startTime": 1089,
             "endTime": 1091
           }
@@ -1454,7 +1454,7 @@
         "internal_id": "Morning Adhkar (15)",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_morning.mp3",
+            "src": "/rodja/rodja_morning.mp3",
             "startTime": 1097,
             "endTime": 1113
           }
@@ -4450,7 +4450,7 @@
         "internal_id": "Against Shaitan",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_evening.mp3",
+            "src": "/rodja/rodja_evening.mp3",
             "startTime": 12,
             "endTime": 73
           }
@@ -4470,7 +4470,7 @@
         "internal_id": "Evening Adhkar (2)",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_evening.mp3",
+            "src": "/rodja/rodja_evening.mp3",
             "startTime": 121,
             "endTime": 421
           }
@@ -4490,7 +4490,7 @@
         "internal_id": "Evening Adhkar (3)",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_evening.mp3",
+            "src": "/rodja/rodja_evening.mp3",
             "startTime": 445,
             "endTime": 486
           }
@@ -4510,7 +4510,7 @@
         "internal_id": "Evening Adhkar (4)",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_evening.mp3",
+            "src": "/rodja/rodja_evening.mp3",
             "startTime": 534,
             "endTime": 545
           }
@@ -4530,7 +4530,7 @@
         "internal_id": "Sayyid ul Istighfar",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_evening.mp3",
+            "src": "/rodja/rodja_evening.mp3",
             "startTime": 568,
             "endTime": 593
           }
@@ -4550,7 +4550,7 @@
         "internal_id": "Evening Adhkar (6)",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_evening.mp3",
+            "src": "/rodja/rodja_evening.mp3",
             "startTime": 630,
             "endTime": 697
           }
@@ -4570,7 +4570,7 @@
         "internal_id": "Evening Adhkar (7)",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_evening.mp3",
+            "src": "/rodja/rodja_evening.mp3",
             "startTime": 737,
             "endTime": 773
           }
@@ -4590,7 +4590,7 @@
         "internal_id": "Evening Adhkar (8)",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_evening.mp3",
+            "src": "/rodja/rodja_evening.mp3",
             "startTime": 821,
             "endTime": 845
           }
@@ -4610,7 +4610,7 @@
         "internal_id": "Evening Adhkar (9)",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_evening.mp3",
+            "src": "/rodja/rodja_evening.mp3",
             "startTime": 883,
             "endTime": 910
           }
@@ -4630,7 +4630,7 @@
         "internal_id": "Evening Adhkar (10)",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_evening.mp3",
+            "src": "/rodja/rodja_evening.mp3",
             "startTime": 926,
             "endTime": 959
           }
@@ -4650,7 +4650,7 @@
         "internal_id": "Evening Adhkar (11)",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_evening.mp3",
+            "src": "/rodja/rodja_evening.mp3",
             "startTime": 975,
             "endTime": 988
           }
@@ -4670,7 +4670,7 @@
         "internal_id": "Before Eating",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_evening.mp3",
+            "src": "/rodja/rodja_evening.mp3",
             "startTime": 1014,
             "endTime": 1037
           }
@@ -4690,7 +4690,7 @@
         "internal_id": "Evening Adhkar (13)",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_evening.mp3",
+            "src": "/rodja/rodja_evening.mp3",
             "startTime": 1058,
             "endTime": 1068
           }
@@ -4710,7 +4710,7 @@
         "internal_id": "Evening Adhkar (14)",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_evening.mp3",
+            "src": "/rodja/rodja_evening.mp3",
             "startTime": 1088,
             "endTime": 1091
           }
@@ -4730,7 +4730,7 @@
         "internal_id": "Evening Adhkar (15)",
         "audio_versions": {
           "rodja": {
-            "src": "/audios/rodja_evening.mp3",
+            "src": "/rodja/rodja_evening.mp3",
             "startTime": 1097,
             "endTime": 1112
           }

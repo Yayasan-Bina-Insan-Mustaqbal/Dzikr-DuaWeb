@@ -1,0 +1,33 @@
+{
+  "id": 12,
+  "name": "Before Eating",
+  "arabic": "(بِسْمِ اللَّهِ).",
+  "metadata": {
+    "reference": "",
+    "chapter_name": "Before Ablution",
+    "internal_id": "Before Eating"
+  },
+  "transliterations": {
+    "latin": "Bismil-lah"
+  },
+  "translations": {
+    "albanian": "Me emrin e Allahut.",
+    "english": "(In the name of Allah.)",
+    "indonesian": "Dengan nama Allah (aku berwudhu)."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "12_Before_Eating_default_1.mp3",
+      "path": "/invocations/12_Before_Eating/12_Before_Eating_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "12_Before_Eating_Mishary_1.mp3",
+      "path": "/invocations/12_Before_Eating/12_Before_Eating_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

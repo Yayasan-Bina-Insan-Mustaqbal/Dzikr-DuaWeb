@@ -1,0 +1,27 @@
+{
+  "id": 55,
+  "name": "Funeral Prayer (Adult)",
+  "invocations": [
+    {
+      "id": 148,
+      "name": "O Allah, forgive and have..."
+    },
+    {
+      "id": 149,
+      "name": "O Allah, forgive our living..."
+    },
+    {
+      "id": 150,
+      "name": "O Allah, so-and-so is under..."
+    },
+    {
+      "id": 151,
+      "name": "O Allah, Your servant and..."
+    },
+    {
+      "id": 225,
+      "name": "Ayatul Kursi"
+    }
+  ],
+  "description": ""
+}

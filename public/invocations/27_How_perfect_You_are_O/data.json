@@ -1,0 +1,33 @@
+{
+  "id": 27,
+  "name": "How perfect You are O...",
+  "arabic": "((سُبْحانَكَ اللَّهُمَّ وَبِحَمْدِكَ، وَتَبارَكَ اسْمُكَ، وَتَعَالَى جَدُّكَ، وَلاَ إِلَهَ غَيْرُكَ)).",
+  "metadata": {
+    "reference": "Transmetojnë autorët e katër Suneneve, “Sahih et-Tirmidhi” 1/77, “Sahih Ibën Maxheh” 1/135.",
+    "chapter_name": "Starting Prayer",
+    "internal_id": "Starting Prayer (2)"
+  },
+  "transliterations": {
+    "latin": "Subhaneke Allahumme ve bihamdike ve tebarekesmuke ve teala xhedduke ve la Ilahe gajruke."
+  },
+  "translations": {
+    "albanian": "I Lartësuar qofsh o Zoti im dhe për Ty është falënderimi, i Lartësuar qoftë emri Yt dhe e Lartësuar qoftë Madhëria Jote, s’ka të adhuruar tjetër përveç Teje.",
+    "english": "(How perfect You are O Allah, and I praise You.  Blessed be Your name, and lofty is Your position and none has the right to be worshipped except You.)",
+    "indonesian": "Ya Allah, jauhkan antara aku dan kesalahan-kesalahanku, sebagaimana Engkau menjauhkan antara timur dan barat. Ya Allah, bersihkanlah aku dan kesalahan- kesalahanku, sebagaimana baju putih dibersihkan dari kotoran. Ya Allah, cucilah aku dari kesalahankesalahanku dengan salju, air dan air es\".43"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "27_How_perfect_You_are_O_default_1.mp3",
+      "path": "/invocations/27_How_perfect_You_are_O/27_How_perfect_You_are_O_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "27_How_perfect_You_are_O_Mishary_1.mp3",
+      "path": "/invocations/27_How_perfect_You_are_O/27_How_perfect_You_are_O_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

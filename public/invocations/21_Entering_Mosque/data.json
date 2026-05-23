@@ -1,0 +1,33 @@
+{
+  "id": 21,
+  "name": "Entering Mosque",
+  "arabic": "(يَبْدَأُ بِرِجْلِهِ الْيُمْنَى) ، وَيَقُولُ: ((أَعُوذُ بِاللَّهِ العَظِيمِ، وَبِوَجْهِهِ الْكَرِيمِ، وَسُلْطَانِهِ الْقَدِيمِ، مِنَ الشَّيْطَانِ الرَّجِيمِ))  [بِسْمِ اللَّهِ، وَالصَّلَاةُ] [وَالسَّلَامُ عَلَى رَسُولِ اللَّهِ]  ((اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ)).",
+  "metadata": {
+    "reference": "Ebu Davudi, “Sahih el-Xhamiu” hadithi: #4591.",
+    "chapter_name": "Entering Mosque",
+    "internal_id": "Entering Mosque"
+  },
+  "transliterations": {
+    "latin": "Eudhu bil-lahil-adhim, ve bi vexhhihil-kerim, ve sultanihil-kadim, minesh-shejtanir-raxhim"
+  },
+  "translations": {
+    "albanian": "Kërkoj mbrojtjen e Allahut të Madhërishëm, me Fytyrën e Tij të ndershme dhe me sundimin e Tij të përjetshëm nga shejtani i mallkuar.",
+    "english": "(I take refuge with Allah, The Supreme and with His Noble Face, and His eternal authority from the accursed devil. In the name of Allah, and prayers and peace be upon the Messenger of Allah.  O Allah, open the gates of Your mercy for me.)",
+    "indonesian": "Dengan nama Allah, semoga sha-lawat dan salam terlimpahkan kepada Rasulullah. Ya Allah, sesungguhnya aku minta"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "21_Entering_Mosque_default_1.mp3",
+      "path": "/invocations/21_Entering_Mosque/21_Entering_Mosque_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "21_Entering_Mosque_Mishary_1.mp3",
+      "path": "/invocations/21_Entering_Mosque/21_Entering_Mosque_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

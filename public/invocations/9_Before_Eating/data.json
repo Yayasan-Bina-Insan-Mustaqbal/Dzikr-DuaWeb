@@ -1,0 +1,33 @@
+{
+  "id": 9,
+  "name": "Before Eating",
+  "arabic": "(بِسْمِ اللَّهِ).",
+  "metadata": {
+    "reference": "Tirmidhiu 2/505 dhe të tjerë “Irvaul-Galil” nr. 49 dhe “Sahih el-Xhamiu” nr: 3/203.",
+    "chapter_name": "Undressing",
+    "internal_id": "Before Eating"
+  },
+  "transliterations": {
+    "latin": "Bismil-lah"
+  },
+  "translations": {
+    "albanian": "Me emrin e Allahut.",
+    "english": "(In the name of Allah.)",
+    "indonesian": "Tarjamah Hisnul Muslim; Mahrus 'Ali. Penerbit: Muasasah AlJaresiy, Riyadl-KSA. (Dikutip dari tulisan Al Akh Abu Muhammad Abdur Rahman, murid asy Syaikh Kholid Az Zufairi hafidhohullah, Kuwait.)"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "9_Before_Eating_default_1.mp3",
+      "path": "/invocations/9_Before_Eating/9_Before_Eating_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "9_Before_Eating_Mishary_1.mp3",
+      "path": "/invocations/9_Before_Eating/9_Before_Eating_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

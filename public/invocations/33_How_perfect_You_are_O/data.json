@@ -1,0 +1,33 @@
+{
+  "id": 33,
+  "name": "How perfect You are O...",
+  "arabic": "((سُبْحَانَكَ اللَّهُمَّ رَبَّنَا وَبِحَمْدِكَ، اللَّهُمَّ اغْفِرْ لِي)).",
+  "metadata": {
+    "reference": "Buhariu 1/99, Muslimi 1/350.",
+    "chapter_name": "During Ruku'",
+    "internal_id": "During Ruku' (2)"
+  },
+  "transliterations": {
+    "latin": "Subhaneke All-llahumme Rabbena ve bihamdike, All-llahumme-gfir li"
+  },
+  "translations": {
+    "albanian": "I Lartësuar qofsh o Allah, Zoti ynë, Ty të takon Falënderimi. O Allah, më fal mua.",
+    "english": "(How perfect You are O Allah, our Lord and I praise You.  O Allah, forgive me.)",
+    "indonesian": "Maha Suci Tuhanku yang Maha Agung\". (Dibaca tiga kali).49"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "33_How_perfect_You_are_O_default_1.mp3",
+      "path": "/invocations/33_How_perfect_You_are_O/33_How_perfect_You_are_O_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "33_How_perfect_You_are_O_Mishary_1.mp3",
+      "path": "/invocations/33_How_perfect_You_are_O/33_How_perfect_You_are_O_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

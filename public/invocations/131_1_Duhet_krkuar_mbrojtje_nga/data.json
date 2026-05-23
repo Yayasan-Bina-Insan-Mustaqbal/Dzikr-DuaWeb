@@ -1,0 +1,33 @@
+{
+  "id": 131,
+  "name": "1. Duhet kërkuar mbrojtje nga...",
+  "arabic": "((يَسْتَعِيذُ بِاللَّهِ و يَنْتَهِي عَمَّا شك فِيهِ)).",
+  "metadata": {
+    "reference": "Buhariu “Fet’hul-Bari” 6/336 Muslimi 1/120.\\nBuhariu “Fet’hul-Bari” 6/336 Muslimi 1/120.\\n",
+    "chapter_name": "Doubt in Faith",
+    "internal_id": "Doubt in Faith (1)"
+  },
+  "transliterations": {
+    "latin": ""
+  },
+  "translations": {
+    "albanian": "1. Duhet kërkuar mbrojtje nga Allahu i Madhë-ruar. \\n2. Duhet të largohet prej asaj në çka ka dyshuar. \\n",
+    "english": "1. Duhet kërkuar mbrojtje nga Allahu i Madhë-ruar. \\n2. Duhet të largohet prej asaj në çka ka dyshuar. \\n",
+    "indonesian": "Ya Allah, yang menurunkan Kitab Suci, yang menghisab perbuatan manusia dengan cepat. Ya Allah, cerai beraikanlah golongan musuh dan goncang-kan mereka."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "131_1_Duhet_krkuar_mbrojtje_nga_default_1.mp3",
+      "path": "/invocations/131_1_Duhet_krkuar_mbrojtje_nga/131_1_Duhet_krkuar_mbrojtje_nga_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "131_1_Duhet_krkuar_mbrojtje_nga_Mishary_1.mp3",
+      "path": "/invocations/131_1_Duhet_krkuar_mbrojtje_nga/131_1_Duhet_krkuar_mbrojtje_nga_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

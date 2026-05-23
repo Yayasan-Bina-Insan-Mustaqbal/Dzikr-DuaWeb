@@ -1,0 +1,33 @@
+{
+  "id": 204,
+  "name": "May Allah endow you with...",
+  "arabic": "((زَوَّدَكَ اللَّهُ التَّقْوَى، وَغَفَرَ ذَنْبَكَ، وَيَسَّرَ لَكَ الخَيْرَ حَيْثُ ما كُنْتَ)).",
+  "metadata": {
+    "reference": "Tirmidhiu në “Sahih et-Tirmidhi” 3/155.",
+    "chapter_name": "Resident to Traveler",
+    "internal_id": "Resident to Traveler (2)"
+  },
+  "transliterations": {
+    "latin": "Zevvedeke All-llahu et-takva, ve Gafere dhenbeke, ve jessere lekel-hajre hajthu ma kunte"
+  },
+  "translations": {
+    "albanian": "Të furnizoftë Allahu me devotshmëri, t’i faltë mëkatet dhe t’i lehtësoftë punët e mira kudo që të jesh.",
+    "english": "(May Allah endow you with taqwa, forgive your sins and facilitate all good for you, wherever you be.)(taqwa: a comprehensive term which refers to all good actions and obedience i.e. performing the commanded actions and avoiding the prohibited actions.)",
+    "indonesian": "Semoga Allah juga melimpahkan berkah kepadamu.\" 226 Doa Menolak Firasat Buruk"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "204_May_Allah_endow_you_with_default_1.mp3",
+      "path": "/invocations/204_May_Allah_endow_you_with/204_May_Allah_endow_you_with_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "204_May_Allah_endow_you_with_Mishary_1.mp3",
+      "path": "/invocations/204_May_Allah_endow_you_with/204_May_Allah_endow_you_with_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

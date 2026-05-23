@@ -1,0 +1,33 @@
+{
+  "id": 273,
+  "name": "Pleasure/Displeasure",
+  "arabic": "كَانَ النَّبِيُّ صلى الله عليه وسلم إِذَا أَتَاهُ الْأَمْرُ يَسُرُّهُ قَالَ: ((الْحَمْدُ لِلَّهِ الَّذِي بِنِعْمَتِهِ تَتِمُّ الصَّالِحَاتُ)) وَإِذَا أَتَاهُ الْأَمْرُ يَكْرَهُهُ قَالَ: ((الْحَمْدُ لِلَّهِ عَلَى كُلِّ حَالٍ)).",
+  "metadata": {
+    "reference": "Ibën Sunnij në “Amel el-Jevmi ve Lejleh” dhe Hakimi, i cili e ka vërtetuar 1/499. Gjithashtu shejh Albani e ka autentifikuar në “Sahih el-Xhamiu” 4/201.",
+    "chapter_name": "Pleasure/Displeasure",
+    "internal_id": "Pleasure/Displeasure"
+  },
+  "transliterations": {
+    "latin": "Elhamdulil-lahil-ledhi bi ni’ëmetihi tetimmus-salihat\\n\\nElhamdulil-lahi ala kul-li hal"
+  },
+  "translations": {
+    "albanian": "Falënderimi i qoftë Allahut, i Cili me begatinë e Tij i plotëson punët e mira.\\n\\nFalënderimi i takon Allahut për çdo gjendje.",
+    "english": "When something happened that pleased him, the Prophet used to say:((Alhamdu lillaahil-lathee bini'matihi tatimmuus-saalihaat)). Praise is to Allah Who by His blessings all good things are perfected. And if something happened that displeased him, he used to say:((Alhamdulillaahi 'alaa kulli haal)).Praise is to Allah in all circumstances.",
+    "indonesian": "Rasulullah Shallallahu'alaihi wasallam apabila ada sesuatu yang menyenangkan, beliau membaca:"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "273_PleasureDispleasure_default_1.mp3",
+      "path": "/invocations/273_PleasureDispleasure/273_PleasureDispleasure_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "273_PleasureDispleasure_Mishary_1.mp3",
+      "path": "/invocations/273_PleasureDispleasure/273_PleasureDispleasure_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

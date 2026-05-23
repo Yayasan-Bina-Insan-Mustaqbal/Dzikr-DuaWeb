@@ -1,0 +1,33 @@
+{
+  "id": 73,
+  "name": "La ilaha illallah",
+  "arabic": "لَا إِلَهَ إِلَّا اللهُ وَحَدْهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ يُحْيِي وَيُمِيتُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
+  "metadata": {
+    "reference": "Tirmidhiu (5/115) dhe Ahmedi (4/227). Shih “Zadul-Mead” 1/300.",
+    "chapter_name": "After Prayer",
+    "internal_id": "La ilaha illallah"
+  },
+  "transliterations": {
+    "latin": "La Ilahe il-lAll-llahu vahdehu la sherike leh, lehul mulku ve lehul hamdu juhji ve jumitu ve huve ala kul-li shej’in kadir. (Dhjetë herë pas namazit të sabahut dhe të akshamit.)"
+  },
+  "translations": {
+    "albanian": "Nuk ka hyjni që meriton të adhurohet përveç Allahut, të Vetëm e i pa rival. Atij i takon Sundimi dhe Lavdërimi, Ai jep jetë dhe vdekje dhe Ai është i Gjithëfuqishëm mbi çdo gjë.",
+    "english": "There is no deity worthy of worship except Allah.",
+    "indonesian": "Ya Allah! Sesungguhnya aku mohon kepadaMu ilmu yang bermanfaat, rezeki yang halal dan amal yang diterima.\" (Dibaca setelah salam shalat Subuh)."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "73_La_ilaha_illallah_default_1.mp3",
+      "path": "/invocations/73_La_ilaha_illallah/73_La_ilaha_illallah_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "73_La_ilaha_illallah_Mishary_1.mp3",
+      "path": "/invocations/73_La_ilaha_illallah/73_La_ilaha_illallah_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

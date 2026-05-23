@@ -17,7 +17,6 @@ export function AudioPlayer() {
     setAudioElement
   } = useAudioStore()
   const audioRef = useRef<HTMLAudioElement>(null)
-  const isTransitioningRef = useRef<boolean>(false)
 
   useEffect(() => {
     if (audioRef.current) {
@@ -32,13 +31,43 @@ export function AudioPlayer() {
   const audioMetadata = currentDua?.audio_versions?.[selectedVersion]
   const isObjectMetadata = typeof audioMetadata === 'object' && audioMetadata !== null
   
-  const audioSrc = currentDua ? (
-    isObjectMetadata ? (audioMetadata as any).src : (
-      (selectedVersion !== 'default' && typeof audioMetadata === 'string') 
-        ? audioMetadata 
-        : currentDua.audio
-    )
-  ) : ""
+  const sanitizeName = (name: string): string => {
+    let sanitized = name.replace(/[\(\)]/g, '');
+    sanitized = sanitized.replace(/[^a-zA-Z0-9\s_\-]/g, '');
+    sanitized = sanitized.replace(/[\s\-]+/g, '_');
+    sanitized = sanitized.replace(/_+/g, '_');
+    return sanitized.trim().replace(/^_+|_+$/g, '');
+  };
+
+  const getAudioSrc = () => {
+    if (!currentDua) return ""
+    
+    const id = currentDua.id
+    const name = currentDua.name || currentDua.internal_id || `Invocation ${id}`
+    const sanitized = sanitizeName(name)
+    
+    if (isObjectMetadata) {
+      return (audioMetadata as any).src
+    }
+    
+    if (selectedVersion !== 'default') {
+      if (typeof audioMetadata === 'string') {
+        return audioMetadata
+      }
+      if (selectedVersion === 'Mishary') {
+        return `/invocations/${id}_${sanitized}/${id}_${sanitized}_Mishary_1.mp3`
+      }
+    }
+    
+    const defaultPath = currentDua.audio
+    if (defaultPath && defaultPath.startsWith('/audios/')) {
+      return `/invocations/${id}_${sanitized}/${id}_${sanitized}_default_1.mp3`
+    }
+    
+    return defaultPath || ""
+  }
+
+  const audioSrc = getAudioSrc()
 
   const startTime = isObjectMetadata ? (audioMetadata as any).startTime : undefined
   const endTime = isObjectMetadata ? (audioMetadata as any).endTime : undefined

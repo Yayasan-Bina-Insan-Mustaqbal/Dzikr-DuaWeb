@@ -1,0 +1,33 @@
+{
+  "id": 125,
+  "name": "O Allah, You are my...",
+  "arabic": "((اللَّهُمَّ أَنْتَ عَضُدِي، وَأَنْتَ نَصِيرِي، بِكَ أَحُولُ وَبِكَ أَصُولُ، وَبِكَ أُقاتِلُ)).",
+  "metadata": {
+    "reference": "Ebu Davudi 3/42, Tirmidhiu 5/572 “Sahih et-Tirmidhi” 3/183.",
+    "chapter_name": "Meeting Adversary/Ruler",
+    "internal_id": "Meeting Adversary/Ruler (2)"
+  },
+  "transliterations": {
+    "latin": "All-llahumme Ente Adudí ve Ente Nesiri, bike ehulu, ve bike esulu, ve bike ukatilu"
+  },
+  "translations": {
+    "albanian": "O Allahu im, Ti je fuqia ime, Ti je Ndihmëtari im, me ndihmën Tënde hyj në luftë, me ndihmën Tënde ngadhënjej dhe me ndihmën Tënde luftoj.",
+    "english": "(O Allah, You are my supporter and You are my helper, by You I move and by You I attack and by You I battle.)",
+    "indonesian": "Allah-Allah adalah Tuhanku. Aku tidak menyekutukanNya dengan sesuatu.\" 144 Doa Takut Kepada Musuh dan Penguasa"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "125_O_Allah_You_are_my_default_1.mp3",
+      "path": "/invocations/125_O_Allah_You_are_my/125_O_Allah_You_are_my_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "125_O_Allah_You_are_my_Mishary_1.mp3",
+      "path": "/invocations/125_O_Allah_You_are_my/125_O_Allah_You_are_my_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

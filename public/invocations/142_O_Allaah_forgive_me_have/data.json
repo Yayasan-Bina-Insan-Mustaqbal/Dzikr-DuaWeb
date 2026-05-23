@@ -1,0 +1,33 @@
+{
+  "id": 142,
+  "name": "‘O Allaah, forgive me, have...",
+  "arabic": "((اللَّهُمَّ اغْفِرْ لِي، وَارْحَمْنِي، وَأَلْحِقْنِي بِالرَّفِيقِ الْأَعْلَى)).",
+  "metadata": {
+    "reference": "Buhariu 7/10 dhe Muslimi 4/1893.",
+    "chapter_name": "Terminally Ill",
+    "internal_id": "Terminally Ill (1)"
+  },
+  "transliterations": {
+    "latin": "All-llahumme-gfir li, ver-hamni, ve elhikni bir-refikil-a’la"
+  },
+  "translations": {
+    "albanian": "O Allahu im, më falë dhe më mëshiro mua dhe më bashko me shoqëruesin më të Lartë.",
+    "english": "‘O Allaah, forgive me, have mercy upon me and unite me with the highest companions ",
+    "indonesian": "Membaca adzan."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "142_O_Allaah_forgive_me_have_default_1.mp3",
+      "path": "/invocations/142_O_Allaah_forgive_me_have/142_O_Allaah_forgive_me_have_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "142_O_Allaah_forgive_me_have_Mishary_1.mp3",
+      "path": "/invocations/142_O_Allaah_forgive_me_have/142_O_Allaah_forgive_me_have_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

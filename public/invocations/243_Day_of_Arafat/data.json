@@ -1,0 +1,33 @@
+{
+  "id": 243,
+  "name": "Day of Arafat",
+  "arabic": "قَالَ النَّبِيُّ صلى الله عليه وسلم: ((خَيْرُ الدُّعَاءِ دُعَاءُ يَوْمِ عَرَفَةَ، وَخَيْرُ مَا قُلْتُ أَنَا وَالنَّبيُّونَ مِنْ قَبْلِي: لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ)).",
+  "metadata": {
+    "reference": "Tirmidhiu. Shejh Albani e ka bërë të mirë “Sahih et-Tirmidhi” 3/184 dhe “Silsileh Ehadith es-Sahiha” 4/6.",
+    "chapter_name": "Day of Arafat",
+    "internal_id": "Day of Arafat"
+  },
+  "transliterations": {
+    "latin": "La ilahe il-lAll-llahu vahdehu la sherike leh, lehul-Mulku ve lehul-Hamdu ve Huve ala kul-li shej’in Kadír"
+  },
+  "translations": {
+    "albanian": "Nuk ka hyjni që meriton të adhurohet përveç Allahut, të Vetëm e i pa rival. Atij i takon Sundimi dhe Lavdërimi dhe Ai është i Gjithëfuqishëm mbi çdo gjë.",
+    "english": "(The best of supplications is the supplication on the day of AAarafah and the best which I and the Prophets before me have said (is): (None has the right to be worshipped except Allah, alone, without partner. To Him belongs all praise and sovereignty and He is over all things omnipotent.))",
+    "indonesian": "Letakkan tanganmu pada tubuhmu yang terasa sakit, dan bacalah: \"Bismillaah tiga kali, lalu bacalah tujuh kali:"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "243_Day_of_Arafat_default_1.mp3",
+      "path": "/invocations/243_Day_of_Arafat/243_Day_of_Arafat_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "243_Day_of_Arafat_Mishary_1.mp3",
+      "path": "/invocations/243_Day_of_Arafat/243_Day_of_Arafat_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

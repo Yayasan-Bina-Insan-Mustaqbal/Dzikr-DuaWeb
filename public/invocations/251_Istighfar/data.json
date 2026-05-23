@@ -1,0 +1,33 @@
+{
+  "id": 251,
+  "name": "Istighfar",
+  "arabic": "قَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم: ((وَاللَّهِ إِنِّي لأَسْتَغفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ فِي الْيَوْمِ أَكْثَرَ مِنْ سَبْعِينَ مَرَّةٍ)).",
+  "metadata": {
+    "reference": "Buhariu “Fet’hul-Bari” 11/101.\\nMuslimi 4/2076.\\nEbu Davudi 2/85, Tirmidhiu 5/569 dhe Hakimi, i cili e ka vërtetuar, kurse Dhehebiu e ka pëlqyer 1/511. Gjithashtu Albani e ka autentifikuar në “Sahih et-Tirmidhi” 3/183. Shih po ashtu “Xhamiu Usul li Ehadith er-Resul” 4/389, 390 me recension të Arnautit.\\nTirmidhiu, Nesaiu 1/279 dhe Hakimi “Sahih et-Tirmidhi” 3/183 dhe “Xhamiu Usul” me recension të Arnautit 4/144.\\nMuslimi 1/350.\\nMuslimi, “Xhamiu Usul”, 4/386.\\n\\n",
+    "chapter_name": "Repentance & Forgiveness",
+    "internal_id": "Istighfar"
+  },
+  "transliterations": {
+    "latin": "Estagfirull-llahe el-Adhim el-ledhi la ilahe il-la Huve, El-Hajjul-Kajjumu ve etubu ilejhi"
+  },
+  "translations": {
+    "albanian": "1.Ebu Hurejra (r.a) thotë: “E kam dëgjuar të Dërguarin (a.s) duke thënë: “Pasha Allahun, unë kërkoj falje prej Allahut dhe pendohem tek Ai më tepër se shtatëdhjetë herë në ditë.” \\n\\n2.I Dërguari (a.s) gjithashtu ka thënë: “O ju njerëz, pendohuni tek Allahu, sepse unë pendohem njëqind herë në ditë.” \\n\\n3.Po ashtu i Dërguari (a.s) ka thënë: “Kush thotë: “Kërkoj faljen e Allahut të Madhërueshëm, e të Cilit nuk ka të adhuruar tjetër përveç Tij, që është i Gjallë përgjithmonë dhe Mbikëqyrës i Përhershëm dhe vetëm tek Ai pendohem.”\\nAllahu do t’ia falë atij edhe nëqoftëse ka ikur nga beteja.”\\n \\n4. I Dërguari (a.s) gjithashtu ka thënë: “Allahu më së tepërmi i afrohet robit të Vet në pjesën e fundit të natës, nëse ke mundësi të jesh prej atyre të cilët e përmendin Allahun në atë moment, bëhu.” \\n\\n5. Po ashtu i Dërguari i Allahut (a.s) ka thënë: “Robi është më afër Zotit të Tij kur është në sexhde, pra shpeshtoni lutjet në sexhde.” \\n\\n6. Dhe i Dërguari (a.s) ka thënë: “Me të vërtetë disa herë zemrën time e kaplon pakujdesia, andaj kërkoj falje prej Allahut njëqind herë në ditë.” \\n",
+    "english": "(The Messenger of Allah  said: ‘By Allah, I seek forgiveness and repent to Allah, more than seventy times a day.)",
+    "indonesian": "Rasulullah Shallallahu'alaihi wasallam bersabda: \"Keadaan yang paling dekat antara Tuhan dan hambaNya adalah di tengah malam yang terakhir. Apabila kamu mampu tergolong orang yang dzikir kepada Allah pada saat itu, lakukanlah."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "251_Istighfar_default_1.mp3",
+      "path": "/invocations/251_Istighfar/251_Istighfar_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "251_Istighfar_Mishary_1.mp3",
+      "path": "/invocations/251_Istighfar/251_Istighfar_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

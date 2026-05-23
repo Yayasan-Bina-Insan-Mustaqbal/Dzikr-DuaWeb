@@ -1,0 +1,33 @@
+{
+  "id": 199,
+  "name": "Entering Town/City",
+  "arabic": "((اللَّهُمَّ رَبَّ السَّمَوَاتِ السَّبْعِ وَمَا أَظْلَلْنَ، وَرَبَّ الأَرَضِينَ السَّبْعِ وَمَا أَقْلَلْنَ، وَرَبَّ الشَّياطِينِ وَمَا أَضْلَلْنَ، وَرَبَّ الرِّيَاحِ وَمَا ذَرَيْنَ، أَسْأَلُكَ خَيْرَ هَذِهِ الْقَرْيَةِ، وَخَيْرَ أَهْلِهَا، وَخَيْرَ مَا فِيهَا، وَأَعُوذُ بِكَ مِنْ شَرِّهَا، وَشَرِّ أَهْلِهَا، وَشَرِّ مَا فِيهَا)).",
+  "metadata": {
+    "reference": "Hakimi, i cili e ka vërtetuar dhe e ka pëlqyer Dhehebiu 2/100, si dhe Ibën Sunnij nr. 524. Ibën Haxheri në “Edhkar” 5/154 e ka bërë të mirë. Ibën Bazi thotë: “Këtë hadith e shënon Nesaiu me sened të mirë në Tuhfetul-Ahjar, fq. 37.”",
+    "chapter_name": "Entering Town/City",
+    "internal_id": "Entering Town/City"
+  },
+  "transliterations": {
+    "latin": "All-llahumme Rabbes-semavatis-seb’i ve ma adhlelne, ve Rabbel-eredines-seb’i ve eklelne, Rabbesh-shejatini ve ma adlelne, ve Rabber-rijahi ve ma dherejne. Es’eluke hajre hadhihil-karjeti ve hajre ehliha, ve hajre ma fíha, ve eudhu bike min sherriha ve sherri ehliha, ve sherri ma fiiha"
+  },
+  "translations": {
+    "albanian": "O Allahu im, Zot i shtatë qiejve dhe i asaj që i mbulojnë, Zot i shtatë tokave dhe i asaj që ato e mbajnë, Zot i shejtanëve dhe atyre që ata i kanë dërguar në humbje, Zot i erës dhe i asaj që ato shpërndajnë, të lutem të më japësh të mirën e këtij fshati, mirësinë e banorëve të tij, të mirën e asaj që gjendet në të dhe kërkoj që të më mbrosh nga dëmi i këtij fshati, dëmi i banorëve të tij dhe dëmi i asaj që gjendet në të.",
+    "english": "(O Allah, Lord of the seven heavens and all that they envelop, Lord of the seven earths and all that they carry, Lord of the devils and all whom they misguide, Lord of the winds and all whom they whisk away. I ask You for the goodness of this village, the goodness of its inhabitants and for all the goodness found within it and I take refuge with You from the evil of this village, the evil of its inhabitants and from all the evil found within it.)",
+    "indonesian": "Barangsiapa yang hafal sepuluh ayat dari Permulaan Surat Al Kahfi, maka terpelihara dari (gangguan) dajjal. 220 Begitu juga minta perlindungan kepada Allah dari fitnah dajjal Setelah Tasyahud Ahir dari setiap shalat. 221 Doa Balasan Uhibbuka Fillah"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "199_Entering_TownCity_default_1.mp3",
+      "path": "/invocations/199_Entering_TownCity/199_Entering_TownCity_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "199_Entering_TownCity_Mishary_1.mp3",
+      "path": "/invocations/199_Entering_TownCity/199_Entering_TownCity_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

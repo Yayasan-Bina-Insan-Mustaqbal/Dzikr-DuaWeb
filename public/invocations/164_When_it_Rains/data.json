@@ -1,0 +1,33 @@
+{
+  "id": 164,
+  "name": "When it Rains",
+  "arabic": "((اللَّهُمَّ صَيِّباً نَافِعاً)).",
+  "metadata": {
+    "reference": "Buhariu “Fet’hul-Bari” 2/518.",
+    "chapter_name": "When it Rains",
+    "internal_id": "When it Rains"
+  },
+  "transliterations": {
+    "latin": "All-llahumme sajjiben nafi’an"
+  },
+  "translations": {
+    "albanian": "O Allahu im bëje këtë shi të begatshëm, e të dobishëm.",
+    "english": "(O Allah, may it be a beneficial rain cloud.)",
+    "indonesian": "Ya Allah, ampunilah dia, ya Allah teguhkanlah dia."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "164_When_it_Rains_default_1.mp3",
+      "path": "/invocations/164_When_it_Rains/164_When_it_Rains_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "164_When_it_Rains_Mishary_1.mp3",
+      "path": "/invocations/164_When_it_Rains/164_When_it_Rains_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

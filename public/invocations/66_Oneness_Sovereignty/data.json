@@ -1,0 +1,33 @@
+{
+  "id": 66,
+  "name": "Oneness & Sovereignty",
+  "arabic": "((لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ [ثلاثاً]، اللَّهُمَّ لاَ مَانِعَ لِمَا أَعْطَيْتَ، وَلاَ مُعْطِيَ لِمَا مَنَعْتَ، وَلاَ يَنْفَعُ ذَا الْجَدِّ مِنْكَ الجَدُّ)).",
+  "metadata": {
+    "reference": "Buhariu 1/255 dhe Muslimi 1/414.",
+    "chapter_name": "After Prayer",
+    "internal_id": "After Prayer (2)"
+  },
+  "transliterations": {
+    "latin": "La ilahe il-lAll-llahu vahdehu la sherike leh, lehul mulku ve lehul hamdu ve huve ala kul-li shejin kadir. All-llahume la mani’a lima a’tajte ve la m’utije lima mena’te ve la jenfe’u dhel xheddi minkel xheddu"
+  },
+  "translations": {
+    "albanian": "Nuk ka hyjni që meriton të adhurohet përveç Allahut, të Vetëm e i pa rival. Atij i takon Sundimi dhe Lavdërimi, Ai është i Plotfuqishmi mbi çdo send. O Allahu im, nuk ka kush e ndalon atë që Ti e ke dhënë dhe nuk ka kush e jep atë që Ti e ke ndaluar; tek Ti nuk ka vlerë dobia e askujt, ngase çdo dobi vjen prej Teje.",
+    "english": "(None has the right to be worshipped except Allah, alone, without partner, to Him belongs all sovereignty and praise and He is over all things omnipotent.O Allah, none can prevent what You have willed to bestow and none can bestow what You have willed to prevent, and no wealth or majesty can benefit anyone, as from You is all wealth and majesty.)",
+    "indonesian": "Aku minta ampun kepada Allah,\" (dibaca tiga kali). Lantas membaca: \"Ya Allah, Engkau pemberi keselamatan, dan dariMu keselamatan, Maha Suci Engkau, wahai Tuhan Yang Pemilik Keagungan dan Kemuliaan."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "66_Oneness_Sovereignty_default_1.mp3",
+      "path": "/invocations/66_Oneness_Sovereignty/66_Oneness_Sovereignty_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "66_Oneness_Sovereignty_Mishary_1.mp3",
+      "path": "/invocations/66_Oneness_Sovereignty/66_Oneness_Sovereignty_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

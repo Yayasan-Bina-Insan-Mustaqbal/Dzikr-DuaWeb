@@ -1,0 +1,33 @@
+{
+  "id": 191,
+  "name": "Love for Allah's Sake",
+  "arabic": "((أَحَبَّكَ الَّذِي أَحْبَبْتَنِي لَهُ)).",
+  "metadata": {
+    "reference": "Ebu Davudi 4/333, i mirë (hasen) sipas shejh Albanit, shih “Sahih Sunen Ebi Davud” 3/965.",
+    "chapter_name": "Love for Allah's Sake",
+    "internal_id": "Love for Allah's Sake"
+  },
+  "transliterations": {
+    "latin": "Ehabbekel-ledhi ahbebteni leh"
+  },
+  "translations": {
+    "albanian": "Të dashtë Ai për të cilin më deshe.",
+    "english": "(May He, for whom you have loved me, love you.)",
+    "indonesian": "Apabila seseorang di antara kamu kawin dengan seorang perempuan atau membeli pembantu, hendaklah mengucapkan:"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "191_Love_for_Allahs_Sake_default_1.mp3",
+      "path": "/invocations/191_Love_for_Allahs_Sake/191_Love_for_Allahs_Sake_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "191_Love_for_Allahs_Sake_Mishary_1.mp3",
+      "path": "/invocations/191_Love_for_Allahs_Sake/191_Love_for_Allahs_Sake_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

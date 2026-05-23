@@ -1,0 +1,33 @@
+{
+  "id": 104,
+  "name": "Sleeping on Right Side",
+  "arabic": " ((اللَّهُمَّ قِنِي عَذَابَكَ يَوْمَ تَبْعَثُ عِبَادَكَ)).",
+  "metadata": {
+    "reference": "I Dërguari (paqja e Allahut qoftë mbi të) kur dëshironte të flejë e vente dorën e tij të djathtë nën faqe dhe thoshte: (hadithin) Ebu Davudi 4/311 “Sahih et-Tirmidhi” 3/143).",
+    "chapter_name": "Before Sleeping",
+    "internal_id": "Sleeping on Right Side"
+  },
+  "transliterations": {
+    "latin": "All-llahumme kini adhabeke jevme teb’athu ibadeke. (3 herë)."
+  },
+  "translations": {
+    "albanian": "O Allahu im, më ruaj prej dënimit Tënd, ditën kur do t’i ringjallësh robërit Tu.",
+    "english": "(O Allah, protect me from Your punishment on the day Your servants are resurrected.)",
+    "indonesian": "Ya Allah! Jauhkanlah aku dari siksaanMu pada hari Engkau membangkitkan hamba-hambaMu.\" (Dibaca tiga kali)."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "104_Sleeping_on_Right_Side_default_1.mp3",
+      "path": "/invocations/104_Sleeping_on_Right_Side/104_Sleeping_on_Right_Side_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "104_Sleeping_on_Right_Side_Mishary_1.mp3",
+      "path": "/invocations/104_Sleeping_on_Right_Side/104_Sleeping_on_Right_Side_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

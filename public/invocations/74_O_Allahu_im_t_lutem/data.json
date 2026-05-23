@@ -1,0 +1,33 @@
+{
+  "id": 74,
+  "name": "O Allahu im, të lutem...",
+  "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْماً نَافِعاً، وَرِزْقاً طَيِّباً، وَعَمَلاً مُتَقَبَّلاً",
+  "metadata": {
+    "reference": "Ibën Maxheh dhe të tjerët “Sahih Ibën Maxheh” 1/152 dhe “Mexhmeuz-Zevaid” 10/111.",
+    "chapter_name": "After Prayer",
+    "internal_id": "After Prayer (10)"
+  },
+  "transliterations": {
+    "latin": "All-llahume inni es‘eluke ilmen nafi’an ve rizkan tajjiben ve amelen mutekabbelen. (Pas selamit në namazin e sabahut)"
+  },
+  "translations": {
+    "albanian": "O Allahu im, të lutem më jep dituri të dobishme dhe furnizim të mirë, si dhe të lutem Të m’i pranosh veprat e mia.",
+    "english": "O Allahu im, të lutem më jep dituri të dobishme dhe furnizim të mirë, si dhe të lutem Të m’i pranosh veprat e mia.",
+    "indonesian": "Jabir bin Abdillah Radhiallahu'anhu berkata: Adalah Rasulullah Shallallahu'alaihi wasallam mengajari kami shalat Istikharah untuk memutuskan segala sesuatu, sebagaimana mengajari surah AlQuran. Beliau bersabda: \"Apabila seseorang di antara kamu mempunyai rencana untuk mengerjakan sesuatu, hendaknya melakukan shalat sunnah (Istikharah) dua rakaat, kemudian bacalah doa ini:"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "74_O_Allahu_im_t_lutem_default_1.mp3",
+      "path": "/invocations/74_O_Allahu_im_t_lutem/74_O_Allahu_im_t_lutem_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "74_O_Allahu_im_t_lutem_Mishary_1.mp3",
+      "path": "/invocations/74_O_Allahu_im_t_lutem/74_O_Allahu_im_t_lutem_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

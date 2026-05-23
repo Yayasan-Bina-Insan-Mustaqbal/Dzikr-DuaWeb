@@ -1,0 +1,20 @@
+{
+  "id": 201,
+  "name": "Before Eating",
+  "arabic": "((بِسْمِ اللَّهِ)).",
+  "metadata": {
+    "reference": "Ebu Davudi 4/296, i vërtetë sipas Albanit, shih “Sahih Ebu Davud” 3/941.",
+    "chapter_name": "Vehicle Fails",
+    "internal_id": "Before Eating"
+  },
+  "transliterations": {
+    "latin": "Bismil-lah"
+  },
+  "translations": {
+    "albanian": "Me emrin e Allahut.",
+    "english": "(In the name of Allah.)",
+    "indonesian": "Semoga Allah memberkahimu dalam keluarga dan hartamu."
+  },
+  "audio": [],
+  "description": ""
+}

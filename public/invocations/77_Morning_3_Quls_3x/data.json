@@ -1,0 +1,33 @@
+{
+  "id": 77,
+  "name": "Morning: 3 Quls (3x)",
+  "arabic": "(بسم الله الرحمن الرحيم ﴿قُلْ هُوَ اللَّهُ أَحَدٌ* اللَّهُ الصَّمَدُ* لَمْ يَلِدْ وَلَمْ يُولَدْ* وَلَمْ يَكُن لَّهُ كُفُواً أَحَدٌ﴾.) (بسم الله الرحمن الرحيم ﴿قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ* مِن شَرِّ مَا خَلَقَ* وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ* وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ* وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ﴾.) (بسم الله الرحمن الرحيم ﴿قُلْ أَعُوذُ بِرَبِّ النَّاسِ* مَلِكِ النَّاسِ* إِلَهِ النَّاسِ* مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ* الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ* مِنَ الْجِنَّةِ وَ النَّاسِ﴾)",
+  "metadata": {
+    "reference": "Ebu Davudi 2/86, Nesaiu 3/68, “Sahih et-Tirmidhi” 3/182: “Kush i thotë këto sure tri herë në mëngjes dhe në mbrëmje i mjaftojnë për çdo gjë”.",
+    "chapter_name": "Morning Adhkar",
+    "internal_id": "Morning Adhkar (2)"
+  },
+  "transliterations": {
+    "latin": "Kul huvAll-llahu ehad, All-llahus-samed, lem jelid ve lem juled, ve lem jekun lehu kufuven ehad.\\n\\nKul eudhu bi Rabbil felek, min sherri ma halek, ve min sherri gasikin idha vekab, ve min sherrin-nef-fathati fil ukad, ve min sherr-rri hasidin idha hased.\\n\\nKul eudhu bi Rabbin-nas, melikin-nas, ilahin-nas, minsher-ril vesvasil han-nas, eledhi juvesvisu fi sudurin-nas, minel xhin-neti ven-nas.  (nga 3 herë)\\n"
+  },
+  "translations": {
+    "albanian": "Thuaj: “Ai është Allahu, Një dhe i Vetëm! Allahu është Absoluti, të Cilit i përgjërohet gjithçka në amshim. Ai as nuk lind, as nuk është i lindur. Dhe askush nuk është i barabartë (a i krahasueshëm) me Atë!”\\nThuaj: “Kërkoj mbështetje te Zoti i agimit, që të më mbrojë nga sherri i gjithçkaje që Ai ka krijuar dhe nga sherri i natës, kur kaplon terri dhe nga sherri i falltarëve, që fryjnë në nyje (duke bërë magji) dhe nga sherri i smirëziut, kur vepron me smirë.”\\nThuaj: “Kërkoj mbështetje te Zoti i njerëzve, Sundimtari i njerëzve, i Adhuruari (i vetëm me të drejtë) i njerëzve, nga sherri i djallit cytës që fshihet (pasi cyt) e që hedh dyshime në gjokset e njerëzve, (qoftë ai djall) prej xhindeve apo njerëzve!”\\n",
+    "english": "([Soorah al-Ikhlaas (112)]( 1 )   Say, He is Allah, [who is] One,( 2 )   Allah, the Eternal Refuge.( 3 )   He neither begets nor is born,( 4 )   Nor is there to Him any equivalent.)([Soorah al-Falaq (113)] ( 1 )   Say, I seek refuge in the Lord of daybreak( 2 )   From the evil of that which He created( 3 )   And from the evil of darkness when it settles( 4 )   And from the evil of the blowers in knots( 5 )   And from the evil of an envier when he envies. )([Soorah an-Naas (114)])( 1 )   Say, I seek refuge in the Lord of mankind,( 2 )   The Sovereign of mankind.( 3 )   The God of mankind,( 4 )   From the evil of the retreating whisperer -( 5 )   Who whispers [evil] into the breasts of mankind -( 6 )   From among the jinn and mankind.",
+    "indonesian": "Katakanlah, Dia-lah Allah Yang Maha Esa. Allah adalah (Rabb) yang segala sesuatu bergantung kepada-Nya. Dia tidak beranak dan tidak pula diperanakkan. Dan tidak ada seorang pun yang setara dengan-Nya.'\n\nKatakanlah: 'Aku berlindung kepada Rabb Yang menguasai (waktu) Shubuh dari kejahatan makhluk-Nya. Dan dari kejahatan malam apabila telah gelap gulita. Dan dari kejahatan wanita-wanita tukang sihir yang meniup buhul-buhul. Serta dari kejahatan orang yang dengki apabila dia dengki.\n\nKatakanlah, 'Aku berlindung kepada Rabb (yang memelihara dan menguasai) manusia. Raja manusia. Sembahan (Ilah) manusia. Dari kejahatan (bisikan) syaitan yang biasa bersembunyi. Yang membisikkan (kejahatan) ke dalam dada-dada manusia. Dari golongan jin dan manusia.'"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "77_Morning_3_Quls_3x_default_1.mp3",
+      "path": "/invocations/77_Morning_3_Quls_3x/77_Morning_3_Quls_3x_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "77_Morning_3_Quls_3x_Mishary_1.mp3",
+      "path": "/invocations/77_Morning_3_Quls_3x/77_Morning_3_Quls_3x_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

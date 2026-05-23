@@ -1,0 +1,33 @@
+{
+  "id": 32,
+  "name": "How perfect my Lord is,...",
+  "arabic": "((سُبْحانَ رَبِّيَ الْعَظِيمِ)). ثلاث مرَّاتٍ.",
+  "metadata": {
+    "reference": "Transmetojnë autorët e katër suneneve dhe Ahmedi “Sahih et-Tirmidhi” 1/83.",
+    "chapter_name": "During Ruku'",
+    "internal_id": "During Ruku' (1)"
+  },
+  "transliterations": {
+    "latin": "Subhane Rabbijel-adhim (3 herë)"
+  },
+  "translations": {
+    "albanian": "I Lartësuar qoftë Zoti im i Madhërishëm.",
+    "english": "(How perfect my Lord is, The Supreme.’(three times))",
+    "indonesian": "Maha Suci Tuhanku yang Maha Agung\". (Dibaca tiga kali).49"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "32_How_perfect_my_Lord_is_default_1.mp3",
+      "path": "/invocations/32_How_perfect_my_Lord_is/32_How_perfect_my_Lord_is_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "32_How_perfect_my_Lord_is_Mishary_1.mp3",
+      "path": "/invocations/32_How_perfect_my_Lord_is/32_How_perfect_my_Lord_is_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

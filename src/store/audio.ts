@@ -33,6 +33,7 @@ interface AudioState {
   addToQueue: (items: Array<Invocation>) => void;
   reorderQueue: (newQueue: Array<Invocation>) => void;
   removeFromQueue: (index: number) => void;
+  updateQueueItem: (id: number, fields: Partial<Invocation>) => void;
 }
 
 const applyTheme = (theme: 'auto' | 'light' | 'dark' | 'sepia' | 'emerald') => {
@@ -188,5 +189,15 @@ export const useAudioStore = create<AudioState>((set) => ({
       newIndex = Math.min(state.nowPlayingIndex, newQueue.length - 1);
     }
     return { queue: newQueue, nowPlayingIndex: newIndex, currentTime: 0 };
+  }),
+
+  updateQueueItem: (id, fields) => set((state) => {
+    const newQueue = state.queue.map(item => {
+      if (item.id === id) {
+        return { ...item, ...fields };
+      }
+      return item;
+    });
+    return { queue: newQueue };
   }),
 }));

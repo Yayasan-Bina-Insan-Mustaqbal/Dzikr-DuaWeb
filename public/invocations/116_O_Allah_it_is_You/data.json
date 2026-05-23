@@ -1,0 +1,33 @@
+{
+  "id": 116,
+  "name": "O Allah, it is You...",
+  "arabic": "((اللَّهُمَّ إِيَّاكَ نعْبُدُ، وَلَكَ نُصَلِّي وَنَسْجُدُ، وَإِلَيْكَ نَسْعَى وَنَحْفِدُ، نَرْجُو رَحْمَتَكَ، وَنَخْشَى عَذَابَكَ، إِنَّ عَذَابَكَ بِالكَافِرِينَ مُلْحَقٌ. اللَّهُمَّ إِنَّا نَسْتَعينُكَ، وَنَسْتَغْفِرُكَ، وَنُثْنِي عَلَيْكَ الْخَيْرَ، وَلاَ نَكْفُرُكَ، وَنُؤْمِنُ بِكَ، وَنَخْضَعُ لَكَ، وَنَخْلَعُ مَنْ يَكْفرُكَ)).",
+  "metadata": {
+    "reference": "Bejhekiu në “Es-Sunen el-Kubra” 2/211, senedi i vërtetë sipas Albanit “Irvaul-Galil” 2/170 dhe është nga fjalët e Omerit (Allahu qoftë i kënaqur me të).",
+    "chapter_name": "Qunut in Witr",
+    "internal_id": "Qunut in Witr (3)"
+  },
+  "transliterations": {
+    "latin": "All-llahumme ijjake na’budu ve leke nusal-li ve nesxhudu, ve ilejke nes’a ve nahfidu, nerxhu rahmeteke, ve nahsha adhabeke inne adhabeke bil-kafirine mulhak. All-llahumme inna neste’i nuke ve nestagfiruke ve puthni alejkel-hajre, ve la nekfuruke, ve nu’minu bike ve nahda’u leke ve nahla’u men jekfuruke"
+  },
+  "translations": {
+    "albanian": "O Allahu im, vetëm Ty të adhurojmë, për Ty falemi dhe vetëm Ty të përulemi, kah Ti vijmë dhe shpejtojmë, shpresojmë mëshirën Tënde dhe i frikohemi dënimit Tënd. Vërtetë, dënimi Yt do t’i arrijë jobesimtarët. O Allahu im, prej Teje kërkojmë ndihmë dhe falje. Ty të Falënderojmë me çdo gjë të mirë. Nuk të mohojmë dhe vetëm Ty të besojmë. Vetëm Ty të përulemi dhe e braktisim atë që Ty të mohon.",
+    "english": "(O Allah, it is You we worship, and unto You we pray and prostrate, and towards You we hasten and You we serve. We hope for Your mercy and fear Your punishment, verily Your punishment will fall upon the disbelievers.O Allah, we seek Your aid and ask Your pardon, we praise You with all good and do not disbelieve in You.We believe in You and submit unto You, and we disown and reject those who disbelieve in You.)",
+    "indonesian": "Ya Allah! Berilah aku petunjuk sebagaimana orang yang telah Engkau beri petunjuk, berilah aku perlindungan (dari penyakit dan apa yang tidak disukai) sebagaimana orang yang telah Engkau lindungi, sayangilah aku sebagaimana orang yang telah Engkau sayangi. Berilah berkah apa yang Engkau berikan kepadaku,"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "116_O_Allah_it_is_You_default_1.mp3",
+      "path": "/invocations/116_O_Allah_it_is_You/116_O_Allah_it_is_You_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "116_O_Allah_it_is_You_Mishary_1.mp3",
+      "path": "/invocations/116_O_Allah_it_is_You/116_O_Allah_it_is_You_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

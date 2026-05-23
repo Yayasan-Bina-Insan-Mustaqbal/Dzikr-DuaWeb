@@ -1,0 +1,33 @@
+{
+  "id": 190,
+  "name": "Good Done to You",
+  "arabic": "((جَزَاكَ اللَّهُ خَيْراً)).",
+  "metadata": {
+    "reference": "Tirmidhiu nr. 2035, “Sahih el-Xhamiu” #6244 dhe “Sahih et-Tirmidhi” 2/200.",
+    "chapter_name": "Good Done to You",
+    "internal_id": "Good Done to You"
+  },
+  "transliterations": {
+    "latin": "XhezakAll-llahu hajren"
+  },
+  "translations": {
+    "albanian": "Allahu të shpërbleftë me të mira.",
+    "english": "(If someone does you a favour and you say: (May Allah reward you with goodness.) then you have indeed excelled in praising him.)",
+    "indonesian": "Semoga Allah memberi berkah kepadamu dan atasmu serta mengumpulkan kamu berdua (pengantin laki-laki dan perempuan) dalam kebaikan."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "190_Good_Done_to_You_default_1.mp3",
+      "path": "/invocations/190_Good_Done_to_You/190_Good_Done_to_You_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "190_Good_Done_to_You_Mishary_1.mp3",
+      "path": "/invocations/190_Good_Done_to_You/190_Good_Done_to_You_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

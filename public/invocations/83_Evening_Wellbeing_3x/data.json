@@ -1,0 +1,33 @@
+{
+  "id": 83,
+  "name": "Evening: Wellbeing (3x)",
+  "arabic": "((اللَّهُمَّ عَافِنِي فِي بَدَنِي، اللَّهُمَّ عَافِنِي فِي سَمْعِي، اللَّهُمَّ عَافِنِي فِي بَصَرِي، لاَ إِلَهَ إِلاَّ أَنْتَ. اللَّهُمَّ  إِنِّي أَعُوذُ بِكَ مِنَ الْكُفْرِ، وَالفَقْرِ، وَأَعُوذُ بِكَ مِنْ عَذَابِ القَبْرِ، لاَ إِلَهَ إِلاَّ أَنْتَ)) (ثلاثَ مرَّاتٍ).",
+  "metadata": {
+    "reference": "Ebu Davudi 4/324, Ahmedi 5/42 dhe Nesaiu në “Amel el-Jevmi ve Lejleh” nr. 22, Ibën Sunnijj nr. 69 dhe Buhariu në “Edebul-Mufred”, senedin e këtij hadithi dijetari Ibën Bazi në librin e tij “Tuhfetul-Ahjar” fq. 26 e ka bërë të mirë (hasen).",
+    "chapter_name": "Evening Adhkar",
+    "internal_id": "Evening Adhkar (8)"
+  },
+  "transliterations": {
+    "latin": "All-llahumme afini fi bedeni, All-llahumme afini fi semi, All-llahumme afini fi besari, la ilahe il-la ente, All-llahumme inni eudhu bike minel-kufri vel-fakri, ve eudhu bike min adhabil-kabr, la ilahe il-la ente. (Tre herë në mëngjes dhe tri herë në mbrëmje)"
+  },
+  "translations": {
+    "albanian": "O Allahu im, më jep shëndet në trupin tim, o Allahu im, më jep shëndet në të dëgjuarit tim, o Allahu im, më jep shëndet në të pamurit tim. Nuk ka të adhuruar tjetër përveç Teje. O Allahu im, kërkoj mbrojtjen Tënde nga mosbesimi e varfëria dhe kërkoj mbrojtjen Tënde nga dënimi i varrit. Nuk ka të adhuruar tjetër përveç Teje.",
+    "english": "(O Allah, grant my body health, O Allah, grant my hearing health, O Allah, grant my sight health.  None has the right to be worshipped except You.)(three times) (O Allah, I take refuge with You from disbelief and poverty, and I take refuge with You from the punishment of the grave.  None has the right to be worshipped except You. (three times))",
+    "indonesian": "Allah-lah yang mencukupi (segala kebutuhanku), tiada Tuhan (yang berhak disembah) kecuali Dia, kepadaNya aku bertawakal. Dia-lah Tuhan yang menguasai 'Arsy yang agung.\" (Dibaca tujuh kali waktu pagi dan sore)."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "83_Evening_Wellbeing_3x_default_1.mp3",
+      "path": "/invocations/83_Evening_Wellbeing_3x/83_Evening_Wellbeing_3x_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "83_Evening_Wellbeing_3x_Mishary_1.mp3",
+      "path": "/invocations/83_Evening_Wellbeing_3x/83_Evening_Wellbeing_3x_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

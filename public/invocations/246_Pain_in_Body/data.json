@@ -1,0 +1,33 @@
+{
+  "id": 246,
+  "name": "Pain in Body",
+  "arabic": "((ضَعْ يَدَكَ عَلَى الَّذِي تَألَّمَ مِنْ جَسَدِكَ وَقُلْ: بِسْمِ اللَّهِ، ثَلاَثاً، وَقُلْ سَبْعَ مَرَّاتٍ: أَعُوذُ بِاللَّهِ وَقُدْرَتِهِ مِنْ شَرِّ مَا أَجِدُ وَأُحَاذِرُ)).",
+  "metadata": {
+    "reference": "Muslimi 4/1728.",
+    "chapter_name": "Pain in Body",
+    "internal_id": "Pain in Body"
+  },
+  "transliterations": {
+    "latin": "Bismil-lah. (3 herë)\\n\\nEudhu bil-lahi ve kudretihi min sherri ma exhidu ve uhadhiru (7 herë)"
+  },
+  "translations": {
+    "albanian": "Në emër të Allahut.\\n\\nKërkoj mbrojtjen e Allahut me fuqinë e Tij nga e keqja e kësaj që ndiej dhe frikohem.",
+    "english": "(Place your hand at the site of the pain and say: (In the name of Allah(three times)) the supplicate seven times: (I take refuge in Allah and within His omnipotence from the evil that I feel and am wary of.))",
+    "indonesian": "Letakkan tanganmu pada tubuhmu yang terasa sakit, dan bacalah: \"Bismillaah tiga kali, lalu bacalah tujuh kali:"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "246_Pain_in_Body_default_1.mp3",
+      "path": "/invocations/246_Pain_in_Body/246_Pain_in_Body_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "246_Pain_in_Body_Mishary_1.mp3",
+      "path": "/invocations/246_Pain_in_Body/246_Pain_in_Body_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

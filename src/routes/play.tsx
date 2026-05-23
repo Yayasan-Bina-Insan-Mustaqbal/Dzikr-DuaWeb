@@ -53,10 +53,10 @@ function PlayRoute() {
     setTheme,
     seek, 
     clearQueue, 
-    addToQueue,
     reorderQueue,
     removeFromQueue,
-    audioElement
+    audioElement,
+    updateQueueItem
   } = useAudioStore()
   const navigate = useNavigate()
   const search = Route.useSearch()
@@ -125,6 +125,64 @@ function PlayRoute() {
       }
     }
   }, [search.queue])
+
+  // Dynamically load high-integrity data.json for the active invocation
+  useEffect(() => {
+    if (!currentDua) return
+
+    const id = currentDua.id
+    const name = currentDua.name || currentDua.internal_id || `Invocation ${id}`
+    
+    const sanitizeName = (n: string): string => {
+      let sanitized = n.replace(/[\(\)]/g, '');
+      sanitized = sanitized.replace(/[^a-zA-Z0-9\s_\-]/g, '');
+      sanitized = sanitized.replace(/[\s\-]+/g, '_');
+      sanitized = sanitized.replace(/_+/g, '_');
+      return sanitized.trim().replace(/^_+|_+$/g, '');
+    }
+    const sanitized = sanitizeName(name)
+
+    // Check if already fetched/loaded metadata (description is non-undefined)
+    if (currentDua.description !== undefined) {
+      return
+    }
+
+    fetch(`/invocations/${id}_${sanitized}/data.json`)
+      .then(res => {
+        if (!res.ok) throw new Error("Decentralized data.json not found")
+        return res.json()
+      })
+      .then(data => {
+        // Map dynamic audio structure to state audio_versions dict
+        const dynamicAudioVersions: Record<string, string> = {}
+        if (data.audio && Array.isArray(data.audio)) {
+          data.audio.forEach((item: any) => {
+            if (item.reciter && item.reciter !== 'default') {
+              dynamicAudioVersions[item.reciter] = item.path
+            }
+          })
+        }
+
+        // Merge details loaded from dynamic JSON
+        updateQueueItem(id, {
+          description: data.description || "",
+          arabic: data.arabic || currentDua.arabic,
+          latin: data.transliterations?.latin || currentDua.latin,
+          albanian: data.translations?.albanian || currentDua.albanian,
+          english: data.translations?.english || currentDua.english,
+          indonesian: data.translations?.indonesian || (currentDua as any).indonesian,
+          audio_versions: {
+            ...currentDua.audio_versions,
+            ...dynamicAudioVersions
+          }
+        })
+      })
+      .catch(err => {
+        console.warn("Using static data fallback for invocation", id, err)
+        // Mark as empty string so we don't infinitely retry fetching
+        updateQueueItem(id, { description: "" })
+      })
+  }, [currentDua?.id, updateQueueItem])
 
   const handleStartPlayback = () => {
     setShowWelcomeModal(false)
@@ -479,6 +537,15 @@ function PlayRoute() {
                           dua.english}"
                       </p>
                     )}
+                    {dua.description && (
+                      <div className="mt-4 p-4 rounded-2xl bg-primary/[0.03] border border-primary/10 text-left text-xs md:text-sm text-muted-foreground/80 leading-relaxed max-w-2xl mx-auto flex flex-col gap-1">
+                        <div className="flex items-center gap-1.5 font-semibold text-foreground/80">
+                          <span className="material-symbols-outlined text-base text-primary">info</span>
+                          <span>Benefit & Context</span>
+                        </div>
+                        <p className="pl-5 select-text">{dua.description}</p>
+                      </div>
+                    )}
                   </div>
                 </div>
               )
@@ -571,38 +638,51 @@ function PlayRoute() {
                                 className="absolute top-full left-0 mt-2 w-48 bg-card border border-border shadow-2xl rounded-2xl overflow-hidden z-50 p-1"
                               >
                                 <div className="px-3 py-2 text-[10px] font-bold text-muted-foreground uppercase tracking-widest border-b border-border/50 mb-1">Select Reciter</div>
-                                {[
-                                  { id: 'default', name: 'Original' },
-                                  { id: 'rodja', name: 'Rodja' },
-                                  { id: 'mburoja-api', name: 'Mburoja API' }
-                                ].map((v) => {
-                                  const isAvailable = v.id === 'default' || (currentDua.audio_versions && currentDua.audio_versions[v.id])
-                                  const isSelected = selectedVersion === v.id
+                                {(() => {
+                                  const baseReciters = [
+                                    { id: 'default', name: 'Original' },
+                                    { id: 'Mishary', name: 'Mishary Alafasy' },
+                                    { id: 'rodja', name: 'Rodja' },
+                                    { id: 'mburoja-api', name: 'Mburoja API' }
+                                  ];
                                   
-                                  return (
-                                    <button 
-                                      key={v.id}
-                                      disabled={!isAvailable}
-                                      onClick={() => {
-                                        setSelectedVersion(v.id)
-                                        setShowVersionDropdown(false)
-                                      }}
-                                      className={`w-full flex items-center justify-between px-3 py-2 text-xs rounded-xl transition-all ${
-                                        isSelected 
-                                          ? 'bg-primary/10 text-primary font-bold' 
-                                          : isAvailable 
-                                            ? 'text-foreground hover:bg-muted' 
-                                            : 'text-muted-foreground/40 cursor-not-allowed'
-                                      }`}
-                                    >
-                                      <div className="flex items-center gap-2">
-                                        <span className={`w-1.5 h-1.5 rounded-full ${isSelected ? 'bg-primary animate-pulse' : 'bg-transparent'}`} />
-                                        <span>{v.name}</span>
-                                      </div>
-                                      {!isAvailable && <span className="text-[9px] opacity-60">N/A</span>}
-                                    </button>
-                                  )
-                                })}
+                                  const extraReciters = currentDua.audio_versions 
+                                    ? Object.keys(currentDua.audio_versions)
+                                        .filter(id => !baseReciters.some(r => r.id === id))
+                                        .map(id => ({ id, name: id.charAt(0).toUpperCase() + id.slice(1) }))
+                                    : [];
+                                    
+                                  const allReciters = [...baseReciters, ...extraReciters];
+                                  
+                                  return allReciters.map((v) => {
+                                    const isAvailable = v.id === 'default' || v.id === 'Mishary' || (currentDua.audio_versions && currentDua.audio_versions[v.id])
+                                    const isSelected = selectedVersion === v.id
+                                    
+                                    return (
+                                      <button 
+                                        key={v.id}
+                                        disabled={!isAvailable}
+                                        onClick={() => {
+                                          setSelectedVersion(v.id)
+                                          setShowVersionDropdown(false)
+                                        }}
+                                        className={`w-full flex items-center justify-between px-3 py-2 text-xs rounded-xl transition-all ${
+                                          isSelected 
+                                            ? 'bg-primary/10 text-primary font-bold' 
+                                            : isAvailable 
+                                              ? 'text-foreground hover:bg-muted' 
+                                              : 'text-muted-foreground/40 cursor-not-allowed'
+                                        }`}
+                                      >
+                                        <div className="flex items-center gap-2">
+                                          <span className={`w-1.5 h-1.5 rounded-full ${isSelected ? 'bg-primary animate-pulse' : 'bg-transparent'}`} />
+                                          <span>{v.name}</span>
+                                        </div>
+                                        {!isAvailable && <span className="text-[9px] opacity-60">N/A</span>}
+                                      </button>
+                                    )
+                                  })
+                                })()}
                               </motion.div>
                             )}
                           </AnimatePresence>

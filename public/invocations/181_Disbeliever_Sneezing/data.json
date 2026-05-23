@@ -1,0 +1,33 @@
+{
+  "id": 181,
+  "name": "Disbeliever Sneezing",
+  "arabic": "((يَهْدِيكُمُ اللَّهُ وَيُصْلِحُ بَالَكُمْ)).",
+  "metadata": {
+    "reference": "Tirmidhiu 5/82, Ahmedi 4/400, Ebu Davud 4/308, “Sahih et-Tirmidhi” 2/354.",
+    "chapter_name": "Disbeliever Sneezing",
+    "internal_id": "Disbeliever Sneezing"
+  },
+  "transliterations": {
+    "latin": "Jehdikumull-llahu ve juslih balekum"
+  },
+  "translations": {
+    "albanian": "Allahu ju udhëzoftë dhe ua përmirësoftë gjendjen tuaj.",
+    "english": "(May Allah guide you and rectify your condition.)",
+    "indonesian": "Segala puji bagi Allah (Aku memujiNya) dengan pujian yang banyak, yang baik dan penuh berkah, yang senantiasa dibutuhkan, diperlukan dan tidak bisa ditinggalkan, ya Tuhan kami."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "181_Disbeliever_Sneezing_default_1.mp3",
+      "path": "/invocations/181_Disbeliever_Sneezing/181_Disbeliever_Sneezing_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "181_Disbeliever_Sneezing_Mishary_1.mp3",
+      "path": "/invocations/181_Disbeliever_Sneezing/181_Disbeliever_Sneezing_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

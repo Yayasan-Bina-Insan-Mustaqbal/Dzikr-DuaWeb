@@ -1,0 +1,33 @@
+{
+  "id": 122,
+  "name": "Dua of Prophet Yunus",
+  "arabic": "((لاَ إِلَهَ إِلاَّ أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظّالِمِينَ)).",
+  "metadata": {
+    "reference": "Tirmidhiu 5/529 dhe Hakimi, i cili e ka bërë të vërtetë, kurse Dhehebiu e ka pëlqyer 1/505 “Sahih et-Tirmidhi” 3/168.",
+    "chapter_name": "Anguish",
+    "internal_id": "Dua of Prophet Yunus"
+  },
+  "transliterations": {
+    "latin": "La ilahe il-la Ente Subhaneke Inni kuntu minedh-dhalimin"
+  },
+  "translations": {
+    "albanian": "Nuk ka hyjni që meriton të adhurohet përveç Teje që je i Madhëruar. Vërtetë, unë jam prej mëkatarëve.",
+    "english": "(None has the right to be worshipped except You.  How perfect You are, verily I was among the wrong-doers.)",
+    "indonesian": "Tiada Tuhan yang berhak disembah selain Allah Yang Maha Agung dan Maha Pengampun. Tiada Tuhan yang berhak disembah selain Allah, Tuhan yang menguasai arasy, yang Maha Agung. Tiada Tuhan yang berhak disembah selain Allah, Tuhan yang menguasai langit dan bumi. Tuhan Yang menguasai arasy, lagi Maha Mulia."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "122_Dua_of_Prophet_Yunus_default_1.mp3",
+      "path": "/invocations/122_Dua_of_Prophet_Yunus/122_Dua_of_Prophet_Yunus_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "122_Dua_of_Prophet_Yunus_Mishary_1.mp3",
+      "path": "/invocations/122_Dua_of_Prophet_Yunus/122_Dua_of_Prophet_Yunus_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

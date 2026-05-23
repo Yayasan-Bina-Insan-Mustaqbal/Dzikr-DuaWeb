@@ -1,0 +1,15 @@
+{
+  "id": 111,
+  "name": "Dog Barking",
+  "invocations": [
+    {
+      "id": 238,
+      "name": "If you hear the barking..."
+    },
+    {
+      "id": 239,
+      "name": "Ayatul Kursi"
+    }
+  ],
+  "description": ""
+}

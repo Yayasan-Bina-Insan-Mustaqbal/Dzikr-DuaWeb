@@ -1,0 +1,33 @@
+{
+  "id": 132,
+  "name": "He should say: I have...",
+  "arabic": "((يَقُولُ: ((آمَنْتُ بِاللَّهِ وَرُسُلِهِ)).",
+  "metadata": {
+    "reference": "Muslimi 1/119-120.",
+    "chapter_name": "Doubt in Faith",
+    "internal_id": "Doubt in Faith (2)"
+  },
+  "transliterations": {
+    "latin": "Amentu bil-lahi ve rusulihi"
+  },
+  "translations": {
+    "albanian": "3. Duhet të thotë: “Kam besuar në Allahun dhe në të Dërguarit e Tij.”",
+    "english": "(He should say: (I have believed in Allah and His Messenger.))",
+    "indonesian": "Ya Allah, cukupilah aku dalam menghadapi mereka dengan apa yang Engkau kehendaki. 151 Bacaan Bagi Yang Ragu Dalam Beriman"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "132_He_should_say_I_have_default_1.mp3",
+      "path": "/invocations/132_He_should_say_I_have/132_He_should_say_I_have_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "132_He_should_say_I_have_Mishary_1.mp3",
+      "path": "/invocations/132_He_should_say_I_have/132_He_should_say_I_have_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

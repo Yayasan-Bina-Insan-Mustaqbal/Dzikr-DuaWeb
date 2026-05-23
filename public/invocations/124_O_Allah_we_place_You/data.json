@@ -1,0 +1,33 @@
+{
+  "id": 124,
+  "name": "O Allah, we place You...",
+  "arabic": "((اللَّهُمَّ إِنَّا نَجْعَلُكَ فِي نُحُورِهِم، وَنَعُوذُ بِكَ مِنْ شُرُورِهِمْ)).",
+  "metadata": {
+    "reference": "Ebu Davudi 2/89, hadithin e ka bërë te vërtetë Hakimi dhe e ka pëlqyer Dhehebiu 2/142.",
+    "chapter_name": "Meeting Adversary/Ruler",
+    "internal_id": "Meeting Adversary/Ruler (1)"
+  },
+  "transliterations": {
+    "latin": "All-llahumme inna nexh’aluke fi nuhurihim ve neudhu bike min shururihim"
+  },
+  "translations": {
+    "albanian": "O Allahu im, Ty të lëmë në qafat e tyre; prej Teje ndihmë kërkojmë të na mbrosh prej djallëzisë së tyre.",
+    "english": "(O Allah, we place You before them and we take refuge in You from their evil.)",
+    "indonesian": "Tiada Tuhan yang berhak disembah selain Engkau. Maha Suci Engkau. Sesungguhnya aku tergolong orang-orang yang zhalim."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "124_O_Allah_we_place_You_default_1.mp3",
+      "path": "/invocations/124_O_Allah_we_place_You/124_O_Allah_we_place_You_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "124_O_Allah_we_place_You_Mishary_1.mp3",
+      "path": "/invocations/124_O_Allah_we_place_You/124_O_Allah_we_place_You_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

@@ -1,0 +1,33 @@
+{
+  "id": 200,
+  "name": "Entering Market",
+  "arabic": "((لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ، وَلَهُ الْحَمْدُ، يُحْيِي وَيُمِيتُ، وَهُوَ حَيٌّ لاِ يَمُوتُ، بِيَدِهِ الْخَيْرُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ)).",
+  "metadata": {
+    "reference": "Tirmidhiu 5/291, Hakimi 1/538, i mirë sipas Albanit, “Sahih Ibën Maxheh” 2/21 dhe “Sahih et-Tirmidhi” 3/152.",
+    "chapter_name": "Entering Market",
+    "internal_id": "Entering Market"
+  },
+  "transliterations": {
+    "latin": "La ilahe il-lAll-llahu vahdehu la sherike leh, lehul-Mulku ve lehul-hamdu, juhji ve jumitu, ve Huve hajjun la jemutu bi jedihi el-hajru ve Huve ala kul-li shej’in Kadir"
+  },
+  "translations": {
+    "albanian": "Nuk ka hyjni që meriton të adhurohet përveç Allahut, Ai është Një dhe i pa rival; Atij i takon sundimi dhe vetëm Atij i takon falënderimi; Ai jep jetë dhe vdekje, ndërsa Ai është i Gjalli i Cili nuk vdes kurrë. Në Dorën e Tij është gjithë e mira dhe Ai është i Plotfuqishëm mbi çdo gjë.",
+    "english": "(None has the right to be worshipped except Allah, alone, without partner, to Him belongs all sovereignty and praise.  He gives life and causes death, and He is living and does not die.  In His hand is all good and He is over all things, omnipotent.)",
+    "indonesian": "Semoga Allah mencintai kamu yang cinta kepadaku karenaNya."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "200_Entering_Market_default_1.mp3",
+      "path": "/invocations/200_Entering_Market/200_Entering_Market_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "200_Entering_Market_Mishary_1.mp3",
+      "path": "/invocations/200_Entering_Market/200_Entering_Market_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

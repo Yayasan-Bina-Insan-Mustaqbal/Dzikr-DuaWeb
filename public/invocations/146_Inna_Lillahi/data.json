@@ -1,0 +1,33 @@
+{
+  "id": 146,
+  "name": "Inna Lillahi",
+  "arabic": "((إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ، اللَّهُمَّ أْجُرْنِي فِي مُصِيبَتِي، وَأَخْلِفْ لِي خَيْرَاً مِنْهَا)).",
+  "metadata": {
+    "reference": "Muslimi 2/632.",
+    "chapter_name": "When Tragedy Strikes",
+    "internal_id": "Inna Lillahi"
+  },
+  "transliterations": {
+    "latin": "Inna lil-lahi ve inna ilejhi raxhi’un, All-llahumme uxhurni fi musibeti ve ahlif li hajren minha"
+  },
+  "translations": {
+    "albanian": "Ne jemi të Allahut dhe tek Ai kthehemi. O Allahu im, më shpërble për këtë fatkeqësi dhe ma kompenso këtë fatkeqësi me diçka më të mirë se kjo fatkeqësi.",
+    "english": "(To Allah we belong and unto Him is our return.O Allah, recompense me for my affliction and replace it for me with something better.)",
+    "indonesian": "Adalah Rasulullah Shallallahu'alaihi wasallam berdoa untuk perlindungan Hasan dan Husain, beliau membaca:"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "146_Inna_Lillahi_default_1.mp3",
+      "path": "/invocations/146_Inna_Lillahi/146_Inna_Lillahi_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "146_Inna_Lillahi_Mishary_1.mp3",
+      "path": "/invocations/146_Inna_Lillahi/146_Inna_Lillahi_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

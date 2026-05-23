@@ -1,0 +1,33 @@
+{
+  "id": 2,
+  "name": "Declaration of Oneness",
+  "arabic": "لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَريكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، سُبْحَانَ اللَّهِ، وَالْحَمْدُ للَّهِ، وَلاَ إِلَهَ إِلاَّ اللَّهُ، وَاللَّهُ أَكبَرُ، وَلاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ الْعَلِيِّ الْعَظِيمِ، رَبِّ اغْفرْ لِي",
+  "metadata": {
+    "reference": "“Kush e thotë këtë (lutje) do t’i falen mëkatet, e nëse lutet do t’i pranohet lutja, e nëse ngritët e merr abdes dhe falet do t’i pranohet namazi.” Shënon Buhariu.",
+    "chapter_name": "Upon Waking Up",
+    "internal_id": "Upon Waking Up (2)"
+  },
+  "transliterations": {
+    "latin": "La ilahe il-lAll-llahu vahdehu la sherike leh, lehul-mulku ve lehul-hamdu ve huve ala kul-li shej’in kadir. SubhanAll-llah, vel-hamdulil-lah, ve la ilahe il-laAll-llah, vAll-llahu Ekber, ve la havle ve la kuvvete il-la bil-lahil Alij-jil Adhim. Rabbigfir li."
+  },
+  "translations": {
+    "albanian": "Nuk ka hyjni që meriton të adhurohet përveç Allahut, të Vetëm e i pa rival. Atij i takon Sundimi dhe Lavdërimi dhe Ai është i Gjithëfuqishëm mbi çdo gjë. I Madhërishëm qoftë Allahu, Falënderimi i përket vetëm Allahut, nuk ka hyjni që meriton të adhurohet përveç Allahut, Allahu është më i Madhi, nuk ka ndryshim e as forcë pa ndihmën e Allahut të Lartmadhëruar, Zoti im më fal.",
+    "english": "(None has the right to be worshipped except Allah, alone without associate, to Him belongs sovereignty and praise and He is over all things wholly capable.  How perfect Allah is, and all praise is for Allah, and none has the right to be worshipped except Allah, Allah is the greatest and there is no power nor might except with Allah, The Most High, The Supreme.O my Lord forgive me)",
+    "indonesian": "Sunan At-Tirmidzi (Shahih wa Dla'if) (1 Jilid); Syaikh Muhammad Nashiruddin Al- Albani rahimahullah. Penerbit: Maktabah Al-Ma'arif Linnasyir Wa At-Tauji', Riyadl- KSA."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "2_Declaration_of_Oneness_default_1.mp3",
+      "path": "/invocations/2_Declaration_of_Oneness/2_Declaration_of_Oneness_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "2_Declaration_of_Oneness_Mishary_1.mp3",
+      "path": "/invocations/2_Declaration_of_Oneness/2_Declaration_of_Oneness_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

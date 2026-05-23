@@ -1,0 +1,33 @@
+{
+  "id": 162,
+  "name": "O Allah, relieve us, O...",
+  "arabic": "((اللَّهُمَّ أَغِثْنَا، اللَّهُمَّ أَغِثْنَا، اللَّهُمَّ أَغِثْنَا)).",
+  "metadata": {
+    "reference": "Buhariu 1/224, Muslimi 2/613.",
+    "chapter_name": "Dua for Rain",
+    "internal_id": "Dua for Rain (2)"
+  },
+  "transliterations": {
+    "latin": "All-llahumme egithna, Allahumme egithna, Allahumme egithna"
+  },
+  "translations": {
+    "albanian": "O Allahu im na lësho shi, O Allahu im na lësho shi, O Allahu im na lësho shi.",
+    "english": "(O Allah, relieve us, O Allah, relieve us, O Allah, relieve us.)",
+    "indonesian": "Sesungguhnya hak Allah adalah mengambil sesuatu dan memberikan sesuatu. Segala sesuatu yang di sisi-Nya dibatasi dengan ajal yang ditentukan. Oleh karena itu, bersabarlah dan carilah ridha Allah."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "162_O_Allah_relieve_us_O_default_1.mp3",
+      "path": "/invocations/162_O_Allah_relieve_us_O/162_O_Allah_relieve_us_O_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "162_O_Allah_relieve_us_O_Mishary_1.mp3",
+      "path": "/invocations/162_O_Allah_relieve_us_O/162_O_Allah_relieve_us_O_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

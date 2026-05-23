@@ -1,0 +1,33 @@
+{
+  "id": 123,
+  "name": "Allah, Allah is my Lord,...",
+  "arabic": "((اللَّهُ اللَّهُ رَبِّي لاَ أُشْرِكُ بِهِ شَيْئاً)).",
+  "metadata": {
+    "reference": "Shënon Ebu Davudi 2/87 “Sahih Ibën Maxheh” 2/335.",
+    "chapter_name": "Anguish",
+    "internal_id": "Anguish (4)"
+  },
+  "transliterations": {
+    "latin": "Allahu, Allahu Rabbi, La ushriku bihi shej’en"
+  },
+  "translations": {
+    "albanian": "Allahu, Allahu është Zoti im, Atij nuk i shoqëroj asnjë send.",
+    "english": "(Allah, Allah is my Lord, I do not associate anything with Him.)",
+    "indonesian": "Ya Allah! Aku mengharapkan (mendapat) rahmatMu, oleh karena itu, jangan Engkau biarkan diriku sekejap mata (tanpa pertolongan atau rahmat dariMu). Perbaikilah seluruh urusanku, tiada Tuhan yang berhak disembah selain Engkau."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "123_Allah_Allah_is_my_Lord_default_1.mp3",
+      "path": "/invocations/123_Allah_Allah_is_my_Lord/123_Allah_Allah_is_my_Lord_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "123_Allah_Allah_is_my_Lord_Mishary_1.mp3",
+      "path": "/invocations/123_Allah_Allah_is_my_Lord/123_Allah_Allah_is_my_Lord_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

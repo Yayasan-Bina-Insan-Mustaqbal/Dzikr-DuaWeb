@@ -1,0 +1,33 @@
+{
+  "id": 105,
+  "name": "Before Sleeping",
+  "arabic": "((بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا)).",
+  "metadata": {
+    "reference": "Buhariu “Fet’hul-Bari” 11/113, Muslimi 4/2083.",
+    "chapter_name": "Before Sleeping",
+    "internal_id": "Before Sleeping"
+  },
+  "transliterations": {
+    "latin": "Bismike All-llahumme emutu ve ahja"
+  },
+  "translations": {
+    "albanian": "Me emrin Tënd, o Allahu im vdes dhe me emrin Tënd jetoj.",
+    "english": "(In Your name O Allah, I live and die.)",
+    "indonesian": "Dengan namaMu, ya Allah! Aku mati dan hidup."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "105_Before_Sleeping_default_1.mp3",
+      "path": "/invocations/105_Before_Sleeping/105_Before_Sleeping_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "105_Before_Sleeping_Mishary_1.mp3",
+      "path": "/invocations/105_Before_Sleeping/105_Before_Sleeping_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

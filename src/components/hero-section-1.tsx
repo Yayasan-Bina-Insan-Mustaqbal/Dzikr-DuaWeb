@@ -37,7 +37,7 @@ export default function HeroSection1() {
                             asChild
                             size="lg"
                             className="rounded-2xl h-14 px-8 font-bold text-lg shadow-xl shadow-primary/20 hover:scale-105 transition-all">
-                            <Link to="/play">Start Remembrance</Link>
+                            <Link to="/play" search={{ queue: undefined }}>Start Remembrance</Link>
                         </Button>
                         <Button
                             asChild

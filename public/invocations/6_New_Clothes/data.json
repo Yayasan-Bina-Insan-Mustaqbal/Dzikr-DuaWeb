@@ -1,0 +1,33 @@
+{
+  "id": 6,
+  "name": "New Clothes",
+  "arabic": "( اللَّهُمَّ لَكَ الْحَمْدُ أَنْتَ كَسَوْتَنِيهِ، أَسْأَلُكَ مِنْ خَيْرِهِ وَخَيْرِ مَا صُنِعَ لَهُ، وَأَعُوذُ بِكَ مِنْ شَرِّهِ وَشَرِّ مَا صُنِعَ لَهُ).",
+  "metadata": {
+    "reference": "Ebu Davudi, Tirmidhiu dhe Begaviu, “Muhtesar Shemail et-Tirmidhi”, nga shejh Albani, fq. 47.",
+    "chapter_name": "New Clothes",
+    "internal_id": "New Clothes"
+  },
+  "transliterations": {
+    "latin": "All-llahumme lekel-hamdu ente kesevtenihi, es-eluke min hajrihi, ve hajri ma suni-a lehu, ve eudhu bike min sherrihi ve sherri ma suni-a lehu"
+  },
+  "translations": {
+    "albanian": "O Zoti im, Ty të takon Falënderimi, Ti je Ai i Cili më furnizove me të, Të lutem ma dhuro të mirën e saj dhe të mirën për çfarë është punuar. Kërkoj mbrojtjen tënde nga e keqja e saj dhe nga e keqja për çfarë është punuar ajo.",
+    "english": "(O Allah, for You is all praise, You have clothed me with it (i.e. the garment), I ask You for the good of it and the good for which it was made, and I seek refuge with You from the evil of it and the evil for which it was made.)",
+    "indonesian": "Silsilah Ahadits Ad-Dla'ifah (13 Jilid); Syaikh Muhammad Nashiruddin Al-Albani rahimahullah. Penerbit: Maktabah Al-Ma'arif Linnasyir Wa At-Tauji', Riyadl-KSA."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "6_New_Clothes_default_1.mp3",
+      "path": "/invocations/6_New_Clothes/6_New_Clothes_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "6_New_Clothes_Mishary_1.mp3",
+      "path": "/invocations/6_New_Clothes/6_New_Clothes_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

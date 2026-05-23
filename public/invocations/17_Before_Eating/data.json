@@ -1,0 +1,33 @@
+{
+  "id": 17,
+  "name": "Before Eating",
+  "arabic": "(بِسْمِ اللَّهِ، تَوَكَّلْتُ عَلَى اللَّهِ، وَلَاَ حَوْلَ وَلَا قُوَّةَ إِلاَّ بِاللَّهِ).",
+  "metadata": {
+    "reference": "Ebu Davudi 4/325, Tirmidhiu 5/490 “Sahih et-Tirmidhi” 3/151.",
+    "chapter_name": "Leaving Home",
+    "internal_id": "Before Eating"
+  },
+  "transliterations": {
+    "latin": "Bismil-lahi, tevekkeltu ala All-llahi, ve la havle ve la kuvvete il-la bil-lah"
+  },
+  "translations": {
+    "albanian": "Me emrin e Allahut, në Allahun u mbështeta, nuk ka ndryshim e as forcë pa ndihmën e Allahut.",
+    "english": "(In the name of Allah, I place my trust in Allah, and there is no might nor power except with Allah.)",
+    "indonesian": "Ya Allah, sesungguhnya aku berlindung kepadaMu, jangan sampai aku sesat atau disesatkan (setan atau orang yang berwatak"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "17_Before_Eating_default_1.mp3",
+      "path": "/invocations/17_Before_Eating/17_Before_Eating_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "17_Before_Eating_Mishary_1.mp3",
+      "path": "/invocations/17_Before_Eating/17_Before_Eating_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

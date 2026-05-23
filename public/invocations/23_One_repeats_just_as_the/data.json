@@ -1,0 +1,33 @@
+{
+  "id": 23,
+  "name": "‘One repeats just as the...",
+  "arabic": " يَقُولُ مِثْلَ مَا يَقُولُ المُؤَذِّنُ إِلاَّ فِي ((حَيَّ عَلَى الصَّلَاةِ وَحَيَّ عَلَى الْفَلَاحِ)) فَيقُولُ: ((لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ)).",
+  "metadata": {
+    "reference": "Buhariu 1/152, Muslimi 1/288.",
+    "chapter_name": "Hearing Athan",
+    "internal_id": "Hearing Athan (1)"
+  },
+  "transliterations": {
+    "latin": "La havle, ve la kuvvete il-la bil-lah"
+  },
+  "translations": {
+    "albanian": "Nuk ka ndryshim e as forcë pa ndihmën e Allahut.",
+    "english": "‘One repeats just as the mu-aththin (one who calls to prayer) says, except when he says: Hayya AAalas-salah (or) hayya AAalal-falah ‘come to prayer, come to success’ instead, one should say: La hawla wala quwwata illa billah. ‘There is no might nor power except with Allah.’",
+    "indonesian": "Aku bersaksi, bahwa tiada Tuhan yang haq selain Allah, Yang Maha Esa, tidak ada sekutu bagiNya dan sesungguhnya Muhammad adalah hamba dan utusanNya. Aku rela Allah sebagai Tuhan,"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "23_One_repeats_just_as_the_default_1.mp3",
+      "path": "/invocations/23_One_repeats_just_as_the/23_One_repeats_just_as_the_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "23_One_repeats_just_as_the_Mishary_1.mp3",
+      "path": "/invocations/23_One_repeats_just_as_the/23_One_repeats_just_as_the_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

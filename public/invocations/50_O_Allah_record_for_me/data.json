@@ -1,0 +1,33 @@
+{
+  "id": 50,
+  "name": "O Allah, record for me...",
+  "arabic": "((اللَّهُمَّ اكْتُبْ لِي بِهَا عِنْدَكَ أَجْراً، وَضَعْ عَنِّي بِهَا وِزْراً، وَاجْعَلْهَا لِي عِنْدَكَ ذُخْراً، وَتَقَبَّلْهَا مِنِّي كَمَا تَقَبَّلْتَهَا مِنْ عَبْدِكَ دَاوُدَ)).",
+  "metadata": {
+    "reference": "Tirmidhiu 2/473 dhe Hakimi, i cili thotë se hadithi është i vërtetë. Me këtë pajtohet edhe Dhehebiu 1/219.",
+    "chapter_name": "Recitation Prostration",
+    "internal_id": "Recitation Prostration (2)"
+  },
+  "transliterations": {
+    "latin": "All-llahumme uktub li biha indeke exhren, ve da’anni biha vizren, vexh’alha li indeke dhuhren, ve tekabbelha minni kema tekabbelteha min abdike Davud"
+  },
+  "translations": {
+    "albanian": "O Allahu im, më shkruaj mua me këtë sexhde tek Ti shpërblim dhe largoj nga unë mëkatet, bëje që me këtë sexhde të kem dobi tek Ti, ma prano mua këtë sexhde, ashtu siç e ke pranuar prej robit tënd Davudit.",
+    "english": "(O Allah, record for me a reward for this (prostration), and remove from me a sin.  Save it for me and accept it from me just as You had accepted it from Your servant Dawood.)",
+    "indonesian": "Bersujud wajahku kepada Tuhan yang menciptakannya, yang membelah pendengaran dan penglihatannya dengan Daya dan KekuatanNya, Maha Suci Allah sebaik-baik Pencipta.66"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "50_O_Allah_record_for_me_default_1.mp3",
+      "path": "/invocations/50_O_Allah_record_for_me/50_O_Allah_record_for_me_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "50_O_Allah_record_for_me_Mishary_1.mp3",
+      "path": "/invocations/50_O_Allah_record_for_me/50_O_Allah_record_for_me_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

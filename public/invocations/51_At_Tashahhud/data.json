@@ -1,0 +1,33 @@
+{
+  "id": 51,
+  "name": "At-Tashahhud",
+  "arabic": "((التَّحِيَّاتُ لِلَّهِ، وَالصَّلَواتُ، وَالطَّيِّباتُ، السَّلاَمُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ، السَّلاَمُ عَلَيْنَا وَعَلَى عِبَادِ اللَّهِ الصَّالِحِينَ. أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّداً عَبْدُهُ وَرَسولُهُ)).",
+  "metadata": {
+    "reference": "Buhariu “Fet’hul-Bari” 1/13, Muslimi 1/301.",
+    "chapter_name": "At-Tashahhud",
+    "internal_id": "At-Tashahhud"
+  },
+  "transliterations": {
+    "latin": "Et-tehijjatu lil-lahi ves-salavatu vet-tajjibatu, es-selamu alejke ejjuhen-nebijju ve rahmetull-llahi ve berekatuhu, es-selamu alejna ve ala ibadil-lahis-salihin. Eshhedu en la Ilahe il-lAll-llahu ve eshhedu enne Muhammeden abduhu ve resuluhu"
+  },
+  "translations": {
+    "albanian": "Nderimi, lutjet dhe të gjitha mirësitë i takojnë Allahut. Le të jetë paqja mbi ty o i Dërguar i Zotit, paqja le të jetë mbi të gjithë ne dhe mbi të gjithë robërit e mirë të Allahut. Dëshmoj se nuk ka të adhuruar tjetër përveç Allahut dhe dëshmoj se Muhamedi është robi dhe i Dërguari i Tij.",
+    "english": "(At-tahiyyat is for Allah. All acts of worship and good deeds are for Him.  Peace and the mercy and blessings of Allah be upon you O Prophet.  Peace be upon us and all of Allah’s righteous servants. I bear witness that none has the right to be worshipped except Allah and I bear witness that Muhammad is His slave and Messenger.)(At-tahiyyat: all words which indicate the glorification of Allah.  His eternal existence, His perfection and His sovereignty.)",
+    "indonesian": "Ya Allah, tulislah untukku dengan sujudku pahala di sisiMu dan ampunilah dengannya akan dosaku, serta jadikanlah simpanan untukku di sisiMu dan terimalah sujudku sebagaimana Engkau telah menerimanya dari hambaMu Dawud.67 Doa Tasyahhud"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "51_At_Tashahhud_default_1.mp3",
+      "path": "/invocations/51_At_Tashahhud/51_At_Tashahhud_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "51_At_Tashahhud_Mishary_1.mp3",
+      "path": "/invocations/51_At_Tashahhud/51_At_Tashahhud_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

@@ -1,0 +1,33 @@
+{
+  "id": 81,
+  "name": "Evening: Testimony (4x)",
+  "arabic": "((اللَّهُمَّ إِنِّي أَمْسَيْتُ أُشْهِدُكَ، وَأُشْهِدُ حَمَلَةَ عَرْشِكَ، وَمَلاَئِكَتِكَ، وَجَمِيعَ خَلْقِكَ، أَنَّكَ أَنْتَ اللَّهُ لَا إِلَهَ إِلاَّ أَنْتَ وَحْدَكَ لاَ شَرِيكَ لَكَ، وَأَنَّ مُحَمَّداً عَبْدُكَ وَرَسُولُكَ)) (أربعَ مَرَّاتٍ).[ وإذا أمسى قال: اللَّهم إني أمسيت...]",
+  "metadata": {
+    "reference": "Ndërsa në mbrëmje thotë: Allahumme inni emsejtu ush-hiduke, ve ush-hidu hamelete Arshike ve Melaiketeke ve xhemia halkike, Enneke EnteAll-llahu la Ilahe il-la Ente vahdeke la sherike Lek, ve enne Muhammeden abduke ve resuluke…",
+    "chapter_name": "Evening Adhkar",
+    "internal_id": "Evening Adhkar (6)"
+  },
+  "transliterations": {
+    "latin": "All-llahumme inni asbahtu  ush-hiduke, ve ush-hidu hamelete Arshike ve Melaiketeke ve xhemia halkike, Enneke EnteAll-llahu la Ilahe il-la Ente vahdeke la sherike Lek, ve enne Muhammeden abduke ve resuluke. (4 herë)."
+  },
+  "translations": {
+    "albanian": "O Allahu im, unë u zgjova, dëshmoj për Ty dhe për mbajtësit e Arshit Tënd, për melaiket Tua dhe për të gjitha krijesat Tua, sepse vërtetë Ti je Allahu i Vetëm, nuk ka të adhuruar tjetër përveç Teje, Ti je i Vetëm dhe i pa rival dhe dëshmoj se Muhamedi (a.s) është robi dhe i Dërguari i Yt.",
+    "english": "(O Allah, verily I have reached the evening and call on You, the bearers of Your throne, Your angles, and all of Your creation to witness that You are Allah, none has the right to be worshipped except You, alone, without partner and that Muhammad is Your Servant and Messenger.) (four times in the evening & evening)(Note: for the evening, one reads (amsaytu) instead of (asbahtu).)",
+    "indonesian": "Ya Allah! Nikmat yang kuterima atau diterima oleh seseorang di antara makhlukMu di pagi ini adalah dariMu. Maha Esa Engkau, tiada sekutu bagi-Mu. BagiMu segala puji dan kepadaMu panjatan syukur (dari seluruh makhluk-Mu)."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "81_Evening_Testimony_4x_default_1.mp3",
+      "path": "/invocations/81_Evening_Testimony_4x/81_Evening_Testimony_4x_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "81_Evening_Testimony_4x_Mishary_1.mp3",
+      "path": "/invocations/81_Evening_Testimony_4x/81_Evening_Testimony_4x_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

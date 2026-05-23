@@ -1,0 +1,33 @@
+{
+  "id": 11,
+  "name": "Leaving Toilet",
+  "arabic": "(غُفْرَانَكَ).",
+  "metadata": {
+    "reference": "Transmetojnë autorët e katër Suneneve përveç Nesaiut i cili këtë hadith e shënon në librin e tij “Amel el-Jevmi ve Lejleh” “Zadul-Mead” 2/387.",
+    "chapter_name": "Leaving Restroom",
+    "internal_id": "Leaving Toilet"
+  },
+  "transliterations": {
+    "latin": "Gufraneke"
+  },
+  "translations": {
+    "albanian": "Kërkoj faljen tënde o Allah.",
+    "english": "(I ask You (Allah) for forgiveness.)",
+    "indonesian": "Aku minta ampun kepadaMu\". 21 Doa Sebelum Sesudah Wudhu"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "11_Leaving_Toilet_default_1.mp3",
+      "path": "/invocations/11_Leaving_Toilet/11_Leaving_Toilet_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "11_Leaving_Toilet_Mishary_1.mp3",
+      "path": "/invocations/11_Leaving_Toilet/11_Leaving_Toilet_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

@@ -1,0 +1,33 @@
+{
+  "id": 159,
+  "name": "O Allah, I ask You...",
+  "arabic": "((اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَهَا، وَخَيْرَ مَا فِيهَا، وَخَيْرَ مَا أُرْسِلَتْ بِهِ، وَأَعُوذُ بِكَ مِنْ شَرِّهَا، وَشَرِّ مَا فِيهَا، وَشَرِّ مَا أُرْسِلَتْ بِهِ)).",
+  "metadata": {
+    "reference": "Muslimi 2/616, Buhariu 4/76.",
+    "chapter_name": "Wind Blows",
+    "internal_id": "Wind Blows (2)"
+  },
+  "transliterations": {
+    "latin": "All-llahumme inni es’eluke hajreha ve hajre ma fiha, ve hajre ma ursilet bihi, ve eudhu bike min sherriha ve sherri ma fiha, ve sherri ma ursilet bihi"
+  },
+  "translations": {
+    "albanian": "O Allahu im, kërkoj nga Ti të mirën e saj, të mirën që ka në të, të mirën që është dërguar me të; më mbroj prej të keqes së saj, të keqes që ka në të dhe prej të keqes që është dërguar me të.",
+    "english": "(O Allah, I ask You for it’s goodness, the good within it, and the good it was sent with, and I take refuge with You from it’s evil, the evil within it, and from the evil it was sent with.)",
+    "indonesian": "Ya, Allah, ini hambaMu, anak hambaMu perempuan (Hawa), membutuhkan rahmatMu, sedang Engkau tidak membutuhkan untuk menyiksanya, jika ia berbuat baik tambahkanlah dalam amalan baiknya, dan jika dia orang yang salah, lewatkanlah dari kesalahan-nya."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "159_O_Allah_I_ask_You_default_1.mp3",
+      "path": "/invocations/159_O_Allah_I_ask_You/159_O_Allah_I_ask_You_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "159_O_Allah_I_ask_You_Mishary_1.mp3",
+      "path": "/invocations/159_O_Allah_I_ask_You/159_O_Allah_I_ask_You_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

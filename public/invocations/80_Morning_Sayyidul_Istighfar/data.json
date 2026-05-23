@@ -1,0 +1,33 @@
+{
+  "id": 80,
+  "name": "Morning: Sayyidul Istighfar",
+  "arabic": "((اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلاَّ أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لاَ يَغْفِرُ الذُّنوبَ إِلاَّ أَنْتَ)).",
+  "metadata": {
+    "reference": "“Kush e thotë këtë lutje në mbrëmje duke qenë i bindur në të dhe vdes po atë natë do të jetë prej banorëve të Xhenetit, po ashtu edhe në mëngjes.” Buhariu 7/150.",
+    "chapter_name": "Morning Adhkar",
+    "internal_id": "Sayyid ul Istighfar"
+  },
+  "transliterations": {
+    "latin": "All-llahume ente Rabbi la Ilahe il-la ente halakteni ve eneve enealaahdike ve vadike mestet’atu eudhu bike min sherri na sanatu eb’uleke bi nimetike aleje ve eb’u bi dhenbi fagfir li fe innehu la jagfirudh-dhunube il-la Ente"
+  },
+  "translations": {
+    "albanian": "O Allah, ti je Zoti im, nuk ka hyjni që meriton të adhurohet përveç Teje; Ti më ke krijuar dhe unë jam robi Yt, do të qëndroj besnik ndaj marrëveshjes dhe premtimit Tënd aq sa të kem mundësi; Kërkoj mbrojtjen Tënde nga e keqja që kam vepruar, Unë jam mirënjohës ndaj dhuntive Tua, i pranoj mëkatet e mia, andaj më fal, ngase mëkatet nuk i fal askush tjetër përveç Teje.",
+    "english": "(O Allah, You are my Lord, none has the right to be worshipped except You, You created me and I am Your servant and I abide to Your covenant and promise as best I can, I take refuge in You from the evil of which I have committed.  I acknowledge Your favour upon me and I acknowledge my sin, so forgive me, for verily none can forgive sin except You.)",
+    "indonesian": "Ya Allah, Engkau adalah Rabb-ku, tidak ada Ilah (yang berhak diibadahi dengan benar) kecuali Engkau, Engkau-lah yang menciptakanku. Aku adalah hamba-Mu. Aku akan setia pada perjanjianku dengan-Mu semampuku. Aku berlindung kepada-Mu dari kejelekan (apa) yang kuperbuat. Aku mengakui nikmat-Mu (yang diberikan) kepadaku dan aku mengakui dosaku, oleh karena itu, ampunilah aku. Sesungguhnya tidak ada yang dapat mengampuni dosa kecuali Engkau."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "80_Morning_Sayyidul_Istighfar_default_1.mp3",
+      "path": "/invocations/80_Morning_Sayyidul_Istighfar/80_Morning_Sayyidul_Istighfar_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "80_Morning_Sayyidul_Istighfar_Mishary_1.mp3",
+      "path": "/invocations/80_Morning_Sayyidul_Istighfar/80_Morning_Sayyidul_Istighfar_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

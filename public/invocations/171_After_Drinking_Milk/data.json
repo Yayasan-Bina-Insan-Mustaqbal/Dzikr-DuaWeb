@@ -1,0 +1,33 @@
+{
+  "id": 171,
+  "name": "After Drinking Milk",
+  "arabic": "((مَنْ أَطْعَمَهُ اللَّهُ الطَّعَامَ فَلْيَقُلْ: اللَّهُمَّ بَارِكْ لَنَا فِيهِ وَأَطْعِمْنَا خَيْراً مِنْهُ، وَمَنْ سَقَاهُ اللَّهُ لَبَناً فَلْيَقُلْ اللَّهُمَّ بَارِكْ لَنَا فِيهِ وَزِدْنَا مِنْهُ)).",
+  "metadata": {
+    "reference": "Shënon Tirmidhiu 5/506, “Sahih et-Tirmidhi” 3/158.",
+    "chapter_name": "Before Eating",
+    "internal_id": "After Drinking Milk"
+  },
+  "transliterations": {
+    "latin": "All-llahumme barik lena fihi ve et’imna hajren minhu"
+  },
+  "translations": {
+    "albanian": "O Allahu im, na beko në këtë ushqim dhe na furnizo me ushqim më të mirë se ky.",
+    "english": "(Whomever Allah feeds, should say:(O Allah, bless it for us and feed us better than it.) and whomever Allah gives milk to drink should say:(O Allah, bless it for usand give us more of it.))",
+    "indonesian": "Ya Allah! Berilah hujan kepada hamba-hambaMu, ternakternakMu, berilah rahmatMu dengan merata, dan suburkan tanahMu yang tandus."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "171_After_Drinking_Milk_default_1.mp3",
+      "path": "/invocations/171_After_Drinking_Milk/171_After_Drinking_Milk_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "171_After_Drinking_Milk_Mishary_1.mp3",
+      "path": "/invocations/171_After_Drinking_Milk/171_After_Drinking_Milk_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

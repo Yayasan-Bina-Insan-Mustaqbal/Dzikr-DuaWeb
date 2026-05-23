@@ -1,0 +1,33 @@
+{
+  "id": 160,
+  "name": "When Hearing Thunder",
+  "arabic": "((سُبْحَانَ الَّذِي يُسَبِّحُ الرَّعْدُ بِحَمْدِهِ وَالْمَلاَئِكةُ مِنْ خِيفَتِهِ)).",
+  "metadata": {
+    "reference": "Shënohet se Abdullah Ibën Zubejri   kur e dëgjonte murmurimën e ndërpriste bisedën dhe thoshte... (ha-dithin), Maliku në “Muveta” 2/992, Albani thotë se senedi është i vërtetë (mevkuf).",
+    "chapter_name": "Thunder",
+    "internal_id": "When Hearing Thunder"
+  },
+  "transliterations": {
+    "latin": "Subhanel-ledhi jusebbihur-ra’du bi hamdihi vel melaiketu min hifetihi"
+  },
+  "translations": {
+    "albanian": "I Lartmadhëruar qoftë Allahu, të Cilin e madhëron murmurima me Falënderimin e Tij, e edhe melaiket e madhërojnë, prej frikës ndaj Tij.",
+    "english": "(How perfect He is, (The One) Whom the thunder declares His perfection with His praise, as do the angles out of fear of Him.)",
+    "indonesian": "Ya Allah, lindungilah dia dari siksa kubur. 179 Apabila membaca doa berikut, maka itu lebih baik:"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "160_When_Hearing_Thunder_default_1.mp3",
+      "path": "/invocations/160_When_Hearing_Thunder/160_When_Hearing_Thunder_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "160_When_Hearing_Thunder_Mishary_1.mp3",
+      "path": "/invocations/160_When_Hearing_Thunder/160_When_Hearing_Thunder_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

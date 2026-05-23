@@ -1,0 +1,33 @@
+{
+  "id": 37,
+  "name": "May Allah answer he who...",
+  "arabic": "((سَمِعَ اللَّهُ لِمَنْ حَمِدَهُ)).",
+  "metadata": {
+    "reference": "Buhariu “Fet’hul-Bari” 2/282.",
+    "chapter_name": "Rising from Ruku'",
+    "internal_id": "Rising from Ruku' (1)"
+  },
+  "transliterations": {
+    "latin": "Semi’All-llahu limen hamideh"
+  },
+  "translations": {
+    "albanian": "Allahu e dëgjon atë që e falënderoi Atë.",
+    "english": "(May Allah answer he who praises Him.)(This supplication is to be made while rising.)",
+    "indonesian": "Maha Suci (Allah) Yang memiliki Keperkasaan, Kerajaan, Kebesaran dan Keagungan.53 Doa Bangun Dari Ruku' (I'tidal)"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "37_May_Allah_answer_he_who_default_1.mp3",
+      "path": "/invocations/37_May_Allah_answer_he_who/37_May_Allah_answer_he_who_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "37_May_Allah_answer_he_who_Mishary_1.mp3",
+      "path": "/invocations/37_May_Allah_answer_he_who/37_May_Allah_answer_he_who_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

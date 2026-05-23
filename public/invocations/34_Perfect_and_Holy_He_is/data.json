@@ -1,0 +1,33 @@
+{
+  "id": 34,
+  "name": "Perfect and Holy He is,...",
+  "arabic": "((سُبُّوُحٌ، قُدُّوسٌ، رَبُّ المَلاَئِكَةِ وَالرُّوحِ)).",
+  "metadata": {
+    "reference": "Muslimi 1/353, Ebu Davudi 1/230.",
+    "chapter_name": "During Ruku'",
+    "internal_id": "During Ruku' (3)"
+  },
+  "transliterations": {
+    "latin": "Subbuhun, Kudusun Rabbul Melaiketi ver-Ruh"
+  },
+  "translations": {
+    "albanian": "I Madhëruar dhe i Shenjtë është Zoti i melaikeve dhe i Xhibrilit.",
+    "english": "(Perfect and Holy (He is), Lord of the angles and the Rooh (i.e. Jibra-eel).)",
+    "indonesian": "Maha Suci Engkau, ya Allah! Tuhanku, dan dengan pujiMu. Ya Allah! Ampunilah dosaku."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "34_Perfect_and_Holy_He_is_default_1.mp3",
+      "path": "/invocations/34_Perfect_and_Holy_He_is/34_Perfect_and_Holy_He_is_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "34_Perfect_and_Holy_He_is_Mishary_1.mp3",
+      "path": "/invocations/34_Perfect_and_Holy_He_is/34_Perfect_and_Holy_He_is_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

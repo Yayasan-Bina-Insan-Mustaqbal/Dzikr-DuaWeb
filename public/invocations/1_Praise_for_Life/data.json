@@ -1,0 +1,33 @@
+{
+  "id": 1,
+  "name": "Praise for Life",
+  "arabic": "(.الْحَمْدُ للَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا، وَإِلَيْهِ النُّشُورُ )",
+  "metadata": {
+    "reference": "Buhariu “Fet’hul-Bari” 11/113 dhe Muslimi 4/2083",
+    "chapter_name": "Upon Waking Up",
+    "internal_id": "Upon Waking Up (1)"
+  },
+  "transliterations": {
+    "latin": "Elhamdulil-lahil-ledhi ahjana ba’de ma ematena, ve ilejhin-nushur"
+  },
+  "translations": {
+    "albanian": "Falënderimi i takon Allahut, i Cili na ringjalli pasi na bëri të vdekur dhe tek Ai është ringjallja (tubimi Ditën e Gjykimit).",
+    "english": "(All praise is for Allah who gave us life after having taken it from us and unto Him is the resurrection.)",
+    "indonesian": "Shahih wa Dla'if Al-Jami' As-Shaghir (3 Jilid); Syaikh Muhammad Nashiruddin Al- Albani rahimahullah. Penerbit: Al-Maktabah AlIslamiy, Bairut-Libanon."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "1_Praise_for_Life_default_1.mp3",
+      "path": "/invocations/1_Praise_for_Life/1_Praise_for_Life_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "1_Praise_for_Life_Mishary_1.mp3",
+      "path": "/invocations/1_Praise_for_Life/1_Praise_for_Life_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

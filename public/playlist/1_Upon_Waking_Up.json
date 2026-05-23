@@ -1,0 +1,23 @@
+{
+  "id": 1,
+  "name": "Upon Waking Up",
+  "invocations": [
+    {
+      "id": 1,
+      "name": "Praise for Life"
+    },
+    {
+      "id": 2,
+      "name": "Declaration of Oneness"
+    },
+    {
+      "id": 3,
+      "name": "Praise for Health"
+    },
+    {
+      "id": 4,
+      "name": "Creation of Heavens & Earth"
+    }
+  ],
+  "description": ""
+}

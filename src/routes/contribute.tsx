@@ -18,6 +18,9 @@ interface MockInvocation {
   english: string;
   reference: string;
   audio?: string;
+  name?: string;
+  internal_id?: string;
+  albanian?: string;
 }
 
 // Dynamically generate the full real list of invocations from the application's local static database!
@@ -30,13 +33,18 @@ const MOCK_INVOCATIONS: MockInvocation[] = getChapters().flatMap(chapter =>
     indonesian: inv.indonesian || "",
     english: inv.english || "",
     reference: inv.reference,
-    audio: inv.audio
+    audio: inv.audio,
+    name: inv.name || "",
+    internal_id: inv.internal_id || "",
+    albanian: inv.albanian || ""
   }))
 )
 
 interface DraftContribution {
   invocationId: number;
   arabic: string;
+  description?: string;
+  referenceAudio?: string;
   translations: Record<string, string>; // e.g. { indonesian: "...", english: "...", french: "..." }
   transliterations: Record<string, string>; // e.g. { latin: "...", cyrillic: "..." }
   audioState: "none" | "recorded" | "uploaded";
@@ -113,6 +121,7 @@ function ContributeRoute() {
   const [expandedRows, setExpandedRows] = useState<Record<number, boolean>>({})
   const [draftStore, setDraftStore] = useState<Record<number, DraftContribution>>({})
   const [editingFields, setEditingFields] = useState<Record<number, Partial<DraftContribution>>>({})
+  const [loadingRows, setLoadingRows] = useState<Record<number, boolean>>({})
 
   // Multi-language active tabs & addition states
   const [rowActiveTranslationTab, setRowActiveTranslationTab] = useState<Record<number, string>>({})
@@ -293,30 +302,119 @@ function ContributeRoute() {
     window.location.href = `https://github.com/login/oauth/authorize?client_id=${clientId}&scope=public_repo&redirect_uri=${redirectUri}`
   }
 
+  const sanitizeName = (name: string): string => {
+    let sanitized = name.replace(/[\(\)]/g, '');
+    sanitized = sanitized.replace(/[^a-zA-Z0-9\s_\-]/g, '');
+    sanitized = sanitized.replace(/[\s\-]+/g, '_');
+    sanitized = sanitized.replace(/_+/g, '_');
+    return sanitized.trim().replace(/^_+|_+$/g, '');
+  }
+
   const toggleRow = (id: number) => {
     setExpandedRows(prev => {
       const next = { ...prev, [id]: !prev[id] }
       // Initialize editing state if expanding for the first time
       if (next[id] && !editingFields[id]) {
         const original = MOCK_INVOCATIONS.find(i => i.id === id)!
-        setEditingFields(fields => ({
-          ...fields,
-          [id]: {
-            invocationId: id,
-            arabic: original.arabic,
-            translations: draftStore[id]?.translations || {
-              indonesian: original.indonesian,
-              english: original.english || ""
-            },
-            transliterations: draftStore[id]?.transliterations || {
-              latin: original.latin
-            },
-            audioState: draftStore[id]?.audioState || "none",
-            audioTrimStart: draftStore[id]?.audioTrimStart || 0,
-            audioTrimEnd: draftStore[id]?.audioTrimEnd || 100,
-            volumeBoost: draftStore[id]?.volumeBoost || false
-          }
-        }))
+        const invName = original.name || original.internal_id || `Invocation ${id}`
+        const sanitized = sanitizeName(invName)
+        
+        // Mark as loading
+        setLoadingRows(l => ({ ...l, [id]: true }))
+        
+        fetch(`/invocations/${id}_${sanitized}/data.json`)
+          .then(res => {
+            if (!res.ok) throw new Error("File not found")
+            return res.json()
+          })
+          .then(data => {
+            const translationsMap: Record<string, string> = {
+              indonesian: data.translations?.indonesian || original.indonesian || "",
+              english: data.translations?.english || original.english || "",
+              albanian: data.translations?.albanian || original.albanian || ""
+            }
+            if (data.translations) {
+              Object.entries(data.translations).forEach(([k, v]) => {
+                if (typeof v === "string") {
+                  translationsMap[k] = v
+                }
+              })
+            }
+            
+            const transliterationsMap: Record<string, string> = {
+              latin: data.transliterations?.latin || original.latin || ""
+            }
+            if (data.transliterations) {
+              Object.entries(data.transliterations).forEach(([k, v]) => {
+                if (typeof v === "string") {
+                  transliterationsMap[k] = v
+                }
+              })
+            }
+            
+            let loadedAudio = original.audio;
+            if (data.audio && data.audio.length > 0) {
+              loadedAudio = data.audio[0].path; // Use the first available audio version as reference
+            }
+
+            setEditingFields(fields => ({
+              ...fields,
+              [id]: {
+                invocationId: id,
+                arabic: data.arabic || original.arabic || "",
+                description: data.description || draftStore[id]?.description || "",
+                referenceAudio: draftStore[id]?.referenceAudio || loadedAudio,
+                translations: draftStore[id]?.translations || translationsMap,
+                transliterations: draftStore[id]?.transliterations || transliterationsMap,
+                audioState: draftStore[id]?.audioState || "none",
+                audioTrimStart: draftStore[id]?.audioTrimStart || 0,
+                audioTrimEnd: draftStore[id]?.audioTrimEnd || 100,
+                volumeBoost: draftStore[id]?.volumeBoost || false
+              }
+            }))
+            
+            setRowAudioStates(prevLogs => {
+              const currentLogs = prevLogs[id] || getRowAudioState(id)
+              return {
+                ...prevLogs,
+                [id]: {
+                  ...currentLogs,
+                  trimLog: [
+                    ...currentLogs.trimLog,
+                    `[${new Date().toLocaleTimeString()}] 📥 Dynamic load successful from public/invocations/${id}_${sanitized}/data.json.`
+                  ]
+                }
+              }
+            })
+          })
+          .catch(err => {
+            console.warn("Could not load dynamic data.json, falling back to static database:", err)
+            setEditingFields(fields => ({
+              ...fields,
+              [id]: {
+                invocationId: id,
+                arabic: original.arabic,
+                description: draftStore[id]?.description || "",
+                referenceAudio: draftStore[id]?.referenceAudio || original.audio,
+                translations: draftStore[id]?.translations || {
+                  indonesian: original.indonesian,
+                  english: original.english || "",
+                  albanian: (original as any).albanian || ""
+                },
+                transliterations: draftStore[id]?.transliterations || {
+                  latin: original.latin
+                },
+                audioState: draftStore[id]?.audioState || "none",
+                audioTrimStart: draftStore[id]?.audioTrimStart || 0,
+                audioTrimEnd: draftStore[id]?.audioTrimEnd || 100,
+                volumeBoost: draftStore[id]?.volumeBoost || false
+              }
+            }))
+          })
+          .finally(() => {
+            setLoadingRows(l => ({ ...l, [id]: false }))
+          })
+        
         // Initialize default tabs
         setRowActiveTranslationTab(tabs => ({ ...tabs, [id]: "indonesian" }))
         setRowActiveTransTab(tabs => ({ ...tabs, [id]: "latin" }))
@@ -492,13 +590,14 @@ function ContributeRoute() {
   const togglePlayRef = (id: number) => {
     const original = MOCK_INVOCATIONS.find(i => i.id === id)!
     const current = getRowAudioState(id)
+    const draft = editingFields[id] || draftStore[id]
     const nextPlayState = !current.isPlayingRef
     
     stopAllAudio('ref', id)
     
     let audio = refAudioElements.current[id]
     if (!audio) {
-      const audioSrc = original?.audio || `/audios/001_01.mp3`
+      const audioSrc = draft?.referenceAudio || original?.audio || `/audios/001_01.mp3`
       audio = new Audio(audioSrc)
       refAudioElements.current[id] = audio
       
@@ -1463,8 +1562,17 @@ function ContributeRoute() {
                           className="overflow-hidden border-t border-[#F1F5F9] bg-[#FAF9F6]/60 border-l-4 border-l-amber-500 w-full"
                         >
                           <div className="p-8 flex flex-col gap-6 w-full">
-                            
-                            {/* Attribution Chain Badge Warning */}
+                            {loadingRows[item.id] ? (
+                              <div className="flex flex-col items-center justify-center py-16 gap-4 w-full">
+                                <div className="relative w-10 h-10">
+                                  <div className="absolute inset-0 rounded-full border-4 border-slate-100" />
+                                  <div className="absolute inset-0 rounded-full border-4 border-t-[#064E3B] animate-spin" />
+                                </div>
+                                <span className="text-xs font-semibold text-[#064E3B] font-mono animate-pulse">Loading dynamic Isnād data...</span>
+                              </div>
+                            ) : (
+                              <>
+                                {/* Attribution Chain Badge Warning */}
                             <div className="flex items-start gap-3 bg-amber-50/50 border border-amber-100 rounded-2xl p-4">
                               <span className="material-symbols-outlined text-amber-600 mt-0.5">shield_person</span>
                               <div className="flex flex-col gap-1">
@@ -1480,16 +1588,29 @@ function ContributeRoute() {
 
                             {/* Editable Text Fields Grid */}
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full">
-                              {/* Left pane: Arabic Text */}
-                              <div className="flex flex-col gap-2">
-                                <label className="text-[10px] font-bold uppercase tracking-wider text-[#64748B]">Arabic Matan (Original Reference)</label>
-                                <textarea 
-                                  rows={5}
-                                  value={fields.arabic || ""}
-                                  onChange={(e) => handleFieldChange(item.id, "arabic", e.target.value)}
-                                  dir="rtl"
-                                  className="w-full p-4 rounded-2xl border border-[#E2E8F0] bg-white focus:outline-none focus:ring-2 focus:ring-[#064E3B]/20 focus:border-[#064E3B] font-serif text-xl leading-loose text-[#0F172A] transition-all resize-none shadow-inner animate-fade-in"
-                                />
+                              {/* Left pane: Arabic Text & Description */}
+                              <div className="flex flex-col gap-4">
+                                <div className="flex flex-col gap-2">
+                                  <label className="text-[10px] font-bold uppercase tracking-wider text-[#64748B]">Arabic Matan (Original Reference)</label>
+                                  <textarea 
+                                    rows={5}
+                                    value={fields.arabic || ""}
+                                    onChange={(e) => handleFieldChange(item.id, "arabic", e.target.value)}
+                                    dir="rtl"
+                                    className="w-full p-4 rounded-2xl border border-[#E2E8F0] bg-white focus:outline-none focus:ring-2 focus:ring-[#064E3B]/20 focus:border-[#064E3B] font-serif text-xl leading-loose text-[#0F172A] transition-all resize-none shadow-inner animate-fade-in"
+                                  />
+                                </div>
+
+                                <div className="flex flex-col gap-2">
+                                  <label className="text-[10px] font-bold uppercase tracking-wider text-[#64748B]">Context / Description</label>
+                                  <textarea 
+                                    rows={3}
+                                    value={fields.description || ""}
+                                    onChange={(e) => handleFieldChange(item.id, "description", e.target.value)}
+                                    className="w-full p-4 rounded-2xl border border-[#E2E8F0] bg-white focus:outline-none focus:ring-2 focus:ring-[#064E3B]/20 focus:border-[#064E3B] text-sm text-[#0F172A] transition-all resize-none shadow-inner animate-fade-in"
+                                    placeholder="Briefly describe when and why this invocation is used..."
+                                  />
+                                </div>
                               </div>
 
                               {/* Right pane: Transliteration & Translation Workspace */}
@@ -2082,6 +2203,8 @@ function ContributeRoute() {
                                 ✔ Stage Suggestion
                               </button>
                             </div>
+                            </>
+                            )}
                           </div>
                         </motion.div>
                       )}

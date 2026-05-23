@@ -1,0 +1,33 @@
+{
+  "id": 155,
+  "name": "Before Eating",
+  "arabic": "((بِسْمِ اللَّهِ وَعَلَى سُنَّةِ رَسُولِ اللَّهِ)).",
+  "metadata": {
+    "reference": "Ebu Davudi 3/314 me sened të vërtetë. Po ashtu Ah-medi e shënon versionin tjetër me sened të vërtetë: “Bismil-lah ve Ala mil-leti Resulil-lah” (Me emër të Allahut dhe në fenë e të Dërguarit të Allahut).",
+    "chapter_name": "Placing in Grave",
+    "internal_id": "Before Eating"
+  },
+  "transliterations": {
+    "latin": "Bismil-lah ve ala Sunneti Resulil-lah"
+  },
+  "translations": {
+    "albanian": "Me Emrin e Allahut dhe në bazë të Sunetit të Dërguarit të Allahut.",
+    "english": "(In the name of Allah and upon the sunnah of the Messenger of Allah.)",
+    "indonesian": "Ya Allah! Ampunilah si Fulan (hendaklah menyebut namanya), angkatlah derajatnya bersama orang-orang yang mendapat petunjuk, berilah penggantinya bagi orang-orang yang ditinggalkan sesudahnya. Dan ampunilah kami dan dia, wahai Tuhan, seru sekalian alam. Lebarkan kuburannya dan berilah penerangan di dalamnya."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "155_Before_Eating_default_1.mp3",
+      "path": "/invocations/155_Before_Eating/155_Before_Eating_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "155_Before_Eating_Mishary_1.mp3",
+      "path": "/invocations/155_Before_Eating/155_Before_Eating_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

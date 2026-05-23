@@ -1,0 +1,33 @@
+{
+  "id": 103,
+  "name": "O Allah, verily You have...",
+  "arabic": "((اللَّهُمَّ إِنَّكَ خَلَقْتَ نَفْسِي وَأَنْتَ تَوَفَّاهَا، لَكَ مَمَاتُهَا وَمَحْياهَا، إِنْ أَحْيَيْتَهَا فَاحْفَظْهَا، وَإِنْ أَمَتَّهَا فَاغْفِرْ لَهَا. اللَّهُمَّ إِنِّي أَسْأَلُكَ العَافِيَةَ)).",
+  "metadata": {
+    "reference": "Muslimi 4/2083, Ahmedi 2/79. Këtë version e shënon Ahmedi.",
+    "chapter_name": "Before Sleeping",
+    "internal_id": "Before Sleeping (5)"
+  },
+  "transliterations": {
+    "latin": "All-llahumme inneke halakte nefsi ve Ente tevefaha, Leke mematuha, ve mahjaha, In ahjejteha fahfedhha ve in emetteha fagfir leha. All-llahumme inni es’elukel-afijete"
+  },
+  "translations": {
+    "albanian": "O Allahu im, Ti krijove shpirtin tim dhe Ti e bën që ai të vdes. Tek Ti është vdekja dhe jeta e tij. Nëse i jep jetë mbroje atë, e nëse më bën të vdes, fale atë. O Allahu im, të lutem të më shpëtosh.",
+    "english": "(O Allah, verily You have created my soul and You shall take it’s life, to You belongs it’s life and death. If You should keep my soul alive then protect it, and if You should take it’s life then forgive it. O Allah, I ask You to grant me good health.)",
+    "indonesian": "Ya Allah! Sesungguhnya Engkau menciptakan diriku, dan Engkaulah yang akan mematikannya. Mati dan hidupnya hanya milikMu. Apabila Engkau menghidupkannya, maka peliharalah. Apabila Engkau mematikannya, maka ampunilah. Ya Allah! Sesungguhnya aku memohon kepadaMu keselamatan."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "103_O_Allah_verily_You_have_default_1.mp3",
+      "path": "/invocations/103_O_Allah_verily_You_have/103_O_Allah_verily_You_have_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "103_O_Allah_verily_You_have_Mishary_1.mp3",
+      "path": "/invocations/103_O_Allah_verily_You_have/103_O_Allah_verily_You_have_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

@@ -1,0 +1,33 @@
+{
+  "id": 216,
+  "name": "SubhanAllah",
+  "arabic": "((سُبْحَانَ اللَّهِ!)).",
+  "metadata": {
+    "reference": "Buhariu “Fet’hul-Bari” 1/210, 390, 414” dhe Muslimi 4/1857.",
+    "chapter_name": "Surprised/Startled",
+    "internal_id": "SubhanAllah"
+  },
+  "transliterations": {
+    "latin": "SubhanAll-llah"
+  },
+  "translations": {
+    "albanian": "I Lartësuar qoftë Allahu, sa i pa të metë është Ai.",
+    "english": "(How perfect Allah is.)",
+    "indonesian": "Aku berlindung dengan kalimat-kalimat Allah yang sempurna, dari kejahatan apa yang diciptakanNya.\" 238 104- DOA APABILA PULANG DARI BEPERGIAN"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "216_SubhanAllah_default_1.mp3",
+      "path": "/invocations/216_SubhanAllah/216_SubhanAllah_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "216_SubhanAllah_Mishary_1.mp3",
+      "path": "/invocations/216_SubhanAllah/216_SubhanAllah_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

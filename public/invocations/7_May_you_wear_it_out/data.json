@@ -1,0 +1,33 @@
+{
+  "id": 7,
+  "name": "May you wear it out...",
+  "arabic": "(تُبْلِي وَيُخْلِفُ اللَّهُ تَعَالَى)",
+  "metadata": {
+    "reference": "Ebu Davudi 4/41 “Sahih Ebi Davud” 2/760.",
+    "chapter_name": "New Clothes (Others)",
+    "internal_id": "New Clothes (Others) (1)"
+  },
+  "transliterations": {
+    "latin": "Tubli ve juhlifull-llahu teala"
+  },
+  "translations": {
+    "albanian": "E vjetrofsh dhe Allahu i Lartmadhëruar ta zëvendësoftë me tjetrën.",
+    "english": "(May you wear it out and Allah تعالى replace it (with another).’ The intended meaning: A supplication for long life.)",
+    "indonesian": "Silsilah Ahadits As-Shahihah (11 Jilid); Syaikh Muhammad Nashiruddin Al-Albani rahimahullah. Penerbit: Maktabah Al-Ma'arif Linnasyir Wa At-Tauji', Riyadl-KSA."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "7_May_you_wear_it_out_default_1.mp3",
+      "path": "/invocations/7_May_you_wear_it_out/7_May_you_wear_it_out_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "7_May_you_wear_it_out_Mishary_1.mp3",
+      "path": "/invocations/7_May_you_wear_it_out/7_May_you_wear_it_out_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

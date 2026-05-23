@@ -18,6 +18,8 @@ export interface Invocation {
   chapter_name_en?: string; // Cache for easy display
   queueId?: string; // For tracking unique instances in the queue
   audio_versions?: Record<string, string | AudioVersion>; // Multiple reciter versions
+  internal_id?: string;
+  description?: string;
 }
 
 export interface Chapter {
@@ -25,4 +27,5 @@ export interface Chapter {
   chapter_name: string;
   chapter_name_en?: string;
   invocations: Array<Invocation>;
+  description?: string;
 }

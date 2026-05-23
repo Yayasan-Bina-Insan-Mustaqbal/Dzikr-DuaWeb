@@ -1,0 +1,33 @@
+{
+  "id": 48,
+  "name": "O Allah, forgive me, have...",
+  "arabic": "((اللَّهُمَّ اغْفِرْ لِي، وَارْحَمْنِي، وَاهْدِنِي، وَاجْبُرْنِي، وَعَافِنِي، وَارْزُقْنِي، وَارْفَعْنِي)).",
+  "metadata": {
+    "reference": "Transmetojnë autorët e katër suneneve përveç Nesaiut, “Sahih et-Tirmidhi” 1/90 dhe “Sahih Ibën Maxheh” 1/148.",
+    "chapter_name": "Between Prostrations",
+    "internal_id": "Between Prostrations (2)"
+  },
+  "transliterations": {
+    "latin": "All-llahumme-gfir li ver-hamni, ve-hdini, vexh-burni, ve afini ver-zukni, ver-feani"
+  },
+  "translations": {
+    "albanian": "O Allahu im, më fal, më mëshiro, më udhëzo, më forco në këtë fe, më jep shëndet, më jep furnizim dhe më ngritë lartë.",
+    "english": "(O Allah, forgive me, have mercy upon me, guide me, enrich me, give me health, grant me sustenance and raise my rank.)",
+    "indonesian": "Wahai Tuhanku, ampunilah dosaku, wahai Tuhanku, ampunilah dosaku."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "48_O_Allah_forgive_me_have_default_1.mp3",
+      "path": "/invocations/48_O_Allah_forgive_me_have/48_O_Allah_forgive_me_have_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "48_O_Allah_forgive_me_have_Mishary_1.mp3",
+      "path": "/invocations/48_O_Allah_forgive_me_have/48_O_Allah_forgive_me_have_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

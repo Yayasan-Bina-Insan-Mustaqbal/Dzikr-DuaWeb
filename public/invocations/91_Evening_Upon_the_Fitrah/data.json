@@ -1,0 +1,33 @@
+{
+  "id": 91,
+  "name": "Evening: Upon the Fitrah",
+  "arabic": "((أَصْبَحْنا عَلَى فِطْرَةِ الْإِسْلاَمِ، وَعَلَى كَلِمَةِ الْإِخْلاَصِ، وَعَلَى دِينِ نَبِيِّنَا مُحَمَّدٍ صلى الله عليه وسلم، وَعَلَى مِلَّةِ أَبِينَا إِبْرَاهِيمَ، حَنِيفاً مُسْلِماً وَمَا كَانَ مِنَ الْمُشرِكِينَ)). [وإذا أمسى قال: أمسينا على فطرة الإسلام...]",
+  "metadata": {
+    "reference": "Ndërsa në mbrëmje thotë: “Emsejna ala fitretil-Islam ve ala kelimetil-Ihlas, ve ala dini nebijjina Muhammedin, ve ala mil-leti ebina Ibrahime hanifen muslimen ve ma kane minel-mushrikin]”.\\nAhmedi 3/406-407, Ibën Sunnijj në “Amel el-Jevmi ve Lejleh”, nr. 34 “Sahih el-Xhamiu” 4/209.\\n",
+    "chapter_name": "Evening Adhkar",
+    "internal_id": "Evening Adhkar (16)"
+  },
+  "transliterations": {
+    "latin": "Asbahna ala fitretil-Islam  ve ala kelimetil-Ihlas, ve ala dini nebijjina Muhammedin (a.s) , ve ala mil-leti ebina Ibrahime hanifen muslimen ve ma kane minel-mushrikin"
+  },
+  "translations": {
+    "albanian": "E arritëm mëngjesin në natyrshmërinë Islame, në fjalën e sinqertë (La Ilahe Il-lAll-llah), në fenë e të Dërguarit tonë, Muhamedit (a.s) dhe në fenë e babait tonë Ibrahimit, i cili ka qenë besimdrejtë, musliman e nuk ka qenë prej idhujtarëve.",
+    "english": "(We rise upon the fitrah of Islam, and the word of pure faith, and upon the religion of our Prophet Muhammad  and the religion of our forefather Ibraheem, who was a Muslim and of true faith and was not of those who associate others with Allah.)(fitrah: the religion of Islam, the way of Ibraheem u.)(Note: for the evening, one reads amsayna instead of asbahna.)",
+    "indonesian": "Maha Suci Allah, aku memujiNya.\" (Dibaca seratus kali)."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "91_Evening_Upon_the_Fitrah_default_1.mp3",
+      "path": "/invocations/91_Evening_Upon_the_Fitrah/91_Evening_Upon_the_Fitrah_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "91_Evening_Upon_the_Fitrah_Mishary_1.mp3",
+      "path": "/invocations/91_Evening_Upon_the_Fitrah/91_Evening_Upon_the_Fitrah_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

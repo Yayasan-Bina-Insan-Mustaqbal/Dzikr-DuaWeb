@@ -1,0 +1,33 @@
+{
+  "id": 87,
+  "name": "Evening: Protection with His Name (3x)",
+  "arabic": "((بِسْمِ اللَّهِ الَّذِي لاَ يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلاَ فِي السّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ)) (ثلاثَ مرَّاتٍ).",
+  "metadata": {
+    "reference": "“Kush e thotë këtë lutje tri herë në mëngjes dhe në mbrëmje, nuk i bëhet dëm asgjë.” Ebu Davudi 4/323, Tirmidhiu 5/465, Ibën Maxhe dhe Ahmedi. Shih “Sahih Ibën Maxhe” 2/332), dijetari Ibën Bazi në “Tuhfetul-Ahjar” fq.39, (senedi hasen).",
+    "chapter_name": "Evening Adhkar",
+    "internal_id": "Before Eating"
+  },
+  "transliterations": {
+    "latin": "Bismil-lahil-ledhi la jedur-ru me’a-ismihi shej’un fil-erdi ve la fis-semai ve huves-semiul-alim. (3 herë)."
+  },
+  "translations": {
+    "albanian": "Me emrin e Allahut pranë emrit të të Cilit nuk të bën dëm asgjë në tokë e as në qiell, Ai është që shumë dëgjon dhe që di çdo gjë.",
+    "english": "(In the name of Allah with whose name nothing is harmed on earth nor in the heavens and He is The All-Seeing, The All-Knowing.’(three times))",
+    "indonesian": "Aku rela Allah sebagai Tuhan, Islam sebagai agama dan Muhammad sebagai nabi (yang diutus oleh Allah).\" (Dibaca tiga kali)."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "87_Evening_Protection_with_His_Name_3x_default_1.mp3",
+      "path": "/invocations/87_Evening_Protection_with_His_Name_3x/87_Evening_Protection_with_His_Name_3x_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "87_Evening_Protection_with_His_Name_3x_Mishary_1.mp3",
+      "path": "/invocations/87_Evening_Protection_with_His_Name_3x/87_Evening_Protection_with_His_Name_3x_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

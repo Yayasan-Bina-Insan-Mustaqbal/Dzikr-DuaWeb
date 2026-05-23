@@ -1,0 +1,33 @@
+{
+  "id": 217,
+  "name": "Allahu Akbar",
+  "arabic": "((اللَّهُ أَكْبَرُ!)).",
+  "metadata": {
+    "reference": "Buhariu “Fet’hul-Bari” 8/441, “Sahih et-Tirmidhi” 3/103 dhe 2/235 dhe shih Musnedin e Imam Ahmedit, 5/218.",
+    "chapter_name": "Surprised/Startled",
+    "internal_id": "Allahu Akbar"
+  },
+  "transliterations": {
+    "latin": "All-llahu Ekber"
+  },
+  "translations": {
+    "albanian": "Allahu është më i madhi.",
+    "english": "(Allah is the greatest.)",
+    "indonesian": "Bertakbir tiga kali, di atas tempat yang tinggi, kemudian membaca:"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "217_Allahu_Akbar_default_1.mp3",
+      "path": "/invocations/217_Allahu_Akbar/217_Allahu_Akbar_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "217_Allahu_Akbar_Mishary_1.mp3",
+      "path": "/invocations/217_Allahu_Akbar/217_Allahu_Akbar_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

@@ -1,0 +1,33 @@
+{
+  "id": 157,
+  "name": "Visiting Graves",
+  "arabic": "((السَّلاَمُ عَلَيْكُمْ أَهْلَ الدِّيَارِ، مِنَ الْمُؤْمِنِينَ وَالْمُسْلِمِينَ، وَإِنَّا إِنْ شَاءَ اللَّهُ بِكُمْ لاَحِقُونَ، [وَيَرْحَمُ اللَّهُ الْمُسْتَقدِمِينَ مِنَّا وَالْمُسْتأْخِرِينَ] أَسْاَلُ اللَّهَ لَنَا وَلَكُمُ الْعَافِيَةَ)).",
+  "metadata": {
+    "reference": "Muslimi 2/671 dhe Ibën Maxheh 1/494, versioni i Bu-rejdes (r.a) , ndërsa në kllapa shënohet shtesa e Muslimit nga hadithi i Aishes (r.a) , 2/671.",
+    "chapter_name": "Visiting Graves",
+    "internal_id": "Visiting Graves"
+  },
+  "transliterations": {
+    "latin": "Es-selamu alejkum ehled-dijari minel-mu’minine vel-muslimin, ve inna inshaAll-llahu bikum lahikun, [ve jerhamull-llahul-mustakdimine minna vel-muste’hirin] Es’elull-llahe lena ve lekumul-áfijeh"
+  },
+  "translations": {
+    "albanian": "Shpëtimi qoftë mbi ju banorë të varrezave besimtarë dhe muslimanë, edhe ne, në dashtë Allahu, do t’ju bashkangjitemi, [Allahu i mëshiroftë ata që kanë kaluar prej nesh edhe ata që do të vijnë pas nesh]; e lus Allahun që të na shpëtojë ne dhe ju.",
+    "english": "(Peace be upon you all, O inhabitants of the graves, amongst the believers and the Muslims. Verily we will, Allah willing, be united with you, we ask Allah for well-being for us and you.)",
+    "indonesian": "Ya Allah! Ampunilah kepada orang yang hidup di antara kami dan yang mati, orang yang hadir di antara kami dan yang tidak hadir, laki-laki maupun perempuan. Ya Allah! Orang yang Engkau hidupkan di antara kami, hidupkan dengan memegang ajaran Islam, dan orang yang Engkau matikan di antara kami, maka matikan dengan memegang keimanan. Ya Allah! Jangan menghalangi kami untuk tidak memperoleh pahalanya dan jangan sesatkan kami sepeninggalnya."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "157_Visiting_Graves_default_1.mp3",
+      "path": "/invocations/157_Visiting_Graves/157_Visiting_Graves_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "157_Visiting_Graves_Mishary_1.mp3",
+      "path": "/invocations/157_Visiting_Graves/157_Visiting_Graves_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

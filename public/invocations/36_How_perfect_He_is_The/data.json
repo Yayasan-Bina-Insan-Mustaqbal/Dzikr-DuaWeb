@@ -1,0 +1,33 @@
+{
+  "id": 36,
+  "name": "How perfect He is, The...",
+  "arabic": "((سُبْحَانَ ذِي الْجَبَرُوتِ، وَالْمَلَكُوتِ، وَالْكِبْرِيَاءِ، وَالْعَظَمَةِ)).",
+  "metadata": {
+    "reference": "Ebu Davudi 1/230, ngjashëm e shënojnë edhe Nesaiu dhe Ahmedi; senedi i këtij hadithi është i mirë (hasen).",
+    "chapter_name": "During Ruku'",
+    "internal_id": "During Ruku' (5)"
+  },
+  "transliterations": {
+    "latin": "Subhane dhil-xheberuti vel-melekuti vel-kibrijai vel-adhameti"
+  },
+  "translations": {
+    "albanian": "I Madhëruar qoftë i Gjithëfuqishmi, Zotëruesi i çdo gjëje, Atij i takon Kryelartësia dhe Madhëria.",
+    "english": "(How perfect He is, The Possessor of total power, sovereignty, magnificence and grandeur.)",
+    "indonesian": "Ya Allah, untukMu aku ruku'. KepadaMu aku beriman, kepadaMu aku menyerah. Pendengaranku, penglihatanku, otakku, tulangku, sarafku dan apa yang berdiri di atas dua tapak kakiku, telah merunduk dengan khusyuk kepadaMu."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "36_How_perfect_He_is_The_default_1.mp3",
+      "path": "/invocations/36_How_perfect_He_is_The/36_How_perfect_He_is_The_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "36_How_perfect_He_is_The_Mishary_1.mp3",
+      "path": "/invocations/36_How_perfect_He_is_The/36_How_perfect_He_is_The_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

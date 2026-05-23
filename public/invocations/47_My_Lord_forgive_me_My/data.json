@@ -1,0 +1,33 @@
+{
+  "id": 47,
+  "name": "My Lord forgive me, My...",
+  "arabic": "((رَبِّ اغْفِرْ لِي، رَبِّ اغْفِرْ لِي)).",
+  "metadata": {
+    "reference": "Ebu Davudi 1/23. Shih “Sahih Ibën Maxheh” 1/148.",
+    "chapter_name": "Between Prostrations",
+    "internal_id": "Between Prostrations (1)"
+  },
+  "transliterations": {
+    "latin": "Rabbi-gfir li, Rabbi-gfir li"
+  },
+  "translations": {
+    "albanian": "Zoti im, më falë mua. Zoti im, më falë mua!",
+    "english": "(My Lord forgive me, My Lord forgive me.)",
+    "indonesian": "Ya Allah, sesungguhnya aku berlindung kepadaMu dengan keridhaanMu (agar selamat) dari kebencianMu, dan dengan keselamatanMu (agar terhindar) dari siksaanMu. Aku tidak membatasi pujian kepadaMu. Engkau (dengan kebesaran dan keagunganMu) adalah sebagaimana pujianMu kepada diriMu.\"63 Doa Duduk Antara Dua Sujud"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "47_My_Lord_forgive_me_My_default_1.mp3",
+      "path": "/invocations/47_My_Lord_forgive_me_My/47_My_Lord_forgive_me_My_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "47_My_Lord_forgive_me_My_Mishary_1.mp3",
+      "path": "/invocations/47_My_Lord_forgive_me_My/47_My_Lord_forgive_me_My_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

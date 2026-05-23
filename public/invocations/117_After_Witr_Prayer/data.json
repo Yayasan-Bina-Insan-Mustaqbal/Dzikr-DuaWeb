@@ -1,0 +1,33 @@
+{
+  "id": 117,
+  "name": "After Witr Prayer",
+  "arabic": "((سُبْحَانَ المَلِكِ القُدُّوسِ)) ثلاثَ مرَّاتٍ والثَّالِثَةُ يَجْهَرُ بها ويَمُدُّ بها صَوتَهُ يقولُ: [رَبِّ الْمَلاَئِكَةِ وَالرُّوحِ])).",
+  "metadata": {
+    "reference": "",
+    "chapter_name": "After Witr Prayer",
+    "internal_id": "After Witr Prayer"
+  },
+  "transliterations": {
+    "latin": "Subhane Melikil-Kuddus"
+  },
+  "translations": {
+    "albanian": "“I Madhëruar qoftë Allahu, Sunduesi i Pastër nga çdo e metë.”\\nKëtë e thotë tri herë, kurse herën e tretë e thotë me zë duke e zgjatur zërin. ",
+    "english": "(How perfect The King, The Holy One is.(three times) on the third time he would raise his voice, elongate it and add: (Lord of the angles and the Rooh (i.e. Jibra-eel).))",
+    "indonesian": "Ya, Allah, sesungguhnya aku berlindung dengan kerelaanMu dari kemarahanMu, dan dengan keselamatanMu dari siksaMu. Aku berlindung kepadaMu dari ancamanMu. Aku tidak mampu menghitung pujian dan sanjungan kepadaMu, Engkau adalah sebagaimana yang Engkau sanjungkan kepada diriMu sendiri."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "117_After_Witr_Prayer_default_1.mp3",
+      "path": "/invocations/117_After_Witr_Prayer/117_After_Witr_Prayer_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "117_After_Witr_Prayer_Mishary_1.mp3",
+      "path": "/invocations/117_After_Witr_Prayer/117_After_Witr_Prayer_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

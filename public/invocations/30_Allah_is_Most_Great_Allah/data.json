@@ -1,0 +1,33 @@
+{
+  "id": 30,
+  "name": "Allah is Most Great, Allah...",
+  "arabic": "((اللَّهُ أَكْبَرُ كَبِيرَاً، اللَّهُ أَكْبَرُ كَبِيراً، اللَّهُ أَكْبَرُ كَبِيراً، وَالْحَمْدُ لِلَّهِ كَثيراً، وَالْحَمْدُ لِلَّهِ كَثيراً، وَالْحَمْدُ لِلَّهِ كَثيراً، وَسُبْحَانَ اللَّهِ بُكْرَةً وَأَصِيلاً)) ثَلاثاً ((أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ: مِنْ نَفْخِهِ، وَنَفْثِهِ، وَهَمْزِهِ)).",
+  "metadata": {
+    "reference": "Ebu Davudi 1/203, Ibën Maxheh 1/265 dhe Ahmedi 4/85. Gjithashtu, Muslimi shënon ngjashëm me këtë 1/420.",
+    "chapter_name": "Starting Prayer",
+    "internal_id": "Starting Prayer (5)"
+  },
+  "transliterations": {
+    "latin": "All-llahu Ekberu Kebira, All-llahu Ekberu Kebira, Allahu Ekberu Kebira, vElhamdulil-lahi kethira, vElhamdulil-lahi kethira, vElhamdulil-lahi kethira, ve subhanAll-llahi bukreten ve esila, (3 herë). Eudhu bil-lahi minesh-shejtani: min nefhihi, ve nefthihi, ve hemzihi. (3 herë)"
+  },
+  "translations": {
+    "albanian": "Allahu është më i madhi, Allahu është më i madhi, Allahu është më i madhi, falënderime të shumta i takojnë Allahut dhe i Lartësuar qoftë Allahu mëngjes dhe mbrëmje (tre herë) \\n(Kërkoj mbrojtjen e Allahut prej shejtanit: prej fryrjes së tij, pëshpëritjes së tij dhe cytjeve të tij.\\n",
+    "english": "(Allah is Most Great, Allah is Most Great, Allah is Most Great, much praise is for Allah, much praise is for Allah, much praise is for Allah, and I declare the perfection of Allah in the early morning and in the late afternoon.)(I take refuge with Allah from the devil, from his pride, his poetry and his madness.)",
+    "indonesian": "Ya Allah, Tuhan Jibrail, Mikail dan Israfil. Wahai Pencipta langit dan bumi. Wahai Tuhan yang mengetahui yang ghaib dan nyata. Engkau yang menjatuhkan hukum (untuk memutuskan) apa yang mereka (orang-orang kristen dan yahudi) pertentangkan. Tunjukkanlah aku pada kebenaran apa yang dipertentangkan dengan seizin dariMu. Sesungguhnya Engkau menunjukkan pada jalan yang lurus bagi orang yang Engkau kehendaki\".46"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "30_Allah_is_Most_Great_Allah_default_1.mp3",
+      "path": "/invocations/30_Allah_is_Most_Great_Allah/30_Allah_is_Most_Great_Allah_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "30_Allah_is_Most_Great_Allah_Mishary_1.mp3",
+      "path": "/invocations/30_Allah_is_Most_Great_Allah/30_Allah_is_Most_Great_Allah_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

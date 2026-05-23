@@ -1,0 +1,33 @@
+{
+  "id": 19,
+  "name": "Before Eating",
+  "arabic": "(بِسْمِ اللَّهِ وَلَجْنَا، وَبِسْمِ اللَّهِ خَرَجْنَا، وَعَلَى اللَّهِ رَبِّنَا تَوَكَّلْنَا، ثُمَّ لِيُسَلِّمْ عَلَى أَهْلِهِ).",
+  "metadata": {
+    "reference": "Ebu Davudi 4/325, Ibën Bazi në librin e tij “Tuhfetul-Ahjar” fq. 28 dhe thotë: ‘Senedi i këtij hadithi është i mirë dhe transmetohet në hadith të vërtetë se i Dërguari ka thënë: “Kur njeriu hynë në shtëpinë e tij dhe e përmend Allahun gjatë hyrjes si dhe gjatë ngrënies së ushqimit shejtani, u thotë (shejtanëve të tjerë): Sot për ju s’ka vend për fjetje e as ushqim.” Shënon Muslimi, hadithi #2018.",
+    "chapter_name": "Entering Home",
+    "internal_id": "Before Eating"
+  },
+  "transliterations": {
+    "latin": "Bismil-lahi velexhna ve bismil-lahi harexhna ve ala Rabbina tevekkelna"
+  },
+  "translations": {
+    "albanian": "Me emrin e Allahut hyjmë dhe me emrin e Allahut dalim, si dhe vetëm Allahut, Zotit tonë i mbështetemi. Pastaj përshëndet familjen e tij.\\n",
+    "english": "(In the name of Allah we enter and in the name of Allah we leave, and upon our Lord we place our trust.)",
+    "indonesian": "Ya Allah ciptakanlah cahaya di hatiku, cahaya di lidahku, cahaya di pendengaranku, cahaya di penglihatanku, cahaya dari atasku, cahaya dari bawahku, cahaya di sebelah kananku, cahaya di sebelah kiriku, cahaya dari depanku, dan cahaya dari belakangku. Ciptakanlah cahaya dalam diriku, perbesarlah cahaya untukku, agungkanlah cahaya untukku, berilah cahaya untukku, dan jadikanlah aku sebagai cahaya. Ya Allah, berilah cahaya kepadaku, ciptakan cahaya pada urat sarafku, cahaya dalam dagingku, cahaya dalam darahku, cahaya di rambutku, dan cahaya di kulitku\" 29 [Ya Allah, ciptakanlah cahaya untukku dalam kuburku … dan cahaya dalam tulangku\"] 30, [\"Tambahkanlah cahaya untukku, tambahkanlah cahaya untukku, tambahkanlah cahaya untukku\"] 31, [\"dan karuniakanlah bagiku cahaya di atas cahaya\"]"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "19_Before_Eating_default_1.mp3",
+      "path": "/invocations/19_Before_Eating/19_Before_Eating_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "19_Before_Eating_Mishary_1.mp3",
+      "path": "/invocations/19_Before_Eating/19_Before_Eating_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

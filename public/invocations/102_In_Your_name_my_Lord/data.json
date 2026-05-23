@@ -1,0 +1,33 @@
+{
+  "id": 102,
+  "name": "In Your name my Lord,...",
+  "arabic": "((بِاسْمِكَ رَبِّي وَضَعْتُ جَنْبِي، وَبِكَ أَرْفَعُهُ، فَإِن أَمْسَكْتَ نَفْسِي فارْحَمْهَا، وَإِنْ أَرْسَلْتَهَا فَاحْفَظْهَا، بِمَا تَحْفَظُ بِهِ عِبَادَكَ الصَّالِحِينَ)).",
+  "metadata": {
+    "reference": "“Kur dikush prej juve ngritët nga shtrati i tij e pastaj kthehet në të, le ta fshijë tri herë dyshekun, ngase ai nuk e di se mund të ketë rënë diç në të pasi është larguar nga ai, e pastaj le të thotë: (hadithin)” Buhariu “Fet’hul-Bari” 1/126), Muslimi 4/2084.",
+    "chapter_name": "Before Sleeping",
+    "internal_id": "Before Sleeping (4)"
+  },
+  "transliterations": {
+    "latin": "Bismike Rabbi ved’atu xhenbi ve bike erfeuhu fe in emsekte nefsi ferhamha ve in erselteha fahfedhha bima tahfedhu bihi ibadekes-salihin"
+  },
+  "translations": {
+    "albanian": "Me emrin Tënd, o Zoti im, bie në gjumë dhe me emrin tënd ngritëm. Nëse ma merr shpirtin më mëshiro, e nëse ma kthen në trupin tim, mbroje atë sikurse i mbron robërit e Tu të mirë.",
+    "english": "(In Your name my Lord, I lie down and in Your name I rise, so if You should take my soul then have mercy upon it, and if You should return my soul then protect it in the manner You do so with Your righteous servants.)",
+    "indonesian": "Dengan nama Engkau, wahai Tuhanku, aku meletakkan lambungku. Dan dengan namaMu pula aku bangun daripadanya. Apabila Engkau menahan rohku (mati), maka berilah rahmat padanya. Tapi, apabila Engkau melepaskannya, maka peliharalah,"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "102_In_Your_name_my_Lord_default_1.mp3",
+      "path": "/invocations/102_In_Your_name_my_Lord/102_In_Your_name_my_Lord_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "102_In_Your_name_my_Lord_Mishary_1.mp3",
+      "path": "/invocations/102_In_Your_name_my_Lord/102_In_Your_name_my_Lord_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

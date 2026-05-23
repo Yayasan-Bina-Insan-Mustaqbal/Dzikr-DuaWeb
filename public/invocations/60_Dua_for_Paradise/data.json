@@ -1,0 +1,33 @@
+{
+  "id": 60,
+  "name": "Dua for Paradise",
+  "arabic": "((اللَّهُمَّ إِنِّي أَسْأَلُكَ الْجَنَّةَ وَأَعُوذُ بِكَ مِنَ النَّارِ)).",
+  "metadata": {
+    "reference": "Buhariu “Fet’hul-Bari” 6/35.",
+    "chapter_name": "Before Ending Prayer",
+    "internal_id": "Dua for Jannah"
+  },
+  "transliterations": {
+    "latin": "All-llahumme inni es’elukel-xhenete, ve eudhu bike minen-nar"
+  },
+  "translations": {
+    "albanian": "O Allahu im, kërkoj prej Teje xhenetin dhe kërkoj prej Teje mbrojtjen Tënde nga zjarri.",
+    "english": "(O Allah, I ask You to grant me Paradise and I take refuge in You from the Fire.)",
+    "indonesian": "Ya Allah! Sesungguhnya aku berlindung kepadaMu dari bakhil, aku berlindung kepadaMu dari penakut, aku berlindung kepadaMu dari dikembalikan ke usia yang terhina, dan aku berlindung kepadaMu dari fitnah dunia dan siksa kubur."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "60_Dua_for_Paradise_default_1.mp3",
+      "path": "/invocations/60_Dua_for_Paradise/60_Dua_for_Paradise_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "60_Dua_for_Paradise_Mishary_1.mp3",
+      "path": "/invocations/60_Dua_for_Paradise/60_Dua_for_Paradise_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

@@ -1,0 +1,33 @@
+{
+  "id": 202,
+  "name": "Traveler to Resident",
+  "arabic": "((أَسْتَوْدِعُكُمُ اللَّهَ الَّذِي لاَ تَضِيعُ وَدَائِعُهُ)).",
+  "metadata": {
+    "reference": "Ahmedi 2/403, Ibën Maxheh 2/943 “Sahih Ibën Maxheh” 2/133.",
+    "chapter_name": "Traveler to Resident",
+    "internal_id": "Traveler to Resident"
+  },
+  "transliterations": {
+    "latin": "Estevdi ukumull-llahe el-ledhi la tedi’u ve-dai’uhu."
+  },
+  "translations": {
+    "albanian": "Ju lë nën kujdes të Allahut, i Cili nuk i humb porositë e Tij.",
+    "english": "(I place you in the trust of Allah, whose trust is never misplaced.)",
+    "indonesian": "Semoga Allah memberikan berkah kepadamu dalam keluarga dan hartamu. Sesungguhnya balasan meminjami adalah pujian dan pembayaran."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "202_Traveler_to_Resident_default_1.mp3",
+      "path": "/invocations/202_Traveler_to_Resident/202_Traveler_to_Resident_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "202_Traveler_to_Resident_Mishary_1.mp3",
+      "path": "/invocations/202_Traveler_to_Resident/202_Traveler_to_Resident_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

@@ -1,0 +1,33 @@
+{
+  "id": 65,
+  "name": "Seeking Forgiveness (Istighfar)",
+  "arabic": "((أَسْتَغْفِرُ اللَّهَ (ثَلاَثَاً) اللَّهُمَّ أَنْتَ السَّلاَمُ، وَمِنْكَ السَّلاَمُ، تَبَارَكْتَ يَا ذَا الْجَلاَلِ وَالْإِكْرَامِ)).",
+  "metadata": {
+    "reference": "Muslimi 1/414.",
+    "chapter_name": "After Prayer",
+    "internal_id": "Istighfar"
+  },
+  "transliterations": {
+    "latin": "Estagfirullah (3 herë). All-llahumme entes-selamu ve minkes-selamu tebarekte ja dhel xhelali vel-ikram"
+  },
+  "translations": {
+    "albanian": "Kërkoj falje nga Allahu. O Allahu im, Ti je shpëtimi dhe nga Ti vjen shpëtimi, i Lartësuar qofsh o zotërues i Madhërisë dhe i Nderit.",
+    "english": "(I ask Allah for forgiveness.(three times) (O Allah, You are As-Salam and from You is all peace, blessed are You, O Possessor of majesty and honour.) (AS-Salam: The One Who is free from all defects and deficiencies.))",
+    "indonesian": "Ya Allah, aku mohon kepadaMu dengan bersaksi, bahwa Engkau adalah Allah, tiada Tuhan (yang berhak disembah) kecuali Engkau, Maha Esa, tidak membutuhkan sesuatu tapi segala sesuatu butuh kepadaMu, tidak beranak dan tidak diperanakkan, tidak seorang pun yang menyamaiNya, (sesungguhnya aku mohon kepadaMu).\" 81 Bacaan Setelah Salam"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "65_Seeking_Forgiveness_Istighfar_default_1.mp3",
+      "path": "/invocations/65_Seeking_Forgiveness_Istighfar/65_Seeking_Forgiveness_Istighfar_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "65_Seeking_Forgiveness_Istighfar_Mishary_1.mp3",
+      "path": "/invocations/65_Seeking_Forgiveness_Istighfar/65_Seeking_Forgiveness_Istighfar_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

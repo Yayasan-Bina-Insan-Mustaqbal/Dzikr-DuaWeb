@@ -1,0 +1,33 @@
+{
+  "id": 182,
+  "name": "For the Groom",
+  "arabic": "((بَارَكَ اللَّهُ لَكَ، وَبَارَكَ عَلَيْكَ، وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ)).",
+  "metadata": {
+    "reference": "Transmetojnë autorët e katër suneneve përveç Nesaiut “Sahih et-Tirmidhi” 1/316.",
+    "chapter_name": "For the Groom",
+    "internal_id": "For the Groom"
+  },
+  "transliterations": {
+    "latin": "BarekAll-llahu leke, ve bareke alejke, ve xheme’a bejnekuma, fi hajrin"
+  },
+  "translations": {
+    "albanian": "Allahu të bekoftë ty dhe pasardhësit e tu, si dhe ju bashkoftë ju të dy në të mirë.",
+    "english": "(May Allah bless for you (your spouse) and bless you, and may He unite both of you in goodness.)",
+    "indonesian": "Ya Allah! Berilah berkah apa yang Engkau rezekikan kepada mereka, ampunilah dan belas kasihanilah mereka."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "182_For_the_Groom_default_1.mp3",
+      "path": "/invocations/182_For_the_Groom/182_For_the_Groom_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "182_For_the_Groom_Mishary_1.mp3",
+      "path": "/invocations/182_For_the_Groom/182_For_the_Groom_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

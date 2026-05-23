@@ -1,0 +1,33 @@
+{
+  "id": 232,
+  "name": "Before Eating",
+  "arabic": "E nëse harron në fillim të ushqimit, atëherë le të thotë: بسمِ اللهِ فِي أَوَّلِهِ وَآخِرِهِ",
+  "metadata": {
+    "reference": "Shënon Ebu Davudi 3/347, Tirmidhiu 4/288, “Sahih et-Tirmidhi” 2/167.",
+    "chapter_name": "Before Eating",
+    "internal_id": "Before Eating"
+  },
+  "transliterations": {
+    "latin": "Bismil-lahi fi evvelihi ve Ahirihi"
+  },
+  "translations": {
+    "albanian": "Me emrin e Allahut në fillim dhe në mbarim.",
+    "english": "In the name of Allah.",
+    "indonesian": "Ya Allah, semoga Engkau tidak menghukumku karena apa yang mereka katakan. Ampunilah aku atas apa yang tidak mereka ketahui. [Dan jadikanlah aku lebih baik daripada yang mereka perkirakan]. 254 Bacaan Talbiyah 114- BACAAN TALBIYAH"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "232_Before_Eating_default_1.mp3",
+      "path": "/invocations/232_Before_Eating/232_Before_Eating_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "232_Before_Eating_Mishary_1.mp3",
+      "path": "/invocations/232_Before_Eating/232_Before_Eating_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

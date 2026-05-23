@@ -1,0 +1,33 @@
+{
+  "id": 276,
+  "name": "Before Eating",
+  "arabic": "بِسْمِ اللهِ، وَالصَّلَاةُ وَالسَّلَامُ عَلَى رَسُولِ اللهِ",
+  "metadata": {
+    "reference": "Ibën Sunij hadithi nr. 88, shejh Albani thotë se hadithi është i mirë (hasen), Ebu Davudi 1/126, “Sahih el-Xhamiu” 1/528”.",
+    "chapter_name": "Entering Mosque",
+    "internal_id": "Before Eating"
+  },
+  "transliterations": {
+    "latin": "Bismil-lah, ves-salatu ves-selamu ala resulil-lah"
+  },
+  "translations": {
+    "albanian": "Me emrin e Allahut, përshëndetjet dhe shpëtimi i Allahut qoftë mbi të Dërguarin e Tij.",
+    "english": "In the name of Allah.",
+    "indonesian": "Dengan nama Allah (aku berwudhu)."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "276_Before_Eating_default_1.mp3",
+      "path": "/invocations/276_Before_Eating/276_Before_Eating_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "276_Before_Eating_Mishary_1.mp3",
+      "path": "/invocations/276_Before_Eating/276_Before_Eating_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

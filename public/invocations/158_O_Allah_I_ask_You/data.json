@@ -1,0 +1,33 @@
+{
+  "id": 158,
+  "name": "O Allah, I ask You...",
+  "arabic": "((اللَّهُمَّ إِنِّي أَسْــــــأَلُكَ خَيْرَهَا، وَأَعُوذُ بِكَ مِنْ شَرِّهَا)).",
+  "metadata": {
+    "reference": "Ebu Davudi 4/326 dhe Ibën Maxheh 2/1228 “Sahih Ibën Maxheh” 2/305.",
+    "chapter_name": "Wind Blows",
+    "internal_id": "Wind Blows (1)"
+  },
+  "transliterations": {
+    "latin": "All-llahumme inni es’eluke hajreha ve eudhu bike min sherriha"
+  },
+  "translations": {
+    "albanian": "O Allahu im, kërkoj nga Ti të mirën e saj dhe kërkoj që të më mbrosh nga e keqja e saj.",
+    "english": "(O Allah, I ask You for it’s goodness and I take refuge with You from it’s evil.)",
+    "indonesian": "Ya, Allah! Sesungguhnya Fulan bin Fulan dalam tanggunganMu dan tali perlindunganMu. Peliharalah dia dari fitnah kubur dan siksa Neraka. Engkau adalah Maha Setia dan Maha Benar. Ampunilah dan belas kasihanilah dia. Sesungguhnya Engkau, Tuhan Yang Maha Pengampun lagi Penyayang."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "158_O_Allah_I_ask_You_default_1.mp3",
+      "path": "/invocations/158_O_Allah_I_ask_You/158_O_Allah_I_ask_You_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "158_O_Allah_I_ask_You_Mishary_1.mp3",
+      "path": "/invocations/158_O_Allah_I_ask_You/158_O_Allah_I_ask_You_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

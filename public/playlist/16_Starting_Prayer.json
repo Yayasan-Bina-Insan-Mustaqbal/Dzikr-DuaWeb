@@ -1,0 +1,31 @@
+{
+  "id": 16,
+  "name": "Starting Prayer",
+  "invocations": [
+    {
+      "id": 26,
+      "name": "O Allah, distance me from..."
+    },
+    {
+      "id": 27,
+      "name": "How perfect You are O..."
+    },
+    {
+      "id": 28,
+      "name": "I have turned my face..."
+    },
+    {
+      "id": 29,
+      "name": "O Allah, Lord of Jibra-eel,..."
+    },
+    {
+      "id": 30,
+      "name": "Allah is Most Great, Allah..."
+    },
+    {
+      "id": 31,
+      "name": "O Allah, to You belongs..."
+    }
+  ],
+  "description": ""
+}

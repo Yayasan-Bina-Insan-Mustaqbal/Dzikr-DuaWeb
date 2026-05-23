@@ -1,0 +1,33 @@
+{
+  "id": 26,
+  "name": "O Allah, distance me from...",
+  "arabic": " ((اللَّهُمَّ بَاعِدْ بَيْنِي وَبَيْنَ خَطَايَايَ كَمَا بَاعَدْتَ بَيْنَ الْمَشْرِقِ وَالْمَغْرِبِ، اللَّهُمَّ نَقِّنِي مِنْ خَطَايَايَ كَمَا يُنَقَّى الثَّوْبُ الْأَبْيَضُ مِنَ الدَّنَسِ، اللَّهُمَّ اغْسِلْني مِنْ خَطَايَايَ، بِالثَّلْجِ وَالْماءِ وَالْبَرَدِ)).",
+  "metadata": {
+    "reference": "Buhariu 1/181, Muslimi 1/419.",
+    "chapter_name": "Starting Prayer",
+    "internal_id": "Starting Prayer (1)"
+  },
+  "transliterations": {
+    "latin": "All-llahumme ba’id bejni ve bejne hatajaje kema ba’adte bejnel-meshriki vel-magrib, All-llahumme nekkini min hatajaje kema junekka eth-thevbul-ebjedu mined-denesi, All-llahumme Igsilni min hatajaje bil mai veth-thelxhi vel-beredi"
+  },
+  "translations": {
+    "albanian": "O Allahu im, më largo mua nga mëkatet e mia, ashtu siç e ke larguar lindjen prej perëndimit. O Zoti im, më pastro mua prej mëkateve të mia, ashtu siç pastrohet rroba e bardhë prej njollave të zeza. O Zoti im, më pastro mua prej mëkateve të mia me borë, ujë dhe akull.",
+    "english": "(O Allah, distance me from my sins just as You have distanced The East from The West, O Allah, purify me of my sins as a white robe is purified of filth, O Allah, cleanse me of my sins with snow, water, and ice.)",
+    "indonesian": "Berdoa untuk diri sendiri antara adzan dan iqamah, sebab doa pada waktu itu dikabulkan.42"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "26_O_Allah_distance_me_from_default_1.mp3",
+      "path": "/invocations/26_O_Allah_distance_me_from/26_O_Allah_distance_me_from_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "26_O_Allah_distance_me_from_Mishary_1.mp3",
+      "path": "/invocations/26_O_Allah_distance_me_from/26_O_Allah_distance_me_from_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

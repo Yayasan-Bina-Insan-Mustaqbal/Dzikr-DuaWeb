@@ -1,0 +1,33 @@
+{
+  "id": 44,
+  "name": "How perfect He is, The...",
+  "arabic": "((سُبْحَانَ ذِي الْجَبَرُوتِ، وَالْمَلَكُوتِ، وَالْكِبْرِيَاءِ، وَالْعَظَمَةِ)).",
+  "metadata": {
+    "reference": "Ebu Davudi 1/230, Nesaiu dhe Ahmedi; senedi i këtij hadithi është hasen (i mirë).",
+    "chapter_name": "During Sujood",
+    "internal_id": "During Sujood (5)"
+  },
+  "transliterations": {
+    "latin": "Subhane dhil-xheberuti vel-melekuti vel-kibrijai vel-adhameti"
+  },
+  "translations": {
+    "albanian": "I Madhëruar qoftë i Gjithëfuqishmi, Zotëruesi i çdo gjëje dhe vetëm Atij i takon Kryelartësia dhe Madhëria.",
+    "english": "(How perfect He is, The Possessor of total power, sovereignty, magnificence and grandeur.)",
+    "indonesian": "Ya Allah, untukMulah aku bersujud, kepadaMulah aku beriman, kepadaMu aku menyerahkan diri, wajahku bersujud kepada Tuhan yang menciptakannya, yang membentuk rupanya, yang membelah (memberikan) pendengarannya, penglihatannya, Maha Suci Allah sebaik baik Pencipta.60"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "44_How_perfect_He_is_The_default_1.mp3",
+      "path": "/invocations/44_How_perfect_He_is_The/44_How_perfect_He_is_The_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "44_How_perfect_He_is_The_Mishary_1.mp3",
+      "path": "/invocations/44_How_perfect_He_is_The/44_How_perfect_He_is_The_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

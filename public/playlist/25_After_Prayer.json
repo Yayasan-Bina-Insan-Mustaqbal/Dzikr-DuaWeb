@@ -1,0 +1,47 @@
+{
+  "id": 25,
+  "name": "After Prayer",
+  "invocations": [
+    {
+      "id": 65,
+      "name": "Seeking Forgiveness (Istighfar)"
+    },
+    {
+      "id": 66,
+      "name": "Oneness & Sovereignty"
+    },
+    {
+      "id": 67,
+      "name": "Glorification (Subhanallah)"
+    },
+    {
+      "id": 68,
+      "name": "Tasbih, Tahmid, Takbir"
+    },
+    {
+      "id": 69,
+      "name": "Recitation of 3 Quls"
+    },
+    {
+      "id": 70,
+      "name": "Ayatul Kursi"
+    },
+    {
+      "id": 71,
+      "name": "None has the right to..."
+    },
+    {
+      "id": 72,
+      "name": "O Allah, I ask You..."
+    },
+    {
+      "id": 73,
+      "name": "La ilaha illallah"
+    },
+    {
+      "id": 74,
+      "name": "O Allahu im, të lutem..."
+    }
+  ],
+  "description": ""
+}

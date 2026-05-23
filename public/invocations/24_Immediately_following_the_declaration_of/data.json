@@ -1,0 +1,33 @@
+{
+  "id": 24,
+  "name": "Immediately following the declaration of...",
+  "arabic": " يَقُولُ: ((وَأَنَا أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ وَأَنَّ مُحَمَّداً عَبْدُهُ وَرَسُولُهُ، رَضِيتُ بِاللَّهِ رَبَّاً، وَبِمُحَمَّدٍ رَسُولاً، وَبِالْإِسْلاَمِ دِينَاً)) ((يَقُولُ ذَلِكَ عَقِبَ تَشَهُّدِ الْمُؤَذِّنِ)).",
+  "metadata": {
+    "reference": "Muslimi 1/290.\\nIbën Huzejme 1/220.\\n",
+    "chapter_name": "Hearing Athan",
+    "internal_id": "Hearing Athan (2)"
+  },
+  "transliterations": {
+    "latin": "Ve ene eshhedu en La Ilahe il-lAll-llahu vahdehu la sherike leh, ve enne Muhammeden abduhu ve resuluhu, raditu bil-lahi Rabben ve bi Muhammedin resulen, ve bil-Islami dinen"
+  },
+  "translations": {
+    "albanian": "Edhe unë dëshmoj se askush tjetër dhe asgjë tjetër nuk meriton të adhurohet përveç Allahut, të Vetëm e të Pashoq; dëshmoj që Muhamedi  është robi dhe i dërguari i Tij. Jam i kënaqur që Allahu është Zoti im, që Muhamedi është Pejgamberi im dhe që Islami është feja ime.” \\nKëtë duhet thënë pasi të thotë myezini: “Eshhedu en lá Iláhe il-lallah, Eshhedu enne Muhammeden Resúlull-llah.",
+    "english": "Immediately following the declaration of faith called by the mu-aththin, one says:‘And I too bear witness that none has the right to be worshipped except Allah, alone, without partner, and that Muhammad is His salve and Messenger.  I am pleased with Allah as a Lord, and Muhammad as a Messenger and Islam as a religion.’",
+    "indonesian": "Membaca shalawat kepada Nabi Shallallahu'alaihi wasallam sesudah adzan."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "24_Immediately_following_the_declaration_of_default_1.mp3",
+      "path": "/invocations/24_Immediately_following_the_declaration_of/24_Immediately_following_the_declaration_of_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "24_Immediately_following_the_declaration_of_Mishary_1.mp3",
+      "path": "/invocations/24_Immediately_following_the_declaration_of/24_Immediately_following_the_declaration_of_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

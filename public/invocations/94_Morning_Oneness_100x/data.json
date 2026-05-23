@@ -1,0 +1,33 @@
+{
+  "id": 94,
+  "name": "Morning: Oneness (100x)",
+  "arabic": "((لاَ إِلَهَ إِلاَّ اللَّهُ، وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ)) (مائةَ مرَّةٍ إذا أصبحَ).",
+  "metadata": {
+    "reference": "I Dërguari i Allahut (paqja qoftë mbi të) ka thënë: “Kush e thotë këtë lutje 100 herë në ditë; ka shpërblimin sikur t’i ketë liruar 10 robër. Atij i shkruhen 100 të mira, i fshihen 100 gjynahe dhe është i mbrojtur nga djalli deri në mbrëmje, askush nuk ka vepruar më mirë se ky person, me përjashtim të atij që ka vepruar më tepër se ky.” Shënojnë Buhariu 4/95 dhe Muslimi 4/2071.",
+    "chapter_name": "Morning Adhkar",
+    "internal_id": "La ilaha illallah"
+  },
+  "transliterations": {
+    "latin": "La ilahe il-lAll-llahu vahdehu la sherike leh, lehul-Mulku ve lehul-hamdu ve huve ala kul-li shejin kadir. (100 herë në mëngjes)."
+  },
+  "translations": {
+    "albanian": "Nuk ka hyjni që meriton të adhurohet përveç Allahut, të Vetëm e i pa rival. Atij i takon Sundimi dhe Lavdërimi dhe Ai është i Gjithëfuqishëm mbi çdo gjë.",
+    "english": "(None has the right to be worshipped except Allah, alone, without partner, to Him belongs all sovereignty and praise, and He is over all things omnipotent.)((one hundred times every day))",
+    "indonesian": "Maha Suci Allah, aku memujiNya sebanyak makhlukNya, sejauh kerelaanNya, seberat timbangan arasyNya dan sebanyak tinta tulisan kalimatNya.\" (Dibaca tiga kali setiap pagi hari)."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "94_Morning_Oneness_100x_default_1.mp3",
+      "path": "/invocations/94_Morning_Oneness_100x/94_Morning_Oneness_100x_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "94_Morning_Oneness_100x_Mishary_1.mp3",
+      "path": "/invocations/94_Morning_Oneness_100x/94_Morning_Oneness_100x_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

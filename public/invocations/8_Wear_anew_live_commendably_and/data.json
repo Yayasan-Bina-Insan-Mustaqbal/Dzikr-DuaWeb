@@ -1,0 +1,33 @@
+{
+  "id": 8,
+  "name": "Wear anew, live commendably and...",
+  "arabic": "(اِلْبَسْ جَدِيداً وَعِشْ حَمِيداً وَمُتْ شَهِيداً).",
+  "metadata": {
+    "reference": "Ibën Maxheh 2/1178 dhe Begaviu 12/41 “Sahih Sunen Ibën Maxheh” 2/275.",
+    "chapter_name": "New Clothes (Others)",
+    "internal_id": "New Clothes (Others) (2)"
+  },
+  "transliterations": {
+    "latin": "Ilbis xhediden ve ish hamiden ve mut shehiden"
+  },
+  "translations": {
+    "albanian": "Vishe të re, jeto Falënderues dhe vdis si dëshmor në rrugën e Allahut.",
+    "english": "(Wear anew, live commendably and die a shaheed.)(shaheed:One who dies fighting the kuffar in order to make the word of Allah superior or in defense of Islam.  It also has other meanings found in the Sunnah such as: the one who dies defending his life, wealth or family; the woman who passes away due to childbirth; one who drowns…etc.)",
+    "indonesian": "Shahih Wa Dla'if Adabul Mufrad (2 Jilid); Syaikh Muhammad Nashiruddin Al-Albani rahimahullah. Penerbit: Dar As-Shadiq, Makkah Al-Mukaramah-KSA."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "8_Wear_anew_live_commendably_and_default_1.mp3",
+      "path": "/invocations/8_Wear_anew_live_commendably_and/8_Wear_anew_live_commendably_and_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "8_Wear_anew_live_commendably_and_Mishary_1.mp3",
+      "path": "/invocations/8_Wear_anew_live_commendably_and/8_Wear_anew_live_commendably_and_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

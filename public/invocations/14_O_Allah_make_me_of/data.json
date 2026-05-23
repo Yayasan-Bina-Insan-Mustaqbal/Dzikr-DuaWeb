@@ -1,0 +1,33 @@
+{
+  "id": 14,
+  "name": "O Allah, make me of...",
+  "arabic": "(اللَّهُمَّ اجْعَلْنِي مِنَ التَّوَّابِينَ وَاجْعَلْنِي مِنَ الْمُتَطَهِّرِينَ)",
+  "metadata": {
+    "reference": "Tirmidhiu 1/78, “Sahih et-Tirmidhi” 3/151.",
+    "chapter_name": "After Ablution",
+    "internal_id": "After Ablution (2)"
+  },
+  "transliterations": {
+    "latin": "All-llahumme-xh’alni minet-tevvabine vexh-alni minel-mutetahirin"
+  },
+  "translations": {
+    "albanian": "O Allahu im, më bëj mua prej atyre që pendohen dhe më bëj mua nga ata që pastrohen nga gjynahet dhe papastërtitë.",
+    "english": "(O Allah, make me of those who return to You often in repentance and make me of those who remain clean and pure.)",
+    "indonesian": "Ya Allah, jadikanlah aku termasuk orang-orang yang bertaubat dan jadikanlah aku termasuk orang-orang (yang senang) bersuci\"."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "14_O_Allah_make_me_of_default_1.mp3",
+      "path": "/invocations/14_O_Allah_make_me_of/14_O_Allah_make_me_of_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "14_O_Allah_make_me_of_Mishary_1.mp3",
+      "path": "/invocations/14_O_Allah_make_me_of/14_O_Allah_make_me_of_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

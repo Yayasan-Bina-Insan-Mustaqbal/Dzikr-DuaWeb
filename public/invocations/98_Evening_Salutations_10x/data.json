@@ -1,0 +1,33 @@
+{
+  "id": 98,
+  "name": "Evening: Salutations (10x)",
+  "arabic": "أَعُوذُ بِكَلِمَاتِ اللهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ",
+  "metadata": {
+    "reference": "“Kush e thotë këtë lutje tri herë në mbrëmje, nuk i bën dëm temperatura e asaj nate.” Ahmedi 2/290, Nesaiu në “Amel el-Jevmi ve Lejleh” hadithi nr. 590, Ibën Sunnijj nr. 68. “Sahih et-Tirmidhi” 3/187, “Sahih Ibën Maxheh” 2/266 dhe “Tuhfetul-Ahjar” fq.45.",
+    "chapter_name": "Evening Adhkar",
+    "internal_id": "Protection from Evil Eye"
+  },
+  "transliterations": {
+    "latin": "Eudhu bi kelimatil-lahit-tammati min sherri ma halaka. (3 herë në mbrëmje)."
+  },
+  "translations": {
+    "albanian": "Kërkoj mbrojtje me fjalët e përsosura të Allahut nga çdo e keqe që e ka krijuar.",
+    "english": "‘O Allaah, send prayers and peace upon our Prophet Muhammad.’ [ten times]",
+    "indonesian": "Ya Allah, limpahkanlah shalawat dan salam kepada Nabi kami Muhammad. (Dibaca 10 kali). 114 Bacaan Sebelum Tidur"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "98_Evening_Salutations_10x_default_1.mp3",
+      "path": "/invocations/98_Evening_Salutations_10x/98_Evening_Salutations_10x_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "98_Evening_Salutations_10x_Mishary_1.mp3",
+      "path": "/invocations/98_Evening_Salutations_10x/98_Evening_Salutations_10x_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

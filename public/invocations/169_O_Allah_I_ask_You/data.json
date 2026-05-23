@@ -1,0 +1,33 @@
+{
+  "id": 169,
+  "name": "O Allah, I ask You...",
+  "arabic": "((اللَّهُمَّ إِنِّي أَسْأَلُكَ بِرَحْمَتِكَ الَّتِي وَسِعَتْ كُلَّ شَيْءٍ أَنْ تَغْفِرَ لِي)).",
+  "metadata": {
+    "reference": "Ibën Maxheh 1/557, prej lutjeve të Abdullah ibën Ameit, Hafidh ibën Haxheri e ka bërë të mirë “Sherh e-Edhkar” 4/342.",
+    "chapter_name": "Breaking Fast",
+    "internal_id": "Breaking Fast (2)"
+  },
+  "transliterations": {
+    "latin": "All-llahumme inni es’eluke bi rahmetikel-leti vesi’at kul-le shej’in en tagfire li"
+  },
+  "translations": {
+    "albanian": "O Allahu im, të lutem me mëshirën Tënde, e cila ka përfshirë çdo gjë, të m’i falësh mëkatet.",
+    "english": "(O Allah, I ask You by Your mercy which envelopes all things, that You forgive me.)",
+    "indonesian": "Ya Allah! Berilah kami hujan yang merata, menyegarkan tubuh dan menyuburkan tanaman, bermanfaat, tidak"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "169_O_Allah_I_ask_You_default_1.mp3",
+      "path": "/invocations/169_O_Allah_I_ask_You/169_O_Allah_I_ask_You_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "169_O_Allah_I_ask_You_Mishary_1.mp3",
+      "path": "/invocations/169_O_Allah_I_ask_You/169_O_Allah_I_ask_You_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

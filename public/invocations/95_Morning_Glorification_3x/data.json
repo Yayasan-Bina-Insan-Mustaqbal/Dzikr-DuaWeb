@@ -1,0 +1,33 @@
+{
+  "id": 95,
+  "name": "Morning: Glorification (3x)",
+  "arabic": "((سُبْحَانَ اللَّهِ وَبِحَمْدِهِ: عَدَدَ خَلْقِهِ، وَرِضَا نَفْسِهِ، وَزِنَةَ عَرْشِهِ، وَمِدَادَ كَلِمَاتِهِ)) (ثلاثَ مرَّاتٍ إذا أصبحَ).",
+  "metadata": {
+    "reference": "Muslimi 4/2090.",
+    "chapter_name": "Morning Adhkar",
+    "internal_id": "Morning Adhkar (20)"
+  },
+  "transliterations": {
+    "latin": "SubhanAll-llahi ve bihamdihi adede halkihi ve rida nefsihi ve zinete arshihi ve midade kelimatihi. (3 herë në mëngjes)."
+  },
+  "translations": {
+    "albanian": "I Madhëruar qoftë Allahu, aq sa është numri i krijesave të Tij dhe aq sa dëshiron Ai vet, po aq sa është i bukur Arshi i Tij dhe aq sa është ngjyra e pafund për t’i shkruar fjalët e Tij.",
+    "english": "(How perfect Allah is and I praise Him by the number of His creation and His pleasure, and by the weight of His throne, and the ink of His words.)(three times)",
+    "indonesian": "Mahasuci Allah, aku memuji-Nya sebanyak bilangan makhluk-Nya, Mahasuci Allah sesuai ke-ridhaan-Nya, Mahasuci seberat timbangan 'Arsy-Nya, dan Mahasuci sebanyak tinta (yang menulis) kalimat-Nya."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "95_Morning_Glorification_3x_default_1.mp3",
+      "path": "/invocations/95_Morning_Glorification_3x/95_Morning_Glorification_3x_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "95_Morning_Glorification_3x_Mishary_1.mp3",
+      "path": "/invocations/95_Morning_Glorification_3x/95_Morning_Glorification_3x_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

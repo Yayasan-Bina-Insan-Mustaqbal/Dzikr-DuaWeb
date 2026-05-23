@@ -1,0 +1,33 @@
+{
+  "id": 206,
+  "name": "Protection from Evil Eye",
+  "arabic": "((أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ)).",
+  "metadata": {
+    "reference": "Muslimi 4/2080. Këtë e thoshte kur kthehej prej ndonjë beteje ose kur kthehej nga haxhi.",
+    "chapter_name": "Layover on Journey",
+    "internal_id": "Protection from Evil Eye"
+  },
+  "transliterations": {
+    "latin": "Eudhu bi kelimatil-lahit-tammati min sherri ma halaka"
+  },
+  "translations": {
+    "albanian": "Kërkoj mbrojtje me fjalët e përsosura të Allahut nga e keqja që e ka krijuar.",
+    "english": "(I take refuge in Allah’s perfect words from the evil that He has created.)",
+    "indonesian": "Dengan nama Allah, segala puji bagi Allah, Maha Suci Tuhan yang menundukkan kendaraan ini untuk kami, padahal kami sebelumnya tidak mampu menguasainya. Dan sesungguhnya kami akan kembali kepada Tuhan kami (di hari Kiamat). Segala puji bagi Allah (3x), Maha Suci Engkau, ya Allah! Sesungguhnya aku menganiaya diriku, maka ampunilah aku. Sesungguhnya tidak ada yang mengampuni dosa-dosa kecuali Engkau."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "206_Protection_from_Evil_Eye_default_1.mp3",
+      "path": "/invocations/206_Protection_from_Evil_Eye/206_Protection_from_Evil_Eye_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "206_Protection_from_Evil_Eye_Mishary_1.mp3",
+      "path": "/invocations/206_Protection_from_Evil_Eye/206_Protection_from_Evil_Eye_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

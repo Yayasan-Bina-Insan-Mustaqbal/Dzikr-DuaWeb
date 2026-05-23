@@ -1,0 +1,33 @@
+{
+  "id": 71,
+  "name": "None has the right to...",
+  "arabic": "((لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ يُحْيِي وَيُمِيتُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ)) عَشْرَ مَرّاتٍ بَعْدَ صَلاةِ الْمَغْرِبِ وَالصُّبْحِ.",
+  "metadata": {
+    "reference": "",
+    "chapter_name": "After Prayer",
+    "internal_id": "After Prayer (7)"
+  },
+  "transliterations": {
+    "latin": "Kul eudhu bi Rabbin-nas, melikin-nas, ilahin-nas, minsherr-rril vesvasil-han-nas, eledhi juvesvisu fi sudurin-nas, minel xhin-neti ven-nas"
+  },
+  "translations": {
+    "albanian": "Thuaj: “Kërkoj mbështetje te Zoti i njerëzve, Sundimtari i njerëzve, i Adhuruari (i vetëm me të drejtë) i njerëzve, nga sherri i djallit cytës që fshihet (pasi cyt) e që hedh dyshime në gjokset e njerëzve, (qoftë ai djall) prej xhindeve apo njerëzve!”",
+    "english": "(None has the right to be worshipped except Allah, alone, without partner, to Him belongs all sovereignty and praise, He gives life and causes death and He is over all things omnipotent.(ten times after the maghrib and fajr prayers))",
+    "indonesian": "Membaca ayat Kursi setiap selesai shalat (fardhu).87"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "71_None_has_the_right_to_default_1.mp3",
+      "path": "/invocations/71_None_has_the_right_to/71_None_has_the_right_to_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "71_None_has_the_right_to_Mishary_1.mp3",
+      "path": "/invocations/71_None_has_the_right_to/71_None_has_the_right_to_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

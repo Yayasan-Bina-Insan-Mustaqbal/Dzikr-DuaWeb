@@ -1,0 +1,15 @@
+{
+  "id": 101,
+  "name": "Resident to Traveler",
+  "invocations": [
+    {
+      "id": 203,
+      "name": "I place your religion, your..."
+    },
+    {
+      "id": 204,
+      "name": "May Allah endow you with..."
+    }
+  ],
+  "description": ""
+}

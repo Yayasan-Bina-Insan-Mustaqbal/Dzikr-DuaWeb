@@ -1,0 +1,33 @@
+{
+  "id": 153,
+  "name": "O Allah, make him for...",
+  "arabic": "((اللَّهُمَّ اجْعَلْهُ لَنَا فَرَطاً، وَسَلَفاً، وَأَجْراً)).",
+  "metadata": {
+    "reference": "Shënon Begaviu në veprën e tij “Sherh es-Sunneh” 5/357.",
+    "chapter_name": "Funeral Prayer (Child)",
+    "internal_id": "Funeral Prayer (Child) (2)"
+  },
+  "transliterations": {
+    "latin": "All-llahummexh-’alhu lena feretan, ve selefen ve exhren"
+  },
+  "translations": {
+    "albanian": "O Allahu im, jepi përparësi këtij të vdekuri nga ne dhe jepi shpërblim.",
+    "english": "(O Allah, make him for us a precursor,a forerunner and a cause of reward)",
+    "indonesian": "Barangsiapa yang akhir perkataannya adalah: Laa ilaaha illallaah, akan masuk Surga. 172 Ketika akan meninggal dunia maka si sakit hendaknya diajarkan kalimat \"Laa Ilaaha Illallah\"."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "153_O_Allah_make_him_for_default_1.mp3",
+      "path": "/invocations/153_O_Allah_make_him_for/153_O_Allah_make_him_for_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "153_O_Allah_make_him_for_Mishary_1.mp3",
+      "path": "/invocations/153_O_Allah_make_him_for/153_O_Allah_make_him_for_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

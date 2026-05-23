@@ -1,0 +1,33 @@
+{
+  "id": 185,
+  "name": "Against Shaitan",
+  "arabic": "((أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ)).",
+  "metadata": {
+    "reference": "Buhariu 7/99 dhe Muslimi 4/2015.",
+    "chapter_name": "Anger",
+    "internal_id": "Against Shaitan"
+  },
+  "transliterations": {
+    "latin": "Eudhu bil-lahi minesh-shejtanir-raxhim"
+  },
+  "translations": {
+    "albanian": "Kërkoj mbrojtjen e Allahut prej djallit të mallkuar.",
+    "english": "(I take refuge with Allah from the accursed devil.)",
+    "indonesian": "Apabila seseorang di antara kamu diundang (makan) hendaklah dipenuhi. Apabila puasa, hendaklah mendoakan (kepada orang yang mengundang). Apabila tidak puasa, hendaklah makan."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "185_Against_Shaitan_default_1.mp3",
+      "path": "/invocations/185_Against_Shaitan/185_Against_Shaitan_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "185_Against_Shaitan_Mishary_1.mp3",
+      "path": "/invocations/185_Against_Shaitan/185_Against_Shaitan_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

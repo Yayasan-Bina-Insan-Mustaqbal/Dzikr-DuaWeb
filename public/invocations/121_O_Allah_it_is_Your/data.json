@@ -1,0 +1,33 @@
+{
+  "id": 121,
+  "name": "O Allah, it is Your...",
+  "arabic": "((اللَّهُمَّ رَحْمَتَكَ أَرْجُو، فَلاَ تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ، وَأَصْلِحْ لِي شَأْنِي كُلَّهُ، لاَ إِلَهَ إِلاَّ أَنْتَ)).",
+  "metadata": {
+    "reference": "Ebu Davudi 4/324, Ahmedi 5/42. Shejh Albani e ka bërë të mirë (Hasen), “Sahih Ebu Davud” 3/959.",
+    "chapter_name": "Anguish",
+    "internal_id": "Anguish (2)"
+  },
+  "transliterations": {
+    "latin": "All-llahumme rahmeteke erxhu fe la tekilni ilá nefsi tarfet ajnin ve aslih li she’ni kul-lehu. La ilahe il-la Ente"
+  },
+  "translations": {
+    "albanian": "O Allahu im, në mëshirën Tënde shpresoj, mos më le të mbështetem në vetvete, as sa një përpëlitje e syrit dhe ma përmirëso gjendjen time. Nuk ka të adhuruar tjetër përveç Teje.",
+    "english": "(O Allah, it is Your mercy that I hope for, so do not leave me in charge of my affairs even for a blink of an eye and rectify for me all of my affairs.None has the right to be worshipped except You.)",
+    "indonesian": "Ya Allah! Sesungguhnya aku berlindung kepadaMu dari (hal yang) menyedihkan dan menyusahkan, lemah dan malas, bakhil dan penakut, lilitan hutang dan penindasan orang."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "121_O_Allah_it_is_Your_default_1.mp3",
+      "path": "/invocations/121_O_Allah_it_is_Your/121_O_Allah_it_is_Your_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "121_O_Allah_it_is_Your_Mishary_1.mp3",
+      "path": "/invocations/121_O_Allah_it_is_Your/121_O_Allah_it_is_Your_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

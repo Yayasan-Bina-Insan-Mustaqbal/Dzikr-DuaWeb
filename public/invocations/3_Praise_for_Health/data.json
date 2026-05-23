@@ -1,0 +1,33 @@
+{
+  "id": 3,
+  "name": "Praise for Health",
+  "arabic": "( الْحَمْدُ لِلَّهِ الَّذِي عَافَانِي فِي جَسَدِي، وَرَدَّ عَلَيَّ رُوحِي، وَأَذِنَ لي بِذِكْرِهِ )",
+  "metadata": {
+    "reference": "Tirmidhiu 5/473 “Sahih et-Tirmidhi” 3/144",
+    "chapter_name": "Upon Waking Up",
+    "internal_id": "Upon Waking Up (3)"
+  },
+  "transliterations": {
+    "latin": "Elhamdulil-lahil-ledhi a’fani fi xhesedi, ve redde alejje ruhi, ve edhine li bi dhikrihi"
+  },
+  "translations": {
+    "albanian": "Falënderimi i takon Allahut, i Cili më fali shëndetin në trupin tim, ma ktheu shpirtin tim dhe më dha mundësi që ta përmendi Atë.",
+    "english": "(All praise is for Allah who restored to me my health and returned my soul and  has allowed me to remember Him.)",
+    "indonesian": "Shahih wa Dla'if Sunan Abi Dawud (4 Jilid); Syaikh Muhammad Nashiruddin Al- Albani rahimahullah. Penerbit: Maktabah Al-Ma'arif Linnasyir Wa At-Tauji', Riyadl- KSA."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "3_Praise_for_Health_default_1.mp3",
+      "path": "/invocations/3_Praise_for_Health/3_Praise_for_Health_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "3_Praise_for_Health_Mishary_1.mp3",
+      "path": "/invocations/3_Praise_for_Health/3_Praise_for_Health_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

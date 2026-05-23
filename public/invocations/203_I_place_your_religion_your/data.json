@@ -1,0 +1,33 @@
+{
+  "id": 203,
+  "name": "I place your religion, your...",
+  "arabic": "(( أَسْتَوْدِعُ اللَّهَ دِينَكَ، وَأَمَانَتَكَ، وَخَوَاتِيمَ عَمَلِكَ)).",
+  "metadata": {
+    "reference": "Ahmedi 2/7, Tirmidhiu 5/499 ”Sahih et-Tirmidhi” 2/155.”",
+    "chapter_name": "Resident to Traveler",
+    "internal_id": "Resident to Traveler (1)"
+  },
+  "transliterations": {
+    "latin": "Estevdi ull-llahe dineke ve emaneteke, ve havatime amelike"
+  },
+  "translations": {
+    "albanian": "Në mbrojtjen e Allahut qofshin feja jote, besa jote dhe përfundimi i punëve tuaja.",
+    "english": "(I place your religion, your faithfulness and the ends of your deeds in the trust of Allah.)",
+    "indonesian": "Aku menitipkan agamamu, amanatmu dan perbuatanmu yang terakhir kepada Allah."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "203_I_place_your_religion_your_default_1.mp3",
+      "path": "/invocations/203_I_place_your_religion_your/203_I_place_your_religion_your_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "203_I_place_your_religion_your_Mishary_1.mp3",
+      "path": "/invocations/203_I_place_your_religion_your/203_I_place_your_religion_your_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

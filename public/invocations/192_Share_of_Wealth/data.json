@@ -1,0 +1,33 @@
+{
+  "id": 192,
+  "name": "Share of Wealth",
+  "arabic": "((بَارَكَ اللَّهُ لَكَ فِي أَهْلِكَ وَمَالِكَ)).",
+  "metadata": {
+    "reference": "Buhariu me “Fet’h” 4/88.",
+    "chapter_name": "Share of Wealth",
+    "internal_id": "Share of Wealth"
+  },
+  "transliterations": {
+    "latin": "BarekAll-llahu leke fi Ehlike ve malike"
+  },
+  "translations": {
+    "albanian": "Të bekoftë Allahu në familjen dhe pasurinë Tënde.",
+    "english": "(May Allah bless for you, your family and wealth.)",
+    "indonesian": "Dengan Nama Allah, Ya Allah! Jauhkan kami dari setan, dan jauhkan setan untuk mengganggu apa yang Engkau rezekikan kepada kami.\" 213 Doa Ketika Marah"
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "192_Share_of_Wealth_default_1.mp3",
+      "path": "/invocations/192_Share_of_Wealth/192_Share_of_Wealth_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "192_Share_of_Wealth_Mishary_1.mp3",
+      "path": "/invocations/192_Share_of_Wealth/192_Share_of_Wealth_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

@@ -1,0 +1,33 @@
+{
+  "id": 90,
+  "name": "Morning: Upon the Morning",
+  "arabic": "((أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ رَبِّ الْعَالَمِينَ، اللَّهُـمَّ إِنِّي أَسْأَلُكَ خَيْرَ هَذَا الْيَوْمِ:فَتْحَهُ، وَنَصْرَهُ، وَنورَهُ، وَبَرَكَتَهُ، وَهُدَاهُ، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِيهِ وَشَرِّ مَا بَعْدَهُ)). [وإذا أمسى قال: أمسينا وأمسى الملك للَّه ربّ العالمين اللَّهم إني أسألك خير هذه الليلة: فتحها، ونصرها، ونورها، وبركتها، وهداها، وأعوذ بك من شر ما فيها، وشر ما بعدها.]",
+  "metadata": {
+    "reference": "Ndërsa në mbrëmje thotë: “Emsejna ve emsel-Mulku lil-lahi Rabbil-alemin. Allahumme inni es’eluke hajre hadhihil-lejleti, fethaha, ve nasreha, ve bereketeha, ve hudaha, ve eudhi bike min sherri ma fiha ve sherri ma badeha.”\\nEbu Davudi 4/322; (isnad hasen) Shuajb dhe Abdul-kadër Arnauti. Shih “Zadul-Me’ad” 2/273.",
+    "chapter_name": "Morning Adhkar",
+    "internal_id": "Morning Adhkar (15)"
+  },
+  "transliterations": {
+    "latin": "Asbahna  ve asbahal-Mulku lil-lahi Rabbil-alemin. All-llahumme inni es’eluke hajre hadhel-jevmi fet-hahu, ve nasrehu ve nurehu, ve bereketehu, ve hudahu, ve eudhu bike min sherri ma fihi, ve sherri ma badehu"
+  },
+  "translations": {
+    "albanian": "E arritëm mëngjesin dhe e tërë pasuria i takon Allahut, Zotit të botëve. O Allahu im, unë kërkoj mirësinë e kësaj dite, hapjen e saj, ndihmën e saj, dritën e saj, dhuntinë dhe udhëzimin e saj. Kërkoj të më mbrosh nga e keqja e saj dhe e ditëve të tjera pas saj.",
+    "english": "(We have reached the morning and at this very time all sovereignty belongs to Allah, Lord of the worlds. O Allah, I ask You for the good of this day, its triumphs and its victories, its light and its blessings and its guidance, and I take refuge in You from the evil of this day and the evil that follows it.)[For the evening, the supplication is read as follows:](We have reached the evening and at this very time all sovereignty belongs to Allah, Lord of the worlds. O Allah, I ask You for the good of tonight, its triumphs and its victories, its light and its blessings and its guidance, and I take refuge in You from the evil of tonight and the evil that follows it.)",
+    "indonesian": "Di waktu pagi kami memegang agama Islam, kalimat ikhlas, agama Nabi kita Muhammad, dan agama ayah kami Ibrahim, yang berdiri di atas jalan yang lurus, muslim dan tidak tergolong orangorang musyrik."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "90_Morning_Upon_the_Morning_default_1.mp3",
+      "path": "/invocations/90_Morning_Upon_the_Morning/90_Morning_Upon_the_Morning_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "90_Morning_Upon_the_Morning_Mishary_1.mp3",
+      "path": "/invocations/90_Morning_Upon_the_Morning/90_Morning_Upon_the_Morning_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

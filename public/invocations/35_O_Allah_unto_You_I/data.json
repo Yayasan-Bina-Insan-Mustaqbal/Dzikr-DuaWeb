@@ -1,0 +1,33 @@
+{
+  "id": 35,
+  "name": "O Allah, unto You I...",
+  "arabic": "((اللَّهُمَّ لَكَ رَكَعْتُ، وَبِكَ آمَنْتُ، وَلَكَ أَسْلَمْتُ، خَشَعَ لَكَ سَمْعِي، وَبَصَرِي، وَمُخِّي، وَعَــــظْمِي، وَعَصَبِي، [وَمَا استَقَلَّتْ بِهِ قَدَمِي])).",
+  "metadata": {
+    "reference": "Muslimi 1/534 dhe katër sunenet përveç Ibën Maxhes.",
+    "chapter_name": "During Ruku'",
+    "internal_id": "During Ruku' (4)"
+  },
+  "transliterations": {
+    "latin": "All-llahumme leke reka’tu, ve bike amentu, ve leke eslemtu, hashe’a leke sem’í ve besari, ve muhhi, ve adhmi, ve asabi ve mes-tekal-le bihi kademi"
+  },
+  "translations": {
+    "albanian": "O Allahu im, Ty të jam përulur dhe Ty të besova. Ty të jam nënshtruar; Ty të është përulur me frikërespekt dëgjimi im, shikimi im, truri im, ashti im, nervi im dhe tërë ato që mbajnë këmbët e mia.",
+    "english": "(O Allah, unto You I have bowed, and in You I have believed, and to You I have submitted. My hearing, sight, mind, bones, tendons and what my feet carry are humbled before You.)",
+    "indonesian": "Engkau, Tuhan Yang Maha Suci (dari kekurangan dan hal yang tidak layak bagi kebesaranMu), Maha Agung, Tuhan malaikat dan Jibril."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "35_O_Allah_unto_You_I_default_1.mp3",
+      "path": "/invocations/35_O_Allah_unto_You_I/35_O_Allah_unto_You_I_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "35_O_Allah_unto_You_I_Mishary_1.mp3",
+      "path": "/invocations/35_O_Allah_unto_You_I/35_O_Allah_unto_You_I_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}

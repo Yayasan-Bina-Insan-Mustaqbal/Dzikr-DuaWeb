@@ -1,0 +1,33 @@
+{
+  "id": 13,
+  "name": "La ilaha illallah",
+  "arabic": "(أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ وَأَشْهَدُ أَنَّ مُحَمَّداً عَبْدُهُ وَرَسُولُهُ..).",
+  "metadata": {
+    "reference": "Muslimi 1/209.",
+    "chapter_name": "After Ablution",
+    "internal_id": "La ilaha illallah"
+  },
+  "transliterations": {
+    "latin": "Eshhedu en la Ilahe il-lAll-llahu vahdehu la sherike lehu ve eshhedu enne Muhammeden abduhu ve resuluhu"
+  },
+  "translations": {
+    "albanian": "Dëshmoj se nuk ka hyjni që meriton të adhurohet përveç Allahut, të Vetëm e i pa rival, si dhe dëshmoj që Muhamedi është robi dhe i Dërguari i Tij.",
+    "english": "(I bear witness that none has the right to be worshipped except Allah, alone without partner, and I bear witness that Muhammad is His slave and Messenger.)",
+    "indonesian": "Aku bersaksi, bahwa tiada Tuhan yang haq kecuali Allah, Yang Maha Esa dan tiada sekutu bagiNya. Aku bersaksi, bahwa Muhammad adalah hamba dan utusanNya\"."
+  },
+  "audio": [
+    {
+      "reciter": "default",
+      "version": "1",
+      "filename": "13_La_ilaha_illallah_default_1.mp3",
+      "path": "/invocations/13_La_ilaha_illallah/13_La_ilaha_illallah_default_1.mp3"
+    },
+    {
+      "reciter": "Mishary",
+      "version": "1",
+      "filename": "13_La_ilaha_illallah_Mishary_1.mp3",
+      "path": "/invocations/13_La_ilaha_illallah/13_La_ilaha_illallah_Mishary_1.mp3"
+    }
+  ],
+  "description": ""
+}
