@@ -453,7 +453,9 @@ function PlayRoute() {
                         { id: 'auto', name: 'Auto', color: 'bg-gradient-to-tr from-zinc-900 to-zinc-100 border' },
                         { id: 'light', name: 'Light', color: 'bg-white border' },
                         { id: 'dark', name: 'Dark', color: 'bg-zinc-900' },
+                        { id: 'midnight', name: 'Midnight', color: 'bg-[#0f1115]' },
                         { id: 'sepia', name: 'Sepia', color: 'bg-[#f4ecd8]' },
+                        { id: 'rose', name: 'Rose', color: 'bg-[#fff5f5]' },
                         { id: 'emerald', name: 'Emerald', color: 'bg-[#064e3b]' }
                       ].map((t) => (
                         <DropdownMenuItem 

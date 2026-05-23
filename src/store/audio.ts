@@ -12,7 +12,7 @@ interface AudioState {
   selectedVersion: string;
   translationLang: 'none' | 'english' | 'indonesian' | 'albanian';
   transliterationLang: 'none' | 'latin';
-  theme: 'auto' | 'light' | 'dark' | 'sepia' | 'emerald';
+  theme: 'auto' | 'light' | 'dark' | 'sepia' | 'emerald' | 'midnight' | 'rose';
   audioElement: HTMLAudioElement | null;
   setAudioElement: (el: HTMLAudioElement | null) => void;
   setQueue: (queue: Array<Invocation>, shouldPlay?: boolean) => void;
@@ -27,7 +27,7 @@ interface AudioState {
   setSelectedVersion: (version: string) => void;
   setTranslationLang: (lang: 'none' | 'english' | 'indonesian' | 'albanian') => void;
   setTransliterationLang: (lang: 'none' | 'latin') => void;
-  setTheme: (theme: 'auto' | 'light' | 'dark' | 'sepia' | 'emerald') => void;
+  setTheme: (theme: 'auto' | 'light' | 'dark' | 'sepia' | 'emerald' | 'midnight' | 'rose') => void;
   seek: (time: number) => void;
   clearQueue: () => void;
   addToQueue: (items: Array<Invocation>) => void;
@@ -36,11 +36,11 @@ interface AudioState {
   updateQueueItem: (id: number, fields: Partial<Invocation>) => void;
 }
 
-const applyTheme = (theme: 'auto' | 'light' | 'dark' | 'sepia' | 'emerald') => {
+const applyTheme = (theme: 'auto' | 'light' | 'dark' | 'sepia' | 'emerald' | 'midnight' | 'rose') => {
   if (typeof window === 'undefined') return;
 
   const root = document.documentElement;
-  const isDark = theme === 'dark' || (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  const isDark = theme === 'dark' || theme === 'midnight' || (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches);
   
   // Manage .dark class for Tailwind
   if (isDark) {

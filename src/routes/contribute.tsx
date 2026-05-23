@@ -2,6 +2,19 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router"
 import { useState, useMemo, useEffect, useRef } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { exchangeCodeServerFn, submitContributionServerFn } from "../lib/contributeServer"
+import { useAudioStore } from "../store/audio"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "../components/ui/dropdown-menu"
 
 export const Route = createFileRoute("/contribute")({
   component: ContributeRoute,
@@ -83,6 +96,14 @@ const MOCK_WAVES: Record<number, number[]> = {
 
 function ContributeRoute() {
   const navigate = useNavigate()
+  const { 
+    theme, 
+    setTheme,
+    translationLang,
+    setTranslationLang,
+    transliterationLang,
+    setTransliterationLang
+  } = useAudioStore()
   
   // Real recording and Web Audio refs
   const mediaRecorderRef = useRef<MediaRecorder | null>(null)
@@ -1244,42 +1265,147 @@ function ContributeRoute() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-[#1E293B] flex flex-col font-sans">
+    <div className="min-h-screen bg-background text-foreground flex flex-col font-sans">
       {/* Top Navbar */}
-      <nav className="fixed top-0 left-0 right-0 h-20 border-b border-[#E2E8F0] bg-white/80 backdrop-blur-md z-50 px-6 md:px-12 flex items-center justify-between shadow-sm">
+      <nav className="fixed top-0 left-0 right-0 h-20 border-b border-border bg-card/80 backdrop-blur-md z-50 px-6 md:px-12 flex items-center justify-between shadow-sm">
         <div className="flex items-center gap-4">
           <button 
             onClick={() => navigate({ to: "/play" as any })}
-            className="w-10 h-10 rounded-xl hover:bg-[#F1F5F9] border border-[#E2E8F0] flex items-center justify-center transition-all cursor-pointer"
+            className="w-10 h-10 rounded-xl hover:bg-muted border border-border flex items-center justify-center transition-all cursor-pointer"
           >
-            <span className="material-symbols-outlined text-[#64748B]">arrow_back</span>
+            <span className="material-symbols-outlined text-muted-foreground hover:text-foreground">arrow_back</span>
           </button>
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl bg-[#064E3B]/10 flex items-center justify-center">
-              <span className="material-symbols-outlined text-[#064E3B]" style={{ fontVariationSettings: "'FILL' 1" }}>auto_awesome</span>
+            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+              <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>auto_awesome</span>
             </div>
             <div>
               <span className="font-bold text-lg tracking-tight block">Dzikr & Dua</span>
-              <span className="text-[10px] uppercase tracking-wider font-bold text-[#064E3B]">Attribution Hub</span>
+              <span className="text-[10px] uppercase tracking-wider font-bold text-primary">Attribution Hub</span>
             </div>
           </div>
         </div>
 
-        {/* GitHub Identity Button */}
+        {/* Settings Dropdown & GitHub Identity Button */}
         <div className="flex items-center gap-3">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button 
+                className="w-10 h-10 rounded-xl hover:bg-muted border border-border flex items-center justify-center transition-all cursor-pointer text-muted-foreground hover:text-foreground"
+                title="App Settings"
+              >
+                <span className="material-symbols-outlined text-xl">more_vert</span>
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56" align="end">
+              <DropdownMenuLabel>App Settings</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              
+              <DropdownMenuItem onClick={() => navigate({ to: "/play" as any })}>
+                <div className="flex items-center gap-3 text-primary font-semibold">
+                  <span className="material-symbols-outlined text-lg" style={{ fontVariationSettings: "'FILL' 1" }}>play_circle</span>
+                  <span>Open Player</span>
+                </div>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              
+              <DropdownMenuGroup>
+                <DropdownMenuSub>
+                  <DropdownMenuSubTrigger>
+                    <div className="flex items-center gap-3">
+                      <span className="material-symbols-outlined text-lg">language</span>
+                      <span>Translation</span>
+                    </div>
+                  </DropdownMenuSubTrigger>
+                  <DropdownMenuSubContent className="w-40">
+                    {[
+                      { id: 'none', name: 'None' },
+                      { id: 'english', name: 'English' },
+                      { id: 'indonesian', name: 'Indonesian' },
+                      { id: 'albanian', name: 'Albanian' }
+                    ].map((lang) => (
+                      <DropdownMenuItem 
+                        key={lang.id} 
+                        onClick={() => setTranslationLang(lang.id as any)}
+                        className={translationLang === lang.id ? "bg-primary/10 text-primary font-bold" : ""}
+                      >
+                        {lang.name}
+                        {translationLang === lang.id && <span className="material-symbols-outlined ml-auto text-xs">check</span>}
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuSubContent>
+                </DropdownMenuSub>
+
+                <DropdownMenuSub>
+                  <DropdownMenuSubTrigger>
+                    <div className="flex items-center gap-3">
+                      <span className="material-symbols-outlined text-lg">subtitles</span>
+                      <span>Transliteration</span>
+                    </div>
+                  </DropdownMenuSubTrigger>
+                  <DropdownMenuSubContent className="w-40">
+                    {[
+                      { id: 'none', name: 'None' },
+                      { id: 'latin', name: 'Latin' }
+                    ].map((lang) => (
+                      <DropdownMenuItem 
+                        key={lang.id} 
+                        onClick={() => setTransliterationLang(lang.id as any)}
+                        className={transliterationLang === lang.id ? "bg-primary/10 text-primary font-bold" : ""}
+                      >
+                        {lang.name}
+                        {transliterationLang === lang.id && <span className="material-symbols-outlined ml-auto text-xs">check</span>}
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuSubContent>
+                </DropdownMenuSub>
+
+                <DropdownMenuSub>
+                  <DropdownMenuSubTrigger>
+                    <div className="flex items-center gap-3">
+                      <span className="material-symbols-outlined text-lg">palette</span>
+                      <span>Theme</span>
+                    </div>
+                  </DropdownMenuSubTrigger>
+                  <DropdownMenuSubContent className="w-40">
+                    {[
+                      { id: 'auto', name: 'Auto', color: 'bg-gradient-to-tr from-zinc-900 to-zinc-100 border border-border' },
+                      { id: 'light', name: 'Light', color: 'bg-white border border-border' },
+                      { id: 'dark', name: 'Dark', color: 'bg-zinc-900' },
+                      { id: 'midnight', name: 'Midnight', color: 'bg-[#0f1115]' },
+                      { id: 'sepia', name: 'Sepia', color: 'bg-[#f4ecd8]' },
+                      { id: 'rose', name: 'Rose', color: 'bg-[#fff5f5]' },
+                      { id: 'emerald', name: 'Emerald', color: 'bg-[#064e3b]' }
+                    ].map((t) => (
+                      <DropdownMenuItem 
+                        key={t.id} 
+                        onClick={() => setTheme(t.id as any)}
+                        className={theme === t.id ? "bg-primary/10 text-primary font-bold" : ""}
+                      >
+                        <div className={`w-3 h-3 rounded-full mr-2 ${t.color}`} />
+                        {t.name}
+                        {theme === t.id && <span className="material-symbols-outlined ml-auto text-xs">check</span>}
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuSubContent>
+                </DropdownMenuSub>
+              </DropdownMenuGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
           {gitHubUser ? (
-            <div className="flex items-center gap-3 bg-emerald-50 border border-emerald-100 rounded-full py-1.5 pl-3 pr-2 shadow-sm">
+            <div className="flex items-center gap-3 bg-primary/10 border border-primary/20 rounded-full py-1.5 pl-3 pr-2 shadow-sm">
               <div className="flex flex-col items-end">
-                <span className="text-xs font-bold text-emerald-800 flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-xs font-bold text-primary flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                   Verified Narrator
                 </span>
-                <span className="text-[10px] text-emerald-600 font-mono">@{gitHubUser.username}</span>
+                <span className="text-[10px] text-muted-foreground font-mono">@{gitHubUser.username}</span>
               </div>
-              <img src={gitHubUser.avatarUrl} alt="Avatar" className="w-8 h-8 rounded-full border border-emerald-200" />
+              <img src={gitHubUser.avatarUrl} alt="Avatar" className="w-8 h-8 rounded-full border border-primary/20" />
               <button 
                 onClick={handleGitHubAuth}
-                className="w-6 h-6 rounded-full hover:bg-emerald-100 text-emerald-600 flex items-center justify-center cursor-pointer transition-colors"
+                className="w-6 h-6 rounded-full hover:bg-primary/10 text-primary flex items-center justify-center cursor-pointer transition-colors"
                 title="Disconnect Account"
               >
                 <span className="material-symbols-outlined text-xs">logout</span>
@@ -1289,7 +1415,7 @@ function ContributeRoute() {
             <button 
               onClick={handleGitHubAuth}
               disabled={isAuthenticating}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1E293B] hover:bg-[#0F172A] text-white font-bold text-sm hover:scale-[1.02] active:scale-[0.98] transition-all shadow-md cursor-pointer disabled:opacity-50"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary hover:bg-primary/95 text-primary-foreground font-bold text-sm hover:scale-[1.02] active:scale-[0.98] transition-all shadow-md cursor-pointer disabled:opacity-50"
             >
               <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
@@ -1305,14 +1431,14 @@ function ContributeRoute() {
         
         {/* GitHub PAT & OAuth Credentials Panel */}
         {showPatInput && (
-          <div className="bg-[#FAF9F5] border border-[#E2E8F0] rounded-2xl p-6 flex flex-col md:flex-row gap-6 justify-between items-start md:items-center shadow-sm relative overflow-hidden transition-all duration-300">
+          <div className="bg-card border border-border rounded-2xl p-6 flex flex-col md:flex-row gap-6 justify-between items-start md:items-center shadow-sm relative overflow-hidden transition-all duration-300">
             <div className="flex flex-col gap-1.5 max-w-lg">
-              <span className="text-[10px] uppercase font-bold tracking-widest text-[#064E3B] flex items-center gap-1.5">
+              <span className="text-[10px] uppercase font-bold tracking-widest text-primary flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-orange-500 animate-ping" />
                 Sign Narrator Identity
               </span>
-              <h3 className="font-serif font-bold text-lg text-[#1E293B]">Authenticating Staged Contributions</h3>
-              <p className="text-xs text-[#64748B] leading-relaxed">
+              <h3 className="font-serif font-bold text-lg text-foreground">Authenticating Staged Contributions</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">
                 Preserving sacred Isnad requires linking each contribution directly to a verified narrator. Authenticate using either GitHub OAuth or your developer Personal Access Token (PAT).
               </p>
             </div>
@@ -1321,18 +1447,18 @@ function ContributeRoute() {
               <button 
                 onClick={handleOAuthRedirect}
                 disabled={isAuthenticating}
-                className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#1E293B] hover:bg-[#0F172A] text-white font-bold text-xs hover:scale-[1.01] transition-all shadow-sm cursor-pointer disabled:opacity-50"
+                className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-foreground text-background hover:bg-foreground/90 font-bold text-xs hover:scale-[1.01] transition-all shadow-sm cursor-pointer disabled:opacity-50"
               >
                 <span>Use GitHub OAuth</span>
               </button>
               
-              <div className="flex items-center border border-[#CBD5E1] bg-white rounded-xl px-3 py-1.5 shadow-inner flex-1 sm:flex-none">
+              <div className="flex items-center border border-border bg-background rounded-xl px-3 py-1.5 shadow-inner flex-1 sm:flex-none">
                 <input 
                   type="password" 
                   placeholder="Paste GitHub Classic PAT..." 
                   value={patTokenValue}
                   onChange={(e) => setPatTokenValue(e.target.value)}
-                  className="bg-transparent border-none text-xs focus:outline-none focus:ring-0 w-full sm:w-44 text-slate-800"
+                  className="bg-transparent border-none text-xs focus:outline-none focus:ring-0 w-full sm:w-44 text-foreground"
                 />
                 <button 
                   onClick={handleManualPatSubmit}
@@ -1345,7 +1471,7 @@ function ContributeRoute() {
               
               <button 
                 onClick={() => setShowPatInput(false)}
-                className="w-10 h-10 rounded-xl hover:bg-slate-200/50 border border-slate-205 flex items-center justify-center text-slate-655 transition-all cursor-pointer"
+                className="w-10 h-10 rounded-xl hover:bg-muted/50 border border-border flex items-center justify-center text-muted-foreground hover:text-foreground transition-all cursor-pointer"
               >
                 <span className="material-symbols-outlined text-sm">close</span>
               </button>
@@ -1355,39 +1481,39 @@ function ContributeRoute() {
 
         {/* Intro Header */}
         <div className="flex flex-col gap-2">
-          <h1 className="text-3xl font-serif font-bold text-[#064E3B]">Narrator Chain Preservation</h1>
-          <p className="text-sm text-[#64748B] max-w-2xl leading-relaxed">
-            Preserving accuracy under the theological principle of **Isnad (إسناد)**. Correct transcription mistakes, enhance translations, or record clear audio recitations to secure pure Islamic transmission.
+          <h1 className="text-3xl font-serif font-bold text-primary">Narrator Chain Preservation</h1>
+          <p className="text-sm text-muted-foreground max-w-2xl leading-relaxed">
+            Preserving accuracy under the theological principle of **Isnad (إsnad)**. Correct transcription mistakes, enhance translations, or record clear audio recitations to secure pure Islamic transmission.
           </p>
         </div>
 
         {/* Large Premium Search Bar at the Top */}
         <div className="w-full max-w-2xl mx-auto">
           <div className="relative">
-            <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[#064E3B] text-xl font-bold">search</span>
+            <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-primary text-xl font-bold">search</span>
             <input 
               type="text" 
               placeholder="Search by keywords, translation, or Arabic text to suggest improvements..." 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 rounded-2xl border-2 border-[#E2E8F0] bg-white focus:outline-none focus:ring-4 focus:ring-[#064E3B]/10 focus:border-[#064E3B] text-sm transition-all font-medium shadow-sm placeholder:text-[#94A3B8]"
+              className="w-full pl-12 pr-4 py-4 rounded-2xl border-2 border-border bg-card text-foreground focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary text-sm transition-all font-medium shadow-sm placeholder:text-muted-foreground/60"
             />
           </div>
         </div>
 
         {/* Dynamic Multi-Type Datatable */}
-        <div className="bg-white rounded-3xl border border-[#E2E8F0] shadow-sm overflow-hidden w-full">
+        <div className="bg-card rounded-3xl border border-border shadow-sm overflow-hidden w-full">
           {/* Header Row */}
-          <div className="hidden md:grid grid-cols-12 gap-4 bg-[#F8FAFC] border-b border-[#E2E8F0] px-6 py-4 text-[10px] font-bold uppercase text-[#64748B] tracking-wider items-center w-full">
+          <div className="hidden md:grid grid-cols-12 gap-4 bg-muted/40 border-b border-border px-6 py-4 text-[10px] font-bold uppercase text-muted-foreground tracking-wider items-center w-full">
             <div className="col-span-2">Dzikr Ref</div>
             <div className="col-span-3 text-right pr-6">Arabic Matan</div>
             <div className="col-span-2">Transliteration</div>
-            <div className="col-span-2">Translation (ID)</div>
+            <div className="col-span-2">Translation ({translationLang === 'none' ? 'None' : translationLang.charAt(0).toUpperCase() + translationLang.slice(1)})</div>
             <div className="col-span-2">Audio Wave</div>
             <div className="col-span-1 text-right">Action</div>
           </div>
 
-          <div className="divide-y divide-[#F1F5F9] w-full">
+          <div className="divide-y divide-border w-full">
             {filteredInvocations.length > 0 ? (
               filteredInvocations.map((item) => {
                 const isExpanded = !!expandedRows[item.id]
@@ -1396,7 +1522,7 @@ function ContributeRoute() {
                 const draft = draftStore[item.id]
 
                 return (
-                  <div key={item.id} className="group/row transition-colors hover:bg-[#FAF9F6]/30 w-full">
+                  <div key={item.id} className="group/row transition-colors hover:bg-muted/20 w-full">
                     {/* Reference (Original) Row */}
                     <div className="grid grid-cols-12 gap-4 items-center px-6 py-5 w-full">
                       {/* Ref & Play/Pause */}
@@ -1408,8 +1534,8 @@ function ContributeRoute() {
                           }}
                           className={`w-8 h-8 rounded-full flex items-center justify-center border transition-all cursor-pointer flex-shrink-0 ${
                             getRowAudioState(item.id).isPlayingRef
-                              ? "bg-[#064E3B] text-white border-[#064E3B] scale-105 shadow-md"
-                              : "bg-white text-[#64748B] border-[#E2E8F0] hover:border-[#064E3B] hover:text-[#064E3B]"
+                              ? "bg-primary text-primary-foreground border-primary scale-105 shadow-md"
+                              : "bg-card text-muted-foreground border-border hover:border-primary hover:text-primary"
                           }`}
                           title={getRowAudioState(item.id).isPlayingRef ? "Pause Recitation" : "Listen to Recitation"}
                         >
@@ -1418,10 +1544,10 @@ function ContributeRoute() {
                           </span>
                         </button>
                         <div className="flex flex-col gap-0.5 min-w-0">
-                          <span className="text-[9px] font-bold uppercase tracking-wider text-[#64748B] bg-slate-100 border border-slate-200 px-1.5 py-0.5 rounded-md w-max truncate">
+                          <span className="text-[9px] font-bold uppercase tracking-wider text-muted-foreground bg-muted border border-border px-1.5 py-0.5 rounded-md w-max truncate">
                             ID #{item.id.toString().padStart(2, '0')} Reference
                           </span>
-                          <span className="text-xs font-semibold text-[#64748B] truncate" title={item.chapter_name}>
+                          <span className="text-xs font-semibold text-muted-foreground truncate" title={item.chapter_name}>
                             {item.chapter_name}
                           </span>
                         </div>
@@ -1429,19 +1555,29 @@ function ContributeRoute() {
 
                       {/* Arabic Matan Preview */}
                       <div className="col-span-8 md:col-span-3 min-w-0 pr-6">
-                        <p className="font-serif text-base leading-relaxed text-right text-[#0F172A] truncate select-all" dir="rtl" title={item.arabic}>
+                        <p className="font-serif text-base leading-relaxed text-right text-foreground truncate select-all" dir="rtl" title={item.arabic}>
                           {item.arabic}
                         </p>
                       </div>
 
                       {/* Transliteration Preview */}
-                      <div className="hidden md:block col-span-12 md:col-span-2 min-w-0 pr-4 text-xs text-[#64748B] truncate" title={item.latin}>
-                        {item.latin}
+                      <div className="hidden md:block col-span-12 md:col-span-2 min-w-0 pr-4 text-xs text-muted-foreground truncate" title={item.latin}>
+                        {transliterationLang === 'none' ? <span className="opacity-20 italic">Hidden</span> : item.latin}
                       </div>
 
                       {/* Translation Preview */}
-                      <div className="hidden md:block col-span-12 md:col-span-2 min-w-0 pr-4 text-xs text-[#475569] italic truncate" title={item.indonesian}>
-                        "{item.indonesian}"
+                      <div className="hidden md:block col-span-12 md:col-span-2 min-w-0 pr-4 text-xs text-muted-foreground/80 italic truncate" title={
+                        translationLang === 'english' ? item.english : 
+                        translationLang === 'indonesian' ? item.indonesian :
+                        translationLang === 'albanian' ? item.albanian || item.english : 
+                        "None"
+                      }>
+                        {translationLang === 'none' ? <span className="opacity-20">Hidden</span> : (
+                          `"${translationLang === 'english' ? item.english : 
+                            translationLang === 'indonesian' ? item.indonesian :
+                            translationLang === 'albanian' ? item.albanian || item.english : 
+                            ""}"`
+                        )}
                       </div>
 
                       {/* Audio Wave preview column */}
@@ -1455,8 +1591,8 @@ function ContributeRoute() {
                           onClick={() => toggleRow(item.id)}
                           className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                             isExpanded 
-                              ? "bg-slate-100 text-slate-800" 
-                              : "bg-[#064E3B]/10 hover:bg-[#064E3B]/20 text-[#064E3B]"
+                              ? "bg-muted text-foreground" 
+                              : "bg-primary/10 hover:bg-primary/20 text-primary"
                           }`}
                         >
                           <span className="material-symbols-outlined text-sm">
@@ -1469,23 +1605,23 @@ function ContributeRoute() {
 
                     {/* Staged Changes Row - rendered directly below the original row if draft exists */}
                     {hasDraft && draft && (
-                      <div className="grid grid-cols-12 gap-4 items-center px-6 py-4 bg-amber-50/20 border-t border-dashed border-amber-200/60 hover:bg-amber-50/30 transition-colors w-full border-l-4 border-l-amber-500">
+                      <div className="grid grid-cols-12 gap-4 items-center px-6 py-4 bg-accent/10 border-t border-dashed border-accent/20 hover:bg-accent/15 transition-colors w-full border-l-4 border-l-accent">
                         {/* Ref & Play/Pause (Recorded suggestions playback) */}
                         <div className="col-span-12 md:col-span-2 flex items-center gap-3 pr-2 min-w-0">
                           <button
                             onClick={(e) => {
-                              e.stopPropagation()
-                              if (getRowAudioState(item.id).hasRecorded) {
-                                togglePlayRec(item.id)
-                              }
+                                e.stopPropagation()
+                                if (getRowAudioState(item.id).hasRecorded) {
+                                  togglePlayRec(item.id)
+                                }
                             }}
                             disabled={!getRowAudioState(item.id).hasRecorded}
                             className={`w-8 h-8 rounded-full flex items-center justify-center border transition-all cursor-pointer flex-shrink-0 ${
                               getRowAudioState(item.id).isPlayingRec
-                                ? "bg-amber-600 text-white border-amber-600 scale-105 shadow-md animate-pulse"
+                                ? "bg-accent text-accent-foreground border-accent scale-105 shadow-md animate-pulse"
                                 : getRowAudioState(item.id).hasRecorded
-                                  ? "bg-white text-amber-600 border-amber-200 hover:border-amber-500 hover:text-amber-700 hover:bg-amber-50/50"
-                                  : "bg-slate-100 text-slate-300 border-slate-200 cursor-not-allowed"
+                                  ? "bg-card text-accent border-accent/20 hover:border-accent hover:text-accent hover:bg-accent/10"
+                                  : "bg-muted text-muted-foreground/30 border-border cursor-not-allowed"
                             }`}
                             title={
                               getRowAudioState(item.id).isPlayingRec 
@@ -1500,10 +1636,10 @@ function ContributeRoute() {
                             </span>
                           </button>
                           <div className="flex flex-col gap-0.5 min-w-0">
-                            <span className="text-[9px] font-bold uppercase tracking-wider text-amber-800 bg-amber-100/80 border border-amber-200 px-1.5 py-0.5 rounded-md w-max truncate">
+                            <span className="text-[9px] font-bold uppercase tracking-wider text-accent bg-accent/20 border border-accent/30 px-1.5 py-0.5 rounded-md w-max truncate">
                               ID #{item.id.toString().padStart(2, '0')} Staged
                             </span>
-                            <span className="text-[10px] font-bold text-amber-700 truncate" title="Proposed Revision">
+                            <span className="text-[10px] font-bold text-accent truncate" title="Proposed Revision">
                               Draft Suggestion
                             </span>
                           </div>
@@ -1511,19 +1647,29 @@ function ContributeRoute() {
 
                         {/* Arabic Matan Proposed Preview */}
                         <div className="col-span-8 md:col-span-3 min-w-0 pr-6">
-                          <p className="font-serif text-base leading-relaxed text-right text-amber-950 font-semibold truncate select-all" dir="rtl" title={draft.arabic}>
+                          <p className="font-serif text-base leading-relaxed text-right text-foreground font-semibold truncate select-all" dir="rtl" title={draft.arabic}>
                             {draft.arabic}
                           </p>
                         </div>
 
                         {/* Transliteration Proposed Preview */}
-                        <div className="hidden md:block col-span-12 md:col-span-2 min-w-0 pr-4 text-xs text-amber-900 font-semibold truncate" title={draft.transliterations?.latin || ""}>
-                          {draft.transliterations?.latin || <span className="text-slate-400 italic">No latin transliteration</span>}
+                        <div className="hidden md:block col-span-12 md:col-span-2 min-w-0 pr-4 text-xs text-foreground font-semibold truncate" title={draft.transliterations?.latin || ""}>
+                          {transliterationLang === 'none' ? <span className="opacity-20 italic font-normal text-muted-foreground">Hidden</span> : (draft.transliterations?.latin || <span className="text-muted-foreground/45 italic font-normal">No latin transliteration</span>)}
                         </div>
 
                         {/* Translation Proposed Preview */}
-                        <div className="hidden md:block col-span-12 md:col-span-2 min-w-0 pr-4 text-xs text-amber-800 italic font-medium truncate" title={draft.translations?.indonesian || ""}>
-                          "{draft.translations?.indonesian || <span className="text-slate-400 italic">No translation</span>}"
+                        <div className="hidden md:block col-span-12 md:col-span-2 min-w-0 pr-4 text-xs text-muted-foreground/90 italic font-medium truncate" title={
+                          translationLang === 'english' ? draft.translations?.english : 
+                          translationLang === 'indonesian' ? draft.translations?.indonesian :
+                          translationLang === 'albanian' ? (draft.translations as any)?.albanian || draft.translations?.english : 
+                          "None"
+                        }>
+                          {translationLang === 'none' ? <span className="opacity-20 not-italic font-normal">Hidden</span> : (
+                            `"${(translationLang === 'english' ? draft.translations?.english : 
+                              translationLang === 'indonesian' ? draft.translations?.indonesian :
+                              translationLang === 'albanian' ? (draft.translations as any)?.albanian || draft.translations?.english : 
+                              "") || "No translation"}"`
+                          )}
                         </div>
 
                         {/* Audio Wave proposed preview column */}
@@ -1535,14 +1681,14 @@ function ContributeRoute() {
                         <div className="col-span-4 md:col-span-1 flex items-center justify-end gap-1.5 flex-shrink-0">
                           <button 
                             onClick={() => toggleRow(item.id)}
-                            className="p-2 rounded-xl text-xs font-bold bg-amber-100 hover:bg-amber-200 text-amber-800 transition-all cursor-pointer"
+                            className="p-2 rounded-xl text-xs font-bold bg-accent/25 hover:bg-accent/40 text-accent-foreground transition-all cursor-pointer"
                             title="Edit Proposed Suggestion"
                           >
                             <span className="material-symbols-outlined text-sm">edit_note</span>
                           </button>
                           <button 
                             onClick={() => handleDiscardDraft(item.id)}
-                            className="p-2 rounded-xl text-xs font-bold bg-red-50 hover:bg-red-100 text-red-600 transition-all cursor-pointer"
+                            className="p-2 rounded-xl text-xs font-bold bg-destructive/10 hover:bg-destructive/20 text-destructive transition-all cursor-pointer"
                             title="Discard Staged Suggestion"
                           >
                             <span className="material-symbols-outlined text-sm">delete</span>
@@ -1559,25 +1705,25 @@ function ContributeRoute() {
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.3, ease: "easeInOut" }}
-                          className="overflow-hidden border-t border-[#F1F5F9] bg-[#FAF9F6]/60 border-l-4 border-l-amber-500 w-full"
+                          className="overflow-hidden border-t border-border bg-card/60 border-l-4 border-l-accent w-full"
                         >
                           <div className="p-8 flex flex-col gap-6 w-full">
                             {loadingRows[item.id] ? (
                               <div className="flex flex-col items-center justify-center py-16 gap-4 w-full">
                                 <div className="relative w-10 h-10">
-                                  <div className="absolute inset-0 rounded-full border-4 border-slate-100" />
-                                  <div className="absolute inset-0 rounded-full border-4 border-t-[#064E3B] animate-spin" />
+                                  <div className="absolute inset-0 rounded-full border-4 border-border" />
+                                  <div className="absolute inset-0 rounded-full border-4 border-t-primary animate-spin" />
                                 </div>
-                                <span className="text-xs font-semibold text-[#064E3B] font-mono animate-pulse">Loading dynamic Isnād data...</span>
+                                <span className="text-xs font-semibold text-primary font-mono animate-pulse">Loading dynamic Isnād data...</span>
                               </div>
                             ) : (
                               <>
                                 {/* Attribution Chain Badge Warning */}
-                            <div className="flex items-start gap-3 bg-amber-50/50 border border-amber-100 rounded-2xl p-4">
-                              <span className="material-symbols-outlined text-amber-600 mt-0.5">shield_person</span>
+                            <div className="flex items-start gap-3 bg-accent/5 border border-accent/20 rounded-2xl p-4">
+                              <span className="material-symbols-outlined text-accent mt-0.5">shield_person</span>
                               <div className="flex flex-col gap-1">
-                                <h4 className="text-xs font-bold text-amber-800">Narration Attributed to:</h4>
-                                <p className="text-[11px] text-amber-700 leading-relaxed">
+                                <h4 className="text-xs font-bold text-accent-foreground">Narration Attributed to:</h4>
+                                <p className="text-[11px] text-accent-foreground/90 leading-relaxed">
                                   {gitHubUser 
                                     ? `This update will be permanently signed and Narration chain attributed to @${gitHubUser.username} (Pull Request will originate directly from your account).`
                                     : "You are editing without a connected Identity. Connect your GitHub account above to verify ownership and secure proper attribution chain."
@@ -1591,23 +1737,23 @@ function ContributeRoute() {
                               {/* Left pane: Arabic Text & Description */}
                               <div className="flex flex-col gap-4">
                                 <div className="flex flex-col gap-2">
-                                  <label className="text-[10px] font-bold uppercase tracking-wider text-[#64748B]">Arabic Matan (Original Reference)</label>
+                                  <label className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Arabic Matan (Original Reference)</label>
                                   <textarea 
                                     rows={5}
                                     value={fields.arabic || ""}
                                     onChange={(e) => handleFieldChange(item.id, "arabic", e.target.value)}
                                     dir="rtl"
-                                    className="w-full p-4 rounded-2xl border border-[#E2E8F0] bg-white focus:outline-none focus:ring-2 focus:ring-[#064E3B]/20 focus:border-[#064E3B] font-serif text-xl leading-loose text-[#0F172A] transition-all resize-none shadow-inner animate-fade-in"
+                                    className="w-full p-4 rounded-2xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary font-serif text-xl leading-loose text-foreground transition-all resize-none shadow-inner animate-fade-in"
                                   />
                                 </div>
 
                                 <div className="flex flex-col gap-2">
-                                  <label className="text-[10px] font-bold uppercase tracking-wider text-[#64748B]">Context / Description</label>
+                                  <label className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Context / Description</label>
                                   <textarea 
                                     rows={3}
                                     value={fields.description || ""}
                                     onChange={(e) => handleFieldChange(item.id, "description", e.target.value)}
-                                    className="w-full p-4 rounded-2xl border border-[#E2E8F0] bg-white focus:outline-none focus:ring-2 focus:ring-[#064E3B]/20 focus:border-[#064E3B] text-sm text-[#0F172A] transition-all resize-none shadow-inner animate-fade-in"
+                                    className="w-full p-4 rounded-2xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm text-foreground transition-all resize-none shadow-inner animate-fade-in"
                                     placeholder="Briefly describe when and why this invocation is used..."
                                   />
                                 </div>
@@ -1616,16 +1762,16 @@ function ContributeRoute() {
                               {/* Right pane: Transliteration & Translation Workspace */}
                               <div className="flex flex-col gap-6">
                                 {/* Transliterations Workspace */}
-                                <div className="flex flex-col gap-3 bg-slate-50/50 border border-slate-100 p-4 rounded-2xl shadow-sm">
+                                <div className="flex flex-col gap-3 bg-muted/40 border border-border p-4 rounded-2xl shadow-sm">
                                   <div className="flex items-center justify-between flex-wrap gap-2">
-                                    <label className="text-[10px] font-bold uppercase tracking-wider text-[#64748B]">Transliteration Script ({Object.keys(fields.transliterations || {}).length})</label>
+                                    <label className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Transliteration Script ({Object.keys(fields.transliterations || {}).length})</label>
                                     
                                     {/* Add Transliteration Dropdown */}
                                     <div className="flex items-center gap-1.5">
                                       <select 
                                         value={rowSelectedTransToAdd[item.id] || ""}
                                         onChange={(e) => setRowSelectedTransToAdd(prev => ({ ...prev, [item.id]: e.target.value }))}
-                                        className="text-[11px] px-2 py-1 border border-slate-200 rounded-lg bg-white focus:outline-none focus:ring-1 focus:ring-[#064E3B]"
+                                        className="text-[11px] px-2 py-1 border border-border rounded-lg bg-card text-foreground focus:outline-none focus:ring-1 focus:ring-primary"
                                       >
                                         <option value="" disabled>-- Add Script --</option>
                                         {TRANSLITERATION_LANGS.filter(lang => !fields.transliterations?.[lang.code]).map(lang => (
@@ -1635,7 +1781,7 @@ function ContributeRoute() {
                                       <button 
                                         type="button"
                                         onClick={() => handleAddTransliteration(item.id)}
-                                        className="px-2.5 py-1 rounded-lg bg-[#064E3B] hover:bg-[#043E2E] text-white text-[10px] font-bold flex items-center gap-1 transition-colors cursor-pointer"
+                                        className="px-2.5 py-1 rounded-lg bg-primary hover:bg-primary/90 text-primary-foreground text-[10px] font-bold flex items-center gap-1 transition-colors cursor-pointer"
                                       >
                                         <span className="material-symbols-outlined text-[10px]">add</span> Add
                                       </button>
@@ -1654,8 +1800,8 @@ function ContributeRoute() {
                                             onClick={() => setRowActiveTransTab(prev => ({ ...prev, [item.id]: langCode }))}
                                             className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
                                               isActive 
-                                                ? "bg-[#064E3B] text-white shadow-sm font-bold" 
-                                                : "bg-white hover:bg-slate-50 text-slate-600 border border-slate-200"
+                                                ? "bg-primary text-primary-foreground shadow-sm font-bold" 
+                                                : "bg-card hover:bg-muted text-foreground border border-border"
                                             }`}
                                           >
                                             <span>{langMeta.flag}</span>
@@ -1665,7 +1811,7 @@ function ContributeRoute() {
                                             <button
                                               type="button"
                                               onClick={() => handleRemoveTransliteration(item.id, langCode)}
-                                              className="p-1 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
+                                              className="p-1 text-muted-foreground/60 hover:text-destructive hover:bg-destructive/10 rounded-lg transition-colors cursor-pointer"
                                               title="Remove transliteration script"
                                             >
                                               <span className="material-symbols-outlined text-xs">close</span>
@@ -1687,7 +1833,7 @@ function ContributeRoute() {
                                           value={fields.transliterations?.[activeTab] || ""}
                                           onChange={(e) => handleMapFieldChange(item.id, "transliterations", activeTab, e.target.value)}
                                           placeholder={`Enter pronunciation in ${langMeta.label}...`}
-                                          className="w-full px-4 py-2.5 rounded-2xl border border-[#E2E8F0] bg-white focus:outline-none focus:ring-2 focus:ring-[#064E3B]/20 focus:border-[#064E3B] text-sm transition-all shadow-inner"
+                                          className="w-full px-4 py-2.5 rounded-2xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm transition-all shadow-inner"
                                         />
                                       </div>
                                     )
@@ -1695,16 +1841,16 @@ function ContributeRoute() {
                                 </div>
 
                                 {/* Translations Workspace */}
-                                <div className="flex flex-col gap-3 bg-slate-50/50 border border-slate-100 p-4 rounded-2xl shadow-sm">
+                                <div className="flex flex-col gap-3 bg-muted/40 border border-border p-4 rounded-2xl shadow-sm">
                                   <div className="flex items-center justify-between flex-wrap gap-2">
-                                    <label className="text-[10px] font-bold uppercase tracking-wider text-[#64748B]">Translation Language ({Object.keys(fields.translations || {}).length})</label>
+                                    <label className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Translation Language ({Object.keys(fields.translations || {}).length})</label>
                                     
                                     {/* Add Translation Dropdown */}
                                     <div className="flex items-center gap-1.5">
                                       <select 
                                         value={rowSelectedTranslationToAdd[item.id] || ""}
                                         onChange={(e) => setRowSelectedTranslationToAdd(prev => ({ ...prev, [item.id]: e.target.value }))}
-                                        className="text-[11px] px-2 py-1 border border-slate-200 rounded-lg bg-white focus:outline-none focus:ring-1 focus:ring-[#064E3B]"
+                                        className="text-[11px] px-2 py-1 border border-border rounded-lg bg-card text-foreground focus:outline-none focus:ring-1 focus:ring-primary"
                                       >
                                         <option value="" disabled>-- Add Language --</option>
                                         {TRANSLATION_LANGS.filter(lang => !fields.translations?.[lang.code]).map(lang => (
@@ -1714,7 +1860,7 @@ function ContributeRoute() {
                                       <button 
                                         type="button"
                                         onClick={() => handleAddTranslation(item.id)}
-                                        className="px-2.5 py-1 rounded-lg bg-[#064E3B] hover:bg-[#043E2E] text-white text-[10px] font-bold flex items-center gap-1 transition-colors cursor-pointer"
+                                        className="px-2.5 py-1 rounded-lg bg-primary hover:bg-primary/90 text-primary-foreground text-[10px] font-bold flex items-center gap-1 transition-colors cursor-pointer"
                                       >
                                         <span className="material-symbols-outlined text-[10px]">add</span> Add
                                       </button>
@@ -1733,8 +1879,8 @@ function ContributeRoute() {
                                             onClick={() => setRowActiveTranslationTab(prev => ({ ...prev, [item.id]: langCode }))}
                                             className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
                                               isActive 
-                                                ? "bg-[#064E3B] text-white shadow-sm font-bold" 
-                                                : "bg-white hover:bg-slate-50 text-slate-600 border border-slate-200"
+                                                ? "bg-primary text-primary-foreground shadow-sm font-bold" 
+                                                : "bg-card hover:bg-muted text-foreground border border-border"
                                             }`}
                                           >
                                             <span>{langMeta.flag}</span>
@@ -1744,7 +1890,7 @@ function ContributeRoute() {
                                             <button
                                               type="button"
                                               onClick={() => handleRemoveTranslation(item.id, langCode)}
-                                              className="p-1 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
+                                              className="p-1 text-muted-foreground/60 hover:text-destructive hover:bg-destructive/10 rounded-lg transition-colors cursor-pointer"
                                               title="Remove translation language"
                                             >
                                               <span className="material-symbols-outlined text-xs">close</span>
@@ -1766,7 +1912,7 @@ function ContributeRoute() {
                                           value={fields.translations?.[activeTab] || ""}
                                           onChange={(e) => handleMapFieldChange(item.id, "translations", activeTab, e.target.value)}
                                           placeholder={`Enter translation in ${langMeta.label}...`}
-                                          className="w-full px-4 py-2 rounded-2xl border border-[#E2E8F0] bg-white focus:outline-none focus:ring-2 focus:ring-[#064E3B]/20 focus:border-[#064E3B] text-sm transition-all resize-none shadow-inner"
+                                          className="w-full px-4 py-2 rounded-2xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm transition-all resize-none shadow-inner"
                                         />
                                       </div>
                                     )
@@ -1776,8 +1922,8 @@ function ContributeRoute() {
                             </div>
 
                             {/* Custom Visual Audio Recorder Component Row (Multi-Track Audacity-style) */}
-                            <div className="border-t border-[#E2E8F0] pt-6 flex flex-col gap-4 w-full">
-                              <h4 className="text-[10px] font-bold uppercase tracking-wider text-[#64748B]">In-Browser Audio Recording & Waveform Workspace</h4>
+                            <div className="border-t border-border pt-6 flex flex-col gap-4 w-full">
+                              <h4 className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">In-Browser Audio Recording & Waveform Workspace</h4>
                               
                               {(() => {
                                 const rowState = getRowAudioState(item.id)
@@ -2189,16 +2335,16 @@ function ContributeRoute() {
                             </div>
 
                             {/* Workspace Bottom Actions */}
-                            <div className="flex items-center justify-end gap-3 border-t border-[#E2E8F0] pt-6 w-full">
+                            <div className="flex items-center justify-end gap-3 border-t border-border pt-6 w-full">
                               <button 
                                 onClick={() => handleDiscardDraft(item.id)}
-                                className="px-5 py-2.5 rounded-xl border border-[#E2E8F0] bg-white hover:bg-[#F1F5F9] text-[#64748B] hover:text-[#1E293B] font-bold text-xs cursor-pointer transition-colors"
+                                className="px-5 py-2.5 rounded-xl border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground font-bold text-xs cursor-pointer transition-colors"
                               >
                                 Discard Changes
                               </button>
                               <button 
                                 onClick={() => handleSaveDraft(item.id)}
-                                className="px-6 py-2.5 rounded-xl bg-[#064E3B] hover:bg-[#043327] text-white font-bold text-xs cursor-pointer transition-all shadow-md"
+                                className="px-6 py-2.5 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-xs cursor-pointer transition-all shadow-md"
                               >
                                 ✔ Stage Suggestion
                               </button>
@@ -2213,7 +2359,7 @@ function ContributeRoute() {
                 )
               })
             ) : (
-              <div className="py-12 text-center text-sm text-[#64748B] w-full">
+              <div className="py-12 text-center text-sm text-muted-foreground w-full">
                 No results match your filters. Try adjusting your query.
               </div>
             )}
@@ -2232,7 +2378,7 @@ function ContributeRoute() {
           >
             <div className="bg-[#1E293B] text-white rounded-3xl p-4 md:p-6 shadow-2xl border border-slate-800 flex items-center justify-between flex-wrap gap-4 max-w-5xl mx-auto">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#064E3B] flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
                   <span className="material-symbols-outlined text-white">rule</span>
                 </div>
                 <div>
@@ -2252,7 +2398,7 @@ function ContributeRoute() {
                 </button>
                 <button 
                   onClick={() => setShowDrawer(true)}
-                  className="px-6 py-2.5 rounded-xl bg-[#064E3B] hover:bg-[#043327] text-white font-bold text-xs shadow-md transition-all cursor-pointer hover:scale-[1.02]"
+                  className="px-6 py-2.5 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-xs shadow-md transition-all cursor-pointer hover:scale-[1.02]"
                 >
                   Inspect & Push Pull Request
                 </button>
@@ -2275,32 +2421,32 @@ function ContributeRoute() {
               initial={{ scale: 0.95, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 20 }}
-              className="max-w-4xl w-full bg-white rounded-[32px] border border-[#E2E8F0] shadow-2xl p-8 flex flex-col max-h-[85vh] overflow-hidden relative"
+              className="max-w-4xl w-full bg-card rounded-[32px] border border-border shadow-2xl p-8 flex flex-col max-h-[85vh] overflow-hidden relative"
             >
               {/* Close button */}
               <button 
                 onClick={() => setShowDrawer(false)}
-                className="absolute top-6 right-6 w-9 h-9 rounded-full hover:bg-slate-100 flex items-center justify-center transition-colors cursor-pointer"
+                className="absolute top-6 right-6 w-9 h-9 rounded-full hover:bg-muted flex items-center justify-center transition-colors cursor-pointer"
               >
-                <span className="material-symbols-outlined text-[#64748B]">close</span>
+                <span className="material-symbols-outlined text-muted-foreground">close</span>
               </button>
 
               <div className="flex flex-col gap-6 h-full overflow-hidden">
-                <div className="flex flex-col gap-1 border-b border-[#E2E8F0] pb-4">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#064E3B]">Review Transmission</span>
-                  <h2 className="text-2xl font-serif font-bold text-[#064E3B]">Consolidated Git Diff & Attribution</h2>
+                <div className="flex flex-col gap-1 border-b border-border pb-4">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-primary">Review Transmission</span>
+                  <h2 className="text-2xl font-serif font-bold text-primary">Consolidated Git Diff & Attribution</h2>
                 </div>
 
                 {prTimelineStep === "idle" && (
                   <div className="flex-1 overflow-y-auto flex flex-col gap-6 pr-2">
                     
                     {/* Attribution Identity warning / status */}
-                    <div className="flex items-center justify-between bg-[#FAF9F6] border border-[#E2E8F0] rounded-2xl p-4">
+                    <div className="flex items-center justify-between bg-muted/40 border border-border rounded-2xl p-4">
                       <div className="flex items-center gap-3">
-                        <span className="material-symbols-outlined text-[#064E3B]">verified_user</span>
+                        <span className="material-symbols-outlined text-primary">verified_user</span>
                         <div>
-                          <h4 className="text-xs font-bold text-[#1E293B]">Narration Chain Authentication</h4>
-                          <p className="text-[10px] text-[#64748B]">
+                          <h4 className="text-xs font-bold text-foreground">Narration Chain Authentication</h4>
+                          <p className="text-[10px] text-muted-foreground">
                             {gitHubUser 
                               ? `Committing directly under your validated handle: @${gitHubUser.username}`
                               : "Unauthenticated. Sign in with GitHub below to securely bind attribution."
@@ -2311,7 +2457,7 @@ function ContributeRoute() {
                       {!gitHubUser && (
                         <button 
                           onClick={handleGitHubAuth}
-                          className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition-colors cursor-pointer"
+                          className="px-4 py-2 rounded-xl bg-primary text-primary-foreground hover:bg-primary/95 font-bold text-xs transition-colors cursor-pointer"
                         >
                           Sign In
                         </button>
@@ -2320,14 +2466,14 @@ function ContributeRoute() {
 
                     {/* Git Diff comparison lists */}
                     <div className="flex flex-col gap-4">
-                      <h3 className="text-xs font-bold text-[#64748B] uppercase tracking-wider">Changes to data/invocations.json</h3>
+                      <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Changes to data/invocations.json</h3>
                       
                       <div className="flex flex-col gap-4">
                         {Object.values(draftStore).map((draft) => {
                           const original = MOCK_INVOCATIONS.find(i => i.id === draft.invocationId)!
                           return (
-                            <div key={draft.invocationId} className="border border-[#E2E8F0] rounded-2xl overflow-hidden shadow-sm">
-                              <div className="bg-slate-50 px-4 py-2 text-xs border-b border-[#E2E8F0] flex justify-between font-semibold">
+                            <div key={draft.invocationId} className="border border-border rounded-2xl overflow-hidden shadow-sm">
+                              <div className="bg-muted/40 px-4 py-2 text-xs border-b border-border flex justify-between font-semibold">
                                 <span>Dzikr ID #{draft.invocationId.toString().padStart(2, '0')} ({original.chapter_name})</span>
                                 {draft.audioState === "recorded" && (
                                   <span className="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full text-[9px] font-bold">🎙 Audio Added</span>
@@ -2335,13 +2481,13 @@ function ContributeRoute() {
                               </div>
                               
                               {/* Color-coded diff layout */}
-                              <div className="p-4 flex flex-col gap-3 font-mono text-[11px] leading-relaxed bg-[#FAF9F6]">
+                              <div className="p-4 flex flex-col gap-3 font-mono text-[11px] leading-relaxed bg-card text-foreground">
                                 {/* Arabic matan diff */}
                                 {draft.arabic !== original.arabic && (
-                                  <div className="flex flex-col gap-1 border-b border-slate-100 pb-2">
-                                    <span className="text-[8px] uppercase tracking-wider font-bold text-[#64748B]">Arabic Difference</span>
-                                    <div className="text-red-600 bg-red-50 p-2 rounded-lg text-right" dir="rtl">- {original.arabic}</div>
-                                    <div className="text-emerald-600 bg-emerald-50 p-2 rounded-lg text-right" dir="rtl">+ {draft.arabic}</div>
+                                  <div className="flex flex-col gap-1 border-b border-border pb-2">
+                                    <span className="text-[8px] uppercase tracking-wider font-bold text-muted-foreground">Arabic Difference</span>
+                                    <div className="text-red-500 bg-red-500/10 p-2 rounded-lg text-right" dir="rtl">- {original.arabic}</div>
+                                    <div className="text-emerald-500 bg-emerald-500/10 p-2 rounded-lg text-right" dir="rtl">+ {draft.arabic}</div>
                                   </div>
                                 )}
 
@@ -2357,22 +2503,22 @@ function ContributeRoute() {
                                   if (!hasAnyTranslationChange) return null;
                                   
                                   return (
-                                    <div className="flex flex-col gap-2 border-b border-slate-100 pb-2">
-                                      <span className="text-[8px] uppercase tracking-wider font-bold text-[#64748B]">Translations Difference</span>
+                                    <div className="flex flex-col gap-2 border-b border-border pb-2">
+                                      <span className="text-[8px] uppercase tracking-wider font-bold text-muted-foreground">Translations Difference</span>
                                       
                                       {indonesianChanged && (
-                                        <div className="flex flex-col gap-1 pl-2 border-l-2 border-amber-400">
-                                          <span className="text-[9px] font-bold text-slate-500">Indonesian 🇮🇩</span>
-                                          <div className="text-red-600 bg-red-50/50 p-1.5 rounded-lg">- {original.indonesian}</div>
-                                          <div className="text-emerald-600 bg-emerald-50/50 p-1.5 rounded-lg">+ {draft.translations.indonesian}</div>
+                                        <div className="flex flex-col gap-1 pl-2 border-l-2 border-accent">
+                                          <span className="text-[9px] font-bold text-muted-foreground">Indonesian 🇮🇩</span>
+                                          <div className="text-red-500 bg-red-500/10 p-1.5 rounded-lg">- {original.indonesian}</div>
+                                          <div className="text-emerald-500 bg-emerald-500/10 p-1.5 rounded-lg">+ {draft.translations.indonesian}</div>
                                         </div>
                                       )}
                                       
                                       {englishChanged && (
-                                        <div className="flex flex-col gap-1 pl-2 border-l-2 border-amber-400">
-                                          <span className="text-[9px] font-bold text-slate-500">English 🇬🇧</span>
-                                          <div className="text-red-600 bg-red-50/50 p-1.5 rounded-lg">- {original.english || "(none)"}</div>
-                                          <div className="text-emerald-600 bg-emerald-50/50 p-1.5 rounded-lg">+ {draft.translations.english}</div>
+                                        <div className="flex flex-col gap-1 pl-2 border-l-2 border-accent">
+                                          <span className="text-[9px] font-bold text-muted-foreground">English 🇬🇧</span>
+                                          <div className="text-red-500 bg-red-500/10 p-1.5 rounded-lg">- {original.english || "(none)"}</div>
+                                          <div className="text-emerald-500 bg-emerald-500/10 p-1.5 rounded-lg">+ {draft.translations.english}</div>
                                         </div>
                                       )}
                                       
@@ -2382,10 +2528,10 @@ function ContributeRoute() {
                                         const draftVal = draft.translations[langCode] || "";
                                         if (origVal === draftVal) return null;
                                         return (
-                                          <div key={langCode} className="flex flex-col gap-1 pl-2 border-l-2 border-emerald-400">
-                                            <span className="text-[9px] font-bold text-slate-500">{langMeta.flag} {langMeta.label}</span>
-                                            {origVal && <div className="text-red-600 bg-red-50/50 p-1.5 rounded-lg">- {origVal}</div>}
-                                            <div className="text-emerald-600 bg-emerald-50/50 p-1.5 rounded-lg">+ {draftVal}</div>
+                                          <div key={langCode} className="flex flex-col gap-1 pl-2 border-l-2 border-primary">
+                                            <span className="text-[9px] font-bold text-muted-foreground">{langMeta.flag} {langMeta.label}</span>
+                                            {origVal && <div className="text-red-500 bg-red-500/10 p-1.5 rounded-lg">- {origVal}</div>}
+                                            <div className="text-emerald-500 bg-emerald-500/10 p-1.5 rounded-lg">+ {draftVal}</div>
                                           </div>
                                         )
                                       })}
@@ -2403,13 +2549,13 @@ function ContributeRoute() {
                                   
                                   return (
                                     <div className="flex flex-col gap-2">
-                                      <span className="text-[8px] uppercase tracking-wider font-bold text-[#64748B]">Transliterations Difference</span>
+                                      <span className="text-[8px] uppercase tracking-wider font-bold text-muted-foreground">Transliterations Difference</span>
                                       
                                       {latinChanged && (
-                                        <div className="flex flex-col gap-1 pl-2 border-l-2 border-amber-400">
-                                          <span className="text-[9px] font-bold text-slate-500">Latin (Standard Romanization) 🔠</span>
-                                          <div className="text-red-600 bg-red-50/50 p-1.5 rounded-lg">- {original.latin}</div>
-                                          <div className="text-emerald-600 bg-emerald-50/50 p-1.5 rounded-lg">+ {draft.transliterations.latin}</div>
+                                        <div className="flex flex-col gap-1 pl-2 border-l-2 border-accent">
+                                          <span className="text-[9px] font-bold text-muted-foreground">Latin (Standard Romanization) 🔠</span>
+                                          <div className="text-red-500 bg-red-500/10 p-1.5 rounded-lg">- {original.latin}</div>
+                                          <div className="text-emerald-500 bg-emerald-500/10 p-1.5 rounded-lg">+ {draft.transliterations.latin}</div>
                                         </div>
                                       )}
                                       
@@ -2419,10 +2565,10 @@ function ContributeRoute() {
                                         const draftVal = draft.transliterations[langCode] || "";
                                         if (origVal === draftVal) return null;
                                         return (
-                                          <div key={langCode} className="flex flex-col gap-1 pl-2 border-l-2 border-emerald-400">
-                                            <span className="text-[9px] font-bold text-slate-500">{langMeta.flag} {langMeta.label}</span>
-                                            {origVal && <div className="text-red-600 bg-red-50/50 p-1.5 rounded-lg">- {origVal}</div>}
-                                            <div className="text-emerald-600 bg-emerald-50/50 p-1.5 rounded-lg">+ {draftVal}</div>
+                                          <div key={langCode} className="flex flex-col gap-1 pl-2 border-l-2 border-primary">
+                                            <span className="text-[9px] font-bold text-muted-foreground">{langMeta.flag} {langMeta.label}</span>
+                                            {origVal && <div className="text-red-500 bg-red-500/10 p-1.5 rounded-lg">- {origVal}</div>}
+                                            <div className="text-emerald-500 bg-emerald-500/10 p-1.5 rounded-lg">+ {draftVal}</div>
                                           </div>
                                         )
                                       })}
@@ -2443,31 +2589,31 @@ function ContributeRoute() {
                     {/* Pipeline animation loading indicator */}
                     <div className="flex flex-col items-center gap-4">
                       {prTimelineStep === "auth" && (
-                        <div className="w-16 h-16 rounded-full bg-red-100 text-red-500 flex items-center justify-center animate-bounce">
+                        <div className="w-16 h-16 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center animate-bounce">
                           <span className="material-symbols-outlined text-3xl">key_off</span>
                         </div>
                       )}
                       {(prTimelineStep === "branching" || prTimelineStep === "committing") && (
                         <div className="relative w-16 h-16">
-                          <div className="absolute inset-0 rounded-full border-4 border-emerald-100" />
-                          <div className="absolute inset-0 rounded-full border-4 border-t-emerald-600 animate-spin" />
+                          <div className="absolute inset-0 rounded-full border-4 border-primary/20" />
+                          <div className="absolute inset-0 rounded-full border-4 border-t-primary animate-spin" />
                         </div>
                       )}
                       {prTimelineStep === "opened" && (
-                        <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center animate-ping">
+                        <div className="w-16 h-16 rounded-full bg-primary/25 text-primary flex items-center justify-center animate-ping">
                           <span className="material-symbols-outlined text-3xl">done_all</span>
                         </div>
                       )}
                     </div>
 
                     <div className="text-center max-w-sm flex flex-col gap-2">
-                      <h3 className="font-bold text-lg text-[#1E293B]">
+                      <h3 className="font-bold text-lg text-foreground">
                         {prTimelineStep === "auth" && "Authentication Required"}
                         {prTimelineStep === "branching" && "Generating Git Branch..."}
                         {prTimelineStep === "committing" && "Committing Media & JSON Payload..."}
                         {prTimelineStep === "opened" && "Pull Request Opened Successfully!"}
                       </h3>
-                      <p className="text-xs text-[#64748B] leading-relaxed">
+                      <p className="text-xs text-muted-foreground leading-relaxed">
                         {prTimelineStep === "auth" && "You must log in to your GitHub account first to sign commits and establish Narration attribution chain."}
                         {prTimelineStep === "branching" && "Initializing fork repository and creating target staging branch contribution/edit-dhikr..."}
                         {prTimelineStep === "committing" && "Compressing WebM recording into high-fidelity MP3 and committing modifications directly under your GitHub handle."}
@@ -2476,12 +2622,12 @@ function ContributeRoute() {
                     </div>
 
                     {prTimelineStep === "opened" && (
-                      <div className="flex flex-col gap-2 items-center bg-emerald-50 border border-emerald-200 p-4 rounded-2xl max-w-md w-full">
-                        <span className="text-[10px] font-mono text-emerald-800 uppercase tracking-widest font-bold">
+                      <div className="flex flex-col gap-2 items-center bg-primary/10 border border-primary/20 p-4 rounded-2xl max-w-md w-full">
+                        <span className="text-[10px] font-mono text-primary uppercase tracking-widest font-bold">
                           {prUrl === "local-sandbox" ? "Sandbox Staged Successfully:" : "PR LINK GENERATED:"}
                         </span>
                         {prUrl === "local-sandbox" ? (
-                          <span className="text-xs font-bold text-emerald-850 text-center">
+                          <span className="text-xs font-bold text-primary text-center">
                             Local invocations.json and narrative audio assets successfully updated! You can now test them locally in the main Dzikr & Dua player!
                           </span>
                         ) : (
@@ -2489,7 +2635,7 @@ function ContributeRoute() {
                             href={prUrl} 
                             target="_blank" 
                             rel="noreferrer"
-                            className="text-xs font-bold text-emerald-700 underline flex items-center gap-1.5 break-all text-center justify-center"
+                            className="text-xs font-bold text-primary underline flex items-center gap-1.5 break-all text-center justify-center"
                           >
                             {prUrl}
                             <span className="material-symbols-outlined text-xs">open_in_new</span>
@@ -2501,15 +2647,15 @@ function ContributeRoute() {
                 )}
 
                 {/* Staging bottom drawer actions */}
-                <div className="border-t border-[#E2E8F0] pt-6 flex items-center justify-between flex-shrink-0">
+                <div className="border-t border-border pt-6 flex items-center justify-between flex-shrink-0">
                   {prTimelineStep === "idle" ? (
                     <>
-                      <p className="text-[10px] text-[#64748B] max-w-[280px]">
+                      <p className="text-[10px] text-muted-foreground max-w-[280px]">
                         By pushing, you automatically open a public Pull Request in Dzikr & Dua.
                       </p>
                       <button 
                         onClick={triggerPRPipeline}
-                        className="px-6 py-3 rounded-2xl bg-[#064E3B] hover:bg-[#043327] text-white font-bold text-xs transition-all shadow-md cursor-pointer hover:scale-[1.01]"
+                        className="px-6 py-3 rounded-2xl bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-xs transition-all shadow-md cursor-pointer hover:scale-[1.01]"
                       >
                         Authorize & Push Pull Request
                       </button>
@@ -2518,7 +2664,7 @@ function ContributeRoute() {
                     <div className="flex gap-2 w-full justify-end">
                       <button 
                         onClick={() => setPrTimelineStep("idle")}
-                        className="px-5 py-2.5 rounded-xl border border-[#E2E8F0] font-bold text-xs cursor-pointer text-slate-600 hover:bg-slate-50"
+                        className="px-5 py-2.5 rounded-xl border border-border font-bold text-xs cursor-pointer text-muted-foreground hover:bg-muted"
                       >
                         Back
                       </button>
@@ -2527,7 +2673,7 @@ function ContributeRoute() {
                           handleGitHubAuth()
                           setPrTimelineStep("idle")
                         }}
-                        className="px-6 py-2.5 rounded-xl bg-slate-900 text-white font-bold text-xs cursor-pointer"
+                        className="px-6 py-2.5 rounded-xl bg-primary hover:bg-primary/95 text-primary-foreground font-bold text-xs cursor-pointer"
                       >
                         Authorize GitHub
                       </button>
@@ -2535,12 +2681,12 @@ function ContributeRoute() {
                   ) : prTimelineStep === "opened" ? (
                     <button 
                       onClick={resetPipeline}
-                      className="w-full py-3 rounded-2xl bg-[#064E3B] text-white font-bold text-xs shadow-md cursor-pointer text-center"
+                      className="w-full py-3 rounded-2xl bg-primary text-primary-foreground font-bold text-xs shadow-md cursor-pointer text-center"
                     >
                       Finish Contribution (Alhamdulillah)
                     </button>
                   ) : (
-                    <div className="text-xs text-slate-400 italic">Processing pipeline...</div>
+                    <div className="text-xs text-muted-foreground/60 italic">Processing pipeline...</div>
                   )}
                 </div>
 
