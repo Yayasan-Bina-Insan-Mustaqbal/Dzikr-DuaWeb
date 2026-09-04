@@ -1222,13 +1222,9 @@ function ContributeRoute() {
         return {
           invocationId: Number(key),
           arabic: draft.arabic,
-          translations: {
-            indonesian: draft.translations.indonesian,
-            english: draft.translations.english
-          },
-          transliterations: {
-            latin: draft.transliterations.latin
-          }
+          description: draft.description,
+          translations: draft.translations,
+          transliterations: draft.transliterations
         }
       })
       

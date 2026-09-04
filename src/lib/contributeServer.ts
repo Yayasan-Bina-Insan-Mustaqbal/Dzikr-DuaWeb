@@ -18,8 +18,8 @@ function sanitizeName(name: string): string {
 }
 
 // Direct upstream details
-const UPSTREAM_OWNER = "decaller"
-const UPSTREAM_REPO = "Dzikr-DuaWeb"
+const UPSTREAM_OWNER = process.env.GITHUB_UPSTREAM_OWNER || "decaller"
+const UPSTREAM_REPO = process.env.GITHUB_UPSTREAM_REPO || "Dzikr-DuaWeb"
 
 // 1. OAuth code exchange Server Function
 export const exchangeCodeServerFn = createServerFn({ method: "POST" })
@@ -30,6 +30,10 @@ export const exchangeCodeServerFn = createServerFn({ method: "POST" })
     
     if (!code) {
       throw new Error("Missing authorization code")
+    }
+
+    if (!clientSecret) {
+      console.warn("GITHUB_CLIENT_SECRET is not set in server environment. OAuth will likely fail.")
     }
     
     try {
@@ -63,6 +67,11 @@ export const exchangeCodeServerFn = createServerFn({ method: "POST" })
         }
       })
       
+      if (!userRes.ok) {
+        const errorText = await userRes.text()
+        throw new Error(`Failed to fetch user data: ${userRes.status} ${errorText}`)
+      }
+      
       const userData = await userRes.json()
       
       return {
@@ -71,6 +80,7 @@ export const exchangeCodeServerFn = createServerFn({ method: "POST" })
         avatarUrl: userData.avatar_url
       }
     } catch (err: any) {
+      console.error("Exchange code error:", err)
       throw new Error(err.message || "Failed to exchange OAuth code")
     }
   })
@@ -353,114 +363,131 @@ export const submitContributionServerFn = createServerFn({ method: "POST" })
       "User-Agent": "DzikrDua-App"
     }
     
-    // 1. Fork the upstream repository to user account
-    const forkRes = await fetch(`https://api.github.com/repos/${UPSTREAM_OWNER}/${UPSTREAM_REPO}/forks`, {
-      method: "POST",
-      headers: userHeaders
-    })
-    
-    const forkData = await forkRes.json()
-    const userForkRepo = forkData.name || UPSTREAM_REPO
-    
-    // Wait briefly for fork to instantiate (Max 3 seconds check)
-    let forkReady = false
-    for (let attempt = 1; attempt <= 3; attempt++) {
-      const checkRes = await fetch(`https://api.github.com/repos/${username}/${userForkRepo}`, {
+    try {
+      // 1. Fork the upstream repository to user account
+      const forkRes = await fetch(`https://api.github.com/repos/${UPSTREAM_OWNER}/${UPSTREAM_REPO}/forks`, {
+        method: "POST",
         headers: userHeaders
       })
-      if (checkRes.status === 200) {
-        forkReady = true
-        break
-      }
-      await new Promise(resolve => setTimeout(resolve, 1000))
-    }
-    
-    if (!forkReady) {
-      throw new Error("GitHub took too long to provision the fork. Please try again in a few seconds.")
-    }
-    
-    // 2. Get latest commit SHA of the main branch of upstream
-    const refRes = await fetch(`https://api.github.com/repos/${UPSTREAM_OWNER}/${UPSTREAM_REPO}/git/ref/heads/master`, {
-      headers: userHeaders
-    })
-    const refData = await refRes.json()
-    const baseCommitSha = refData.object.sha
-    
-    // 3. Create a dynamic branch
-    const branchName = `contrib-dhikr-${Date.now()}`
-    const createBranchRes = await fetch(`https://api.github.com/repos/${username}/${userForkRepo}/git/refs`, {
-      method: "POST",
-      headers: userHeaders,
-      body: JSON.stringify({
-        ref: `refs/heads/${branchName}`,
-        sha: baseCommitSha
-      })
-    })
-    
-    if (createBranchRes.status !== 201) {
-      const errJson = await createBranchRes.json()
-      throw new Error(`Failed to create git branch: ${errJson.message}`)
-    }
-    
-    // 4. Commit modified invocations.json
-    const jsonFileRes = await fetch(`https://api.github.com/repos/${username}/${userForkRepo}/contents/src/data/invocations.json?ref=${branchName}`, {
-      headers: userHeaders
-    })
-    let jsonSha = ""
-    if (jsonFileRes.status === 200) {
-      const jsonFileData = await jsonFileRes.json()
-      jsonSha = jsonFileData.sha
-    }
-    
-    const commitJsonRes = await fetch(`https://api.github.com/repos/${username}/${userForkRepo}/contents/src/data/invocations.json`, {
-      method: "PUT",
-      headers: userHeaders,
-      body: JSON.stringify({
-        message: `feat(database): staged corrections for ${changes.length} invocations`,
-        content: Buffer.from(updatedJsonString).toString("base64"),
-        sha: jsonSha || undefined,
-        branch: branchName
-      })
-    })
-    
-    if (commitJsonRes.status !== 200 && commitJsonRes.status !== 201) {
-      const errJson = await commitJsonRes.json()
-      throw new Error(`Failed committing database corrections: ${errJson.message}`)
-    }
-    
-    // 5. Commit media files
-    for (const [path, base64Content] of Object.entries(updatedFiles)) {
-      const fileCheckRes = await fetch(`https://api.github.com/repos/${username}/${userForkRepo}/contents/${path}?ref=${branchName}`, {
-        headers: userHeaders
-      })
-      let fileSha = ""
-      if (fileCheckRes.status === 200) {
-        const fileCheckData = await fileCheckRes.json()
-        fileSha = fileCheckData.sha
+      
+      if (!forkRes.ok && forkRes.status !== 202) {
+        const errorText = await forkRes.text()
+        throw new Error(`Failed to fork repository: ${forkRes.status} ${errorText}`)
       }
       
-      await fetch(`https://api.github.com/repos/${username}/${userForkRepo}/contents/${path}`, {
+      const forkData = await forkRes.json()
+      const userForkRepo = forkData.name || UPSTREAM_REPO
+      
+      // Wait briefly for fork to instantiate (Max 10 seconds check)
+      let forkReady = false
+      for (let attempt = 1; attempt <= 10; attempt++) {
+        const checkRes = await fetch(`https://api.github.com/repos/${username}/${userForkRepo}`, {
+          headers: userHeaders
+        })
+        if (checkRes.status === 200) {
+          forkReady = true
+          break
+        }
+        await new Promise(resolve => setTimeout(resolve, 1000))
+      }
+      
+      if (!forkReady) {
+        throw new Error("GitHub took too long to provision the fork. Please try again in a few seconds.")
+      }
+      
+      // 2. Get latest commit SHA of the main branch of upstream
+      const refRes = await fetch(`https://api.github.com/repos/${UPSTREAM_OWNER}/${UPSTREAM_REPO}/git/ref/heads/master`, {
+        headers: userHeaders
+      })
+      
+      if (!refRes.ok) {
+        const errorText = await refRes.text()
+        throw new Error(`Failed to get upstream reference: ${refRes.status} ${errorText}`)
+      }
+      
+      const refData = await refRes.json()
+      const baseCommitSha = refData.object.sha
+      
+      // 3. Create a dynamic branch
+      const branchName = `contrib-dhikr-${Date.now()}`
+      const createBranchRes = await fetch(`https://api.github.com/repos/${username}/${userForkRepo}/git/refs`, {
+        method: "POST",
+        headers: userHeaders,
+        body: JSON.stringify({
+          ref: `refs/heads/${branchName}`,
+          sha: baseCommitSha
+        })
+      })
+      
+      if (createBranchRes.status !== 201) {
+        const errJson = await createBranchRes.json()
+        throw new Error(`Failed to create git branch: ${errJson.message}`)
+      }
+      
+      // 4. Commit modified invocations.json
+      const jsonFileRes = await fetch(`https://api.github.com/repos/${username}/${userForkRepo}/contents/src/data/invocations.json?ref=${branchName}`, {
+        headers: userHeaders
+      })
+      let jsonSha = ""
+      if (jsonFileRes.status === 200) {
+        const jsonFileData = await jsonFileRes.json()
+        jsonSha = jsonFileData.sha
+      }
+      
+      const commitJsonRes = await fetch(`https://api.github.com/repos/${username}/${userForkRepo}/contents/src/data/invocations.json`, {
         method: "PUT",
         headers: userHeaders,
         body: JSON.stringify({
-          message: `feat(audio): narrative audio upload for ${path}`,
-          content: base64Content,
-          sha: fileSha || undefined,
+          message: `feat(database): staged corrections for ${changes.length} invocations`,
+          content: Buffer.from(updatedJsonString).toString("base64"),
+          sha: jsonSha || undefined,
           branch: branchName
         })
       })
-    }
-    
-    // 6. Open a Pull Request from user branch to upstream master
-    const prRes = await fetch(`https://api.github.com/repos/${UPSTREAM_OWNER}/${UPSTREAM_REPO}/pulls`, {
-      method: "POST",
-      headers: userHeaders,
-      body: JSON.stringify({
-        title: `Contribution: Staged improvements and narration audio from @${username}`,
-        head: `${username}:${branchName}`,
-        base: "master",
-        body: `### Bismillahir Rahmanir Rahim.
+      
+      if (!commitJsonRes.ok) {
+        const errJson = await commitJsonRes.json()
+        throw new Error(`Failed committing database corrections: ${errJson.message}`)
+      }
+      
+      // 5. Commit media files
+      for (const [path, base64Content] of Object.entries(updatedFiles)) {
+        const fileCheckRes = await fetch(`https://api.github.com/repos/${username}/${userForkRepo}/contents/${path}?ref=${branchName}`, {
+          headers: userHeaders
+        })
+        let fileSha = ""
+        if (fileCheckRes.status === 200) {
+          const fileCheckData = await fileCheckRes.json()
+          fileSha = fileCheckData.sha
+        }
         
+        const commitMediaRes = await fetch(`https://api.github.com/repos/${username}/${userForkRepo}/contents/${path}`, {
+          method: "PUT",
+          headers: userHeaders,
+          body: JSON.stringify({
+            message: `feat(audio): narrative audio upload for ${path}`,
+            content: base64Content,
+            sha: fileSha || undefined,
+            branch: branchName
+          })
+        })
+
+        if (!commitMediaRes.ok) {
+          const errJson = await commitMediaRes.json()
+          console.error(`Failed committing media file ${path}:`, errJson)
+        }
+      }
+      
+      // 6. Open a Pull Request from user branch to upstream master
+      const prRes = await fetch(`https://api.github.com/repos/${UPSTREAM_OWNER}/${UPSTREAM_REPO}/pulls`, {
+        method: "POST",
+        headers: userHeaders,
+        body: JSON.stringify({
+          title: `Contribution: Staged improvements and narration audio from @${username}`,
+          head: `${username}:${branchName}`,
+          base: "master",
+          body: `### Bismillahir Rahmanir Rahim.
+          
 Staged changes submitted directly from the web **Contribution Hub** by @${username}.
 
 #### Staged Changes Summary:
@@ -470,13 +497,25 @@ Staged changes submitted directly from the web **Contribution Hub** by @${userna
 All translation, transliteration, and Arabic matan changes have been successfully mapped to \`src/data/invocations.json\` and attributed cleanly to preserve the narrated Isnad chain of scholarship.
 
 Please review, verify authenticity, and merge! Jazakumullahu Khayran.`
+        })
       })
-    })
-    
-    const prData = await prRes.json()
-    
-    if (prRes.status !== 201) {
-      throw new Error(`Failed to generate Pull Request: ${prData.message || "Unknown error"}`)
+      
+      const prData = await prRes.json()
+      
+      if (!prRes.ok) {
+        throw new Error(`Failed to generate Pull Request: ${prData.message || "Unknown error"}`)
+      }
+      
+      return {
+        success: true,
+        mode: "production",
+        prUrl: prData.html_url,
+        prNumber: prData.number,
+        message: "Alhamdulillah! Your contribution was compiled, committed, and successfully submitted as a GitHub Pull Request!"
+      }
+    } catch (err: any) {
+      console.error("GitHub Submission Error:", err)
+      throw new Error(err.message || "Failed to submit contribution to GitHub")
     }
     
     return {
